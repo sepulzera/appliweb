@@ -1,0 +1,6 @@
+{
+  "missing error": "Ups, hier ist etwas schiefgelaufen!",
+  "title": "Fehler",
+  "message": "Grund:",
+  "stack": "Stack:"
+}

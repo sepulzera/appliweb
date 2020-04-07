@@ -1,0 +1,10 @@
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "comment-empty-line-before": ["always", { "except": ["first-nested"], "ignore": ["after-comment", "stylelint-commands"] }],
+    "custom-property-empty-line-before": null,
+    "declaration-empty-line-before": null,
+    "max-empty-lines": 2,
+    "rule-empty-line-before": null
+  }
+}
