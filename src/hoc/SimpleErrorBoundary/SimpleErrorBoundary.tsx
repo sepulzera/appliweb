@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import styles from './SimpleErrorBoundary.module.scss';
 
 /** {@link ErrorBoundary} Props. */
-export interface IErrorBoundaryProps extends WithTranslation {
+interface IErrorBoundaryProps extends WithTranslation {
   /** Print message? */
   verbose:    boolean;
   /** Print error stack? */
