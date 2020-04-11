@@ -12,17 +12,17 @@ const useStyles = makeStyles({
   },
 });
 
-const About: React.FC<WithTranslation> = () => {
+const Privacy: React.FC<WithTranslation> = () => {
   const classes = useStyles();
   const { t } = useTranslation();
 
   return (
     <div className={classes.root}>
-      <Header title={t('about:about')} />
+      <Header title={t('privacy:privacy')} />
 
       <Footer />
     </div>
   );
 };
 
-export default withTranslation()(About);
+export default withTranslation()(Privacy);

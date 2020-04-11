@@ -1,6 +1,6 @@
 import React from 'react';
 import About from '../../components/About/About';
 
-export default function HomePage() {
-  return <About />;
-}
+const AboutPage: React.FC<{}> = () => <About />;
+
+export default AboutPage;

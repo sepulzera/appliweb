@@ -1,21 +1,30 @@
-import * as React from 'react';
-import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
-import Typography from '@material-ui/core/Typography';
-import UserRecord from '../../context/UserContext/UserRecord';
+import React from 'react';
+import { Typography, AppBar } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
-interface IHeaderProps extends WithTranslation {
-  user: UserRecord;
+const useStyles = makeStyles({
+  root: {
+    flexGrow: 1,
+  },
+  title: {
+    flexGrow: 1,
+  },
+});
+
+interface IHeaderProps {
+  title: string;
 }
 
 const Header: React.FC<IHeaderProps> = props => {
-  const { t } = useTranslation();
+  const classes = useStyles();
 
   return (
-    <>
-      <Typography variant='h1'>{`${props.user.forname} ${props.user.lastname}`}</Typography>
-      <Typography variant='subtitle1'>{props.user.jobtitle}</Typography>
-    </>
+    <div className={classes.root}>
+      <AppBar position='static'>
+        <Typography variant='h1' className={classes.title}>{props.title}</Typography>
+      </AppBar>
+    </div>
   );
 };
 
-export default withTranslation()(Header);
+export default Header;

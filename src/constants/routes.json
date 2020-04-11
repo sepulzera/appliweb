@@ -1,4 +1,6 @@
 {
-  "HOME": "/",
-  "ABOUT": "/about"
+  "HOME":    "/",
+  "ABOUT":   "/about",
+  "LEGAL":   "/legal",
+  "PRIVACY": "/privacy"
 }

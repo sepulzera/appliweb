@@ -1,12 +1,10 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Paper } from '@material-ui/core';
 
-import routes from '../../constants/routes.json';
 import UserContext from '../../context/UserContext/UserContext';
 
-import Header from '../Header/Header';
+import UserHeader from '../UserHeader/UserHeader';
+import Footer from '../Footer/Footer';
 
 export default function Home() {
   const userContext = React.useContext(UserContext);
@@ -14,14 +12,12 @@ export default function Home() {
   const user = userContext != null ? userContext.getUser(1) : undefined;
 
   return (
-    <Paper>
+    <>
       { user != null && (
-        <>
-          <Header user={user} />
-
-          <Link to={routes.ABOUT}>Impressum</Link>
-        </>
+        <UserHeader user={user} />
       )}
-    </Paper>
+
+      <Footer />
+    </>
   );
 }
