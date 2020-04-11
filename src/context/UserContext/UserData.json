@@ -1,0 +1,10 @@
+{
+  "users": [
+    {
+      "id":         1,
+      "forname":    "Frank",
+      "lastname":   "Hartung",
+      "jobtitle":   "Softwareentwickler"
+    }
+  ]
+}

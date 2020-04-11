@@ -14,8 +14,7 @@
     "analyze": "react-scripts build && source-map-explorer 'build/static/js/*.js'"
   },
   "author": {
-    "name": "Frank Hartung",
-    "email": "hartung_spam@gmx.de"
+    "name": "Frank Hartung"
   },
   "repository": {
     "type": "git",

@@ -22,8 +22,7 @@ i18n
   .init({
     fallbackLng: 'en',
     lng: navigator.language,
-    ns: ['common', 'error', 'header'],
-    defaultNS: 'common',
+    ns: ['common', 'error', 'home'],
     debug: true,
     load: 'currentOnly',
     interpolation: {

@@ -1,9 +1,3 @@
 {
-  "authentication": {
-    "login": "Einloggen",
-    "logout": "Ausloggen",
-    "username": "Benutzername",
-    "password": "Passwort"
-  },
   "title": "Profilseite"
 }
