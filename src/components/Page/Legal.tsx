@@ -22,7 +22,7 @@ const Legal: React.FC<WithTranslation> = () => {
       <Header title={t('legal:legal')} />
 
       <Paper>
-        <Typography variant='h2'>Verantwortlich für dieses Angebot gemäß § 5 TMG / § 55 RStV:</Typography>
+        <Typography variant='h4' component='h2'>Verantwortlich für dieses Angebot gemäß § 5 TMG / § 55 RStV:</Typography>
         <Typography variant='body1'>Frank Hartung</Typography>
         <Typography variant='body1'>Friedlich-List-Straße 36</Typography>
         <Typography variant='body1'>99096 Erfurt</Typography>

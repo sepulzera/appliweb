@@ -1,5 +1,5 @@
 import React from 'react';
-import About from '../../components/About/About';
+import About from '../../components/Page/About';
 
 const AboutPage: React.FC<{}> = () => <About />;
 
