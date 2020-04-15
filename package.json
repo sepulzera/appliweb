@@ -1,5 +1,5 @@
 {
-  "name": "profilepage",
+  "name": "appliweb",
   "version": "0.1.0",
   "private": true,
   "homepage": ".",
@@ -18,16 +18,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sepulzera/profile-page.git"
+    "url": "git+https://github.com/sepulzera/appliweb.git"
   },
   "bugs": {
-    "url": "https://github.com/sepulzera/profile-page/issues"
+    "url": "https://github.com/sepulzera/appliweb/issues"
   },
   "keywords": [
+    "application",
+    "cv",
     "frank-hartung",
-    "profile",
     "lebenslauf",
-    "cv"
+    "profile"
   ],
   "devDependencies": {
     "@testing-library/jest-dom": "^5.5.0",
