@@ -1,6 +1,8 @@
 import React from 'react';
-import { Typography, AppBar } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+
+import AppBar from '../Ui/AppBar';
+import H from '../Ui/H';
 
 const useStyles = makeStyles({
   root: {
@@ -20,8 +22,8 @@ const Header: React.FC<IHeaderProps> = props => {
 
   return (
     <div className={classes.root}>
-      <AppBar position='static'>
-        <Typography variant='h1' className={classes.title}>{props.title}</Typography>
+      <AppBar>
+        <H variant='h1' className={classes.title}>{props.title}</H>
       </AppBar>
     </div>
   );

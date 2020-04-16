@@ -1,12 +1,12 @@
 import React from 'react';
 import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
 import { makeStyles } from '@material-ui/core/styles';
-import { Paper } from '@material-ui/core';
 
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import PrivacyDe from '../Privacy/PrivacyDe';
 import PrivacyEn from '../Privacy/PrivacyEn';
+import Paper from '../Ui/Paper';
 
 const useStyles = makeStyles({
   root: {

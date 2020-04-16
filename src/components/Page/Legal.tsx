@@ -1,11 +1,14 @@
 
 import React from 'react';
 import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
-import { Typography, Paper } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+
+import Paper from '../Ui/Paper';
 
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
+import H from '../Ui/H';
+import P from '../Ui/P';
 
 const useStyles = makeStyles({
   root: {
@@ -22,10 +25,10 @@ const Legal: React.FC<WithTranslation> = () => {
       <Header title={t('legal:legal')} />
 
       <Paper>
-        <Typography variant='h4' component='h2'>Verantwortlich für dieses Angebot gemäß § 5 TMG / § 55 RStV:</Typography>
-        <Typography variant='body1'>Frank Hartung</Typography>
-        <Typography variant='body1'>Friedlich-List-Straße 36</Typography>
-        <Typography variant='body1'>99096 Erfurt</Typography>
+        <H variant='h4' component='h2'>Verantwortlich für dieses Angebot gemäß § 5 TMG / § 55 RStV:</H>
+        <P>Frank Hartung</P>
+        <P>Friedlich-List-Straße 36</P>
+        <P>99096 Erfurt</P>
       </Paper>
 
       <Footer />
