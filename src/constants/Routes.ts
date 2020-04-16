@@ -15,25 +15,25 @@ export interface IRouteType {
 const Routes: Array<IRouteType> = [
   {
     path:      '/',
-    title:     'home:home',
+    title:     'home:home link',
     icon:      Home,
     component: HomePage,
   },
   {
     path:      '/about',
-    title:     'about:about',
+    title:     'about:about link',
     icon:      Info,
     component: AboutPage,
   },
   {
     path:      '/legal',
-    title:     'legal:legal',
+    title:     'legal:legal link',
     icon:      AccountBalance,
     component: LegalPage,
   },
   {
     path:      '/privacy',
-    title:     'privacy:privacy',
+    title:     'privacy:privacy link',
     icon:      Face,
     component: PrivacyPage,
   },
