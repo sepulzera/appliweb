@@ -37,7 +37,7 @@
       "exports": "always-multiline",
       "functions": "never"
     }],
-	"import/extensions": ["error", "ignorePackages", {
+	  "import/extensions": ["error", "ignorePackages", {
         "js": "never",
         "jsx": "never",
         "ts": "never",
@@ -67,6 +67,7 @@
     "prefer-destructuring": [1, { "AssignmentExpression": { "object": false } }],
     "prefer-const": ["error", { "destructuring": "any", "ignoreReadBeforeAssign": true }],
     "prefer-template": 1,
+    "radix": ["error", "as-needed"],
     "react/destructuring-assignment": 0,
     "react/jsx-closing-bracket-location": 0,
     "react/jsx-equals-spacing": 0,
