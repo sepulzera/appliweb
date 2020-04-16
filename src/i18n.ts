@@ -23,15 +23,13 @@ i18n
     fallbackLng: 'en',
     lng: navigator.language,
     ns: ['about', 'common', 'error', 'home', 'legal', 'privacy'],
+    defaultNS: 'common',
     debug: true,
     load: 'currentOnly',
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     },
     backend: backendOptions,
-    react: {
-      useSuspense: false,
-    },
   });
 
 export default i18n;
