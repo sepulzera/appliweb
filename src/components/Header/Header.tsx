@@ -7,12 +7,13 @@ import { Toolbar, Container } from '@material-ui/core';
 
 const useStyles = makeStyles({
   toolbar: {
-    marginLeft: 'auto',
+    marginLeft:  'auto',
     marginRight: 'auto',
   },
   title: {
-    width: '1280px', // magic number: max width of the page container
+    width:    '1280px', // magic number: max width of the page container
     maxWidth: '100vw',
+    paddingLeft: '2rem',
   },
 });
 
