@@ -3,13 +3,16 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import AppBar from '../Ui/AppBar';
 import H from '../Ui/H';
+import { Toolbar, Container } from '@material-ui/core';
 
 const useStyles = makeStyles({
-  root: {
-    flexGrow: 1,
+  toolbar: {
+    marginLeft: 'auto',
+    marginRight: 'auto',
   },
   title: {
-    flexGrow: 1,
+    width: '1280px', // magic number: max width of the page container
+    maxWidth: '100vw',
   },
 });
 
@@ -21,11 +24,13 @@ const Header: React.FC<IHeaderProps> = props => {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <AppBar>
-        <H variant='h1' className={classes.title}>{props.title}</H>
-      </AppBar>
-    </div>
+    <AppBar>
+      <Toolbar disableGutters className={classes.toolbar}>
+        <Container>
+          <H variant='h1' className={classes.title}>{props.title}</H>
+        </Container>
+      </Toolbar>
+    </AppBar>
   );
 };
 

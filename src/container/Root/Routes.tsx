@@ -3,9 +3,9 @@ import { useTranslation, withTranslation, WithTranslation } from 'react-i18next'
 import { Switch, Route } from 'react-router-dom';
 
 import routes, { IRouteType } from '../../constants/Routes';
+import PageTitleFixer from '../../hoc/Page/PageTitleFixer';
 
 import App from '../App/App';
-import Page from '../../components/Page/Page';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 
 const Routes: React.FC<WithTranslation> = () => {
@@ -18,7 +18,7 @@ const Routes: React.FC<WithTranslation> = () => {
     nextRoute = routes[index];
     routesList.push(
       <Route exact path={nextRoute.path} key={nextRoute.path}>
-        <Page title={t(nextRoute.title)} component={nextRoute.component} />
+        <PageTitleFixer title={t(nextRoute.title)} component={nextRoute.component} />
       </Route>
     );
   }
