@@ -9,10 +9,12 @@
     "plugin:@typescript-eslint/recommended"
   ],
   "plugins": [
+    "@typescript-eslint",
     "compat",
+    "import",
     "jest",
     "jsx-a11y",
-    "@typescript-eslint"
+    "react"
   ],
   "settings": {
     "import/resolver": {
@@ -27,8 +29,8 @@
     "jest": true
   },
   "rules": {
-    "@typescript-eslint/interface-name-prefix": [1, { "prefixWithI": "always", "allowUnderscorePrefix": true }],
     "@typescript-eslint/explicit-function-return-type": 0,
+    "@typescript-eslint/interface-name-prefix": [1, { "prefixWithI": "always", "allowUnderscorePrefix": true }],
     "arrow-parens": ["error", "as-needed"],
     "comma-dangle": ["error", {
       "arrays": "always-multiline",
@@ -37,13 +39,13 @@
       "exports": "always-multiline",
       "functions": "never"
     }],
+    "comma-spacing": 0,
 	  "import/extensions": ["error", "ignorePackages", {
         "js": "never",
         "jsx": "never",
         "ts": "never",
         "tsx": "never"
     }],
-    "comma-spacing": 0,
     "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.test.ts", "**/*.test.tsx"]}],
     "import/order": 0,
     "indent": 0,
@@ -51,21 +53,21 @@
     "key-spacing": 0,
     "linebreak-style": ["error", "unix"],
     "lines-between-class-members": 0,
-    "no-plusplus": 0,
     "max-len": 0,
     "no-continue": 0,
     "no-else-return": 0,
     "no-multi-spaces": 0,
     "no-nested-ternary": 1,
     "no-param-reassign": ["error", { "props": false }],
+    "no-plusplus": 0,
     "no-use-before-define": ["error", { "functions": false, "classes": true }],
     "object-curly-newline": 0,
     "object-shorthand": ["error", "consistent"],
     "one-var": 0,
     "one-var-declaration-per-line": 0,
     "operator-linebreak": 1,
-    "prefer-destructuring": [1, { "AssignmentExpression": { "object": false } }],
     "prefer-const": ["error", { "destructuring": "any", "ignoreReadBeforeAssign": true }],
+    "prefer-destructuring": [1, { "AssignmentExpression": { "object": false } }],
     "prefer-template": 1,
     "radix": ["error", "as-needed"],
     "react/destructuring-assignment": 0,
