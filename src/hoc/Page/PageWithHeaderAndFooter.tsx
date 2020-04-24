@@ -1,29 +1,29 @@
 import React from 'react';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+
 import Header from '../../components/Header/Header';
 import { Container } from '@material-ui/core';
 import Footer from '../../components/Footer/Footer';
 import Paper from '../../components/Ui/Paper';
 
-const useStyles = makeStyles((theme: Theme) => createStyles({
-  root: {
-    display: 'flex',
-    flexDirection: 'column',
-    height: '100vh',
-    backgroundColor: theme.palette.background.default,
-  },
-  container: {
-    flex: '1 1 1px',
-    overflowY: 'auto',
-    overflowX: 'hidden',
-  },
-}));
+import useStyles from './PageWithHeaderAndFooter.style';
 
-interface IProps {
-  header: string;
+/**
+ * {@link PageWithHeaderAndFooter} Props.
+ */
+interface IPageWithHeaderAndFooterProps {
+  /** Header title to render. */
+  header:   string;
+  /** Main page content. */
+  children: React.ReactNode;
 }
 
-const PageWithHeaderAndFooter: React.FC<IProps> = props => {
+/**
+ * Default page layout with a defined header and footer.
+ * Use this for the usual subpages, where no own fancy layout is needed.
+ *
+ * @param props - {@link IPageWithHeaderAndFooterProps}
+ */
+const PageWithHeaderAndFooter: React.FC<IPageWithHeaderAndFooterProps> = (props: IPageWithHeaderAndFooterProps) => {
   const classes = useStyles();
 
   return (

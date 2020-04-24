@@ -6,11 +6,20 @@ import UserRecord from '../../context/UserContext/UserRecord';
 import H from '../Ui/H';
 import P from '../Ui/P';
 
+/**
+ * {@link UserHeader} Props.
+ */
 interface IUserHeaderProps extends WithTranslation {
+  /** User to display. */
   user: UserRecord;
 }
 
-const UserHeader: React.FC<IUserHeaderProps> = props => {
+/**
+ * Fancy UserHeader for the {@link HomePage}.
+ *
+ * @param props - {@link IUserHeaderProps}.
+ */
+const UserHeader: React.FC<IUserHeaderProps> = (props: IUserHeaderProps) => {
   const { t } = useTranslation();
 
   return (

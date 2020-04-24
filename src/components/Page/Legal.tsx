@@ -6,7 +6,11 @@ import H from '../Ui/H';
 import P from '../Ui/P';
 import PageWithHeaderAndFooter from '../../hoc/Page/PageWithHeaderAndFooter';
 
-
+/**
+ * Component rendering legal information about this website.
+ *
+ * See also: {@link LegalPage}
+ */
 const Legal: React.FC<WithTranslation> = () => {
   const { t } = useTranslation();
 

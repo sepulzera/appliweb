@@ -1,11 +1,19 @@
 import * as React from 'react';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
+/**
+ * {@link ListItem} Props.
+ */
 export interface IListItemProps {
-
+  /** Text to render. */
+  children: React.ReactNode;
 }
 
-const ListItem: React.FC<IListItemProps> = props => (
+/**
+ * Renders a styled list item.
+ *
+ * @param props - {@link IListItemProps}.
+ */
+const ListItem: React.FC<IListItemProps> = (props: IListItemProps) => (
   <li>
     {props.children}
   </li>

@@ -9,7 +9,22 @@ const useStyles = makeStyles({
   },
 });
 
-const Paper: React.FC<{}> = props => {
+/**
+ * {@link Paper} Props.
+ */
+interface IPaperProps {
+  /** Content of the paper. */
+  children: React.ReactNode;
+}
+
+/**
+ * Renders a digital paper to place content on.
+ *
+ * You probably want to use this to display your pages content.
+ *
+ * @param props - {@link IPaperProps}.
+ */
+const Paper: React.FC<IPaperProps> = (props: IPaperProps) => {
   const classes = useStyles();
   return (
     <MuiPaper className={classes.paper}>

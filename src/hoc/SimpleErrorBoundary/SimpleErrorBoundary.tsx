@@ -32,8 +32,6 @@ interface IErrorBoundaryState {
  * ```
  *
  * See also: {@link https://reactjs.org/docs/error-boundaries.html}
- *
- * @author Frank Hartung
  */
 class SimpleErrorBoundary extends React.Component<IErrorBoundaryProps, IErrorBoundaryState> {
   constructor(props: IErrorBoundaryProps) {

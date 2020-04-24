@@ -4,10 +4,13 @@ import UserContext from './UserContext';
 import UserRecord from './UserRecord';
 import UserData from './UserData.json';
 
+/** {@link UserContextProvider} Props. */
 interface IUserContextProviderProps {
-  chirldren?: React.ReactNode;
+  /** App container that should have access to the providers. */
+  children: React.ReactNode;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function createUserFromJson(input: any) {
   return new UserRecord(input.id,
       input.forname, input.lastname,
@@ -24,7 +27,12 @@ function getUserMap() {
   return map;
 }
 
-const UserContextProvider: React.FC<IUserContextProviderProps> = props => {
+/**
+ * {@link UserContext} Provider.
+ *
+ * @param props - {@link IUserContextProviderProps}.
+ */
+const UserContextProvider: React.FC<IUserContextProviderProps> = (props: IUserContextProviderProps) => {
   const [data] = React.useState(getUserMap());
 
   const getUser = (id: number) => {

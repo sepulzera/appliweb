@@ -1,9 +1,16 @@
+/**
+ * User.
+ */
 export default class UserRecord {
+  /** ID. */
   id:         number;
 
+  /** First name. */
   forname:    string;
+  /** Last name. */
   lastname:   string;
 
+  /** Current job title. */
   jobtitle:   string;
 
   constructor(

@@ -8,6 +8,11 @@ import PageTitleFixer from '../../hoc/Page/PageTitleFixer';
 import App from '../App/App';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 
+/**
+ * Routes available in this app.
+ *
+ * See also: src/constants/Routes
+ */
 const Routes: React.FC<WithTranslation> = () => {
   const { t } = useTranslation();
 

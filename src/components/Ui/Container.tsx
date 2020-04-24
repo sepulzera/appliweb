@@ -10,7 +10,20 @@ const useStyles = makeStyles({
   },
 });
 
-const Paper: React.FC<{}> = props => {
+/**
+ * {@link Container} Props.
+ */
+interface IContainerProps {
+  /** Content of the container. */
+  children: React.ReactNode;
+}
+
+/**
+ * Basic layout element, that centers the content horizontally with some nice background.
+ *
+ * @param props - {@link IContainerProps}.
+ */
+const Container: React.FC<IContainerProps> = (props: IContainerProps) => {
   const classes = useStyles();
   return (
     <MuiContainer className={classes.container}>
@@ -19,4 +32,4 @@ const Paper: React.FC<{}> = props => {
   );
 };
 
-export default Paper;
+export default Container;

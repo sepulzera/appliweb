@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 
 /** {@link Page} Props. */
@@ -8,10 +9,8 @@ interface IPageProps {
   component:   any;
 }
 
-/*
+/**
  * Wrapper component for single pages.
- *
- * @author Frank Hartung
  */
 export default class Page extends React.Component<IPageProps> {
   componentDidMount() {
@@ -23,6 +22,7 @@ export default class Page extends React.Component<IPageProps> {
     const PageComponent = this.props.component;
 
     return (
+      // eslint-disable-next-line react/jsx-props-no-spreading
       <PageComponent {...this.props} />
     );
   }

@@ -1,17 +1,15 @@
 import React from 'react';
 
-/** {@link Page} Props. */
+/** {@link PageTitleFixer} Props. */
 interface IPageTitleFixerProps {
   /** Page title. */
   title:       string;
   /** Page component to render. */
-  component:   any;
+  component:   React.ReactNode;
 }
 
-/*
- * Wrapper component for single pages.
- *
- * @author Frank Hartung
+/**
+ * HOC to properly set the browser title to assure accessibilty.
  */
 export default class PageTitleFixer extends React.Component<IPageTitleFixerProps> {
   componentDidMount() {
@@ -20,9 +18,11 @@ export default class PageTitleFixer extends React.Component<IPageTitleFixerProps
   }
 
   render() {
-    const PageComponent = this.props.component;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const PageComponent = this.props.component as any;
 
     return (
+      // eslint-disable-next-line react/jsx-props-no-spreading
       <PageComponent {...this.props} />
     );
   }

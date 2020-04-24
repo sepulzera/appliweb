@@ -6,6 +6,9 @@ import ContextProvider from '../../hoc/ContextProvider/ContextProvider';
 import Loader from '../../components/Loader/Loader';
 import Routes from './Routes';
 
+/**
+ * Root of this app. Is mounted into the html/react root element.
+ */
 const Root: React.FC<{}> = () => (
   <React.Suspense fallback={<Loader />}>
     <Router>

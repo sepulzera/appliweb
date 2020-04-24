@@ -13,6 +13,9 @@ const useStyles = makeStyles({
   },
 });
 
+/**
+ * Default navigation footer for this app.
+ */
 const Footer: React.FC<WithTranslation> = () => {
   const { t } = useTranslation();
   const activeRoute = useLocation();

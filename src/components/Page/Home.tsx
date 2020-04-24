@@ -6,9 +6,15 @@ import UserContext from '../../context/UserContext/UserContext';
 import UserHeader from '../UserHeader/UserHeader';
 import Footer from '../Footer/Footer';
 
-export default function Home() {
+/**
+ * Home component rendering the actual content - me!
+ *
+ * See also: {@link HomePage}
+ */
+const Home: React.FC<{}> = () => {
   const userContext = React.useContext(UserContext);
 
+  // HACK: There is only one user - me!
   const user = userContext != null ? userContext.getUser(1) : undefined;
 
   return (
@@ -20,4 +26,6 @@ export default function Home() {
       <Footer />
     </>
   );
-}
+};
+
+export default Home;

@@ -6,6 +6,11 @@ import PageWithHeaderAndFooter from '../../hoc/Page/PageWithHeaderAndFooter';
 import PrivacyDe from '../Privacy/PrivacyDe';
 import PrivacyEn from '../Privacy/PrivacyEn';
 
+/**
+ * Component rendering privacy information.
+ *
+ * See also: {@link PrivacyPage}
+ */
 const Privacy: React.FC<WithTranslation> = () => {
   const { t, i18n } = useTranslation();
 

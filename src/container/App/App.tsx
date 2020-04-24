@@ -5,11 +5,23 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import SimpleErrorBoundary from '../../hoc/SimpleErrorBoundary/SimpleErrorBoundary';
 import { orange } from '@material-ui/core/colors';
 
+/**
+ * {@link App} Props.
+ */
 interface IAppProps {
+  /** The actual app container. */
   children: React.ReactNode;
 }
 
-const App: React.FC<IAppProps> = props => {
+/**
+ * Wrapper that is setting up the content of this app.
+ *
+ * Actually should be merged with {@link Root}, but wasn't due to
+ * technical limitations.
+ *
+ * @param props - {@link IAppProps}.
+ */
+const App: React.FC<IAppProps> = (props: IAppProps) => {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
 
   const theme = React.useMemo(
