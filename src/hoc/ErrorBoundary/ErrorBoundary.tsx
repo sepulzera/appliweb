@@ -3,7 +3,7 @@ import { WithTranslation, withTranslation } from 'react-i18next';
 
 import Typography from '@material-ui/core/Typography';
 
-import styles from './SimpleErrorBoundary.module.scss';
+import styles from './ErrorBoundary.module.scss';
 
 /** {@link ErrorBoundary} Props. */
 interface IErrorBoundaryProps extends WithTranslation {
@@ -33,7 +33,7 @@ interface IErrorBoundaryState {
  *
  * See also: {@link https://reactjs.org/docs/error-boundaries.html}
  */
-class SimpleErrorBoundary extends React.Component<IErrorBoundaryProps, IErrorBoundaryState> {
+class ErrorBoundary extends React.Component<IErrorBoundaryProps, IErrorBoundaryState> {
   constructor(props: IErrorBoundaryProps) {
     super(props);
     this.state = {
@@ -78,4 +78,4 @@ class SimpleErrorBoundary extends React.Component<IErrorBoundaryProps, IErrorBou
   }
 }
 
-export default withTranslation()(SimpleErrorBoundary);
+export default withTranslation()(ErrorBoundary);

@@ -2,7 +2,7 @@ import * as React from 'react';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 
-import SimpleErrorBoundary from '../../hoc/SimpleErrorBoundary/SimpleErrorBoundary';
+import ErrorBoundary from '../../hoc/ErrorBoundary/ErrorBoundary';
 import { orange } from '@material-ui/core/colors';
 
 /**
@@ -59,9 +59,9 @@ const App: React.FC<IAppProps> = (props: IAppProps) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <SimpleErrorBoundary verbose printStack>
+      <ErrorBoundary verbose printStack>
         {props.children}
-      </SimpleErrorBoundary>
+      </ErrorBoundary>
     </ThemeProvider>
   );
 };
