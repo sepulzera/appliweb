@@ -4,6 +4,7 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 
 import ErrorBoundary from '../../hoc/ErrorBoundary/ErrorBoundary';
 import { orange } from '@material-ui/core/colors';
+import { CssBaseline } from '@material-ui/core';
 
 /**
  * {@link App} Props.
@@ -59,6 +60,7 @@ const App: React.FC<IAppProps> = (props: IAppProps) => {
 
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <ErrorBoundary verbose printStack>
         {props.children}
       </ErrorBoundary>
