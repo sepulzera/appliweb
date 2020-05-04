@@ -9,8 +9,10 @@ export default class UserRecord {
   forname:    string;
   /** Last name. */
   lastname:   string;
+  /** Title of the avatar image, stored in assets. */
+  avatar:     string;
 
-  /** Current job title. */
+  /** Current job title as i18n-identifier. */
   jobtitle:   string;
 
   constructor(
@@ -18,6 +20,7 @@ export default class UserRecord {
 
     forname:    string,
     lastname:   string,
+    avatar:     string,
 
     jobtitle:   string
   ) {
@@ -25,6 +28,7 @@ export default class UserRecord {
 
       this.forname    = forname;
       this.lastname   = lastname;
+      this.avatar     = avatar;
 
       this.jobtitle   = jobtitle;
   }
