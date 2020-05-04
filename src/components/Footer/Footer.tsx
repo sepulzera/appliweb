@@ -1,17 +1,9 @@
 import * as React from 'react';
-import clsx from 'clsx';
 import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
 import { Link, useLocation } from 'react-router-dom';
-import { BottomNavigation, BottomNavigationAction, makeStyles } from '@material-ui/core';
+import { BottomNavigation, BottomNavigationAction } from '@material-ui/core';
 
 import Routes, { IRouteType } from '../../constants/Routes';
-
-const useStyles = makeStyles({
-  root: {
-    width:     '100%',
-    borderTop: '1px solid darkgray',
-  },
-});
 
 /**
  * Default navigation footer for this app.
@@ -19,7 +11,6 @@ const useStyles = makeStyles({
 const Footer: React.FC<WithTranslation> = () => {
   const { t } = useTranslation();
   const activeRoute = useLocation();
-  const classes = useStyles();
 
   const routesList = [];
   let index: number, nextRoute: IRouteType, activeRouteIndex = 0;
@@ -36,7 +27,6 @@ const Footer: React.FC<WithTranslation> = () => {
 
   return (
     <BottomNavigation
-        className={clsx(classes.root, 'MuiPaper-elevation4')}
         value={activeRouteIndex}
         showLabels>
       {routesList}
