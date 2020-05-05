@@ -4,7 +4,7 @@ import React from 'react';
 import UserContext from '../../context/UserContext/UserContext';
 
 import UserHeader from '../UserHeader/UserHeader';
-import Footer from '../Footer/Footer';
+import PageWithHeaderAndFooter from '../../hoc/Page/PageWithHeaderAndFooter';
 
 /**
  * Home component rendering the actual content - me!
@@ -18,13 +18,10 @@ const Home: React.FC<{}> = () => {
   const user = userContext != null ? userContext.getUser(1) : undefined;
 
   return (
-    <>
-      { user != null && (
-        <UserHeader user={user} />
-      )}
-
-      <Footer />
-    </>
+    <PageWithHeaderAndFooter
+        headerComponent = {user != null ? <UserHeader user={user} /> : null}>
+      TODO
+    </PageWithHeaderAndFooter>
   );
 };
 

@@ -1,7 +1,8 @@
 import React from 'react';
 
-import Header from '../../components/Header/Header';
 import { Container } from '@material-ui/core';
+
+import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import Paper from '../../components/Ui/Paper';
 
@@ -12,7 +13,9 @@ import useStyles from './PageWithHeaderAndFooter.style';
  */
 interface IPageWithHeaderAndFooterProps {
   /** Header title to render. */
-  header:   string;
+  header?: string;
+  /** Custom header? */
+  headerComponent?: React.ReactNode;
   /** Main page content. */
   children: React.ReactNode;
 }
@@ -29,7 +32,12 @@ const PageWithHeaderAndFooter: React.FC<IPageWithHeaderAndFooterProps> = (props:
   return (
     <div className={classes.root}>
       <div className={classes.container}>
-        <Header title={props.header} />
+        {props.header && (
+          <Header title={props.header} />
+        )}
+        {props.headerComponent && (
+          props.headerComponent
+        )}
         <Container>
           <Paper>
             {props.children}
