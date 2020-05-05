@@ -1,4 +1,6 @@
 import * as React from 'react';
+import clsx from 'clsx';
+
 import { makeStyles } from '@material-ui/core/styles';
 import MuiContainer from '@material-ui/core/Container';
 
@@ -14,6 +16,8 @@ const useStyles = makeStyles({
  * {@link Container} Props.
  */
 interface IContainerProps {
+  /** Classes used for styling. */
+  className?: any;
   /** Content of the container. */
   children: React.ReactNode;
 }
@@ -26,7 +30,7 @@ interface IContainerProps {
 const Container: React.FC<IContainerProps> = (props: IContainerProps) => {
   const classes = useStyles();
   return (
-    <MuiContainer className={classes.container}>
+    <MuiContainer className={clsx(classes.container, props.className)}>
       {props.children}
     </MuiContainer>
   );

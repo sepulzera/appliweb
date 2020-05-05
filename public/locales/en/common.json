@@ -1,3 +1,7 @@
 {
-  "title": "Application"
+  "title": "Application",
+  "choose language": "Choose language",
+  "dark theme option": "Dark Theme",
+  "light theme option": "Light Theme",
+  "choose language option": "Language"
 }

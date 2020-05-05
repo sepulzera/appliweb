@@ -123,6 +123,13 @@ const BaseTheme: React.FC<IBaseThemeProps> = (props: IBaseThemeProps) => {
         backdropFilter  : 'blur(4px)',
       },
     },
+    MuiMenuItem: {
+      root: {
+        paddingBottom: memoTheme.spacing(1),
+        paddingTop: memoTheme.spacing(1),
+        marginBottom: 0,
+      },
+    },
   };
 
   return (

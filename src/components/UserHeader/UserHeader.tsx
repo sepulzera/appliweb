@@ -8,6 +8,7 @@ import UserRecord from '../../context/UserContext/UserRecord';
 
 import H from '../Ui/H';
 import P from '../Ui/P';
+import Settings from '../Settings/Settings';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   large: {
@@ -36,11 +37,13 @@ const UserHeader: React.FC<IUserHeaderProps> = (props: IUserHeaderProps) => {
   const userAvatar = AssetsHelper.getAsset(props.user.avatar);
 
   return (
-    <>
+    <div>
       <H variant='h1'>{`${props.user.forname} ${props.user.lastname}`}</H>
       <P variant='subtitle1'>{t(`job:${props.user.jobtitle}`)}</P>
       <Avatar alt={`${props.user.forname} ${props.user.lastname}`} src={userAvatar} className={classes.large} />
-    </>
+
+      <Settings />
+    </div>
   );
 };
 

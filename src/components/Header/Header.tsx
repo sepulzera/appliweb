@@ -3,12 +3,12 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import AppBar from '../Ui/AppBar';
 import H from '../Ui/H';
+import Settings from '../Settings/Settings';
 
 const useStyles = makeStyles({
   title: {
-    width:    '1280px', // magic number: max width of the page container
+    flex: 1,
     maxWidth: '100vw',
-    paddingLeft: '2rem',
   },
 });
 
@@ -31,6 +31,7 @@ const Header: React.FC<IHeaderProps> = props => {
   return (
     <AppBar>
       <H variant='h1' className={classes.title}>{props.title}</H>
+      <Settings />
     </AppBar>
   );
 };

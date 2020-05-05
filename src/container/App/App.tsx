@@ -2,7 +2,8 @@ import * as React from 'react';
 
 import ErrorBoundary from '../../hoc/ErrorBoundary/ErrorBoundary';
 import { CssBaseline } from '@material-ui/core';
-import BaseTheme from './Theme';
+import BaseTheme from './BaseTheme';
+import SettingsContext from '../../context/SettingsContext/SettingsContext';
 
 /**
  * {@link App} Props.
@@ -21,8 +22,10 @@ interface IAppProps {
  * @param props - {@link IAppProps}.
  */
 const App: React.FC<IAppProps> = (props: IAppProps) => {
+  const settingsContext = React.useContext(SettingsContext);
+
   return (
-    <BaseTheme>
+    <BaseTheme theme={settingsContext != null ? settingsContext.getTheme() : undefined}>
       <CssBaseline />
       <ErrorBoundary verbose printStack>
         {props.children}

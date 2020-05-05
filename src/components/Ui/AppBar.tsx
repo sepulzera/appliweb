@@ -3,12 +3,25 @@ import { makeStyles } from '@material-ui/core/styles';
 import MuiAppBar from '@material-ui/core/AppBar';
 import { Toolbar, Container } from '@material-ui/core';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   toolbar: {
     marginLeft:  'auto',
     marginRight: 'auto',
   },
-});
+  container: {
+    [theme.breakpoints.down('md')]: {
+      width: '100vw',
+    },
+    [theme.breakpoints.up('md')]: {
+      width: `calc(1280px - ${theme.spacing(4)}px)`,
+      maxWidth: `calc(100vw - ${theme.spacing(8)}px)`,
+    },
+    display: 'flex',
+    flexDirection: 'row',
+    paddingLeft: theme.spacing(3),
+    paddingRight: theme.spacing(3),
+  },
+}));
 
 /**
  * {@link AppBar} Props.
@@ -30,7 +43,7 @@ const AppBar: React.FC<IAppBarProps> = (props: IAppBarProps) => {
     <MuiAppBar
         position='static'>
       <Toolbar disableGutters className={classes.toolbar}>
-        <Container>
+        <Container className={classes.container}>
           {props.children}
         </Container>
       </Toolbar>
