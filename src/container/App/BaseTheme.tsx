@@ -1,13 +1,16 @@
 import * as React from 'react';
+
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import { orange } from '@material-ui/core/colors';
 import { useMediaQuery } from '@material-ui/core';
+import { blue, orange } from '@material-ui/core/colors';
 import { TypographyOptions } from '@material-ui/core/styles/createTypography';
 
 /**
  * {@link BaseTheme} Props
  */
 interface IBaseThemeProps {
+  /** Theme. 0=light, 1=dark. */
+  theme: number | undefined;
   /** Components that should use this theme, e. g. the whole application. */
   children: React.ReactNode;
 }
@@ -19,6 +22,21 @@ interface IBaseThemeProps {
  */
 const BaseTheme: React.FC<IBaseThemeProps> = (props: IBaseThemeProps) => {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+
+  const getTheme = (settingsTheme: number | undefined, defaultTheme: boolean): number => {
+    if (settingsTheme == null) {
+      return defaultTheme ? 1 : 0;
+    } else {
+      return settingsTheme;
+    }
+  };
+
+  const themeToString = (theme: number): 'dark' | 'light' => {
+    switch (theme) {
+      case 0:  return 'light';
+      default: return 'dark';
+    }
+  };
 
   const baseTypography: TypographyOptions = {
     fontSize: 16,
@@ -61,8 +79,9 @@ const BaseTheme: React.FC<IBaseThemeProps> = (props: IBaseThemeProps) => {
   const memoTheme = React.useMemo(
     () => createMuiTheme({
       palette: {
-        type: prefersDarkMode ? 'dark' : 'light',
+        type: themeToString(getTheme(props.theme, prefersDarkMode)),
         primary: orange,
+        secondary: blue,
       },
       typography: baseTypography,
       props: {
@@ -71,7 +90,7 @@ const BaseTheme: React.FC<IBaseThemeProps> = (props: IBaseThemeProps) => {
         },
       },
     }),
-    [prefersDarkMode, baseTypography]
+    [props.theme, prefersDarkMode, baseTypography]
   );
 
   memoTheme.overrides = {
