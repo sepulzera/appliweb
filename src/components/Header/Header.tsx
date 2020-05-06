@@ -9,6 +9,8 @@ const useStyles = makeStyles({
   title: {
     flex: 1,
     maxWidth: '100vw',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
   },
 });
 
