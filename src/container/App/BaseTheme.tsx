@@ -130,6 +130,13 @@ const BaseTheme: React.FC<IBaseThemeProps> = (props: IBaseThemeProps) => {
         marginBottom: 0,
       },
     },
+    MuiTable: {
+      root: {
+        '& caption': {
+          width: '100%',
+        },
+      },
+    },
   };
 
   return (
