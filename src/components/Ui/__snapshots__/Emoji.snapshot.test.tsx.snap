@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render emoji with label 1`] = `
+<span
+  aria-label="Waving hand"
+  className="makeStyles-emoji-1"
+  role="img"
+>
+  👋
+</span>
+`;
+
+exports[`render emoji with no label 1`] = `
+<span
+  aria-label=""
+  className="makeStyles-emoji-1"
+  role="img"
+>
+  👋
+</span>
+`;
