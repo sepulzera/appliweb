@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
  */
 interface IPProps {
   /** Classes used for styling. */
-  className?: any;
+  className?: string | undefined;
   /** Render as different component, e. g. span. */
   component?: any;
   /** Variant for this paragraph. */

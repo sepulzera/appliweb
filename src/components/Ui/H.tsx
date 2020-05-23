@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 /** {@link H} Props. */
 export interface IHProps {
   /** Classes used for styling. */
-  className?: any;
+  className?: string | undefined;
   /** Render as different component, e. g. 'div' or 'h3'. */
   component?: any;
   /** Heading-level to use. */

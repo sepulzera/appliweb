@@ -17,7 +17,7 @@ const useStyles = makeStyles({
  */
 interface IContainerProps {
   /** Classes used for styling. */
-  className?: any;
+  className?: string | undefined;
   /** Content of the container. */
   children: React.ReactNode;
 }
