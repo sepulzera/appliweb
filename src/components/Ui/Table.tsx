@@ -9,6 +9,8 @@ export type column = {
   name: string;
   /** Displayed title of the column. Should be localized. */
   title: string;
+  /** Sets the width of the column. */
+  width?: string;
 }
 
 /** {@link Table} Props. */
@@ -44,7 +46,12 @@ const Table: React.FC<ITableProps> = (props: ITableProps) => {
       <TableHead>
         <TableRow>
           {props.columns.map((col: column) => (
-            <TableCell>{col.title}</TableCell>
+            <TableCell
+                style={{
+                  width: col.width,
+                }}>
+              {col.title}
+            </TableCell>
           ))}
         </TableRow>
       </TableHead>
