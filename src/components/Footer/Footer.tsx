@@ -16,12 +16,12 @@ const Footer: React.FC<WithTranslation> = () => {
   let index: number, nextRoute: IRouteType, activeRouteIndex = 0;
   for (index = 0; index < Routes.length; ++index) {
     nextRoute = Routes[index];
-    if (nextRoute.path === activeRoute.pathname) {
+    if (`${process.env.PUBLIC_URL}${nextRoute.path}` === activeRoute.pathname) {
       activeRouteIndex = index;
     }
 
     routesList.push(
-      <BottomNavigationAction component={Link} to={nextRoute.path} label={t(nextRoute.title)} icon={<nextRoute.icon />} key={nextRoute.title} />
+      <BottomNavigationAction component={Link} to={`${process.env.PUBLIC_URL}${nextRoute.path}`} label={t(nextRoute.title)} icon={<nextRoute.icon />} key={nextRoute.title} />
     );
   }
 

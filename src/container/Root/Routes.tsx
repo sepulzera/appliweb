@@ -21,7 +21,7 @@ const Routes: React.FC<WithTranslation> = () => {
   for (index = 0; index < routes.length; ++index) {
     nextRoute = routes[index];
     routesList.push(
-      <Route exact path={nextRoute.path} key={nextRoute.path}>
+      <Route exact path={`${process.env.PUBLIC_URL}${nextRoute.path}`} key={nextRoute.path}>
         <PageTitleFixer title={t(nextRoute.title)} component={nextRoute.component} />
       </Route>
     );
@@ -31,7 +31,7 @@ const Routes: React.FC<WithTranslation> = () => {
     <App>
       <Switch>
         {routesList}
-        <Redirect to='/home' />
+        <Redirect to={`${process.env.PUBLIC_URL}/home`} />
       </Switch>
     </App>
   );
