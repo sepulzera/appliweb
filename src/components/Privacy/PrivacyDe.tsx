@@ -19,7 +19,7 @@ const PrivacyDe: React.FC<{}> = () => (
       <ListItem>III. Informationen zur Datenverarbeitung</ListItem>
     </List>
 
-    <H variant='h2' component='h3'>I. Informationen über uns als Verantwortliche</H>
+    <H variant='h2'>I. Informationen über uns als Verantwortliche</H>
     <P>Verantwortlicher Anbieter dieses Internetauftritts im datenschutzrechtlichen Sinne ist:</P>
     <P component='address'>
       Frank Hartung
@@ -34,7 +34,7 @@ const PrivacyDe: React.FC<{}> = () => (
       <br />
     </P>
 
-    <H variant='h2' component='h3'>II. Rechte der Nutzer und Betroffenen</H>
+    <H variant='h2'>II. Rechte der Nutzer und Betroffenen</H>
     <P>Mit Blick auf die nachfolgend noch näher beschriebene Datenverarbeitung haben die Nutzer und Betroffenen das Recht</P>
     <List>
       <ListItem>auf Bestätigung, ob sie betreffende Daten verarbeitet werden, auf Auskunft über die verarbeiteten Daten, auf weitere Informationen über die Datenverarbeitung sowie auf Kopien der Daten (vgl. auch Art. 15 DSGVO);</ListItem>
@@ -46,7 +46,7 @@ const PrivacyDe: React.FC<{}> = () => (
     <P>Darüber hinaus ist der Anbieter dazu verpflichtet, alle Empfänger, denen gegenüber Daten durch den Anbieter offengelegt worden sind, über jedwede Berichtigung oder Löschung von Daten oder die Einschränkung der Verarbeitung, die aufgrund der Artikel 16, 17 Abs. 1, 18 DSGVO erfolgt, zu unterrichten. Diese Verpflichtung besteht jedoch nicht, soweit diese Mitteilung unmöglich oder mit einem unverhältnismäßigen Aufwand verbunden ist. Unbeschadet dessen hat der Nutzer ein Recht auf Auskunft über diese Empfänger.</P>
     <P><strong>Ebenfalls haben die Nutzer und Betroffenen nach Art. 21 DSGVO das Recht auf Widerspruch gegen die künftige Verarbeitung der sie betreffenden Daten, sofern die Daten durch den Anbieter nach Maßgabe von Art. 6 Abs. 1 lit. f) DSGVO verarbeitet werden. Insbesondere ist ein Widerspruch gegen die Datenverarbeitung zum Zwecke der Direktwerbung statthaft.</strong></P>
 
-    <H variant='h2' component='h3'>III. Informationen zur Datenverarbeitung</H>
+    <H variant='h2'>III. Informationen zur Datenverarbeitung</H>
     <P>Ihre bei Nutzung unseres Internetauftritts verarbeiteten Daten werden gelöscht oder gesperrt, sobald der Zweck der Speicherung entfällt, der Löschung der Daten keine gesetzlichen Aufbewahrungspflichten entgegenstehen und nachfolgend keine anderslautenden Angaben zu einzelnen Verarbeitungsverfahren gemacht werden.</P>
 
     <P>

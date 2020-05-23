@@ -6,6 +6,9 @@ const useStyles = makeStyles({
   paper: {
     padding: '2rem',
     marginBottom: '2rem',
+    '& *:first-child': {
+      marginTop: 0,
+    },
   },
 });
 

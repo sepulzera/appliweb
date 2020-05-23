@@ -19,7 +19,7 @@ const PrivacyEn: React.FC<{}> = () => (
       <ListItem>III. Information about the data processing</ListItem>
     </List>
 
-    <H variant='h2' component='h3'>I. Information about us as controllers of your data</H>
+    <H variant='h2'>I. Information about us as controllers of your data</H>
     <P>The party responsible for this website (the "controller") for purposes of data protection law is:</P>
     <P component='address'>
       Frank Hartung
@@ -41,7 +41,7 @@ const PrivacyEn: React.FC<{}> = () => (
       Germany
     </P>
 
-    <H variant='h2' component='h3'>II. The rights of users and data subjects</H>
+    <H variant='h2'>II. The rights of users and data subjects</H>
     <P>With regard to the data processing to be described in more detail below, users and data subjects have the right</P>
     <List>
       <ListItem>to confirmation of whether data concerning them is being processed, information about the data being processed, further information about the nature of the data processing, and copies of the data (cf. also Art. 15 GDPR);</ListItem>
@@ -53,7 +53,7 @@ const PrivacyEn: React.FC<{}> = () => (
     <P>In addition, the controller is obliged to inform all recipients to whom it discloses data of any such corrections, deletions, or restrictions placed on processing the same per Art. 16, 17 Para. 1, 18 GDPR. However, this obligation does not apply if such notification is impossible or involves a disproportionate effort. Nevertheless, users have a right to information about these recipients.</P>
     <P><strong>Likewise, under Art. 21 GDPR, users and data subjects have the right to object to the controller's future processing of their data pursuant to Art. 6 Para. 1 lit. f) GDPR. In particular, an objection to data processing for the purpose of direct advertising is permissible.</strong></P>
 
-    <H variant='h2' component='h3'>III. Information about the data processing</H>
+    <H variant='h2'>III. Information about the data processing</H>
     <P>Your data processed when using our website will be deleted or blocked as soon as the purpose for its storage ceases to apply, provided the deletion of the same is not in breach of any statutory storage obligations or unless otherwise stipulated below.</P>
 
     <P>

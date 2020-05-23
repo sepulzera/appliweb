@@ -63,8 +63,8 @@ const BaseTheme: React.FC<IBaseThemeProps> = (props: IBaseThemeProps) => {
     },
     h3: {
       fontSize: '1.3rem',
-      marginTop: '2em',
-      marginBottom: '1em',
+      marginTop: '1.5em',
+      marginBottom: '0.7em',
     },
     h4: {
       fontSize: '1.6rem',
@@ -84,11 +84,6 @@ const BaseTheme: React.FC<IBaseThemeProps> = (props: IBaseThemeProps) => {
         secondary: blue,
       },
       typography: baseTypography,
-      props: {
-        MuiButtonBase: {
-          disableRipple: true,
-        },
-      },
     }),
     [props.theme, prefersDarkMode, baseTypography]
   );
