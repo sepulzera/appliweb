@@ -2,7 +2,5 @@
   "missing error": "Ups, hier ist etwas schiefgelaufen!",
   "title": "Fehler",
   "message": "Grund:",
-  "stack": "Stack:",
-
-  "page not found": "Seite nicht gefunden"
+  "stack": "Stack:"
 }

@@ -2,7 +2,5 @@
   "missing error": "Whoops, something went wrong!",
   "title": "Error",
   "message": "Message:",
-  "stack": "Stack:",
-
-  "page not found": "Page not found"
+  "stack": "Stack:"
 }

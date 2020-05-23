@@ -25,7 +25,7 @@ export type IRouteType = {
  */
 const Routes: Array<IRouteType> = [
   {
-    path:      '/',
+    path:      '/home',
     title:     'home:home link',
     icon:      Home,
     component: HomePage,

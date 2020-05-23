@@ -1,12 +1,11 @@
 import React from 'react';
 import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 import routes, { IRouteType } from '../../constants/Routes';
 import PageTitleFixer from '../../hoc/Page/PageTitleFixer';
 
 import App from '../App/App';
-import NotFoundPage from '../NotFoundPage/NotFoundPage';
 
 /**
  * Routes available in this app.
@@ -32,9 +31,7 @@ const Routes: React.FC<WithTranslation> = () => {
     <App>
       <Switch>
         {routesList}
-        <Route>
-          <NotFoundPage />
-        </Route>
+        <Redirect to='/home' />
       </Switch>
     </App>
   );
