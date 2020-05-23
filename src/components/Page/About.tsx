@@ -101,7 +101,7 @@ const About: React.FC<WithTranslation> = () => {
 
       <H variant='h2'><Trans i18nKey='about:documentation heading'><Emoji>📝</Emoji> Documentation</Trans></H>
       {/* TODO The documentation should be made available online or exported as pdf */}
-      <P><Trans i18nKey='about:documentation 1'>The code documentation is available as offline HTML documentation. It can be found at <Link href='https://github.com/sepulzera/appliweb/blob/master/docs/appliweb/index.html' target='_blank'>docs/appliweb/index.html</Link>.</Trans></P>
+      <P><Trans i18nKey='about:documentation 1'>The <Link href={`${process.env.PUBLIC_URL}/doc/index.html`}>code documentation</Link> is available as offline HTML documentation.</Trans></P>
       <P><Trans i18nKey='about:documentation 2'>The documentation is based on <Link href='https://github.com/microsoft/tsdoc' target='_blank'>TSDoc</Link>, generated with <Link href='https://react-styleguidist.js.org/' target='_blank'>React Styleguidist</Link>.</Trans></P>
 
       <H variant='h2'><Trans i18nKey='about:contributing heading'><Emoji>🐞</Emoji> Contributing</Trans></H>
