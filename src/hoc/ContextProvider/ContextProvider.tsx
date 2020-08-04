@@ -1,5 +1,6 @@
 import * as React from 'react';
 import UserContextProvider from '../../context/UserContext/UserContextProvider';
+import JobRequestContextProvider from '../../context/JobRequestContext/JobRequestContextProvider';
 import SettingsContextProvider from '../../context/SettingsContext/SettingsContextProvider';
 
 /**
@@ -18,7 +19,9 @@ interface IContextProviderProps {
 const ContextProvider: React.SFC<IContextProviderProps> = (props: IContextProviderProps) => (
   <SettingsContextProvider>
     <UserContextProvider>
-      {props.children}
+      <JobRequestContextProvider>
+        {props.children}
+      </JobRequestContextProvider>
     </UserContextProvider>
   </SettingsContextProvider>
 );
