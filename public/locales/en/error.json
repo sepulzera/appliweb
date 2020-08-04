@@ -1,6 +1,6 @@
 {
   "missing error": "Whoops, something went wrong!",
   "title": "Error",
-  "message": "Message:",
-  "stack": "Stack:"
+  "message": "Message",
+  "stack": "Stack"
 }
