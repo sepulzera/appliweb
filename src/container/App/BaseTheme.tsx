@@ -2,7 +2,6 @@ import * as React from 'react';
 
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { useMediaQuery } from '@material-ui/core';
-import { blue, orange } from '@material-ui/core/colors';
 import { TypographyOptions } from '@material-ui/core/styles/createTypography';
 
 /**
@@ -63,6 +62,7 @@ const BaseTheme: React.FC<IBaseThemeProps> = (props: IBaseThemeProps) => {
     },
     h3: {
       fontSize: '1.3rem',
+      fontWeight: 'bold',
       marginTop: '1.5em',
       marginBottom: '0.7em',
     },
@@ -80,8 +80,13 @@ const BaseTheme: React.FC<IBaseThemeProps> = (props: IBaseThemeProps) => {
     () => createMuiTheme({
       palette: {
         type: themeToString(getTheme(props.theme, prefersDarkMode)),
-        primary: orange,
-        secondary: blue,
+        primary: {
+          main: '#e47200',
+          light: '#f3be88',
+        },
+        secondary: {
+          main: '#333333',
+        },
       },
       typography: baseTypography,
     }),
