@@ -1,14 +1,22 @@
 import * as React from 'react';
 import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
 import { Link, useLocation } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
 import { BottomNavigation, BottomNavigationAction } from '@material-ui/core';
 
 import Routes, { IRouteType } from '../../constants/Routes';
+
+const useStyles = makeStyles({
+  bottomNavigation: {
+    height: 'auto',
+  },
+});
 
 /**
  * Default navigation footer for this app.
  */
 const Footer: React.FC<WithTranslation> = () => {
+  const classes = useStyles();
   const { t } = useTranslation();
   const activeRoute = useLocation();
 
@@ -28,7 +36,8 @@ const Footer: React.FC<WithTranslation> = () => {
   return (
     <BottomNavigation
         value={activeRouteIndex}
-        showLabels>
+        showLabels
+        className={classes.bottomNavigation}>
       {routesList}
     </BottomNavigation>
   );
