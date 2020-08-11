@@ -83,9 +83,11 @@ const BaseTheme: React.FC<IBaseThemeProps> = (props: IBaseThemeProps) => {
         primary: {
           main: '#e47200',
           light: '#f3be88',
+          contrastText: '#fff',
         },
         secondary: {
           main: '#333333',
+          contrastText: '#fff',
         },
       },
       typography: baseTypography,
