@@ -20,21 +20,38 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     marginBottom: 'auto',
     marginTop: 'auto',
   },
+  rightPadding: {
+    paddingRight: '3rem',
+  },
 
+  userInfo: {
+    flex: 1,
+    paddingLeft: `${theme.spacing(3)}px`,
+
+    display: 'flex',
+    flexWrap: 'wrap',
+    flexDirection: 'row-reverse',
+  },
   heading: {
     color: theme.palette.secondary.main,
+  },
+  userInfoText: {
+    color: theme.palette.primary.contrastText,
   },
   jobtitle: {
     color: theme.palette.secondary.main,
     fontSize: '2em',
     fontWeight: 'bold',
     fontStyle: 'italic',
+    lineHeight: '1.3em',
   },
   name: {
+    color: theme.palette.primary.contrastText,
     fontSize: '2.5em',
     letterSpacing: '2px',
   },
   lastname: {
+    color: theme.palette.primary.contrastText,
     fontWeight: 'bold',
   },
 }));
@@ -57,21 +74,23 @@ const CurrentUserInfo: React.FC<ICurrentUserInfoProps> = (props: ICurrentUserInf
   const { t } = useTranslation();
 
   return (
-    <>
+    <div className={classes.userInfo}>
       <div className={classes.rightSide}>
         <H variant='h1' className={classes.name}>{`${props.user.forname} `}<span className={classes.lastname}>{props.user.lastname}</span></H>
         <P variant='subtitle1' className={classes.jobtitle}>{t(`job:${props.user.jobtitle}`)}</P>
       </div>
       <div className={classes.leftSide}>
-        <H variant='h3' className={classes.heading}>{`${t('job:employed at')}:`}</H>
-        {/* TODO Get dynamically from latest ExpStation with category 'job' */}
-        <P variant='body1'>IBYKUS AG für Informationstechnologie</P>
+        <div className={classes.rightPadding}>
+          <H variant='h3' className={classes.heading}>{`${t('job:employed at')}:`}</H>
+          {/* TODO Get dynamically from latest ExpStation with category 'job' */}
+          <P variant='body1' className={classes.userInfoText}>IBYKUS AG für Informationstechnologie</P>
 
-        <H variant='h3' className={classes.heading}>{`${t('job:degree')}:`}</H>
-        {/* TODO Get dynamically from latest ExpStation with category 'edu' */}
-        <P variant='body1'>Master of Science,<br />Fachhochschule Erfurt</P>
+          <H variant='h3' className={classes.heading}>{`${t('job:degree')}:`}</H>
+          {/* TODO Get dynamically from latest ExpStation with category 'edu' */}
+          <P variant='body1' className={classes.userInfoText}>Master of Science,<br />Fachhochschule Erfurt</P>
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 

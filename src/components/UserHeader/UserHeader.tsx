@@ -12,11 +12,33 @@ import JobRequest from './JobRequest';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   header: {
-    display: 'flex',
-    flexDirection: 'row',
-
-    backgroundImage: `linear-gradient(to right, ${theme.palette.primary.main}, ${theme.palette.primary.light})`  ,
+    backgroundImage: `linear-gradient(to right, ${theme.palette.primary.main}, ${theme.palette.primary.light})`,
+    '& .MuiAppBar-root': {
+      background: 'transparent',
+    },
   },
+
+  sectionTabletAndDesktop: {
+    display: 'none',
+    [theme.breakpoints.up('sm')]: {
+      display: 'flex',
+      flexDirection: 'row',
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      paddingLeft: theme.spacing(1),
+      paddingRight: theme.spacing(1),
+    },
+    [theme.breakpoints.down('md')]: {
+      width: 'auto',
+      paddingLeft: 0,
+      paddingRight: 0,
+    },
+    [theme.breakpoints.up('lg')]: {
+      width: `calc(1280px - ${theme.spacing(4)}px)`,
+      maxWidth: `calc(100vw - ${theme.spacing(8)}px)`,
+    },
+  },
+
   user: {
     flex: 1,
 
@@ -25,9 +47,37 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     flexWrap: 'wrap',
   },
   large: {
-    width: '15rem', // TODO proper values
+    width: '15rem',
+    height: '1px',
+    flex: '1 1 1px',
+  },
+  column: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  settings: {
+    position: 'relative',
+    top: `${theme.spacing(2)}px`,
+    right: '0',
+    zIndex: 99999,
+    height: 'min-content',
+  },
+
+  sectionMobile: {
+    [theme.breakpoints.up('sm')]: {
+      display: 'none',
+    },
+  },
+  row: {
+    display: 'flex',
+    flexDirection: 'row',
+    width: '100%',
+  },
+  mobileAvatar: {
+    flex: 1,
     height: 'auto',
   },
+
 }));
 
 /**
@@ -52,14 +102,28 @@ const UserHeader: React.FC<IUserHeaderProps> = (props: IUserHeaderProps) => {
 
   return (
     <div className={classes.header}>
-      <div className={classes.user}>
-        <CurrentUserInfo user={props.user} />
-        <JobRequest jobRequest={props.jobRequest} />
+      <div className={classes.sectionTabletAndDesktop}>
+        <div className={classes.user}>
+          <CurrentUserInfo user={props.user} />
+          <JobRequest jobRequest={props.jobRequest} asRow />
+        </div>
+
+        <div className={classes.column}>
+          <Settings className={classes.settings} />
+          <Avatar variant='square' alt={`${props.user.forname} ${props.user.lastname}`} src={userAvatar} className={classes.large} />
+        </div>
       </div>
 
-      <Avatar alt={`${props.user.forname} ${props.user.lastname}`} src={userAvatar} className={classes.large} />
-
-      <Settings />
+      <div className={classes.sectionMobile}>
+        <div className={classes.row}>
+          <CurrentUserInfo user={props.user} />
+          <Settings className={classes.settings} />
+        </div>
+        <div className={classes.row}>
+          <JobRequest jobRequest={props.jobRequest} asRow={false} />
+          <Avatar variant='square' alt={`${props.user.forname} ${props.user.lastname}`} src={userAvatar} className={classes.mobileAvatar} />
+        </div>
+      </div>
     </div>
   );
 };

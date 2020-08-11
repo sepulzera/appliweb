@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { useTranslation, withTranslation } from 'react-i18next';
+import clsx from 'clsx';
+import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
 import { List, ListItem, ListItemText } from '@material-ui/core';
 import { WbSunny, Brightness3, Language } from '@material-ui/icons';
 import MoreIcon from '@material-ui/icons/MoreVert';
@@ -17,10 +18,12 @@ const useStyles = makeStyles(theme => ({
     display: 'none',
     [theme.breakpoints.up('md')]: {
       display: 'flex',
+      justifyContent: 'flex-end',
     },
   },
   sectionMobile: {
     display: 'flex',
+    justifyContent: 'flex-end',
     [theme.breakpoints.up('md')]: {
       display: 'none',
     },
@@ -32,11 +35,19 @@ const useStyles = makeStyles(theme => ({
 }));
 
 /**
+ * {@link Settings} Props.
+ */
+interface ISettingsProps extends WithTranslation {
+  /** Classes used for styling. */
+  className?: string | undefined;
+}
+
+/**
  * Fancy UserHeader for the {@link HomePage}.
  *
  * @param props - {@link ISettingsProps}.
  */
-const Settings: React.FC<{}> = () => {
+const Settings: React.FC<ISettingsProps> = (props: ISettingsProps) => {
   const classes = useStyles();
   const { t } = useTranslation();
 
@@ -106,7 +117,7 @@ const Settings: React.FC<{}> = () => {
 
   return (
     <>
-      <div className={classes.sectionDesktop}>
+      <div className={clsx(classes.sectionDesktop, props.className)}>
         <div className={classes.settings}>
           {(settingsContext == null || settingsContext.getTheme() === 0) && (
             <IconButton color='inherit' size='small' onClick={handleThemeClick}><Brightness3 /></IconButton>
@@ -120,7 +131,7 @@ const Settings: React.FC<{}> = () => {
         </div>
       </div>
 
-      <div className={classes.sectionMobile}>
+      <div className={clsx(classes.sectionMobile, props.className)}>
         <IconButton
             color = 'inherit'
             aria-label='show more'
