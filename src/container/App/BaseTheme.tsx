@@ -102,6 +102,14 @@ const BaseTheme: React.FC<IBaseThemeProps> = (props: IBaseThemeProps) => {
         borderTop: '1px solid darkgray',
       },
     },
+    MuiBottomNavigationAction: {
+      root: {
+        padding: `${memoTheme.spacing(0.5)}px ${memoTheme.spacing(1.5)}px ${memoTheme.spacing(0.5)}px`,
+      },
+      label: {
+        lineHeight: 1,
+      },
+    },
     MuiDialog: {
       paperWidthSm: {
         maxWidth: 'none',
