@@ -74,7 +74,6 @@ const About: React.FC<WithTranslation> = () => {
 
   return (
     <PageWithHeaderAndFooter header={t('about:about')}>
-      {/* TODO add a neat picture right to this section (should float to bottom on mobile size) */}
       <H variant='h2'>{t('about:intro heading')}</H>
       <P><Trans i18nKey='about:intro 1'>Hey! <Emoji>👋</Emoji></Trans></P>
       <P><Trans i18nKey='about:intro 2'>This is AppliWeb, my Application on Web. It is my personal project to show off my web development skills. If you are looking for a <strong>highly motivated</strong> and <strong>energetic</strong> web developer, feel free to contact me via <Link href='https://xing.com' target='_blank'>XING</Link>.</Trans></P>
@@ -100,7 +99,6 @@ const About: React.FC<WithTranslation> = () => {
       <P><Trans i18nKey='about:libraries 2'>There are some more. Check out the <Link href='https://github.com/sepulzera/appliweb/blob/master/package.json' target='_blank'>package.json</Link> for a full overview.</Trans></P>
 
       <H variant='h2'><Trans i18nKey='about:documentation heading'><Emoji>📝</Emoji> Documentation</Trans></H>
-      {/* TODO The documentation should be made available online or exported as pdf */}
       <P><Trans i18nKey='about:documentation 1'>The <Link href={`${process.env.PUBLIC_URL}/doc/index.html`}>code documentation</Link> is available as offline HTML documentation.</Trans></P>
       <P><Trans i18nKey='about:documentation 2'>The documentation is based on <Link href='https://github.com/microsoft/tsdoc' target='_blank'>TSDoc</Link>, generated with <Link href='https://react-styleguidist.js.org/' target='_blank'>React Styleguidist</Link>.</Trans></P>
 
