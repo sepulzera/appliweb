@@ -25,8 +25,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
       flexDirection: 'row',
       marginLeft: 'auto',
       marginRight: 'auto',
-      paddingLeft: theme.spacing(1),
-      paddingRight: theme.spacing(1),
     },
     [theme.breakpoints.down('md')]: {
       width: 'auto',
@@ -34,8 +32,8 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
       paddingRight: 0,
     },
     [theme.breakpoints.up('lg')]: {
-      width: `calc(1280px - ${theme.spacing(4)}px)`,
-      maxWidth: `calc(100vw - ${theme.spacing(8)}px)`,
+      width: 'calc(80rem - 2rem)',
+      maxWidth: 'calc(100vw - 2rem)',
     },
   },
 
