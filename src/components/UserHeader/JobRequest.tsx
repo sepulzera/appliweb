@@ -13,7 +13,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     margin: 0,
     padding: `${theme.spacing(1)}px ${theme.spacing(3)}px`,
 
-
     color: theme.palette.secondary.contrastText,
     backgroundColor: theme.palette.secondary.main,
 

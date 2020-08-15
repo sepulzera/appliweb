@@ -2,6 +2,8 @@ import * as React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import MuiPaper from '@material-ui/core/Paper';
 
+import { AnyComponent } from '../../types/Types';
+
 const useStyles = makeStyles({
   paper: {
     padding: '2rem',
@@ -17,7 +19,7 @@ const useStyles = makeStyles({
  */
 interface IPaperProps {
   /** Content of the paper. */
-  children: React.ReactNode;
+  children: AnyComponent;
 }
 
 /**

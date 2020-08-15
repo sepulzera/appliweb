@@ -2,6 +2,8 @@ import * as React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import MuiMenuItem from '@material-ui/core/MenuItem';
 
+import { AnyComponent } from '../../types/Types';
+
 const useStyles = makeStyles(theme => ({
   icon: {
     fontSize:    '1rem',
@@ -18,7 +20,7 @@ interface IMenuItemProps {
   /** Callback fired on clicking the item. */
   onClick:  () => void;
   /** Item's text. */
-  children: React.ReactNode;
+  children: AnyComponent;
 }
 
 /**

@@ -1,6 +1,8 @@
 import * as React from 'react';
 import MuiMenu from '@material-ui/core/Menu';
 
+import { AnyComponent } from '../../types/Types';
+
 /**
  * {@link Menu} Props.
  */
@@ -14,7 +16,7 @@ interface IMenuProps {
   /** Callback fired on closing the menu. */
   onClose:  () => void;
   /** {@link MenuItem}s. */
-  children: React.ReactNode;
+  children: AnyComponent;
 }
 
 /**

@@ -89,7 +89,6 @@ const Settings: React.FC<ISettingsProps> = (props: ISettingsProps) => {
     }
   };
 
-
   const mobileMenuId = 'primary-search-account-menu-mobile';
   const renderMobileMenu = (
     <Menu

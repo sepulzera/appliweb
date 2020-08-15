@@ -1,6 +1,8 @@
 import * as React from 'react';
 import MuiIconButton from '@material-ui/core/IconButton';
 
+import { AnyComponent } from '../../types/Types';
+
 /** {@link IconButton} Props. */
 export interface IIconButtonProps {
   /** Font color of the button. */
@@ -10,7 +12,7 @@ export interface IIconButtonProps {
   /** Callback for click. */
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   /** Heading text. */
-  children:   React.ReactNode;
+  children:   AnyComponent;
 }
 
 /**

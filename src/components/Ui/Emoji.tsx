@@ -2,6 +2,8 @@ import * as React from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 
+import { AnyComponent } from '../../types/Types';
+
 const useStyles = makeStyles({
   emoji: {
     fontFamily: [
@@ -23,7 +25,7 @@ export interface IEmojiProps {
   /** Alternative text used by assistive technologies. If not set, this emoji won't be visible to screen readers. */
   label?:     string;
   /** Emoji. */
-  children:   React.ReactNode;
+  children:   AnyComponent;
 }
 
 /**

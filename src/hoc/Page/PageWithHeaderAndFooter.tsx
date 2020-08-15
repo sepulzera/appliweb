@@ -2,6 +2,8 @@ import React from 'react';
 
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
+import { AnyComponent } from '../../types/Types';
+
 import Container from '../../components/Ui/Container';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
@@ -28,9 +30,9 @@ interface IPageWithHeaderAndFooterProps {
   /** Header title to render. */
   header?: string;
   /** Custom header? */
-  headerComponent?: React.ReactNode;
+  headerComponent?: AnyComponent;
   /** Main page content. */
-  children: React.ReactNode;
+  children: AnyComponent;
 }
 
 /**

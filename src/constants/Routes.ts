@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { AccountBalance, Face, Home, Info } from '@material-ui/icons';
 
+import { AnyComponent } from '../types/Types';
+
 import HomePage from '../container/HomePage/HomePage';
 import AboutPage from '../container/AboutPage/AboutPage';
 import LegalPage from '../container/LegalPage/LegalPage';
@@ -17,7 +19,7 @@ export type IRouteType = {
   /** Displayed icon for the navigation menu. */
   icon:      any;
   /** Container for this route. */
-  component: React.ReactNode;
+  component: AnyComponent;
 }
 
 /**

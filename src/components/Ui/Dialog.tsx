@@ -2,6 +2,8 @@ import * as React from 'react';
 import MuiDialog from '@material-ui/core/Dialog';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 
+import { AnyComponent } from '../../types/Types';
+
 /** {@link Dialog} Props. */
 export interface IDialogProps {
   /** Title/Heading. */
@@ -11,7 +13,7 @@ export interface IDialogProps {
   /** Callback for click. */
   onClose?: () => void;
   /** Heading text. */
-  children:   React.ReactNode;
+  children:   AnyComponent;
 }
 
 /**

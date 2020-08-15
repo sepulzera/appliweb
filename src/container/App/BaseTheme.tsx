@@ -4,6 +4,8 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { useMediaQuery } from '@material-ui/core';
 import { TypographyOptions } from '@material-ui/core/styles/createTypography';
 
+import { AnyComponent } from '../../types/Types';
+
 /**
  * {@link BaseTheme} Props
  */
@@ -11,7 +13,7 @@ interface IBaseThemeProps {
   /** Theme. 0=light, 1=dark. */
   theme: number | undefined;
   /** Components that should use this theme, e. g. the whole application. */
-  children: React.ReactNode;
+  children: AnyComponent;
 }
 
 /**

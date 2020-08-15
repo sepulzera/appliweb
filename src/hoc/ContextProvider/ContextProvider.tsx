@@ -1,4 +1,7 @@
 import * as React from 'react';
+
+import { AnyComponent } from '../../types/Types';
+
 import UserContextProvider from '../../context/UserContext/UserContextProvider';
 import JobRequestContextProvider from '../../context/JobRequestContext/JobRequestContextProvider';
 import SettingsContextProvider from '../../context/SettingsContext/SettingsContextProvider';
@@ -8,7 +11,7 @@ import SettingsContextProvider from '../../context/SettingsContext/SettingsConte
  */
 interface IContextProviderProps {
   /** App container that should have access to the providers. */
-  children: React.ReactNode;
+  children: AnyComponent;
 }
 
 /**

@@ -3,12 +3,14 @@ import * as React from 'react';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTranslation } from 'react-i18next';
 
+import { AnyComponent } from '../../types/Types';
+
 import SettingsContext from './SettingsContext';
 
 /** {@link SettingsContextProvider} Props. */
 interface ISettingsContextProviderProps {
   /** App container that should have access to the providers. */
-  children: React.ReactNode;
+  children: AnyComponent;
 }
 
 /**

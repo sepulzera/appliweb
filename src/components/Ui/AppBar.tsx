@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
  */
 interface IAppBarProps {
   /** Content of the AppBar, probably some kind of heading. */
-  children: React.ReactNode;
+  children: React.ReactElement[];
 }
 
 /**

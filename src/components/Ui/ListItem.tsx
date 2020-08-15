@@ -1,11 +1,13 @@
 import * as React from 'react';
 
+import { AnyComponent } from '../../types/Types';
+
 /**
  * {@link ListItem} Props.
  */
 export interface IListItemProps {
   /** Text to render. */
-  children: React.ReactNode;
+  children: AnyComponent;
 }
 
 /**

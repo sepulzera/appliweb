@@ -1,16 +1,20 @@
 import * as React from 'react';
 
-import ErrorBoundary from '../../hoc/ErrorBoundary/ErrorBoundary';
 import { CssBaseline } from '@material-ui/core';
-import BaseTheme from './BaseTheme';
+
+import { AnyComponent } from '../../types/Types';
+
+import ErrorBoundary from '../../hoc/ErrorBoundary/ErrorBoundary';
 import SettingsContext from '../../context/SettingsContext/SettingsContext';
+
+import BaseTheme from './BaseTheme';
 
 /**
  * {@link App} Props.
  */
 interface IAppProps {
   /** The actual app container. */
-  children: React.ReactNode;
+  children: AnyComponent;
 }
 
 /**

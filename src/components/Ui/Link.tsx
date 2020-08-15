@@ -1,6 +1,8 @@
 import * as React from 'react';
 import MuiLink from '@material-ui/core/Link';
 
+import { AnyComponent } from '../../types/Types';
+
 /**
  * {@link Link} Props.
  */
@@ -21,7 +23,7 @@ interface ILinkProps {
    */
   target?:  '_blank' | '_self' | 'parent' | 'top' | undefined;
   /** Prompt for the link. Probably plain text. */
-  children: React.ReactNode;
+  children: AnyComponent;
 }
 
 /**

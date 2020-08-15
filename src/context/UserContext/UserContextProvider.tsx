@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import { AnyComponent } from '../../types/Types';
+
 import UserContext from './UserContext';
 import UserRecord from './UserRecord';
 import UserData from './UserData.json';
@@ -7,7 +9,7 @@ import UserData from './UserData.json';
 /** {@link UserContextProvider} Props. */
 interface IUserContextProviderProps {
   /** App container that should have access to the providers. */
-  children: React.ReactNode;
+  children: AnyComponent;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
