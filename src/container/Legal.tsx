@@ -1,5 +1,6 @@
 import React from 'react';
-import Legal from '../../components/Page/Legal';
+
+import Legal from '../pages/LegalPage';
 
 /**
  * Page rendering legal information about this website.

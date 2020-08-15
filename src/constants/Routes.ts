@@ -3,10 +3,10 @@ import { AccountBalance, Face, Home, Info } from '@material-ui/icons';
 
 import { AnyComponent } from '../types/Types';
 
-import HomePage from '../container/HomePage/HomePage';
-import AboutPage from '../container/AboutPage/AboutPage';
-import LegalPage from '../container/LegalPage/LegalPage';
-import PrivacyPage from '../container/PrivacyPage/PrivacyPage';
+import HomePage from '../container/Home';
+import AboutPage from '../container/About';
+import LegalPage from '../container/Legal';
+import PrivacyPage from '../container/Privacy';
 
 /**
  * {@link Routes) Type.

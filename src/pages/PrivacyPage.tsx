@@ -1,10 +1,10 @@
 import React from 'react';
 import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
 
-import PageWithHeaderAndFooter from '../../hoc/Page/PageWithHeaderAndFooter';
+import PageWithHeaderAndFooter from '../hoc/Page/PageWithHeaderAndFooter';
 
-import PrivacyDe from '../Privacy/PrivacyDe';
-import PrivacyEn from '../Privacy/PrivacyEn';
+import PrivacyDe from '../components/Privacy/PrivacyDe';
+import PrivacyEn from '../components/Privacy/PrivacyEn';
 
 /**
  * Component rendering privacy information.

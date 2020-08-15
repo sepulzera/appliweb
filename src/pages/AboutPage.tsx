@@ -2,13 +2,13 @@
 import React from 'react';
 import { useTranslation, withTranslation, WithTranslation, Trans } from 'react-i18next';
 
-import PageWithHeaderAndFooter from '../../hoc/Page/PageWithHeaderAndFooter';
-import H from '../Ui/H';
-import P from '../Ui/P';
-import Link from '../Ui/Link';
-import Emoji from '../Ui/Emoji';
-import Table, { column } from '../Ui/Table';
-import EmojiWord from '../Ui/EmojiWord';
+import PageWithHeaderAndFooter from '../hoc/Page/PageWithHeaderAndFooter';
+import H from '../components/Ui/H';
+import P from '../components/Ui/P';
+import Link from '../components/Ui/Link';
+import Emoji from '../components/Ui/Emoji';
+import Table, { column } from '../components/Ui/Table';
+import EmojiWord from '../components/Ui/EmojiWord';
 
 /**
  * Component rendering some kind of beautiful readme about this app.

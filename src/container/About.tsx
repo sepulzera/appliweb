@@ -1,5 +1,6 @@
 import React from 'react';
-import About from '../../components/Page/About';
+
+import About from '../pages/AboutPage';
 
 /**
  * Page rendering some kind of beautiful readme about this app.

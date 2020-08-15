@@ -2,10 +2,10 @@ import * as React from 'react';
 
 import { CssBaseline } from '@material-ui/core';
 
-import { AnyComponent } from '../../types/Types';
+import { AnyComponent } from '../types/Types';
 
-import ErrorBoundary from '../../hoc/ErrorBoundary/ErrorBoundary';
-import SettingsContext from '../../context/SettingsContext/SettingsContext';
+import ErrorBoundary from '../hoc/ErrorBoundary/ErrorBoundary';
+import SettingsContext from '../context/SettingsContext/SettingsContext';
 
 import BaseTheme from './BaseTheme';
 

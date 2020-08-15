@@ -1,9 +1,9 @@
 import React from 'react';
 import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
 
-import H from '../Ui/H';
-import P from '../Ui/P';
-import PageWithHeaderAndFooter from '../../hoc/Page/PageWithHeaderAndFooter';
+import H from '../components/Ui/H';
+import P from '../components/Ui/P';
+import PageWithHeaderAndFooter from '../hoc/Page/PageWithHeaderAndFooter';
 
 /**
  * Component rendering legal information about this website.

@@ -4,7 +4,7 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { useMediaQuery } from '@material-ui/core';
 import { TypographyOptions } from '@material-ui/core/styles/createTypography';
 
-import { AnyComponent } from '../../types/Types';
+import { AnyComponent } from '../types/Types';
 
 /**
  * {@link BaseTheme} Props

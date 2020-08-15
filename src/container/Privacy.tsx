@@ -1,5 +1,6 @@
 import React from 'react';
-import Privacy from '../../components/Page/Privacy';
+
+import Privacy from '../pages/PrivacyPage';
 
 /**
  * Page rendering privacy information.

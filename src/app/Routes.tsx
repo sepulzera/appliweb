@@ -2,10 +2,10 @@ import React from 'react';
 import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
-import routes, { IRouteType } from '../../constants/Routes';
-import PageTitleFixer from '../../hoc/Page/PageTitleFixer';
+import routes, { IRouteType } from '../constants/Routes';
+import PageTitleFixer from '../hoc/Page/PageTitleFixer';
 
-import App from '../App/App';
+import App from './App';
 
 /**
  * Routes available in this app.

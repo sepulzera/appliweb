@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import ContextProvider from '../../hoc/ContextProvider/ContextProvider';
-import Loader from '../../components/Loader/Loader';
+import ContextProvider from '../hoc/ContextProvider/ContextProvider';
+import Loader from '../components/Loader/Loader';
 import Routes from './Routes';
 
 /**
