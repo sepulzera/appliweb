@@ -148,6 +148,7 @@ const Settings: React.FC<ISettingsProps> = (props: ISettingsProps) => {
         <List>
           {SupportedLanguages.map(lang => (
             <ListItem
+                key      = {lang}
                 button
                 dense
                 selected = {settingsContext != null && lang === settingsContext.getLanguage()}
