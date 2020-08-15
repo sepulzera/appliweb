@@ -1,3 +1,12 @@
 {
+  "degree": "Abschluss",
+
+  "employed at": "Angestellt",
+  "job request": "Jobwunsch",
+
+  "state not interested": "Aktuell kein Interesse an Angeboten",
+  "state open": "Offen für Angebote",
+  "state looking": "Aktiv auf Jobsuche",
+
   "software developer": "Softwareentwickler"
 }

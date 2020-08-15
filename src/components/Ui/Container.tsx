@@ -1,16 +1,26 @@
 import * as React from 'react';
 import clsx from 'clsx';
 
-import { makeStyles } from '@material-ui/core/styles';
-import MuiContainer from '@material-ui/core/Container';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme: Theme) => createStyles({
   container: {
-    flex: '1 1 1px',
+    width: '100%',
+    display: 'block',
+    marginLeft: 'auto',
+    marginRight: 'auto',
     overflowY: 'auto',
     overflowX: 'hidden',
+
+    [theme.breakpoints.up('md')]: {
+      paddingLeft: '1rem',
+      paddingRight: '1rem',
+    },
+    [theme.breakpoints.up('lg')]: {
+      maxWidth: '80rem',
+    },
   },
-});
+}));
 
 /**
  * {@link Container} Props.
@@ -30,9 +40,9 @@ interface IContainerProps {
 const Container: React.FC<IContainerProps> = (props: IContainerProps) => {
   const classes = useStyles();
   return (
-    <MuiContainer className={clsx(classes.container, props.className)}>
+    <div className={clsx(classes.container, props.className)}>
       {props.children}
-    </MuiContainer>
+    </div>
   );
 };
 

@@ -4,8 +4,8 @@
       "id":         1,
       "forname":    "Frank",
       "lastname":   "Hartung",
-      "avatar":     "Hartung_Frank.jpg",
-      "jobtitle":   "software developer"
+      "jobtitle":   "software developer",
+      "avatar":     "Hartung_Frank.png"
     }
   ]
 }

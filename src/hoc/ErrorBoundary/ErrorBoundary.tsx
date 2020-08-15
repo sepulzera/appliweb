@@ -60,13 +60,13 @@ class ErrorBoundary extends React.Component<IErrorBoundaryProps, IErrorBoundaryS
           <Typography variant='h1' gutterBottom>{t('error:title')}</Typography>
           {this.props.verbose && (
             <>
-              <Typography variant='h4' component='h2'>{t('error:message')}</Typography>
+              <Typography variant='h4' component='h2'>{`${t('error:message')}:`}</Typography>
               <Typography variant='body1'>{this.state.error.message}</Typography>
             </>
           )}
           {this.props.printStack && (
             <>
-              <Typography variant='h4' component='h2'>{t('error:stack')}</Typography>
+              <Typography variant='h4' component='h2'>{`${t('error:stack')}:`}</Typography>
               <Typography variant='body1'>{this.state.error.stack}</Typography>
             </>
           )}

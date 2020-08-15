@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
       width: '100vw',
     },
     [theme.breakpoints.up('md')]: {
-      width: `calc(1280px - ${theme.spacing(4)}px)`,
+      width: `calc(80rem - ${theme.spacing(4)}px)`,
       maxWidth: `calc(100vw - ${theme.spacing(8)}px)`,
     },
     display: 'flex',

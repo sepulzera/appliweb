@@ -1,12 +1,25 @@
 import React from 'react';
 
-import { Container } from '@material-ui/core';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
+import Container from '../../components/Ui/Container';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import Paper from '../../components/Ui/Paper';
 
-import useStyles from './PageWithHeaderAndFooter.style';
+const useStyles = makeStyles((theme: Theme) => createStyles({
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+    height: '100vh',
+    backgroundColor: theme.palette.background.default,
+  },
+  container: {
+    flex: '1 1 1px',
+    overflowY: 'auto',
+    overflowX: 'hidden',
+  },
+}));
 
 /**
  * {@link PageWithHeaderAndFooter} Props.

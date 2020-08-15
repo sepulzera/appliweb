@@ -13,8 +13,8 @@ interface IUserContextProviderProps {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function createUserFromJson(input: any) {
   return new UserRecord(input.id,
-      input.forname, input.lastname, input.avatar,
-      input.jobtitle);
+      input.forname, input.lastname,
+      input.jobtitle, input.avatar);
 }
 
 function getUserMap() {
@@ -35,8 +35,8 @@ function getUserMap() {
 const UserContextProvider: React.FC<IUserContextProviderProps> = (props: IUserContextProviderProps) => {
   const [data] = React.useState(getUserMap());
 
-  const getUser = (id: number) => {
-    const user = data.get(id);
+  const getUser = (id: number): UserRecord | undefined => {
+    const user: UserRecord | undefined = data.get(id);
     return user;
   };
 
