@@ -19,10 +19,12 @@ const columns = [
 
 const data = [
   {
+    id: 'SomeProperty',
     SomeProperty:    'Some Simple value',
     AnotherProperty: <i>Some complex value</i>,
   },
   {
+    id: 'SomeValue',
     SomeProperty:    <i>Another complex value</i>,
     AnotherProperty: 'Another simple value',
   },

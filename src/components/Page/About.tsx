@@ -32,18 +32,22 @@ const About: React.FC<WithTranslation> = () => {
 
   const productionLibraries = [
     {
+      id:      'material-ui',
       library: <Link href='https://github.com/mui-org/material-ui' target='_blank'>Material-UI</Link>,
       usecase: <Trans i18nKey='about:libraries production material-ui'>UI Framework providing React components based on <em>Material Design</em>, plus icons.</Trans>,
     },
     {
+      id:      'react',
       library: <Link href='https://reactjs.org/' target='_blank'>React</Link>,
       usecase: t('about:libraries production react'),
     },
     {
+      id:      'react-i18next',
       library: <Link href='https://react.i18next.com/' target='_blank'>react-i18next</Link>,
       usecase: t('about:libraries production react-i18next'),
     },
     {
+      id:      'react-router',
       library: <Link href='https://github.com/ReactTraining/react-router' target='_blank'>react-router</Link>,
       usecase: t('about:libraries production react-router'),
     },
