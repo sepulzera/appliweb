@@ -1,7 +1,8 @@
 import React from 'react';
 
-import UserContext from '../context/UserContext/UserContext';
 import JobRequestContext from '../context/JobRequestContext/JobRequestContext';
+import LeisureContext from '../context/LeisureContext/LeisureContext';
+import UserContext from '../context/UserContext/UserContext';
 
 import Home from '../pages/HomePage';
 
@@ -13,15 +14,21 @@ import Home from '../pages/HomePage';
 const HomePage: React.FC<{}> = () => {
   const userContext = React.useContext(UserContext);
   const jobRequestContext = React.useContext(JobRequestContext);
+  const leisureContext = React.useContext(LeisureContext);
 
   // HACK: There is only one user - me!
-  const user = userContext != null ? userContext.getUser(1) : undefined;
-  const jobRequest = jobRequestContext != null ? jobRequestContext.getJobRequestForUser(1) : undefined;
+  const userId = 1;
+  const user       = userContext != null ? userContext.getUser(userId) : undefined;
+  const jobRequest = jobRequestContext != null ? jobRequestContext.getJobRequestForUser(userId) : undefined;
+  const leisures   = leisureContext != null ? leisureContext.getLeisuresForUser(userId) : undefined;
 
-  if (user == null || jobRequest == null) return null;
+  if (user == null || jobRequest == null || leisures == null) return null;
 
   return (
-    <Home user={user} jobRequest={jobRequest} />
+    <Home
+        jobRequest={jobRequest}
+        leisures={leisures}
+        user={user} />
   );
 };
 

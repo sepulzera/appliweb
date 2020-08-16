@@ -4,13 +4,16 @@ import UserHeader from '../components/UserHeader/UserHeader';
 import PageWithHeaderAndFooter from '../hoc/Page/PageWithHeaderAndFooter';
 import JobRequestRecord from '../context/JobRequestContext/JobRequestRecord';
 import UserRecord from '../context/UserContext/UserRecord';
+import LeisureRecord from '../context/LeisureContext/LeisureRecord';
+import Leisures from '../components/Leisures/Leisures';
 
 /**
  * {@link HomePage} Props.
  */
 interface IHomePageProps {
-  user: UserRecord;
   jobRequest: JobRequestRecord;
+  leisures: Array<LeisureRecord>;
+  user: UserRecord;
 }
 
 /**
@@ -21,7 +24,7 @@ interface IHomePageProps {
 const Home: React.FC<IHomePageProps> = (props: IHomePageProps) => (
   <PageWithHeaderAndFooter
       headerComponent = {<UserHeader user={props.user} jobRequest={props.jobRequest} />}>
-    TODO
+    <Leisures leisures={props.leisures} />
   </PageWithHeaderAndFooter>
 );
 
