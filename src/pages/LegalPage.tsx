@@ -8,9 +8,9 @@ import PageWithHeaderAndFooter from '../hoc/Page/PageWithHeaderAndFooter';
 /**
  * Component rendering legal information about this website.
  *
- * See also: {@link LegalPage}
+ * See also: {@link LegalContainer}
  */
-const Legal: React.FC<WithTranslation> = () => {
+const LegalPage: React.FC<WithTranslation> = () => {
   const { t } = useTranslation();
 
   return (
@@ -27,4 +27,4 @@ const Legal: React.FC<WithTranslation> = () => {
   );
 };
 
-export default withTranslation()(Legal);
+export default withTranslation()(LegalPage);

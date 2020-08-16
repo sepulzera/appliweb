@@ -9,9 +9,9 @@ import PrivacyEn from '../components/Privacy/PrivacyEn';
 /**
  * Component rendering privacy information.
  *
- * See also: {@link PrivacyPage}
+ * See also: {@link PrivacyContainer}
  */
-const Privacy: React.FC<WithTranslation> = () => {
+const PrivacyPage: React.FC<WithTranslation> = () => {
   const { t, i18n } = useTranslation();
 
   return (
@@ -26,4 +26,4 @@ const Privacy: React.FC<WithTranslation> = () => {
   );
 };
 
-export default withTranslation()(Privacy);
+export default withTranslation()(PrivacyPage);

@@ -13,9 +13,9 @@ import EmojiWord from '../components/Ui/EmojiWord';
 /**
  * Component rendering some kind of beautiful readme about this app.
  *
- * See also: {@link AboutPage}
+ * See also: {@link AboutContainer}
  */
-const About: React.FC<WithTranslation> = () => {
+const AboutPage: React.FC<WithTranslation> = () => {
   const { t } = useTranslation();
 
   const libraryTableColumns: Array<column> = [
@@ -116,4 +116,4 @@ const About: React.FC<WithTranslation> = () => {
   );
 };
 
-export default withTranslation()(About);
+export default withTranslation()(AboutPage);

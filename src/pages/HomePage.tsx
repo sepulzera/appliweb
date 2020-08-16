@@ -11,21 +11,21 @@ import Leisures from '../components/Leisures/Leisures';
  * {@link HomePage} Props.
  */
 interface IHomePageProps {
-  jobRequest: JobRequestRecord;
-  leisures: Array<LeisureRecord>;
-  user: UserRecord;
+  jobRequest: JobRequestRecord | undefined;
+  leisures:   Array<LeisureRecord>;
+  user:       UserRecord;
 }
 
 /**
  * Home component rendering the actual content - me!
  *
- * See also: {@link HomePage}
+ * See also: {@link HomeContainer}
  */
-const Home: React.FC<IHomePageProps> = (props: IHomePageProps) => (
+const HomePage: React.FC<IHomePageProps> = (props: IHomePageProps) => (
   <PageWithHeaderAndFooter
       headerComponent = {<UserHeader user={props.user} jobRequest={props.jobRequest} />}>
     <Leisures leisures={props.leisures} />
   </PageWithHeaderAndFooter>
 );
 
-export default Home;
+export default HomePage;

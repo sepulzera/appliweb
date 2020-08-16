@@ -4,14 +4,14 @@ import JobRequestContext from '../context/JobRequestContext/JobRequestContext';
 import LeisureContext from '../context/LeisureContext/LeisureContext';
 import UserContext from '../context/UserContext/UserContext';
 
-import Home from '../pages/HomePage';
+import HomePage from '../pages/HomePage';
 
 /**
  * Homepage rendering the actual content - me!
  *
- * See also: {@link Home}
+ * See also: {@link HomePage}
  */
-const HomePage: React.FC<{}> = () => {
+const HomeContainer: React.FC<{}> = () => {
   const userContext = React.useContext(UserContext);
   const jobRequestContext = React.useContext(JobRequestContext);
   const leisureContext = React.useContext(LeisureContext);
@@ -25,11 +25,11 @@ const HomePage: React.FC<{}> = () => {
   if (user == null || jobRequest == null || leisures == null) return null;
 
   return (
-    <Home
+    <HomePage
         jobRequest={jobRequest}
         leisures={leisures}
         user={user} />
   );
 };
 
-export default HomePage;
+export default HomeContainer;
