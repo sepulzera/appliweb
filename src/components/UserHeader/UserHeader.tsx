@@ -85,7 +85,7 @@ interface IUserHeaderProps {
   /** User to display. */
   user: UserRecord;
   /** Jobrequest to display. */
-  jobRequest: JobRequestRecord;
+  jobRequest: JobRequestRecord | undefined;
 }
 
 /**
@@ -103,7 +103,7 @@ const UserHeader: React.FC<IUserHeaderProps> = (props: IUserHeaderProps) => {
       <div className={classes.sectionTabletAndDesktop}>
         <div className={classes.user}>
           <CurrentUserInfo user={props.user} />
-          <JobRequest jobRequest={props.jobRequest} asRow />
+          { props.jobRequest && <JobRequest jobRequest={props.jobRequest} asRow /> }
         </div>
 
         <div className={classes.column}>
@@ -118,7 +118,7 @@ const UserHeader: React.FC<IUserHeaderProps> = (props: IUserHeaderProps) => {
           <Settings className={classes.settings} />
         </div>
         <div className={classes.row}>
-          <JobRequest jobRequest={props.jobRequest} asRow={false} />
+          { props.jobRequest && <JobRequest jobRequest={props.jobRequest} asRow={false} /> }
           <Avatar variant='square' alt={`${props.user.forname} ${props.user.lastname}`} src={userAvatar} className={classes.mobileAvatar} />
         </div>
       </div>

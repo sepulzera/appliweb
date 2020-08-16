@@ -2,5 +2,8 @@
   "missing error": "Ups, hier ist etwas schiefgelaufen!",
   "title": "Fehler",
   "message": "Grund",
-  "stack": "Stack"
+  "stack": "Stack",
+
+  "user not found title": "Profil nicht gefunden",
+  "user not found message": "Das aufgerufene Profil existiert nicht."
 }
