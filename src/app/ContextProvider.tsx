@@ -1,11 +1,11 @@
 import * as React from 'react';
 
-import { AnyComponent } from '../../types/Types';
+import { AnyComponent } from '../types/Types';
 
-import JobRequestContextProvider from '../../context/JobRequestContext/JobRequestContextProvider';
-import LeisureContextProvider from '../../context/LeisureContext/LeisureContextProvider';
-import SettingsContextProvider from '../../context/SettingsContext/SettingsContextProvider';
-import UserContextProvider from '../../context/UserContext/UserContextProvider';
+import JobRequestContextProvider from '../context/JobRequestContext/JobRequestContextProvider';
+import LeisureContextProvider from '../context/LeisureContext/LeisureContextProvider';
+import SettingsContextProvider from '../context/SettingsContext/SettingsContextProvider';
+import UserContextProvider from '../context/UserContext/UserContextProvider';
 
 /**
  * {@link ContextProvider} Props.
