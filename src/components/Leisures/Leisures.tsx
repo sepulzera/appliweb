@@ -1,11 +1,15 @@
 import * as React from 'react';
+import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
 
 import LeisureRecord from '../../context/LeisureContext/LeisureRecord';
+import CapsHeading from '../Heading/CapsHeading';
+import List from '../Ui/List';
+import ListItem from '../Ui/ListItem';
 
 /**
  * {@link Leisures} Props.
  */
-interface ILeisuresProps {
+interface ILeisuresProps extends WithTranslation {
   /** Leisures to display. */
   leisures: Array<LeisureRecord>;
 }
@@ -16,13 +20,18 @@ interface ILeisuresProps {
  * @param props - {@link ILeisuresProps}.
  */
 const Leisures: React.FC<ILeisuresProps> = (props: ILeisuresProps) => {
-  const leisureList = props.leisures.map(leisure => <li>{leisure.title}</li>);
+  const { t } = useTranslation();
+
+  const leisureList = props.leisures.map(leisure => <ListItem>{t(leisure.title)}</ListItem>);
 
   return (
-    <ul>
-      {leisureList}
-    </ul>
+    <>
+      <CapsHeading>{t('leisure:heading')}</CapsHeading>
+      <List noMarks>
+        {leisureList}
+      </List>
+    </>
   );
 };
 
-export default Leisures;
+export default withTranslation()(Leisures);
