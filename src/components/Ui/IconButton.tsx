@@ -11,6 +11,7 @@ export interface IIconButtonProps {
   size?: 'small' | 'medium';
   /** Callback for click. */
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  className?: string | undefined;
   /** Heading text. */
   children:   AnyComponent;
 }
@@ -21,7 +22,7 @@ export interface IIconButtonProps {
  * @param props - {@link IIconButtonProps}.
  */
 const IconButton: React.FC<IIconButtonProps> = (props: IIconButtonProps) => (
-  <MuiIconButton color={props.color} size={props.size} onClick={props.onClick}>
+  <MuiIconButton color={props.color} size={props.size} onClick={props.onClick} className={props.className}>
     {props.children}
   </MuiIconButton>
 );

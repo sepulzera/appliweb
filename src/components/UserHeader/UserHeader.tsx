@@ -1,14 +1,13 @@
 import * as React from 'react';
-import { Avatar } from '@material-ui/core';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
-import AssetsHelper from '../../assets/AssetsHelper';
 import UserRecord from '../../context/UserContext/UserRecord';
 import JobRequestRecord from '../../context/JobRequestContext/JobRequestRecord';
 
 import Settings from '../Settings/Settings';
 import CurrentUserInfo from './CurrentUserInfo';
 import JobRequest from './JobRequest';
+import Image from '../Ui/Image';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   header: {
@@ -57,7 +56,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     position: 'relative',
     top: `${theme.spacing(2)}px`,
     right: '0',
-    zIndex: 99999,
+    zIndex: 1,
     height: 'min-content',
   },
 
@@ -96,8 +95,6 @@ interface IUserHeaderProps {
 const UserHeader: React.FC<IUserHeaderProps> = (props: IUserHeaderProps) => {
   const classes = useStyles();
 
-  const userAvatar = AssetsHelper.getAsset(props.user.avatar);
-
   return (
     <div className={classes.header}>
       <div className={classes.sectionTabletAndDesktop}>
@@ -108,7 +105,7 @@ const UserHeader: React.FC<IUserHeaderProps> = (props: IUserHeaderProps) => {
 
         <div className={classes.column}>
           <Settings className={classes.settings} />
-          <Avatar variant='square' alt={`${props.user.forname} ${props.user.lastname}`} src={userAvatar} className={classes.large} />
+          <Image alt={`${props.user.forname} ${props.user.lastname}`} src={props.user.avatar} className={classes.large} />
         </div>
       </div>
 
@@ -119,7 +116,7 @@ const UserHeader: React.FC<IUserHeaderProps> = (props: IUserHeaderProps) => {
         </div>
         <div className={classes.row}>
           { props.jobRequest && <JobRequest jobRequest={props.jobRequest} asRow={false} /> }
-          <Avatar variant='square' alt={`${props.user.forname} ${props.user.lastname}`} src={userAvatar} className={classes.mobileAvatar} />
+          <Image alt={`${props.user.forname} ${props.user.lastname}`} src={props.user.avatar} className={classes.mobileAvatar} />
         </div>
       </div>
     </div>

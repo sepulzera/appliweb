@@ -1,3 +1,9 @@
+export type FeaturePageData = {
+  uid:      string;
+  component: string;
+  props:     Array<any>;
+}
+
 /**
  * LeisureRecord.
  */
@@ -10,9 +16,10 @@ export default class LeisureRecord {
 
   /** Title as i18n-identifier. */
   title:       string;
-
   /** FeaturePage. */
-  feature:     any;
+  feature:     Array<FeaturePageData>;
+  /** FeaturePage. */
+  image:       string;
 
   constructor(
     id:          number,
@@ -20,15 +27,15 @@ export default class LeisureRecord {
     userId:      number,
 
     title:       string,
-
-    feature:     any
+    feature:     Array<FeaturePageData>,
+    image:       string
   ) {
       this.id          = id;
 
       this.userId      = userId;
 
       this.title       = title;
-
       this.feature     = feature;
+      this.image       = image;
   }
 }

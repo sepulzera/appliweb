@@ -112,9 +112,9 @@ const BaseTheme: React.FC<IBaseThemeProps> = (props: IBaseThemeProps) => {
         lineHeight: 1,
       },
     },
-    MuiDialog: {
-      paperWidthSm: {
-        maxWidth: 'none',
+    MuiButton: {
+      root: {
+        textTransform: 'unset',
       },
     },
     MuiDialogTitle: {
