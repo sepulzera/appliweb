@@ -6,13 +6,6 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import AssetsHelper from '../../assets/AssetsHelper';
 
-const useStyles = makeStyles({
-  img: {
-    width:  'auto',
-    height: 'auto',
-  },
-});
-
 /** {@link Image} Props. */
 export interface IImageProps {
   /** URI to the resource. */
@@ -22,6 +15,13 @@ export interface IImageProps {
   /** Classes used for styling. */
   className?: string | undefined;
 }
+
+const useStyles = makeStyles({
+  img: {
+    width:  'auto',
+    height: 'auto',
+  },
+});
 
 /**
  * Renders an image.

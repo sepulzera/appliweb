@@ -4,6 +4,14 @@ import MuiPaper from '@material-ui/core/Paper';
 
 import { AnyComponent } from '../../types/Types';
 
+/**
+ * {@link Paper} Props.
+ */
+interface IPaperProps {
+  /** Content of the paper. */
+  children: AnyComponent;
+}
+
 const useStyles = makeStyles({
   paper: {
     padding: '2rem',
@@ -13,14 +21,6 @@ const useStyles = makeStyles({
     },
   },
 });
-
-/**
- * {@link Paper} Props.
- */
-interface IPaperProps {
-  /** Content of the paper. */
-  children: AnyComponent;
-}
 
 /**
  * Renders a digital paper to place content on.

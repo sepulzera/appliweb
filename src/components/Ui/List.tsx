@@ -4,16 +4,6 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import { IListItemProps } from './ListItem';
 
-const useStyles = makeStyles({
-  noMarks: {
-    paddingLeft: 0,
-
-    '& li': {
-      display: 'block',
-    },
-  },
-});
-
 /**
  * {@link List} Props.
  */
@@ -24,6 +14,16 @@ interface IListProps {
   /** List of {@link ListItem}. */
   children: React.ReactElement<IListItemProps> | Array<React.ReactElement<IListItemProps>>;
 }
+
+const useStyles = makeStyles({
+  noMarks: {
+    paddingLeft: 0,
+
+    '& li': {
+      display: 'block',
+    },
+  },
+});
 
 /**
  * Renders a styled list.

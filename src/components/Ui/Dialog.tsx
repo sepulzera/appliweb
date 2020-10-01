@@ -21,10 +21,18 @@ export interface IDialogProps {
   children:   AnyComponent;
 }
 
+/** {@link DialogTitle} Props. */
+interface IDialogTitleProps {
+  /** Callback for click. */
+  onClose?: () => void;
+  /** DialogTitle content. */
+  children:   AnyComponent;
+}
+
 const useStyles = makeStyles(theme => ({
   root: {
-    paddingRight: theme.spacing(2),
-    paddingTop: theme.spacing(0.5),
+    paddingRight:  theme.spacing(2),
+    paddingTop:    theme.spacing(0.5),
     paddingBottom: theme.spacing(0.5),
   },
   closeButton: {
@@ -33,14 +41,6 @@ const useStyles = makeStyles(theme => ({
     top:      theme.spacing(0),
   },
 }));
-
-/** {@link DialogTitle} Props. */
-interface IDialogTitleProps {
-  /** Callback for click. */
-  onClose?: () => void;
-  /** DialogTitle content. */
-  children:   AnyComponent;
-}
 
 const DialogTitle: React.FC<IDialogTitleProps> = (props: IDialogTitleProps) => {
   const classes = useStyles();

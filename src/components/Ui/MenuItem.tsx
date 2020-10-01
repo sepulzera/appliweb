@@ -4,14 +4,6 @@ import MuiMenuItem from '@material-ui/core/MenuItem';
 
 import { AnyComponent } from '../../types/Types';
 
-const useStyles = makeStyles(theme => ({
-  icon: {
-    fontSize:    '1rem',
-    lineHeight:  0,
-    marginRight: theme.spacing(2),
-  },
-}));
-
 /**
  * {@link MenuItem} Props.
  */
@@ -22,6 +14,14 @@ interface IMenuItemProps {
   /** Item's text. */
   children: AnyComponent;
 }
+
+const useStyles = makeStyles(theme => ({
+  icon: {
+    fontSize:    '1rem',
+    lineHeight:  0,
+    marginRight: theme.spacing(2),
+  },
+}));
 
 /**
  * Renders a menu item.

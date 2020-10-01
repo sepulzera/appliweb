@@ -3,6 +3,14 @@ import { makeStyles } from '@material-ui/core/styles';
 import MuiAppBar from '@material-ui/core/AppBar';
 import { Toolbar, Container } from '@material-ui/core';
 
+/**
+ * {@link AppBar} Props.
+ */
+interface IAppBarProps {
+  /** Content of the AppBar, probably some kind of heading. */
+  children: React.ReactElement[];
+}
+
 const useStyles = makeStyles(theme => ({
   toolbar: {
     marginLeft:  'auto',
@@ -22,14 +30,6 @@ const useStyles = makeStyles(theme => ({
     paddingRight: theme.spacing(3),
   },
 }));
-
-/**
- * {@link AppBar} Props.
- */
-interface IAppBarProps {
-  /** Content of the AppBar, probably some kind of heading. */
-  children: React.ReactElement[];
-}
 
 /**
  * Displays information relating to the current site.

@@ -8,6 +8,15 @@ import Settings from '../Settings/Settings';
 import CurrentUserInfo from './CurrentUserInfo';
 import JobRequest from './JobRequest';
 import Image from '../Ui/Image';
+/**
+ * {@link UserHeader} Props.
+ */
+interface IUserHeaderProps {
+  /** User to display. */
+  user: UserRecord;
+  /** Jobrequest to display. */
+  jobRequest: JobRequestRecord | undefined;
+}
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   header: {
@@ -77,15 +86,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 
 }));
 
-/**
- * {@link UserHeader} Props.
- */
-interface IUserHeaderProps {
-  /** User to display. */
-  user: UserRecord;
-  /** Jobrequest to display. */
-  jobRequest: JobRequestRecord | undefined;
-}
 
 /**
  * Fancy UserHeader for the {@link HomePage}.

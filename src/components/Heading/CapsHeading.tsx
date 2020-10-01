@@ -4,18 +4,18 @@ import { makeStyles } from '@material-ui/core/styles';
 import { AnyComponent } from '../../types/Types';
 import H from '../Ui/H';
 
+/** {@link CapsHeading} Props. */
+export interface ICapsHeadingProps {
+  /** Heading text. */
+  children:   AnyComponent;
+}
+
 const useStyles = makeStyles({
   capsHeading: {
     textTransform: 'capitalize',
     fontVariant: 'small-caps',
   },
 });
-
-/** {@link CapsHeading} Props. */
-export interface ICapsHeadingProps {
-  /** Heading text. */
-  children:   AnyComponent;
-}
 
 /**
  * Renders a heading (h1 .. h6).

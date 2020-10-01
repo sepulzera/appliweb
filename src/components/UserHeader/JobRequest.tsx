@@ -7,6 +7,15 @@ import JobRequestRecord from '../../context/JobRequestContext/JobRequestRecord';
 
 import H from '../Ui/H';
 
+/**
+ * {@link JobRequest} Props.
+ */
+interface IJobRequestProps extends WithTranslation {
+  /** Jobrequest to display. */
+  jobRequest: JobRequestRecord;
+  asRow:      boolean;
+}
+
 const useStyles = makeStyles((theme: Theme) => createStyles({
   jobRequest: {
     display: 'flex',
@@ -73,15 +82,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     },
   },
 }));
-
-/**
- * {@link JobRequest} Props.
- */
-interface IJobRequestProps extends WithTranslation {
-  /** Jobrequest to display. */
-  jobRequest: JobRequestRecord;
-  asRow:      boolean;
-}
 
 /**
  * Jobrequest displayed in the {@link UserHeader}.

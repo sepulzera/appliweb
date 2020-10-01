@@ -5,6 +5,14 @@ import AppBar from '../Ui/AppBar';
 import H from '../Ui/H';
 import Settings from '../Settings/Settings';
 
+/**
+ * {@link Header} Props.
+ */
+interface IHeaderProps {
+  /** Site title to display. */
+  title: string;
+}
+
 const useStyles = makeStyles({
   title: {
     flex: 1,
@@ -13,14 +21,6 @@ const useStyles = makeStyles({
     textOverflow: 'ellipsis',
   },
 });
-
-/**
- * {@link Header} Props.
- */
-interface IHeaderProps {
-  /** Site title to display. */
-  title: string;
-}
 
 /**
  * Default header for this app, used by all sub-pages.

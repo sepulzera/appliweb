@@ -9,6 +9,18 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import Paper from '../../components/Ui/Paper';
 
+/**
+ * {@link PageWithHeaderAndFooter} Props.
+ */
+interface IPageWithHeaderAndFooterProps {
+  /** Header title to render. */
+  header?: string;
+  /** Custom header? */
+  headerComponent?: AnyComponent;
+  /** Main page content. */
+  children: AnyComponent;
+}
+
 const useStyles = makeStyles((theme: Theme) => createStyles({
   root: {
     display: 'flex',
@@ -22,18 +34,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     overflowX: 'hidden',
   },
 }));
-
-/**
- * {@link PageWithHeaderAndFooter} Props.
- */
-interface IPageWithHeaderAndFooterProps {
-  /** Header title to render. */
-  header?: string;
-  /** Custom header? */
-  headerComponent?: AnyComponent;
-  /** Main page content. */
-  children: AnyComponent;
-}
 
 /**
  * Default page layout with a defined header and footer.
