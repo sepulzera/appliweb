@@ -45,7 +45,7 @@ const Leisures: React.FC<ILeisuresProps> = (props: ILeisuresProps) => {
   };
 
   const leisureList = props.leisures.map(leisure => (
-    <ListItem>
+    <ListItem key={`leisures-btn-${leisure.id}`}>
       <Button id={leisure.title} className={classes.listButton} onClick={handleOpen}>{t(leisure.title)}</Button>
     </ListItem>
   ));
@@ -57,6 +57,7 @@ const Leisures: React.FC<ILeisuresProps> = (props: ILeisuresProps) => {
     leisure = props.leisures[index];
     featurePages.push(
       <FeaturePage
+          key    = {`featurePage-${leisure.id}`}
           title  = {leisure.title}
           image  = {leisure.image}
 
