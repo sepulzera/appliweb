@@ -1,11 +1,14 @@
 import React from 'react';
 
+import SkillContext from '../context/SkillContext/SkillContext';
+import SkillMappingContext from '../context/SkillMappingContext/SkillMappingContext';
 import JobRequestContext from '../context/JobRequestContext/JobRequestContext';
 import LeisureContext from '../context/LeisureContext/LeisureContext';
 import UserContext from '../context/UserContext/UserContext';
 
 import HomePage from '../pages/HomePage';
 import ErrorPage from '../pages/ErrorPage';
+import SkillRecord from '../context/SkillContext/SkillRecord';
 
 /**
  * Homepage rendering the actual content - me!
@@ -13,11 +16,13 @@ import ErrorPage from '../pages/ErrorPage';
  * See also: {@link HomePage}
  */
 const HomeContainer: React.FC<{}> = () => {
-  const userContext = React.useContext(UserContext);
+  const skillContext = React.useContext(SkillContext);
+  const skillMappingContext = React.useContext(SkillMappingContext);
   const jobRequestContext = React.useContext(JobRequestContext);
   const leisureContext = React.useContext(LeisureContext);
+  const userContext = React.useContext(UserContext);
 
-  if (userContext == null || jobRequestContext == null || leisureContext == null) throw new Error('Context unitialized');
+  if (skillContext == null || skillMappingContext == null || jobRequestContext == null || leisureContext == null || userContext == null) throw new Error('Context unitialized');
 
   // HACK: There is only one user - me!
   const userId = 1;
@@ -29,12 +34,16 @@ const HomeContainer: React.FC<{}> = () => {
 
   const jobRequest = jobRequestContext.getJobRequestForUser(user.id);
   const leisures   = leisureContext.getLeisuresForUser(user.id);
+  const skillMappings = skillMappingContext.getSkillMappingsByUser(user.id);
+  const skills     = skillMappings.map(sm => skillContext.getSkill(sm.skillId)).filter(skill => skill != null) as Array<SkillRecord>;
 
   return (
     <HomePage
-        jobRequest={jobRequest}
-        leisures={leisures}
-        user={user} />
+        skillMappings = {skillMappings}
+        skills = {skills}
+        jobRequest = {jobRequest}
+        leisures = {leisures}
+        user = {user} />
   );
 };
 

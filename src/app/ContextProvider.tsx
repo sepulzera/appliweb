@@ -5,7 +5,9 @@ import { AnyComponent } from '../types/Types';
 import JobRequestContextProvider from '../context/JobRequestContext/JobRequestContextProvider';
 import LeisureContextProvider from '../context/LeisureContext/LeisureContextProvider';
 import SettingsContextProvider from '../context/SettingsContext/SettingsContextProvider';
+import SkillContextProvider from '../context/SkillContext/SkillContextProvider';
 import UserContextProvider from '../context/UserContext/UserContextProvider';
+import SkillMappingContextProvider from '../context/SkillMappingContext/SkillMappingContextProvider';
 
 /**
  * {@link ContextProvider} Props.
@@ -24,9 +26,13 @@ const ContextProvider: React.SFC<IContextProviderProps> = (props: IContextProvid
   <SettingsContextProvider>
     <JobRequestContextProvider>
       <LeisureContextProvider>
-        <UserContextProvider>
-          {props.children}
-        </UserContextProvider>
+        <SkillContextProvider>
+          <SkillMappingContextProvider>
+            <UserContextProvider>
+              {props.children}
+            </UserContextProvider>
+          </SkillMappingContextProvider>
+        </SkillContextProvider>
       </LeisureContextProvider>
     </JobRequestContextProvider>
   </SettingsContextProvider>

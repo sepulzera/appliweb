@@ -8,14 +8,19 @@ import LeisureRecord from '../context/LeisureContext/LeisureRecord';
 import Leisures from '../components/Leisures/Leisures';
 import Grid from '../components/Ui/Grid';
 import GridItem from '../components/Ui/GridItem';
+import SkillMappingRecord from '../context/SkillMappingContext/SkillMappingRecord';
+import SkillRecord from '../context/SkillContext/SkillRecord';
+import Skills from '../components/Skills/Skills';
 
 /**
  * {@link HomePage} Props.
  */
 interface IHomePageProps {
-  jobRequest: JobRequestRecord | undefined;
-  leisures:   Array<LeisureRecord>;
-  user:       UserRecord;
+  skills:        Array<SkillRecord>;
+  skillMappings: Array<SkillMappingRecord>;
+  jobRequest:   JobRequestRecord | undefined;
+  leisures:     Array<LeisureRecord>;
+  user:         UserRecord;
 }
 
 /**
@@ -28,6 +33,7 @@ const HomePage: React.FC<IHomePageProps> = (props: IHomePageProps) => (
       headerComponent = {<UserHeader user={props.user} jobRequest={props.jobRequest} />}>
     <Grid>
       <GridItem xs={12} sm={4} md={3}>
+        <Skills   skills={props.skills} />
         <Leisures leisures={props.leisures} />
       </GridItem>
       <GridItem md>

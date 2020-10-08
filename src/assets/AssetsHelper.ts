@@ -2,7 +2,7 @@
 const assets = require.context('./', true);
 
 /**
- * Helper.
+ * Assets Helper.
  */
 export default class AssetsHelper {
   /**

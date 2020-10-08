@@ -11,6 +11,7 @@ import Image from '../Ui/Image';
 export interface IFeaturePageProps {
   /** Title/Heading. */
   title: string;
+  /** Feature image. */
   image: string;
   /** Is dialog open? */
   isOpen: boolean;
@@ -38,6 +39,7 @@ const FeaturePage: React.FC<IProps> = (props: IProps) => {
         {}
       </div>
       <div>
+        <p>{t('leisure:heading')}</p>
         {props.children}
       </div>
     </Dialog>
