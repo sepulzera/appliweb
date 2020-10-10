@@ -51,7 +51,7 @@
     },
     {
       "id":       20,
-      "title":    "programming c/c++",
+      "title":    "programming c++",
       "category": "skills",
       "featured": true,
       "rating":   5
@@ -100,7 +100,7 @@
     },
     {
       "id":       40,
-      "title":    "linux",
+      "title":    "os linux",
       "category": "skills",
       "featured": true,
       "rating":   7

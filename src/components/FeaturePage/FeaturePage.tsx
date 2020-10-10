@@ -4,6 +4,8 @@ import { useTranslation, withTranslation, WithTranslation } from 'react-i18next'
 import Dialog from '../Ui/Dialog';
 import { AnyComponent } from '../../types/Types';
 import Image from '../Ui/Image';
+import SkillRecord from '../../context/SkillContext/SkillRecord';
+import FeatureSkills from './FeatureSkills';
 
 /**
  * {@link List} Props.
@@ -13,6 +15,8 @@ export interface IFeaturePageProps {
   title: string;
   /** Feature image. */
   image: string;
+  /** Skills this feature learned. */
+  skills: Array<SkillRecord>;
   /** Is dialog open? */
   isOpen: boolean;
   /** Callback for click. */
@@ -39,7 +43,7 @@ const FeaturePage: React.FC<IProps> = (props: IProps) => {
         {}
       </div>
       <div>
-        <p>{t('leisure:heading')}</p>
+        <FeatureSkills skills={props.skills} />
         {props.children}
       </div>
     </Dialog>

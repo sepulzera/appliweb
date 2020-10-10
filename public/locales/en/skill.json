@@ -1,0 +1,21 @@
+{
+  "heading": "skills",
+
+  "team spirit": "team spirit",
+  "communication": "communication",
+  "self-reliance": "self-reliance",
+  "reliability": "reliability",
+  "resilience": "resilience",
+
+  "german": "German",
+  "english": "English",
+
+  "programming c++": "Programming: C++",
+  "programming java": "Programming: Java",
+  "programming vba": "Programming: VBA",
+  "web html/css": "Webdesign: HTML, CSS",
+  "web javascript": "Web-Development: JavaScript",
+  "web reactjs": "Web-Development: ReactJS",
+  "database OracleSQL": "Database: OracleSQL",
+  "os linux": "Operating System: Linux"
+}

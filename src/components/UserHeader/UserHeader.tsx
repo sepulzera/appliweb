@@ -86,7 +86,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 
 }));
 
-
 /**
  * Fancy UserHeader for the {@link HomePage}.
  *

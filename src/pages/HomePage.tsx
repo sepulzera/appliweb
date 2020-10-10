@@ -16,11 +16,12 @@ import Skills from '../components/Skills/Skills';
  * {@link HomePage} Props.
  */
 interface IHomePageProps {
+  userId:        number;
   skills:        Array<SkillRecord>;
   skillMappings: Array<SkillMappingRecord>;
-  jobRequest:   JobRequestRecord | undefined;
-  leisures:     Array<LeisureRecord>;
-  user:         UserRecord;
+  jobRequest:    JobRequestRecord | undefined;
+  leisures:      Array<LeisureRecord>;
+  user:          UserRecord;
 }
 
 /**
@@ -34,7 +35,7 @@ const HomePage: React.FC<IHomePageProps> = (props: IHomePageProps) => (
     <Grid>
       <GridItem xs={12} sm={4} md={3}>
         <Skills   skills={props.skills} />
-        <Leisures leisures={props.leisures} />
+        <Leisures userId={props.userId} leisures={props.leisures} />
       </GridItem>
       <GridItem md>
         <div style={{

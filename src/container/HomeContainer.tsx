@@ -39,6 +39,7 @@ const HomeContainer: React.FC<{}> = () => {
 
   return (
     <HomePage
+        userId = {userId}
         skillMappings = {skillMappings}
         skills = {skills}
         jobRequest = {jobRequest}
