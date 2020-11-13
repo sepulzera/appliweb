@@ -9,6 +9,7 @@ import ListItem from '../Ui/ListItem';
 import SkillRecord from '../../context/SkillContext/SkillRecord';
 import Helper from '../../helper/Helper';
 import Progress from '../Ui/Progress';
+import Button from '../Ui/Button';
 
 /**
  * {@link Skills} Props.
@@ -16,6 +17,7 @@ import Progress from '../Ui/Progress';
 interface ISkillsProps extends WithTranslation {
   /** Leisures to display. */
   skills: Array<SkillRecord>;
+  onSkillClick: (skill: SkillRecord) => void;
 }
 
 const useStyles = makeStyles(theme => ({
@@ -23,10 +25,16 @@ const useStyles = makeStyles(theme => ({
     textTransform: 'capitalize',
     marginBottom:  theme.spacing(1.5),
   },
+  skillButton: {
+    textAlign: 'left',
+    '& > .MuiButton-label': {
+      display: 'block',
+    },
+  },
 }));
 
 /**
- * Leisures.
+ * Skills.
  *
  * @param props - {@link ISkillsProps}.
  */
@@ -34,17 +42,17 @@ const Skills: React.FC<ISkillsProps> = (props: ISkillsProps) => {
   const classes = useStyles();
   const { t } = useTranslation();
 
-  const featuredSkills = props.skills.filter(skill => skill.featured);
+  const featuredSkills = Helper.getUnique(props.skills.filter(skill => skill.featured), 'id');
 
   const getSkillListForCategory = (category: string) => (
     featuredSkills
         .filter(skill => skill.category === category)
         .map(skill => (
           <ListItem key={`skills-${skill.id}`} className={classes.skillItem}>
-            <>
+            <Button id={`skill-${skill.id}`} fullWidth className={classes.skillButton} onClick={() => props.onSkillClick(skill)}>
               {t(`skill:${skill.title}`)}
               <Progress value={skill.rating * 10} />
-            </>
+            </Button>
           </ListItem>
         ))
   );

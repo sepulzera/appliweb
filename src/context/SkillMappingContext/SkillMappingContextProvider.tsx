@@ -5,7 +5,6 @@ import { AnyComponent } from '../../types/Types';
 import SkillMappingContext from './SkillMappingContext';
 import SkillMappingRecord from './SkillMappingRecord';
 import SkillMappingData from './SkillMappingData.json';
-import Helper from '../../helper/Helper';
 
 /** {@link SkillMappingContextProvider} Props. */
 interface ISkillMappingContextProviderProps {
@@ -55,7 +54,7 @@ const SkillMappingContextProvider: React.FC<ISkillMappingContextProviderProps> =
       }
     }
 
-    return Helper.getUnique(skillMappings, 'skillId');
+    return skillMappings;
   };
 
   const getSkillMappingsByUserAndType = (userId: number, type: string, typeId: number): Array<SkillMappingRecord> => {
@@ -69,7 +68,7 @@ const SkillMappingContextProvider: React.FC<ISkillMappingContextProviderProps> =
       }
     }
 
-    return Helper.getUnique(skillMappings, 'skillId');
+    return skillMappings;
   };
 
   const getSkillMappingsByUserAndSkill = (userId: number, skillId: number): Array<SkillMappingRecord> => {
@@ -83,7 +82,7 @@ const SkillMappingContextProvider: React.FC<ISkillMappingContextProviderProps> =
       }
     }
 
-    return Helper.getUnique(skillMappings, 'skillId');
+    return skillMappings;
   };
 
   return (

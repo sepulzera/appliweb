@@ -16,7 +16,7 @@ interface ILeisureContextProviderProps {
 function createLeisureFromJson(input: any) {
   return new LeisureRecord(input.id,
       input.userId,
-      input.title, input.feature, input.image);
+      input.title, input.image, input.feature);
 }
 
 function getLeisureMap() {

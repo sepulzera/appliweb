@@ -39,7 +39,7 @@
       "id":       10,
       "title":    "german",
       "category": "language",
-      "featured": true,
+      "featured": false,
       "rating":   10
     },
     {

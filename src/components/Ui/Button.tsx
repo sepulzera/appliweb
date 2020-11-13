@@ -9,6 +9,9 @@ import { AnyComponent } from '../../types/Types';
 interface IButtonProps {
   /** Unique identifier. */
   id: string;
+
+  fullWidth?: boolean;
+
   /** Classes used for styling. */
   className?: string | undefined;
   onClick: (id: string) => void;
@@ -23,8 +26,9 @@ interface IButtonProps {
  */
 const Button: React.FC<IButtonProps> = (props: IButtonProps) => (
   <MuiButton
-      className={props.className}
-      onClick = {() => props.onClick(props.id)}>
+      fullWidth = {props.fullWidth}
+      className = {props.className}
+      onClick   = {() => props.onClick(props.id)}>
     {props.children}
   </MuiButton>
 );

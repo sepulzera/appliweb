@@ -6,6 +6,7 @@ import ListItem from '../Ui/ListItem';
 import SkillRecord from '../../context/SkillContext/SkillRecord';
 import ResponsiveList from '../Ui/ResponsiveList';
 import P from '../Ui/P';
+import Button from '../Ui/Button';
 
 /**
  * {@link FeatureSkills} Props.
@@ -13,9 +14,15 @@ import P from '../Ui/P';
 interface IFeatureSkillsProps extends WithTranslation {
   /** Leisures to display. */
   skills: Array<SkillRecord>;
+
+  onSkillClick: (skill: SkillRecord) => void;
 }
 
 const useStyles = makeStyles({
+  featureSkills: {
+    borderTopLeftRadius: 0,
+    borderTopRightRadius: 0,
+  },
   skillItem: {
     margin: 0,
     textTransform: 'capitalize',
@@ -31,16 +38,19 @@ const FeatureSkills: React.FC<IFeatureSkillsProps> = (props: IFeatureSkillsProps
   const { t } = useTranslation();
   const classes = useStyles();
 
-  const skillList = props.skills.filter(skill => skill.featured).map(skill => (
+  const skillList = props.skills.map(skill => (
     <ListItem key={`skills-${skill.id}`}>
-      <P className={classes.skillItem}>{t(`skill:${skill.title}`)}</P>
+      <Button id={`skill-${skill.id}`} onClick={() => props.onSkillClick(skill)}>
+        <P className={classes.skillItem}>{t(`skill:${skill.title}`)}</P>
+      </Button>
     </ListItem>
   ));
 
   return (
     <ResponsiveList
         title={t('skill:heading')}
-        asRow>
+        asRow
+        className={classes.featureSkills}>
       {skillList}
     </ResponsiveList>
   );

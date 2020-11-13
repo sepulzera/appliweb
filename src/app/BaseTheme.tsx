@@ -98,6 +98,13 @@ const BaseTheme: React.FC<IBaseThemeProps> = (props: IBaseThemeProps) => {
   );
 
   memoTheme.overrides = {
+    MuiBackdrop: {
+      root: {
+        backgroundColor : 'rgba(144, 124, 107, 0.3)',
+        backdropFilter  : 'blur(1px)',
+        '-webkit-backdrop-filter': 'blur(1px)',
+      },
+    },
     MuiBottomNavigation: {
       root: {
         width:     '100%',
@@ -114,7 +121,13 @@ const BaseTheme: React.FC<IBaseThemeProps> = (props: IBaseThemeProps) => {
     },
     MuiButton: {
       root: {
+        color: 'inherit',
         textTransform: 'unset',
+      },
+    },
+    MuiDialog: {
+      root: {
+        overflowY: 'hidden',
       },
     },
     MuiDialogTitle: {
@@ -122,17 +135,18 @@ const BaseTheme: React.FC<IBaseThemeProps> = (props: IBaseThemeProps) => {
         backgroundColor: memoTheme.palette.primary.main,
         color: memoTheme.palette.primary.contrastText,
         padding : '0 1rem',
+        textTransform: 'capitalize',
+      },
+    },
+    MuiDialogContent: {
+      root: {
+        padding: 0,
+        minWidth: '20rem',
       },
     },
     MuiDialogActions: {
       root: {
         backgroundColor: memoTheme.palette.primary.main,
-      },
-    },
-    MuiBackdrop: {
-      root: {
-        backgroundColor : 'rgba(107, 163, 198, 0.3)',
-        backdropFilter  : 'blur(4px)',
       },
     },
     MuiMenuItem: {

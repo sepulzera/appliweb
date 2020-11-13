@@ -8,6 +8,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import { AnyComponent } from '../../types/Types';
 import H from './H';
 import IconButton from './IconButton';
+import { DialogContent } from '@material-ui/core';
 
 /** {@link Dialog} Props. */
 export interface IDialogProps {
@@ -67,7 +68,9 @@ const DialogTitle: React.FC<IDialogTitleProps> = (props: IDialogTitleProps) => {
 const Dialog: React.FC<IDialogProps> = (props: IDialogProps) => (
   <MuiDialog maxWidth='lg' open={props.isOpen} onClose={props.onClose}>
     <DialogTitle onClose={props.onClose}>{props.title}</DialogTitle>
-    {props.children}
+    <DialogContent>
+      {props.children}
+    </DialogContent>
   </MuiDialog>
 );
 

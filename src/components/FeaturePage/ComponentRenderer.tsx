@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import { FeaturePageData } from '../../context/LeisureContext/LeisureRecord';
+import { FeaturePageData } from '../../context/Experience/ExperienceRecord';
 
 import H from '../Ui/H';
 import P from '../Ui/P';

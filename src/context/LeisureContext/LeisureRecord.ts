@@ -1,41 +1,22 @@
-export type FeaturePageData = {
-  uid:      string;
-  component: string;
-  props:     Array<any>;
-}
+import ExperienceRecord, { FeaturePageData } from '../Experience/ExperienceRecord';
 
 /**
  * LeisureRecord.
  */
-export default class LeisureRecord {
-  /** ID. */
-  id:          number;
-
+export default class LeisureRecord extends ExperienceRecord {
   /** User. */
   userId:      number;
 
-  /** Title as i18n-identifier. */
-  title:       string;
-  /** FeaturePage. */
-  feature:     Array<FeaturePageData>;
-  /** FeaturePage. */
-  image:       string;
-
   constructor(
     id:          number,
-
     userId:      number,
 
     title:       string,
-    feature:     Array<FeaturePageData>,
-    image:       string
+    image:       string,
+    feature:     Array<FeaturePageData>
   ) {
-      this.id          = id;
+    super(id, title, feature, image);
 
-      this.userId      = userId;
-
-      this.title       = title;
-      this.feature     = feature;
-      this.image       = image;
+    this.userId      = userId;
   }
 }

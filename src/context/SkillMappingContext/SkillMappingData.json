@@ -61,10 +61,17 @@
       "userId":  1,
       "type":    "leisure",
       "typeId":  4,
-      "skillId": 11
+      "skillId": 10
     },
     {
       "id":      32,
+      "userId":  1,
+      "type":    "leisure",
+      "typeId":  4,
+      "skillId": 11
+    },
+    {
+      "id":      33,
       "userId":  1,
       "type":    "leisure",
       "typeId":  4,

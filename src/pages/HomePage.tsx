@@ -11,12 +11,14 @@ import GridItem from '../components/Ui/GridItem';
 import SkillMappingRecord from '../context/SkillMappingContext/SkillMappingRecord';
 import SkillRecord from '../context/SkillContext/SkillRecord';
 import Skills from '../components/Skills/Skills';
+import LeisurePage from '../components/FeaturePage/LeisurePage';
+import SkillSelectDialog from '../components/SkillSelectDialog/SkillSelectDialog';
+import ExperienceRecord from '../context/Experience/ExperienceRecord';
 
 /**
  * {@link HomePage} Props.
  */
 interface IHomePageProps {
-  userId:        number;
   skills:        Array<SkillRecord>;
   skillMappings: Array<SkillMappingRecord>;
   jobRequest:    JobRequestRecord | undefined;
@@ -29,25 +31,83 @@ interface IHomePageProps {
  *
  * See also: {@link HomeContainer}
  */
-const HomePage: React.FC<IHomePageProps> = (props: IHomePageProps) => (
-  <PageWithHeaderAndFooter
-      headerComponent = {<UserHeader user={props.user} jobRequest={props.jobRequest} />}>
-    <Grid>
-      <GridItem xs={12} sm={4} md={3}>
-        <Skills   skills={props.skills} />
-        <Leisures userId={props.userId} leisures={props.leisures} />
-      </GridItem>
-      <GridItem md>
-        <div style={{
-          backgroundColor: '#777',
-          width: '100%',
-          height: '100%',
-        }}>
-          <span>TODO</span>
-        </div>
-      </GridItem>
-    </Grid>
-  </PageWithHeaderAndFooter>
-);
+const HomePage: React.FC<IHomePageProps> = (props: IHomePageProps) => {
+  const [selectedSkill, setSelectedSkill] = React.useState<SkillRecord | undefined>(undefined);
+  const [openLeisurePage, setOpenLeisurePage] = React.useState<LeisureRecord | undefined>(undefined);
+
+  const handleSkillClick = (skill: SkillRecord) => {
+    const selectedSkillMappings: Array<SkillMappingRecord> = props.skillMappings.filter(sm => sm.skillId === skill.id);
+    if (selectedSkillMappings.length === 1) {
+      const sm = selectedSkillMappings[0];
+      if (sm.type === 'leisure') {
+        const selLeisure: LeisureRecord | undefined = props.leisures.find(item => item.id === sm.typeId);
+        if (selLeisure != null) {
+          setOpenLeisurePage(selLeisure);
+        }
+      }
+    } else if (selectedSkillMappings.length > 1) {
+      setOpenLeisurePage(undefined);
+      setSelectedSkill(skill);
+    }
+  };
+
+  const handleSkillClose = () => {
+    setSelectedSkill(undefined);
+  };
+
+  const handleLeisureClick = (leisure: LeisureRecord) => {
+    setOpenLeisurePage(leisure);
+    setTimeout(() => {
+      setSelectedSkill(undefined);
+    }, 1000);
+  };
+
+  const handleLeisurePageClose = () => {
+    setOpenLeisurePage(undefined);
+  };
+
+  const handleExperienceSelect = (record: ExperienceRecord) => {
+    if (record instanceof LeisureRecord) {
+      handleLeisureClick(record);
+    }
+  };
+
+  return (
+    <>
+      <PageWithHeaderAndFooter
+          headerComponent = {<UserHeader user={props.user} jobRequest={props.jobRequest} />}>
+        <Grid>
+          <GridItem xs={12} sm={4} md={3}>
+            <Skills   skills={props.skills}     onSkillClick={handleSkillClick} />
+            <Leisures leisures={props.leisures} onLeisureClick={handleLeisureClick} />
+          </GridItem>
+          <GridItem md>
+            <div style={{
+              backgroundColor: '#777',
+              width: '100%',
+              height: '100%',
+            }}>
+              <span>TODO</span>
+            </div>
+          </GridItem>
+        </Grid>
+      </PageWithHeaderAndFooter>
+
+      <SkillSelectDialog
+          skill    = {selectedSkill}
+          skillMappings = {props.skillMappings}
+          onSelect = {handleExperienceSelect}
+          onClose  = {handleSkillClose} />
+
+      {openLeisurePage != null && (
+        <LeisurePage
+            leisure = {openLeisurePage}
+            isOpen  = {openLeisurePage != null}
+            onSkillClick = {handleSkillClick}
+            onClose = {handleLeisurePageClose} />
+      )}
+    </>
+  );
+};
 
 export default HomePage;

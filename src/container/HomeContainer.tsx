@@ -16,11 +16,11 @@ import SkillRecord from '../context/SkillContext/SkillRecord';
  * See also: {@link HomePage}
  */
 const HomeContainer: React.FC<{}> = () => {
-  const skillContext = React.useContext(SkillContext);
+  const skillContext        = React.useContext(SkillContext);
   const skillMappingContext = React.useContext(SkillMappingContext);
-  const jobRequestContext = React.useContext(JobRequestContext);
-  const leisureContext = React.useContext(LeisureContext);
-  const userContext = React.useContext(UserContext);
+  const jobRequestContext   = React.useContext(JobRequestContext);
+  const leisureContext      = React.useContext(LeisureContext);
+  const userContext         = React.useContext(UserContext);
 
   if (skillContext == null || skillMappingContext == null || jobRequestContext == null || leisureContext == null || userContext == null) throw new Error('Context unitialized');
 
@@ -32,14 +32,13 @@ const HomeContainer: React.FC<{}> = () => {
     return <ErrorPage title='error:user not found title' message='error:user not found message' />;
   }
 
-  const jobRequest = jobRequestContext.getJobRequestForUser(user.id);
-  const leisures   = leisureContext.getLeisuresForUser(user.id);
+  const jobRequest    = jobRequestContext.getJobRequestForUser(user.id);
+  const leisures      = leisureContext.getLeisuresForUser(user.id);
   const skillMappings = skillMappingContext.getSkillMappingsByUser(user.id);
-  const skills     = skillMappings.map(sm => skillContext.getSkill(sm.skillId)).filter(skill => skill != null) as Array<SkillRecord>;
+  const skills        = skillMappings.map(sm => skillContext.getSkill(sm.skillId)).filter(skill => skill != null) as Array<SkillRecord>;
 
   return (
     <HomePage
-        userId = {userId}
         skillMappings = {skillMappings}
         skills = {skills}
         jobRequest = {jobRequest}
