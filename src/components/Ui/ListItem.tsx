@@ -6,6 +6,8 @@ import { AnyComponent } from '../../types/Types';
  * {@link ListItem} Props.
  */
 export interface IListItemProps {
+  /** Classname for styling. */
+  className?: string;
   /** Text to render. */
   children: AnyComponent;
 }
@@ -16,7 +18,7 @@ export interface IListItemProps {
  * @param props - {@link IListItemProps}.
  */
 const ListItem: React.FC<IListItemProps> = (props: IListItemProps) => (
-  <li>
+  <li className={props.className}>
     {props.children}
   </li>
 );

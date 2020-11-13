@@ -1,15 +1,18 @@
 {
   "heading": "skills",
 
+  "social": "social skills",
   "team spirit": "team spirit",
   "communication": "communication",
   "self-reliance": "self-reliance",
   "reliability": "reliability",
   "resilience": "resilience",
 
+  "language": "Languages",
   "german": "German",
   "english": "English",
 
+  "skills": "skills",
   "programming c++": "Programming: C++",
   "programming java": "Programming: Java",
   "programming vba": "Programming: VBA",

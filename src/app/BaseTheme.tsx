@@ -142,6 +142,11 @@ const BaseTheme: React.FC<IBaseThemeProps> = (props: IBaseThemeProps) => {
         marginBottom: 0,
       },
     },
+    MuiLinearProgress: {
+      root: {
+        height: memoTheme.spacing(1),
+      },
+    },
     MuiTable: {
       root: {
         '& caption': {

@@ -1,15 +1,18 @@
 {
   "heading": "Skills",
 
+  "social": "Sozialkompetenz",
   "team spirit": "Teamgeist",
   "communication": "Kommunikation",
   "self-reliance": "Selbstständigkeit",
   "reliability": "Zuverlässigkeit",
   "resilience": "Belastbarkeit",
 
+  "language": "Sprachen",
   "german": "Deutsch",
   "english": "Englisch",
 
+  "skills": "Skills",
   "programming c++": "Programmierung: C++",
   "programming java": "Programmierung: Java",
   "programming vba": "Programmierung: VBA",

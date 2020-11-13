@@ -15,7 +15,7 @@ export interface IGridProps {
  * @param props - {@link IGridProps}.
  */
 const Grid: React.FC<IGridProps> = (props: IGridProps) => (
-  <MuiGrid container>
+  <MuiGrid container spacing={3}>
     {props.children}
   </MuiGrid>
 );

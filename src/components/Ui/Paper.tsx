@@ -14,7 +14,10 @@ interface IPaperProps {
 
 const useStyles = makeStyles({
   paper: {
-    padding: '2rem',
+    borderTopLeftRadius: 0,
+    borderTopRightRadius: 0,
+
+    padding: '1rem',
     marginBottom: '2rem',
     '& *:first-child': {
       marginTop: 0,
