@@ -1,14 +1,8 @@
-export type FeaturePageData = {
-  uid:       string;
-  component: string;
-  props:     Array<any>;
-}
-
 export type ExperienceType = {
   id:          number;
   title:       string;
   description: string;
-  feature:     Array<FeaturePageData>;
+  feature:     number;
 }
 
 /**
@@ -20,22 +14,18 @@ export default class ExperienceRecord {
 
   /** Title as i18n-identifier. */
   title:       string;
-  /** FeaturePage. */
-  feature:     Array<FeaturePageData>;
-  /** FeaturePage. */
-  image:       string;
+  feature:     number;
 
   constructor(
     id:          number,
 
     title:       string,
-    feature:     Array<FeaturePageData>,
-    image:       string
+    feature:     number
   ) {
       this.id          = id;
 
       this.title       = title;
+
       this.feature     = feature;
-      this.image       = image;
   }
 }

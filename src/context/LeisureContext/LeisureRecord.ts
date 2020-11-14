@@ -1,4 +1,4 @@
-import ExperienceRecord, { FeaturePageData } from '../Experience/ExperienceRecord';
+import ExperienceRecord from '../Experience/ExperienceRecord';
 
 /**
  * LeisureRecord.
@@ -9,14 +9,13 @@ export default class LeisureRecord extends ExperienceRecord {
 
   constructor(
     id:          number,
-    userId:      number,
-
     title:       string,
-    image:       string,
-    feature:     Array<FeaturePageData>
-  ) {
-    super(id, title, feature, image);
+    feature:     number,
 
-    this.userId      = userId;
+    userId:      number
+  ) {
+    super(id, title, feature);
+
+    this.userId = userId;
   }
 }

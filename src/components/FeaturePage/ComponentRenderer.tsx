@@ -1,8 +1,7 @@
 // code from https://www.storyblok.com/tp/react-dynamic-component-from-json
 
 import React from 'react';
-
-import { FeaturePageData } from '../../context/Experience/ExperienceRecord';
+import { FeaturePageData } from '../../context/FeatureContext/FeatureRecord';
 
 import H from '../Ui/H';
 import P from '../Ui/P';

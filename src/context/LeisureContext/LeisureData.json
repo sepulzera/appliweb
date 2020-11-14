@@ -2,74 +2,27 @@
   "leisures": [
     {
       "id":      1,
-      "userId":  1,
       "title":   "leisure:playing guitar",
-      "image":   "Leisure-Guitar.jpg",
-      "feature": [
-        {
-          "uid": "leisure-guitar-heading",
-          "component": "h",
-          "props": {
-            "variant": "h3",
-            "children": "Gitarre spielen"
-          }
-        },
-        {
-          "uid": "leisure-guitar-p1",
-          "component": "p",
-          "props": {
-            "children": "Als Ausgleich zur Arbeit am Computer spiele ich Gitarre."
-          }
-        }
-      ]
+      "feature": 1,
+      "userId":  1
     },
     {
       "id":      2,
-      "userId":  1,
       "title":   "leisure:photography",
-      "image":   "Leisure-Photography.jpg",
-      "feature": [
-        {
-          "uid": "leisure-guitar-heading",
-          "component": "h",
-          "props": {
-            "variant": "h3",
-            "children": "Fotografieren"
-          }
-        }
-      ]
+      "feature": 2,
+      "userId":  1
     },
     {
       "id":      3,
-      "userId":  1,
       "title":   "leisure:raspberry pi",
-      "image":   "Leisure-RaspberryPi.jpg",
-      "feature": [
-        {
-          "uid": "leisure-guitar-heading",
-          "component": "h",
-          "props": {
-            "variant": "h3",
-            "children": "Bastelcomputer"
-          }
-        }
-      ]
+      "feature": 3,
+      "userId":  1
     },
     {
       "id":      4,
-      "userId":  1,
       "title":   "leisure:software games development open source",
-      "image":   "Leisure-GamesDevelopment.png",
-      "feature": [
-        {
-          "uid": "leisure-guitar-heading",
-          "component": "h",
-          "props": {
-            "variant": "h3",
-            "children": "Spieleentwicklung"
-          }
-        }
-      ]
+      "feature": 4,
+      "userId":  1
     }
   ]
 }

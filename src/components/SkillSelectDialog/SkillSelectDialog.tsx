@@ -61,7 +61,7 @@ const FeatureSelectDialog: React.FC<IProps> = (props: IProps) => {
   }
 
   return (
-    <Dialog title={`${t('skill:skill')}: ${skill != null ? t(skill.title) : ''}`} isOpen={skill != null} onClose={onClose}>
+    <Dialog title={`${t('skill:skill')}: ${skill != null ? t(`skill:${skill.title}`) : ''}`} isOpen={skill != null} onClose={onClose}>
       {categories}
     </Dialog>
   );

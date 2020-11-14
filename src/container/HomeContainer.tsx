@@ -1,9 +1,9 @@
 import React from 'react';
 
-import SkillContext from '../context/SkillContext/SkillContext';
-import SkillMappingContext from '../context/SkillMappingContext/SkillMappingContext';
 import JobRequestContext from '../context/JobRequestContext/JobRequestContext';
 import LeisureContext from '../context/LeisureContext/LeisureContext';
+import SkillContext from '../context/SkillContext/SkillContext';
+import SkillMappingContext from '../context/SkillMappingContext/SkillMappingContext';
 import UserContext from '../context/UserContext/UserContext';
 
 import HomePage from '../pages/HomePage';
@@ -16,13 +16,13 @@ import SkillRecord from '../context/SkillContext/SkillRecord';
  * See also: {@link HomePage}
  */
 const HomeContainer: React.FC<{}> = () => {
-  const skillContext        = React.useContext(SkillContext);
-  const skillMappingContext = React.useContext(SkillMappingContext);
   const jobRequestContext   = React.useContext(JobRequestContext);
   const leisureContext      = React.useContext(LeisureContext);
+  const skillContext        = React.useContext(SkillContext);
+  const skillMappingContext = React.useContext(SkillMappingContext);
   const userContext         = React.useContext(UserContext);
 
-  if (skillContext == null || skillMappingContext == null || jobRequestContext == null || leisureContext == null || userContext == null) throw new Error('Context unitialized');
+  if (jobRequestContext == null || leisureContext == null || skillContext == null || skillMappingContext == null || userContext == null) throw new Error('Context unitialized');
 
   // HACK: There is only one user - me!
   const userId = 1;

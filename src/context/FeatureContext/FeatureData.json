@@ -1,0 +1,146 @@
+{
+  "features": [
+    {
+      "id":       1,
+      "language": "de",
+      "title":    "leisure:playing guitar",
+      "image":    "Leisure-Guitar.jpg",
+      "data": [
+        {
+          "uid": "leisure-guitar-heading",
+          "component": "h",
+          "props": {
+            "variant": "h3",
+            "children": "Gitarre spielen"
+          }
+        },
+        {
+          "uid": "leisure-guitar-p1",
+          "component": "p",
+          "props": {
+            "children": "Als Ausgleich zur Arbeit am Computer spiele ich Gitarre."
+          }
+        }
+      ]
+    },
+    {
+      "id":       1,
+      "language": "en",
+      "title":    "leisure:playing guitar",
+      "image":    "Leisure-Guitar.jpg",
+      "data": [
+        {
+          "uid": "leisure-guitar-heading",
+          "component": "h",
+          "props": {
+            "variant": "h3",
+            "children": "Playing Guitar"
+          }
+        },
+        {
+          "uid": "leisure-guitar-p1",
+          "component": "p",
+          "props": {
+            "children": "As recreation to all the computer work, I like to play some guitar."
+          }
+        }
+      ]
+    },
+    {
+      "id":       2,
+      "language": "de",
+      "title":    "leisure:photography",
+      "image":    "Leisure-Photography.jpg",
+      "data": [
+        {
+          "uid": "leisure-guitar-heading",
+          "component": "h",
+          "props": {
+            "variant": "h3",
+            "children": "Fotografieren"
+          }
+        }
+      ]
+    },
+    {
+      "id":       2,
+      "language": "en",
+      "title":    "leisure:photography",
+      "image":    "Leisure-Photography.jpg",
+      "data": [
+        {
+          "uid": "leisure-guitar-heading",
+          "component": "h",
+          "props": {
+            "variant": "h3",
+            "children": "Photography"
+          }
+        }
+      ]
+    },
+    {
+      "id":       3,
+      "language": "de",
+      "title":    "leisure:raspberry pi",
+      "image":    "Leisure-RaspberryPi.jpg",
+      "data": [
+        {
+          "uid": "leisure-guitar-heading",
+          "component": "h",
+          "props": {
+            "variant": "h3",
+            "children": "Bastelcomputer"
+          }
+        }
+      ]
+    },
+    {
+      "id":       3,
+      "language": "en",
+      "title":    "leisure:raspberry pi",
+      "image":    "Leisure-RaspberryPi.jpg",
+      "data": [
+        {
+          "uid": "leisure-guitar-heading",
+          "component": "h",
+          "props": {
+            "variant": "h3",
+            "children": "Raspberry Pi"
+          }
+        }
+      ]
+    },
+    {
+      "id":       4,
+      "language": "de",
+      "title":    "leisure:software games development open source",
+      "image":    "Leisure-GamesDevelopment.png",
+      "data": [
+        {
+          "uid": "leisure-guitar-heading",
+          "component": "h",
+          "props": {
+            "variant": "h3",
+            "children": "Spieleentwicklung"
+          }
+        }
+      ]
+    },
+    {
+      "id":       4,
+      "language": "en",
+      "title":    "leisure:software games development open source",
+      "image":    "Leisure-GamesDevelopment.png",
+      "data": [
+        {
+          "uid": "leisure-guitar-heading",
+          "component": "h",
+          "props": {
+            "variant": "h3",
+            "children": "Games Development"
+          }
+        }
+      ]
+    }
+  ]
+}
