@@ -22,6 +22,7 @@ interface ILeisuresProps extends WithTranslation {
 const useStyles = makeStyles({
   listButton: {
     textAlign: 'left',
+    justifyContent: 'left',
   },
 });
 
@@ -36,7 +37,7 @@ const Leisures: React.FC<ILeisuresProps> = (props: ILeisuresProps) => {
 
   const leisureList = props.leisures.map(leisure => (
     <ListItem key={`leisures-btn-${leisure.id}`}>
-      <Button id={leisure.title} className={classes.listButton} onClick={() => props.onLeisureClick(leisure)}>{t(leisure.title)}</Button>
+      <Button id={leisure.title} fullWidth className={classes.listButton} onClick={() => props.onLeisureClick(leisure)}>{t(leisure.title)}</Button>
     </ListItem>
   ));
 
