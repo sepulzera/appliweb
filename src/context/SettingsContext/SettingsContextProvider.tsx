@@ -13,6 +13,22 @@ interface ISettingsContextProviderProps {
   children: AnyComponent;
 }
 
+const THEME_KEY = 'theme';
+const LANG_KEY  = 'language';
+
+const parseTheme = (themeSetting: string | undefined | null, prefersDarkMode: boolean): number => {
+  const prefersDarkModeNumber = prefersDarkMode ? 1 : 0;
+  if (themeSetting == null) return prefersDarkModeNumber;
+  const themeNumber = parseInt(themeSetting);
+  if (Number.isNaN(themeNumber) || themeNumber < 0 || themeNumber > 1) return prefersDarkModeNumber;
+  return themeNumber;
+};
+
+const parseLanguage = (languageSetting: string | undefined | null, browserLanguage: string): string => {
+  if (languageSetting == null) return browserLanguage;
+  return languageSetting;
+};
+
 /**
  * {@link SettingsContext} Provider.
  *
@@ -22,18 +38,20 @@ const SettingsContextProvider: React.FC<ISettingsContextProviderProps> = (props:
   const { i18n } = useTranslation();
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)', { noSsr: true });
 
-  const [theme, setTheme] = React.useState(prefersDarkMode ? 1 : 0);
-  const [language, setLanguage] = React.useState(i18n.language);
+  const [theme, setTheme] = React.useState<number>(parseTheme(localStorage.getItem(THEME_KEY), prefersDarkMode));
+  const [language, setLanguage] = React.useState<string>(parseLanguage(localStorage.getItem(LANG_KEY), i18n.language));
 
   React.useEffect(() => {
     i18n.changeLanguage(language);
   }, [i18n, language]);
 
   const changeLanguage = (lang: string) => {
+    localStorage.setItem(LANG_KEY, lang);
     setLanguage(lang);
   };
 
   const changeTheme = (newTheme: number) => {
+    localStorage.setItem(THEME_KEY, String(newTheme));
     setTheme(newTheme);
   };
 
