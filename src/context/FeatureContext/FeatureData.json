@@ -7,7 +7,7 @@
       "image":    "Leisure-Guitar.jpg",
       "data": [
         {
-          "uid": "leisure-guitar-heading",
+          "uid": "leisure-guitar-heading1",
           "component": "h",
           "text": "Gitarre spielen",
           "props": {
@@ -22,7 +22,7 @@
         {
           "uid": "leisure-guitar-p2",
           "component": "p",
-          "text": "Angefangen habe ich mit einem privaten Gitarrenlehrer. Inzwischen lerne ich autdidaktisch weiter. Das selbstständige Lernen hat für mich viele Vorteile:"
+          "text": "Angefangen habe ich mit einem privaten Gitarrenlehrer. Inzwischen lerne ich autodidaktisch weiter. Das selbstständige Lernen hat für mich viele Vorteile:"
         },
         {
           "uid": "leisure-guitar-list1",
@@ -39,11 +39,16 @@
               "text": "Ich bin räumlich ungebunden und spare mir das Pendeln zum Lehrer."
             },
             {
-              "uid": "leisure-guitar-list1-item2",
+              "uid": "leisure-guitar-list1-item3",
               "component": "li",
               "text": "Ich kann die Lieder spielen, die mir Spaß machen. Beim Aussuchen lernt man sehr schnell, wo man steht und was noch fehlt. :-)"
             }
           ]
+        },
+        {
+          "uid": "leisure-guitar-p3",
+          "component": "p",
+          "text": "Und welche Lieder spiele ich so? Naja... die, die ich auch gerne höre! Also Lieder von Red Hot Chili Peppers, Sum 41, Linkin Park ... 🤘"
         }
       ]
     },
@@ -64,7 +69,38 @@
         {
           "uid": "leisure-guitar-p1",
           "component": "p",
-          "text": "As recreation to all the computer work, I like to play some guitar."
+          "text": "As recreation to all the computer work, I like to play \"rocky\" songs on my western-guitar."
+        },
+        {
+          "uid": "leisure-guitar-p2",
+          "component": "p",
+          "text": "I started to learn playing guitar with a private teacher. By now, I continue to learn it autodidactic. For me, learning by doing on my own has many upsides:"
+        },
+        {
+          "uid": "leisure-guitar-list1",
+          "component": "ul",
+          "children": [
+            {
+              "uid": "leisure-guitar-list1-item1",
+              "component": "li",
+              "text": "I am not bound to time and can learn at my pace."
+            },
+            {
+              "uid": "leisure-guitar-list1-item2",
+              "component": "li",
+              "text": "There is no need to travel to the teacher's location. I can start immediately and use my time efficiently."
+            },
+            {
+              "uid": "leisure-guitar-list1-item3",
+              "component": "li",
+              "text": "And most importantly: I can play those songs, that I really enjoy. And when searching for new songs, I can better understand my current skill level. :-)"
+            }
+          ]
+        },
+        {
+          "uid": "leisure-guitar-p3",
+          "component": "p",
+          "text": "And what songs do I play? Well... the songs that I love to listen to, of course! Songs of Red Hot Chili Peppers, Sum 41, Linkin Park ... 🤘"
         }
       ]
     },
