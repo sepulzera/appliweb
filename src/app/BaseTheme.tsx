@@ -75,6 +75,7 @@ const BaseTheme: React.FC<IBaseThemeProps> = (props: IBaseThemeProps) => {
     },
     body1: {
       marginBottom: '1.5rem',
+      fontSize: '1rem',
     },
   };
 

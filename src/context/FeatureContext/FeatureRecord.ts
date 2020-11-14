@@ -1,7 +1,9 @@
 export type FeaturePageData = {
   uid:       string;
   component: string;
+  text?:     string;
   props:     Array<any>;
+  children?: Array<FeaturePageData>;
 }
 
 /**

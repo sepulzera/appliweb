@@ -9,17 +9,41 @@
         {
           "uid": "leisure-guitar-heading",
           "component": "h",
+          "text": "Gitarre spielen",
           "props": {
-            "variant": "h3",
-            "children": "Gitarre spielen"
+            "variant": "h3"
           }
         },
         {
           "uid": "leisure-guitar-p1",
           "component": "p",
-          "props": {
-            "children": "Als Ausgleich zur Arbeit am Computer spiele ich Gitarre."
-          }
+          "text": "Als Ausgleich zur Arbeit am Computer spiele ich Western-Gitarre mit bevorzugt rockigen Liedern meiner Lieblingsbands."
+        },
+        {
+          "uid": "leisure-guitar-p2",
+          "component": "p",
+          "text": "Angefangen habe ich mit einem privaten Gitarrenlehrer. Inzwischen lerne ich autdidaktisch weiter. Das selbstständige Lernen hat für mich viele Vorteile:"
+        },
+        {
+          "uid": "leisure-guitar-list1",
+          "component": "ul",
+          "children": [
+            {
+              "uid": "leisure-guitar-list1-item1",
+              "component": "li",
+              "text": "Ich bin zeitlich unabhängig und kann in meinem eigenen Tempo lernen."
+            },
+            {
+              "uid": "leisure-guitar-list1-item2",
+              "component": "li",
+              "text": "Ich bin räumlich ungebunden und spare mir das Pendeln zum Lehrer."
+            },
+            {
+              "uid": "leisure-guitar-list1-item2",
+              "component": "li",
+              "text": "Ich kann die Lieder spielen, die mir Spaß machen. Beim Aussuchen lernt man sehr schnell, wo man steht und was noch fehlt. :-)"
+            }
+          ]
         }
       ]
     },
@@ -32,17 +56,15 @@
         {
           "uid": "leisure-guitar-heading",
           "component": "h",
+          "text": "Playing Guitar",
           "props": {
-            "variant": "h3",
-            "children": "Playing Guitar"
+            "variant": "h3"
           }
         },
         {
           "uid": "leisure-guitar-p1",
           "component": "p",
-          "props": {
-            "children": "As recreation to all the computer work, I like to play some guitar."
-          }
+          "text": "As recreation to all the computer work, I like to play some guitar."
         }
       ]
     },
@@ -55,9 +77,9 @@
         {
           "uid": "leisure-guitar-heading",
           "component": "h",
+          "text": "Fotografieren",
           "props": {
-            "variant": "h3",
-            "children": "Fotografieren"
+            "variant": "h3"
           }
         }
       ]
@@ -71,9 +93,9 @@
         {
           "uid": "leisure-guitar-heading",
           "component": "h",
+          "text": "Photography",
           "props": {
-            "variant": "h3",
-            "children": "Photography"
+            "variant": "h3"
           }
         }
       ]
@@ -87,9 +109,9 @@
         {
           "uid": "leisure-guitar-heading",
           "component": "h",
+          "text": "Bastelcomputer",
           "props": {
-            "variant": "h3",
-            "children": "Bastelcomputer"
+            "variant": "h3"
           }
         }
       ]
@@ -103,9 +125,9 @@
         {
           "uid": "leisure-guitar-heading",
           "component": "h",
+          "text": "Raspberry Pi",
           "props": {
-            "variant": "h3",
-            "children": "Raspberry Pi"
+            "variant": "h3"
           }
         }
       ]
@@ -119,9 +141,9 @@
         {
           "uid": "leisure-guitar-heading",
           "component": "h",
+          "text": "Spieleentwicklung",
           "props": {
-            "variant": "h3",
-            "children": "Spieleentwicklung"
+            "variant": "h3"
           }
         }
       ]
@@ -135,9 +157,9 @@
         {
           "uid": "leisure-guitar-heading",
           "component": "h",
+          "text": "Games Development",
           "props": {
-            "variant": "h3",
-            "children": "Games Development"
+            "variant": "h3"
           }
         }
       ]
