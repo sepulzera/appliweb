@@ -10,7 +10,7 @@ import SkillRecord from '../../context/SkillContext/SkillRecord';
 import Dialog from '../Ui/Dialog';
 import Image from '../Ui/Image';
 import FeatureSkills from './FeatureSkills';
-import Components from './ComponentRenderer';
+import FeatureData from './FeatureData';
 
 /**
  * {@link List} Props.
@@ -53,12 +53,9 @@ const LeisurePage: React.FC<IProps> = (props: IProps) => {
     <Dialog title={t(leisure.title)} isOpen={isOpen} onClose={onClose}>
       <div>
         <Image src={feature.image} />
-        {}
       </div>
-      <div>
-        <FeatureSkills skills={skills} onSkillClick={props.onSkillClick} />
-        {feature.data.map(block => Components(block))}
-      </div>
+      <FeatureSkills skills={skills} onSkillClick={props.onSkillClick} />
+      <FeatureData data={feature.data} />
     </Dialog>
   );
 };
