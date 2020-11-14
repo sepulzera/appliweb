@@ -111,6 +111,31 @@
           "component": "h",
           "text": "Fotografieren",
           "variant": "h3"
+        },
+        {
+          "uid": "leisure-photography-p1",
+          "component": "p",
+          "text": "Jedes Jahr erstellen meine Freundin und ich ein \"Jahresalbum\" über das vergangene Jahr. Jedes Album umfasst ca. 100 ausgewählte Fotos, die unsere besondersten und einprägensten Erlebnisse festhalten."
+        },
+        {
+          "uid": "leisure-photography-p2",
+          "component": "p",
+          "text": "Dadurch hat sich eine große Leidenschaft für die Fotografie entwickelt. Neben der \"Ereignisfotografie\", also das Fotografieren zu Events und Treffen, verbringen wir inzwischen viel Zeit im Freien bei der Landschafts- und Makrofotografie."
+        },
+        {
+          "uid": "leisure-photography-p3",
+          "component": "p",
+          "text": "Nebenher wächst natürlich auch das Equipment: Aktuell fotografieren wir mit der spiegellosen Systekamera \"Sony α6300\". Mein \"immer-drauf\"-Objekt ist das \"Sony 35mm\". Für besondere Umstände kommen aber auch das \"Zeiss 12mm\", das \"Sony 18-135mm\" oder das \"Sony G 135mm\" zum Einsatz."
+        },
+        {
+          "uid": "leisure-photography-p4",
+          "component": "p",
+          "text": "Nachbearbeitet werden die Fotos mit RawTherapee und Gimp."
+        },
+        {
+          "uid": "leisure-photography-img1",
+          "component": "img",
+          "image": "Leisure-RaspberryPi.jpg"
         }
       ]
     },
@@ -125,6 +150,31 @@
           "component": "h",
           "text": "Photography",
           "variant": "h3"
+        },
+        {
+          "uid": "leisure-photography-p1",
+          "component": "p",
+          "text": "Every year, together my girfriend and I create a photo album about the past year. Each album includes about 100 photos that record our most memorizable and important events."
+        },
+        {
+          "uid": "leisure-photography-p2",
+          "component": "p",
+          "text": "Thereby we have developed a strong passion to the photography itself. Additionaly to the \"event-photography\", we spend a fair amount of our spare time in nature with the landscape- and macro-photography."
+        },
+        {
+          "uid": "leisure-photography-p3",
+          "component": "p",
+          "text": "Alongside comes a grow of our used equipment: Currently, we are using the system camera \"Sony α6300\". My personal \"always on\"-objective is the \"Sony 35mm\". But for particular situations we also use the \"Zeiss 12mm\", the \"Sony 18-135mm\" or the \"Sony G 135mm\"."
+        },
+        {
+          "uid": "leisure-photography-p4",
+          "component": "p",
+          "text": "The post-processing is done with RawTherapee and Gimp."
+        },
+        {
+          "uid": "leisure-photography-img1",
+          "component": "img",
+          "image": "Leisure-RaspberryPi.jpg"
         }
       ]
     },
