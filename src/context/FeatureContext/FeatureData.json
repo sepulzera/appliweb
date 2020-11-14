@@ -10,9 +10,7 @@
           "uid": "leisure-guitar-heading1",
           "component": "h",
           "text": "Gitarre spielen",
-          "props": {
-            "variant": "h3"
-          }
+          "variant": "h3"
         },
         {
           "uid": "leisure-guitar-p1",
@@ -62,9 +60,7 @@
           "uid": "leisure-guitar-heading",
           "component": "h",
           "text": "Playing Guitar",
-          "props": {
-            "variant": "h3"
-          }
+          "variant": "h3"
         },
         {
           "uid": "leisure-guitar-p1",
@@ -111,12 +107,10 @@
       "image":    "Leisure-Photography.jpg",
       "data": [
         {
-          "uid": "leisure-guitar-heading",
+          "uid": "leisure-photography-heading",
           "component": "h",
           "text": "Fotografieren",
-          "props": {
-            "variant": "h3"
-          }
+          "variant": "h3"
         }
       ]
     },
@@ -127,12 +121,10 @@
       "image":    "Leisure-Photography.jpg",
       "data": [
         {
-          "uid": "leisure-guitar-heading",
+          "uid": "leisure-photography-heading",
           "component": "h",
           "text": "Photography",
-          "props": {
-            "variant": "h3"
-          }
+          "variant": "h3"
         }
       ]
     },
@@ -143,12 +135,10 @@
       "image":    "Leisure-RaspberryPi.jpg",
       "data": [
         {
-          "uid": "leisure-guitar-heading",
+          "uid": "leisure-raspberrypi-heading",
           "component": "h",
           "text": "Bastelcomputer",
-          "props": {
-            "variant": "h3"
-          }
+          "variant": "h3"
         }
       ]
     },
@@ -159,12 +149,10 @@
       "image":    "Leisure-RaspberryPi.jpg",
       "data": [
         {
-          "uid": "leisure-guitar-heading",
+          "uid": "leisure-raspberrypi-heading",
           "component": "h",
           "text": "Raspberry Pi",
-          "props": {
-            "variant": "h3"
-          }
+          "variant": "h3"
         }
       ]
     },
@@ -175,12 +163,10 @@
       "image":    "Leisure-GamesDevelopment.png",
       "data": [
         {
-          "uid": "leisure-guitar-heading",
+          "uid": "leisure-gamesdevelopment-heading",
           "component": "h",
           "text": "Spieleentwicklung",
-          "props": {
-            "variant": "h3"
-          }
+          "variant": "h3"
         }
       ]
     },
@@ -191,12 +177,10 @@
       "image":    "Leisure-GamesDevelopment.png",
       "data": [
         {
-          "uid": "leisure-guitar-heading",
+          "uid": "leisure-gamesdevelopment-heading",
           "component": "h",
           "text": "Games Development",
-          "props": {
-            "variant": "h3"
-          }
+          "variant": "h3"
         }
       ]
     }
