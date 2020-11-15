@@ -189,6 +189,52 @@
           "component": "h",
           "text": "Bastelcomputer",
           "variant": "h3"
+        },
+        {
+          "uid": "leisure-raspberrypi-p1",
+          "component": "p",
+          "text": "Was Datenschutz angeht, bin ich eventuell etwas paranoid. Private Daten in einer Dropbox oder ähnliches abzulegen und zu teilen, kommt für mich nicht in Frage."
+        },
+        {
+          "uid": "leisure-raspberrypi-p2",
+          "component": "p",
+          "text": "Um diese Lücke zu füllen, habe ich meinen eigenen kleinen Heimserver mit einem \"Raspberry Pi\" realisiert. Auf dem kleinen Bastelrechner laufen aktuell folgende Dienste:"
+        },
+        {
+          "uid": "leisure-raspberrypi-list1",
+          "component": "ul",
+          "children": [
+            {
+              "uid": "leisure-raspberrypi-list1-item1",
+              "component": "li",
+              "text": "Das Betriebssystem \"Raspbian\", das auf Linux aufbaut."
+            },
+            {
+              "uid": "leisure-raspberrypi-list1-item2",
+              "component": "li",
+              "text": "Die Firewall \"nftables\", um Angreifern die Übernahme zu erschweren. Ausschließlich Verbindungen aus Deutschland werden erlaubt. Zeitweise hatte ich es sogar auf meine IP-Adressen beschränkt."
+            },
+            {
+              "uid": "leisure-raspberrypi-list1-item3",
+              "component": "li",
+              "text": "Der DNS-Server \"unbound\", über den mein gesamter Internet-Verkehr verläuft. Die DNS-Anfragen werden automatisch mit TLS verschlüsselt und Werbung gefiltert."
+            },
+            {
+              "uid": "leisure-raspberrypi-list1-item4",
+              "component": "li",
+              "text": "Der Voice-Chat \"mumble\", über den meine Freunde und ich kommunizieren."
+            },
+            {
+              "uid": "leisure-raspberrypi-list1-item5",
+              "component": "li",
+              "text": "Die Dateicloud \"Seafile\", über die meine Freunde und ich Dateien austauschen, wie Kochrezepte, Fotos, Anleitungen usw."
+            }
+          ]
+        },
+        {
+          "uid": "leisure-raspberrypi-p3",
+          "component": "p",
+          "text": "Früher hatte ich auch noch \"gitea\" als Git-Service installiert, um meine privaten Projekte zu versionieren und teilen zu können. Inzwischen habe ich aber alle Projekte auf GitHub umgezogen, um deren Sichtbarkeit zu erhöhen."
         }
       ]
     },
@@ -203,6 +249,52 @@
           "component": "h",
           "text": "Raspberry Pi",
           "variant": "h3"
+        },
+        {
+          "uid": "leisure-raspberrypi-p1",
+          "component": "p",
+          "text": "Privacy is very important to me. I wouldn't store or share privat data via Dropbox or other public cloud services."
+        },
+        {
+          "uid": "leisure-raspberrypi-p2",
+          "component": "p",
+          "text": "To share files with friends, I have set up my own home cloud with a \"Raspberry Pi\". It provides the following services:"
+        },
+        {
+          "uid": "leisure-raspberrypi-list1",
+          "component": "ul",
+          "children": [
+            {
+              "uid": "leisure-raspberrypi-list1-item1",
+              "component": "li",
+              "text": "It runs the operation system \"Raspbian\", that is built upon Linux."
+            },
+            {
+              "uid": "leisure-raspberrypi-list1-item2",
+              "component": "li",
+              "text": "The firewall \"nftables\" impedes attacks from the internet. Only connections from Germany are permitted. In the past, I had only permitted connections from specific IPs. But that was too cumbersome, if friends with changing IPs tried to access a service."
+            },
+            {
+              "uid": "leisure-raspberrypi-list1-item3",
+              "component": "li",
+              "text": "The DNS-service \"unbound\" tunnels all queries to the internet. The queries are automatically encrypted with TLS and advertisement is filtered off."
+            },
+            {
+              "uid": "leisure-raspberrypi-list1-item4",
+              "component": "li",
+              "text": "The voice-chat \"mumble\" is used for talking."
+            },
+            {
+              "uid": "leisure-raspberrypi-list1-item5",
+              "component": "li",
+              "text": "The file-cloud \"Seafile\" is used to share files with friends, like cooking receipts, photos, instructions and more."
+            }
+          ]
+        },
+        {
+          "uid": "leisure-raspberrypi-p3",
+          "component": "p",
+          "text": "In the past, it was also running \"gitea\" as git-service to put my private software projects under version control and to share them. By now, all my projects have been migrated to GitHub to make them public for all."
         }
       ]
     },
