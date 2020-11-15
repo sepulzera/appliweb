@@ -33,11 +33,12 @@ const Components = (block: AnyFeaturePageData) => {
       }, block.text);
     } else if (isImage(block)) {
       return (
-        <div style={{
-          marginBottom: '1.5rem',
-        }}>
+        <div
+            key={block.uid}
+            style={{
+              marginBottom: '1.5rem',
+            }}>
           {React.createElement(Cmpcmp, {
-            key: block.uid,
             src: block.image,
             alt: block.alt,
           })}

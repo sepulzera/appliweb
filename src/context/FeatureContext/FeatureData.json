@@ -7,7 +7,7 @@
       "image":    "Leisure-Guitar.jpg",
       "data": [
         {
-          "uid": "leisure-guitar-heading1",
+          "uid": "leisure-guitar-h1",
           "component": "h",
           "text": "Gitarre spielen",
           "variant": "h3"
@@ -57,7 +57,7 @@
       "image":    "Leisure-Guitar.jpg",
       "data": [
         {
-          "uid": "leisure-guitar-heading",
+          "uid": "leisure-guitar-h1",
           "component": "h",
           "text": "Playing Guitar",
           "variant": "h3"
@@ -107,7 +107,7 @@
       "image":    "Leisure-Photography.jpg",
       "data": [
         {
-          "uid": "leisure-photography-heading",
+          "uid": "leisure-photography-h1",
           "component": "h",
           "text": "Fotografieren",
           "variant": "h3"
@@ -146,7 +146,7 @@
       "image":    "Leisure-Photography.jpg",
       "data": [
         {
-          "uid": "leisure-photography-heading",
+          "uid": "leisure-photography-h1",
           "component": "h",
           "text": "Photography",
           "variant": "h3"
@@ -185,7 +185,7 @@
       "image":    "Leisure-RaspberryPi.jpg",
       "data": [
         {
-          "uid": "leisure-raspberrypi-heading",
+          "uid": "leisure-raspberrypi-h1",
           "component": "h",
           "text": "Bastelcomputer",
           "variant": "h3"
@@ -245,7 +245,7 @@
       "image":    "Leisure-RaspberryPi.jpg",
       "data": [
         {
-          "uid": "leisure-raspberrypi-heading",
+          "uid": "leisure-raspberrypi-h1",
           "component": "h",
           "text": "Raspberry Pi",
           "variant": "h3"
@@ -305,10 +305,30 @@
       "image":    "Leisure-GamesDevelopment.png",
       "data": [
         {
-          "uid": "leisure-gamesdevelopment-heading",
+          "uid": "leisure-gamesdevelopment-h1",
           "component": "h",
           "text": "Spieleentwicklung",
           "variant": "h3"
+        },
+        {
+          "uid": "leisure-gamesdevelopment-p1",
+          "component": "p",
+          "text": "Meine Leidenschaft für die Programmierung erweckte das Open Source-Computerspiel \"Teeworlds\" als ich 16 Jahre jung war. Um den Worms-ähnliche 2D-Shooter bildete sich eine aktive Modding-Community. Modding bezeichnet die Modifizierung von etwas, in dem Falle des Spieles selbst."
+        },
+        {
+          "uid": "leisure-gamesdevelopment-p2",
+          "component": "p",
+          "text": "Auch ich hatte viele Ideen, das Spiel zu verbessern und zu verändern. Dadurch kam ich mit den Programmiersprachen C und C++ in Berührung. Insbesondere die Hacks rund um die Pointer hatten mich fasziniert - so viel Optimierungspotenzial!"
+        },
+        {
+          "uid": "leisure-gamesdevelopment-p3",
+          "component": "p",
+          "text": "Über die Modding-Community kam ich immer häufiger mit dem offiziellen Programmierteam von Teeworlds in Berührung, wobei ich nie meine Verbindung zu der Modding-Community und den Spielern verlierte. Im Professionellen würde man diese Stelle wohl \"Support\" bezeichnen. Ich griff die Probleme und Ideen der Spieler auf und kommunizierte bzw. diskutierte sie mit dem Entwicklerteam. Im Spieleforum agierte ich als offizielles \"Support-Staff\" und unterstützte die Spieler bei technischen Problemen."
+        },
+        {
+          "uid": "leisure-gamesdevelopment-p4",
+          "component": "p",
+          "text": "Durch mein Engagement bei Teeworlds habe ich es verstanden, Leuten zuzuhören und ihre Kernprobleme zu verstehen. Ich bin befähigt, diese Probleme für die \"Techis\" aufzubereiten und daraus ein rundes Produkt zu entwickeln."
         }
       ]
     },
@@ -319,10 +339,30 @@
       "image":    "Leisure-GamesDevelopment.png",
       "data": [
         {
-          "uid": "leisure-gamesdevelopment-heading",
+          "uid": "leisure-gamesdevelopment-h1",
           "component": "h",
           "text": "Games Development",
           "variant": "h3"
+        },
+        {
+          "uid": "leisure-gamesdevelopment-p1",
+          "component": "p",
+          "text": "My passion to the software development was created at an age of 16 by the open source computer game \"Teeworlds\". The Worms-like 2D-Shooter had a very active modding-community. The term \"modding\" means the modification of something, in this case of the game itself."
+        },
+        {
+          "uid": "leisure-gamesdevelopment-p2",
+          "component": "p",
+          "text": "I had many greate ideas to change and enhance the game, too. Doing so, I came in touch with the programming languages C and C++. Especially the hacks with the C-pointers fascinated me - so many possibilities to optimize things!"
+        },
+        {
+          "uid": "leisure-gamesdevelopment-p3",
+          "component": "p",
+          "text": "Through the modding-community, I got frequently in touch with the official development-team of Teeworlds, whereupon I never lost my connection to the modding-community and the gamers. I picked up the issues and ideas of the community and discussed them with the development-team. As \"Support-Staff\" of the offical game's forum I helped the players with their technical problems."
+        },
+        {
+          "uid": "leisure-gamesdevelopment-p4",
+          "component": "p",
+          "text": "As result to my engagement I have learned to carefully listen to people and to understand their core problems. I am competent to translate their problems into the development-language for the programmers and to design a well-elaborated product that provides an excellent user-experience."
         }
       ]
     }
