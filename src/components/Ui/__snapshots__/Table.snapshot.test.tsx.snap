@@ -20,6 +20,11 @@ exports[`render empty table 1`] = `
         aria-sort={null}
         className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall"
         scope="col"
+        style={
+          Object {
+            "width": undefined,
+          }
+        }
       >
         Some Title
       </th>
@@ -27,6 +32,11 @@ exports[`render empty table 1`] = `
         aria-sort={null}
         className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall"
         scope="col"
+        style={
+          Object {
+            "width": undefined,
+          }
+        }
       >
         Another Title
       </th>
@@ -61,6 +71,11 @@ exports[`render filled table 1`] = `
         aria-sort={null}
         className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall"
         scope="col"
+        style={
+          Object {
+            "width": undefined,
+          }
+        }
       >
         Some Title
       </th>
@@ -68,6 +83,11 @@ exports[`render filled table 1`] = `
         aria-sort={null}
         className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall"
         scope="col"
+        style={
+          Object {
+            "width": undefined,
+          }
+        }
       >
         Another Title
       </th>

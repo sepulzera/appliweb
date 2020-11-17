@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import './i18n';
-import Root from './container/Root/Root';
+import Root from './app/Root';
 import * as serviceWorker from './serviceWorker';
 import 'typeface-roboto';
 

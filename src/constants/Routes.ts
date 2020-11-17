@@ -1,10 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { AccountBalance, Face, Home, Info } from '@material-ui/icons';
 
-import HomePage from '../container/HomePage/HomePage';
-import AboutPage from '../container/AboutPage/AboutPage';
-import LegalPage from '../container/LegalPage/LegalPage';
-import PrivacyPage from '../container/PrivacyPage/PrivacyPage';
+import { AnyComponent } from '../types/Types';
+
+import HomeContainer from '../container/HomeContainer';
+import AboutContainer from '../container/AboutContainer';
+import LegalContainer from '../container/LegalContainer';
+import PrivacyContainer from '../container/PrivacyContainer';
 
 /**
  * {@link Routes) Type.
@@ -17,7 +19,7 @@ export type IRouteType = {
   /** Displayed icon for the navigation menu. */
   icon:      any;
   /** Container for this route. */
-  component: React.ReactNode;
+  component: AnyComponent;
 }
 
 /**
@@ -28,25 +30,25 @@ const Routes: Array<IRouteType> = [
     path:      '/home',
     title:     'home:home link',
     icon:      Home,
-    component: HomePage,
+    component: HomeContainer,
   },
   {
     path:      '/about',
     title:     'about:about link',
     icon:      Info,
-    component: AboutPage,
+    component: AboutContainer,
   },
   {
     path:      '/legal',
     title:     'legal:legal link',
     icon:      AccountBalance,
-    component: LegalPage,
+    component: LegalContainer,
   },
   {
     path:      '/privacy',
     title:     'privacy:privacy link',
     icon:      Face,
-    component: PrivacyPage,
+    component: PrivacyContainer,
   },
 ];
 

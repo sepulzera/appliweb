@@ -1,14 +1,22 @@
 import * as React from 'react';
-import { Avatar } from '@material-ui/core';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
-import AssetsHelper from '../../assets/AssetsHelper';
 import UserRecord from '../../context/UserContext/UserRecord';
 import JobRequestRecord from '../../context/JobRequestContext/JobRequestRecord';
 
 import Settings from '../Settings/Settings';
 import CurrentUserInfo from './CurrentUserInfo';
 import JobRequest from './JobRequest';
+import Image from '../Ui/Image';
+/**
+ * {@link UserHeader} Props.
+ */
+interface IUserHeaderProps {
+  /** User to display. */
+  user: UserRecord;
+  /** Jobrequest to display. */
+  jobRequest: JobRequestRecord | undefined;
+}
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   header: {
@@ -57,7 +65,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     position: 'relative',
     top: `${theme.spacing(2)}px`,
     right: '0',
-    zIndex: 99999,
+    zIndex: 1,
     height: 'min-content',
   },
 
@@ -79,16 +87,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 }));
 
 /**
- * {@link UserHeader} Props.
- */
-interface IUserHeaderProps {
-  /** User to display. */
-  user: UserRecord;
-  /** Jobrequest to display. */
-  jobRequest: JobRequestRecord;
-}
-
-/**
  * Fancy UserHeader for the {@link HomePage}.
  *
  * @param props - {@link IUserHeaderProps}.
@@ -96,19 +94,17 @@ interface IUserHeaderProps {
 const UserHeader: React.FC<IUserHeaderProps> = (props: IUserHeaderProps) => {
   const classes = useStyles();
 
-  const userAvatar = AssetsHelper.getAsset(props.user.avatar);
-
   return (
     <div className={classes.header}>
       <div className={classes.sectionTabletAndDesktop}>
         <div className={classes.user}>
           <CurrentUserInfo user={props.user} />
-          <JobRequest jobRequest={props.jobRequest} asRow />
+          { props.jobRequest && <JobRequest jobRequest={props.jobRequest} asRow /> }
         </div>
 
         <div className={classes.column}>
           <Settings className={classes.settings} />
-          <Avatar variant='square' alt={`${props.user.forname} ${props.user.lastname}`} src={userAvatar} className={classes.large} />
+          <Image alt={`${props.user.forname} ${props.user.lastname}`} src={props.user.avatar} className={classes.large} />
         </div>
       </div>
 
@@ -118,8 +114,8 @@ const UserHeader: React.FC<IUserHeaderProps> = (props: IUserHeaderProps) => {
           <Settings className={classes.settings} />
         </div>
         <div className={classes.row}>
-          <JobRequest jobRequest={props.jobRequest} asRow={false} />
-          <Avatar variant='square' alt={`${props.user.forname} ${props.user.lastname}`} src={userAvatar} className={classes.mobileAvatar} />
+          { props.jobRequest && <JobRequest jobRequest={props.jobRequest} asRow={false} /> }
+          <Image alt={`${props.user.forname} ${props.user.lastname}`} src={props.user.avatar} className={classes.mobileAvatar} />
         </div>
       </div>
     </div>

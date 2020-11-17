@@ -2,10 +2,24 @@ import React from 'react';
 
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
+import { AnyComponent } from '../../types/Types';
+
 import Container from '../../components/Ui/Container';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import Paper from '../../components/Ui/Paper';
+
+/**
+ * {@link PageWithHeaderAndFooter} Props.
+ */
+interface IPageWithHeaderAndFooterProps {
+  /** Header title to render. */
+  header?: string;
+  /** Custom header? */
+  headerComponent?: AnyComponent;
+  /** Main page content. */
+  children: AnyComponent;
+}
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   root: {
@@ -20,18 +34,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     overflowX: 'hidden',
   },
 }));
-
-/**
- * {@link PageWithHeaderAndFooter} Props.
- */
-interface IPageWithHeaderAndFooterProps {
-  /** Header title to render. */
-  header?: string;
-  /** Custom header? */
-  headerComponent?: React.ReactNode;
-  /** Main page content. */
-  children: React.ReactNode;
-}
 
 /**
  * Default page layout with a defined header and footer.

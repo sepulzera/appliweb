@@ -47,6 +47,7 @@ const Table: React.FC<ITableProps> = (props: ITableProps) => {
         <TableRow>
           {props.columns.map((col: column) => (
             <TableCell
+                key={col.name}
                 style={{
                   width: col.width,
                 }}>
@@ -59,7 +60,7 @@ const Table: React.FC<ITableProps> = (props: ITableProps) => {
         {props.data.map((dat: any) => (
           <TableRow key={dat.id}>
             {cols.map((col: string) => (
-              <TableCell>{getData(dat, col)}</TableCell>
+              <TableCell key={col}>{getData(dat, col)}</TableCell>
             ))}
           </TableRow>
         ))}

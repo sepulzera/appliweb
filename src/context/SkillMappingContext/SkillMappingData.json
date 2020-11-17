@@ -1,0 +1,81 @@
+{
+  "skillMappings": [
+    {
+      "id":      1,
+      "userId":  1,
+      "type":    "leisure",
+      "typeId":  1,
+      "skillId": 3
+    },
+    {
+      "id":      2,
+      "userId":  1,
+      "type":    "leisure",
+      "typeId":  1,
+      "skillId": 4
+    },
+    {
+      "id":      10,
+      "userId":  1,
+      "type":    "leisure",
+      "typeId":  2,
+      "skillId": 4
+    },
+    {
+      "id":      11,
+      "userId":  1,
+      "type":    "leisure",
+      "typeId":  2,
+      "skillId": 2
+    },
+    {
+      "id":      12,
+      "userId":  1,
+      "type":    "leisure",
+      "typeId":  2,
+      "skillId": 5
+    },
+    {
+      "id":      20,
+      "userId":  1,
+      "type":    "leisure",
+      "typeId":  3,
+      "skillId": 3
+    },
+    {
+      "id":      21,
+      "userId":  1,
+      "type":    "leisure",
+      "typeId":  3,
+      "skillId": 40
+    },
+    {
+      "id":      30,
+      "userId":  1,
+      "type":    "leisure",
+      "typeId":  4,
+      "skillId": 2
+    },
+    {
+      "id":      31,
+      "userId":  1,
+      "type":    "leisure",
+      "typeId":  4,
+      "skillId": 10
+    },
+    {
+      "id":      32,
+      "userId":  1,
+      "type":    "leisure",
+      "typeId":  4,
+      "skillId": 11
+    },
+    {
+      "id":      33,
+      "userId":  1,
+      "type":    "leisure",
+      "typeId":  4,
+      "skillId": 20
+    }
+  ]
+}

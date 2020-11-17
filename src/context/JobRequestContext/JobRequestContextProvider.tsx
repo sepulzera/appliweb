@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import { AnyComponent } from '../../types/Types';
+
 import JobRequestContext from './JobRequestContext';
 import JobRequestRecord from './JobRequestRecord';
 import JobRequestData from './JobRequestData.json';
@@ -7,7 +9,7 @@ import JobRequestData from './JobRequestData.json';
 /** {@link JobRequestContextProvider} Props. */
 interface IJobRequestContextProviderProps {
   /** App container that should have access to the providers. */
-  children: React.ReactNode;
+  children: AnyComponent;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

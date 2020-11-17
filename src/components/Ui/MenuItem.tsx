@@ -2,13 +2,7 @@ import * as React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import MuiMenuItem from '@material-ui/core/MenuItem';
 
-const useStyles = makeStyles(theme => ({
-  icon: {
-    fontSize:    '1rem',
-    lineHeight:  0,
-    marginRight: theme.spacing(2),
-  },
-}));
+import { AnyComponent } from '../../types/Types';
 
 /**
  * {@link MenuItem} Props.
@@ -18,8 +12,16 @@ interface IMenuItemProps {
   /** Callback fired on clicking the item. */
   onClick:  () => void;
   /** Item's text. */
-  children: React.ReactNode;
+  children: AnyComponent;
 }
+
+const useStyles = makeStyles(theme => ({
+  icon: {
+    fontSize:    '1rem',
+    lineHeight:  0,
+    marginRight: theme.spacing(2),
+  },
+}));
 
 /**
  * Renders a menu item.

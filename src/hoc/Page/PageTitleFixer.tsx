@@ -1,11 +1,13 @@
 import React from 'react';
 
+import { AnyComponent } from '../../types/Types';
+
 /** {@link PageTitleFixer} Props. */
 interface IPageTitleFixerProps {
   /** Page title. */
   title:       string;
   /** Page component to render. */
-  component:   React.ReactNode;
+  component:   AnyComponent;
 }
 
 /**

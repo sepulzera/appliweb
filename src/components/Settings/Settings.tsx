@@ -13,6 +13,14 @@ import Dialog from '../Ui/Dialog';
 import Menu from '../Ui/Menu';
 import MenuItem from '../Ui/MenuItem';
 
+/**
+ * {@link Settings} Props.
+ */
+interface ISettingsProps extends WithTranslation {
+  /** Classes used for styling. */
+  className?: string | undefined;
+}
+
 const useStyles = makeStyles(theme => ({
   sectionDesktop: {
     display: 'none',
@@ -33,14 +41,6 @@ const useStyles = makeStyles(theme => ({
     marginBottom: 'auto',
   },
 }));
-
-/**
- * {@link Settings} Props.
- */
-interface ISettingsProps extends WithTranslation {
-  /** Classes used for styling. */
-  className?: string | undefined;
-}
 
 /**
  * Fancy UserHeader for the {@link HomePage}.
@@ -88,7 +88,6 @@ const Settings: React.FC<ISettingsProps> = (props: ISettingsProps) => {
       settingsContext.setTheme(settingsContext.getTheme() === 0 ? 1 : 0);
     }
   };
-
 
   const mobileMenuId = 'primary-search-account-menu-mobile';
   const renderMobileMenu = (

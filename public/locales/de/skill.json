@@ -1,0 +1,25 @@
+{
+  "heading": "Skills",
+  "skill": "Skill",
+
+  "social": "Sozialkompetenz",
+  "team spirit": "Teamgeist",
+  "communication": "Kommunikation",
+  "self-reliance": "Selbstständigkeit",
+  "reliability": "Zuverlässigkeit",
+  "resilience": "Belastbarkeit",
+
+  "language": "Sprachen",
+  "german": "Deutsch",
+  "english": "Englisch",
+
+  "skills": "Skills",
+  "programming c++": "Programmierung: C++",
+  "programming java": "Programmierung: Java",
+  "programming vba": "Programmierung: VBA",
+  "web html/css": "Webdesign: HTML, CSS",
+  "web javascript": "Webentwicklung: JavaScript",
+  "web reactjs": "Webentwicklung: ReactJS",
+  "database OracleSQL": "Datenbank: OracleSQL",
+  "os linux": "Betriebssystem: Linux"
+}

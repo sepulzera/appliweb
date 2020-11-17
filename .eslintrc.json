@@ -29,8 +29,20 @@
     "jest": true
   },
   "rules": {
+    "@typescript-eslint/ban-types": 0,
     "@typescript-eslint/explicit-function-return-type": 0,
-    "@typescript-eslint/interface-name-prefix": [1, { "prefixWithI": "always", "allowUnderscorePrefix": true }],
+    "@typescript-eslint/explicit-module-boundary-types": 0,
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "interface",
+        "format": ["PascalCase"],
+        "custom": {
+          "regex": "^I[A-Z]",
+          "match": true
+        }
+      }
+    ],
     "arrow-parens": ["error", "as-needed"],
     "comma-dangle": ["error", {
       "arrays": "always-multiline",
@@ -80,6 +92,7 @@
     "react/jsx-props-no-multi-spaces": 0,
     "react/jsx-props-no-spreading": 1,
     "react/prop-types": [0],
+    "react/require-default-props": 0,
     "space-in-parens": 1
   }
 }

@@ -1,0 +1,370 @@
+{
+  "features": [
+    {
+      "id":       1,
+      "language": "de",
+      "title":    "leisure:playing guitar",
+      "image":    "Leisure-Guitar.jpg",
+      "data": [
+        {
+          "uid": "leisure-guitar-h1",
+          "component": "h",
+          "text": "Gitarre spielen",
+          "variant": "h3"
+        },
+        {
+          "uid": "leisure-guitar-p1",
+          "component": "p",
+          "text": "Als Ausgleich zur Arbeit am Computer spiele ich Western-Gitarre mit bevorzugt rockigen Liedern meiner Lieblingsbands."
+        },
+        {
+          "uid": "leisure-guitar-p2",
+          "component": "p",
+          "text": "Angefangen habe ich mit einem privaten Gitarrenlehrer. Inzwischen lerne ich autodidaktisch weiter. Das selbstständige Lernen hat für mich viele Vorteile:"
+        },
+        {
+          "uid": "leisure-guitar-list1",
+          "component": "ul",
+          "children": [
+            {
+              "uid": "leisure-guitar-list1-item1",
+              "component": "li",
+              "text": "Ich bin zeitlich unabhängig und kann in meinem eigenen Tempo lernen."
+            },
+            {
+              "uid": "leisure-guitar-list1-item2",
+              "component": "li",
+              "text": "Ich bin räumlich ungebunden und spare mir das Pendeln zum Lehrer."
+            },
+            {
+              "uid": "leisure-guitar-list1-item3",
+              "component": "li",
+              "text": "Ich kann die Lieder spielen, die mir Spaß machen. Beim Aussuchen lernt man sehr schnell, wo man steht und was noch fehlt. :-)"
+            }
+          ]
+        },
+        {
+          "uid": "leisure-guitar-p3",
+          "component": "p",
+          "text": "Und welche Lieder spiele ich so? Naja... die, die ich auch gerne höre! Also Lieder von Red Hot Chili Peppers, Sum 41, Linkin Park ... 🤘"
+        }
+      ]
+    },
+    {
+      "id":       1,
+      "language": "en",
+      "title":    "leisure:playing guitar",
+      "image":    "Leisure-Guitar.jpg",
+      "data": [
+        {
+          "uid": "leisure-guitar-h1",
+          "component": "h",
+          "text": "Playing Guitar",
+          "variant": "h3"
+        },
+        {
+          "uid": "leisure-guitar-p1",
+          "component": "p",
+          "text": "As recreation to all the computer work, I like to play \"rocky\" songs on my western-guitar."
+        },
+        {
+          "uid": "leisure-guitar-p2",
+          "component": "p",
+          "text": "I started to learn playing guitar with a private teacher. By now, I continue to learn it autodidactic. For me, learning by doing on my own has many upsides:"
+        },
+        {
+          "uid": "leisure-guitar-list1",
+          "component": "ul",
+          "children": [
+            {
+              "uid": "leisure-guitar-list1-item1",
+              "component": "li",
+              "text": "I am not bound to time and can learn at my pace."
+            },
+            {
+              "uid": "leisure-guitar-list1-item2",
+              "component": "li",
+              "text": "There is no need to travel to the teacher's location. I can start immediately and use my time efficiently."
+            },
+            {
+              "uid": "leisure-guitar-list1-item3",
+              "component": "li",
+              "text": "And most importantly: I can play those songs, that I really enjoy. And when searching for new songs, I can better understand my current skill level. :-)"
+            }
+          ]
+        },
+        {
+          "uid": "leisure-guitar-p3",
+          "component": "p",
+          "text": "And what songs do I play? Well... the songs that I love to listen to, of course! Songs of Red Hot Chili Peppers, Sum 41, Linkin Park ... 🤘"
+        }
+      ]
+    },
+    {
+      "id":       2,
+      "language": "de",
+      "title":    "leisure:photography",
+      "image":    "Leisure-Photography.jpg",
+      "data": [
+        {
+          "uid": "leisure-photography-h1",
+          "component": "h",
+          "text": "Fotografieren",
+          "variant": "h3"
+        },
+        {
+          "uid": "leisure-photography-p1",
+          "component": "p",
+          "text": "Jedes Jahr erstellen meine Freundin und ich ein \"Jahresalbum\" über das vergangene Jahr. Jedes Album umfasst ca. 100 ausgewählte Fotos, die unsere besondersten und einprägensten Erlebnisse festhalten."
+        },
+        {
+          "uid": "leisure-photography-p2",
+          "component": "p",
+          "text": "Dadurch hat sich eine große Leidenschaft für die Fotografie entwickelt. Neben der \"Ereignisfotografie\", also das Fotografieren zu Events und Treffen, verbringen wir inzwischen viel Zeit im Freien bei der Landschafts- und Makrofotografie."
+        },
+        {
+          "uid": "leisure-photography-p3",
+          "component": "p",
+          "text": "Nebenher wächst natürlich auch das Equipment: Aktuell fotografieren wir mit der spiegellosen Systekamera \"Sony α6300\". Mein \"immer-drauf\"-Objekt ist das \"Sony 35mm\". Für besondere Umstände kommen aber auch das \"Zeiss 12mm\", das \"Sony 18-135mm\" oder das \"Sony G 135mm\" zum Einsatz."
+        },
+        {
+          "uid": "leisure-photography-p4",
+          "component": "p",
+          "text": "Nachbearbeitet werden die Fotos mit RawTherapee und Gimp."
+        },
+        {
+          "uid": "leisure-photography-img1",
+          "component": "img",
+          "image": "Leisure-RaspberryPi.jpg"
+        }
+      ]
+    },
+    {
+      "id":       2,
+      "language": "en",
+      "title":    "leisure:photography",
+      "image":    "Leisure-Photography.jpg",
+      "data": [
+        {
+          "uid": "leisure-photography-h1",
+          "component": "h",
+          "text": "Photography",
+          "variant": "h3"
+        },
+        {
+          "uid": "leisure-photography-p1",
+          "component": "p",
+          "text": "Every year, together my girfriend and I create a photo album about the past year. Each album includes about 100 photos that record our most memorizable and important events."
+        },
+        {
+          "uid": "leisure-photography-p2",
+          "component": "p",
+          "text": "Thereby we have developed a strong passion to the photography itself. Additionaly to the \"event-photography\", we spend a fair amount of our spare time in nature with the landscape- and macro-photography."
+        },
+        {
+          "uid": "leisure-photography-p3",
+          "component": "p",
+          "text": "Alongside comes a grow of our used equipment: Currently, we are using the system camera \"Sony α6300\". My personal \"always on\"-objective is the \"Sony 35mm\". But for particular situations we also use the \"Zeiss 12mm\", the \"Sony 18-135mm\" or the \"Sony G 135mm\"."
+        },
+        {
+          "uid": "leisure-photography-p4",
+          "component": "p",
+          "text": "The post-processing is done with RawTherapee and Gimp."
+        },
+        {
+          "uid": "leisure-photography-img1",
+          "component": "img",
+          "image": "Leisure-RaspberryPi.jpg"
+        }
+      ]
+    },
+    {
+      "id":       3,
+      "language": "de",
+      "title":    "leisure:raspberry pi",
+      "image":    "Leisure-RaspberryPi.jpg",
+      "data": [
+        {
+          "uid": "leisure-raspberrypi-h1",
+          "component": "h",
+          "text": "Bastelcomputer",
+          "variant": "h3"
+        },
+        {
+          "uid": "leisure-raspberrypi-p1",
+          "component": "p",
+          "text": "Was Datenschutz angeht, bin ich eventuell etwas paranoid. Private Daten in einer Dropbox oder ähnliches abzulegen und zu teilen, kommt für mich nicht in Frage."
+        },
+        {
+          "uid": "leisure-raspberrypi-p2",
+          "component": "p",
+          "text": "Um diese Lücke zu füllen, habe ich meinen eigenen kleinen Heimserver mit einem \"Raspberry Pi\" realisiert. Auf dem kleinen Bastelrechner laufen aktuell folgende Dienste:"
+        },
+        {
+          "uid": "leisure-raspberrypi-list1",
+          "component": "ul",
+          "children": [
+            {
+              "uid": "leisure-raspberrypi-list1-item1",
+              "component": "li",
+              "text": "Das Betriebssystem \"Raspbian\", das auf Linux aufbaut."
+            },
+            {
+              "uid": "leisure-raspberrypi-list1-item2",
+              "component": "li",
+              "text": "Die Firewall \"nftables\", um Angreifern die Übernahme zu erschweren. Ausschließlich Verbindungen aus Deutschland werden erlaubt. Zeitweise hatte ich es sogar auf meine IP-Adressen beschränkt."
+            },
+            {
+              "uid": "leisure-raspberrypi-list1-item3",
+              "component": "li",
+              "text": "Der DNS-Server \"unbound\", über den mein gesamter Internet-Verkehr verläuft. Die DNS-Anfragen werden automatisch mit TLS verschlüsselt und Werbung gefiltert."
+            },
+            {
+              "uid": "leisure-raspberrypi-list1-item4",
+              "component": "li",
+              "text": "Der Voice-Chat \"mumble\", über den meine Freunde und ich kommunizieren."
+            },
+            {
+              "uid": "leisure-raspberrypi-list1-item5",
+              "component": "li",
+              "text": "Die Dateicloud \"Seafile\", über die meine Freunde und ich Dateien austauschen, wie Kochrezepte, Fotos, Anleitungen usw."
+            }
+          ]
+        },
+        {
+          "uid": "leisure-raspberrypi-p3",
+          "component": "p",
+          "text": "Früher hatte ich auch noch \"gitea\" als Git-Service installiert, um meine privaten Projekte zu versionieren und teilen zu können. Inzwischen habe ich aber alle Projekte auf GitHub umgezogen, um deren Sichtbarkeit zu erhöhen."
+        }
+      ]
+    },
+    {
+      "id":       3,
+      "language": "en",
+      "title":    "leisure:raspberry pi",
+      "image":    "Leisure-RaspberryPi.jpg",
+      "data": [
+        {
+          "uid": "leisure-raspberrypi-h1",
+          "component": "h",
+          "text": "Raspberry Pi",
+          "variant": "h3"
+        },
+        {
+          "uid": "leisure-raspberrypi-p1",
+          "component": "p",
+          "text": "Privacy is very important to me. I wouldn't store or share privat data via Dropbox or other public cloud services."
+        },
+        {
+          "uid": "leisure-raspberrypi-p2",
+          "component": "p",
+          "text": "To share files with friends, I have set up my own home cloud with a \"Raspberry Pi\". It provides the following services:"
+        },
+        {
+          "uid": "leisure-raspberrypi-list1",
+          "component": "ul",
+          "children": [
+            {
+              "uid": "leisure-raspberrypi-list1-item1",
+              "component": "li",
+              "text": "It runs the operation system \"Raspbian\", that is built upon Linux."
+            },
+            {
+              "uid": "leisure-raspberrypi-list1-item2",
+              "component": "li",
+              "text": "The firewall \"nftables\" impedes attacks from the internet. Only connections from Germany are permitted. In the past, I had only permitted connections from specific IPs. But that was too cumbersome, if friends with changing IPs tried to access a service."
+            },
+            {
+              "uid": "leisure-raspberrypi-list1-item3",
+              "component": "li",
+              "text": "The DNS-service \"unbound\" tunnels all queries to the internet. The queries are automatically encrypted with TLS and advertisement is filtered off."
+            },
+            {
+              "uid": "leisure-raspberrypi-list1-item4",
+              "component": "li",
+              "text": "The voice-chat \"mumble\" is used for talking."
+            },
+            {
+              "uid": "leisure-raspberrypi-list1-item5",
+              "component": "li",
+              "text": "The file-cloud \"Seafile\" is used to share files with friends, like cooking receipts, photos, instructions and more."
+            }
+          ]
+        },
+        {
+          "uid": "leisure-raspberrypi-p3",
+          "component": "p",
+          "text": "In the past, it was also running \"gitea\" as git-service to put my private software projects under version control and to share them. By now, all my projects have been migrated to GitHub to make them public for all."
+        }
+      ]
+    },
+    {
+      "id":       4,
+      "language": "de",
+      "title":    "leisure:software games development open source",
+      "image":    "Leisure-GamesDevelopment.png",
+      "data": [
+        {
+          "uid": "leisure-gamesdevelopment-h1",
+          "component": "h",
+          "text": "Spieleentwicklung",
+          "variant": "h3"
+        },
+        {
+          "uid": "leisure-gamesdevelopment-p1",
+          "component": "p",
+          "text": "Meine Leidenschaft für die Programmierung erweckte das Open Source-Computerspiel \"Teeworlds\" als ich 16 Jahre jung war. Um den Worms-ähnliche 2D-Shooter bildete sich eine aktive Modding-Community. Modding bezeichnet die Modifizierung von etwas, in dem Falle des Spieles selbst."
+        },
+        {
+          "uid": "leisure-gamesdevelopment-p2",
+          "component": "p",
+          "text": "Auch ich hatte viele Ideen, das Spiel zu verbessern und zu verändern. Dadurch kam ich mit den Programmiersprachen C und C++ in Berührung. Insbesondere die Hacks rund um die Pointer hatten mich fasziniert - so viel Optimierungspotenzial!"
+        },
+        {
+          "uid": "leisure-gamesdevelopment-p3",
+          "component": "p",
+          "text": "Über die Modding-Community kam ich immer häufiger mit dem offiziellen Programmierteam von Teeworlds in Berührung, wobei ich nie meine Verbindung zu der Modding-Community und den Spielern verlierte. Im Professionellen würde man diese Stelle wohl \"Support\" bezeichnen. Ich griff die Probleme und Ideen der Spieler auf und kommunizierte bzw. diskutierte sie mit dem Entwicklerteam. Im Spieleforum agierte ich als offizielles \"Support-Staff\" und unterstützte die Spieler bei technischen Problemen."
+        },
+        {
+          "uid": "leisure-gamesdevelopment-p4",
+          "component": "p",
+          "text": "Durch mein Engagement bei Teeworlds habe ich es verstanden, Leuten zuzuhören und ihre Kernprobleme zu verstehen. Ich bin befähigt, diese Probleme für die \"Techis\" aufzubereiten und daraus ein rundes Produkt zu entwickeln."
+        }
+      ]
+    },
+    {
+      "id":       4,
+      "language": "en",
+      "title":    "leisure:software games development open source",
+      "image":    "Leisure-GamesDevelopment.png",
+      "data": [
+        {
+          "uid": "leisure-gamesdevelopment-h1",
+          "component": "h",
+          "text": "Games Development",
+          "variant": "h3"
+        },
+        {
+          "uid": "leisure-gamesdevelopment-p1",
+          "component": "p",
+          "text": "My passion to the software development was created at an age of 16 by the open source computer game \"Teeworlds\". The Worms-like 2D-Shooter had a very active modding-community. The term \"modding\" means the modification of something, in this case of the game itself."
+        },
+        {
+          "uid": "leisure-gamesdevelopment-p2",
+          "component": "p",
+          "text": "I had many greate ideas to change and enhance the game, too. Doing so, I came in touch with the programming languages C and C++. Especially the hacks with the C-pointers fascinated me - so many possibilities to optimize things!"
+        },
+        {
+          "uid": "leisure-gamesdevelopment-p3",
+          "component": "p",
+          "text": "Through the modding-community, I got frequently in touch with the official development-team of Teeworlds, whereupon I never lost my connection to the modding-community and the gamers. I picked up the issues and ideas of the community and discussed them with the development-team. As \"Support-Staff\" of the offical game's forum I helped the players with their technical problems."
+        },
+        {
+          "uid": "leisure-gamesdevelopment-p4",
+          "component": "p",
+          "text": "As result to my engagement I have learned to carefully listen to people and to understand their core problems. I am competent to translate their problems into the development-language for the programmers and to design a well-elaborated product that provides an excellent user-experience."
+        }
+      ]
+    }
+  ]
+}
