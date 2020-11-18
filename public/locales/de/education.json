@@ -1,5 +1,12 @@
 {
   "master graduation": "Masterstudium",
+  "bachelor graduation (dual course)": "Duales Bachelorstudium",
+  "A-level": "Allgemeine Hochschulreife",
 
-  "applied computer science": "Angewandte Informatik"
+  "applied computer science": "Angewandte Informatik",
+  "practical computer science": "Praktische Informatik",
+
+  "uas Erfurt": "Fachhochschule Erfurt",
+  "uce Gera": "Berufsakademie Gera",
+  "governmental high school of Arnstadt": "Staatliches Gymnasium Arnstadt"
 }

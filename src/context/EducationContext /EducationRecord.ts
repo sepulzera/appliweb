@@ -13,7 +13,7 @@ export default class EducationRecord extends ExperienceRecord {
   /** Degree of the education as i18n-identifier. */
   degree:      string;
   /** Profession of the education as i18n-identifier. */
-  profession:  string;
+  profession:  string | undefined;
   /** Grade of the education. */
   grade:       string;
 
@@ -30,7 +30,7 @@ export default class EducationRecord extends ExperienceRecord {
     begin:       number,
     end:         number | undefined,
     degree:      string,
-    profession:  string,
+    profession:  string | undefined,
     grade:       string,
 
     description: number
