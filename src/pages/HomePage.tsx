@@ -56,10 +56,8 @@ const HomePage: React.FC<IHomePageProps> = (props: IHomePageProps) => {
   };
 
   const handleLeisureClick = (leisure: LeisureRecord) => {
-    setOpenLeisurePage(leisure);
-    setTimeout(() => {
       setSelectedSkill(undefined);
-    }, 1000);
+    setOpenLeisurePage(leisure);
   };
 
   const handleLeisurePageClose = () => {
@@ -93,11 +91,13 @@ const HomePage: React.FC<IHomePageProps> = (props: IHomePageProps) => {
         </Grid>
       </PageWithHeaderAndFooter>
 
-      <SkillSelectDialog
-          skill    = {selectedSkill}
-          skillMappings = {props.skillMappings}
-          onSelect = {handleExperienceSelect}
-          onClose  = {handleSkillClose} />
+      {selectedSkill != null && (
+        <SkillSelectDialog
+            skill    = {selectedSkill}
+            skillMappings = {props.skillMappings}
+            onSelect = {handleExperienceSelect}
+            onClose  = {handleSkillClose} />
+      )}
 
       {openLeisurePage != null && (
         <LeisurePage

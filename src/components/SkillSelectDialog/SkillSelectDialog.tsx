@@ -11,9 +11,9 @@ import LeisureContext from '../../context/LeisureContext/LeisureContext';
 import Dialog from '../Ui/Dialog';
 
 /**
- * {@link List} Props.
+ * {@link ISKillSelectDialogProps} Props.
  */
-export interface IFeaturePageProps {
+export interface ISKillSelectDialogProps {
   /** The selected skill. Leave undefined to not show. */
   skill: SkillRecord | undefined;
   skillMappings: Array<SkillMappingRecord>;
@@ -21,14 +21,14 @@ export interface IFeaturePageProps {
   /** Callback for click. */
   onClose:  () => void;
 }
-type IProps = IFeaturePageProps & WithTranslation;
+type IProps = ISKillSelectDialogProps & WithTranslation;
 
 /**
- * Renders a feature page.
+ * Dialog for the given skill to select a feature page from a list.
  *
- * @param props - {@link IFeaturePageProps}.
+ * @param props - {@link ISKillSelectDialogProps}.
  */
-const FeatureSelectDialog: React.FC<IProps> = (props: IProps) => {
+const SKillSelectDialog: React.FC<IProps> = (props: IProps) => {
   const { t } = useTranslation();
 
   const leisureContext = React.useContext(LeisureContext);
@@ -67,4 +67,4 @@ const FeatureSelectDialog: React.FC<IProps> = (props: IProps) => {
   );
 };
 
-export default withTranslation()(FeatureSelectDialog);
+export default withTranslation()(SKillSelectDialog);
