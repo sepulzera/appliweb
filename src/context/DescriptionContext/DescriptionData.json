@@ -1,0 +1,26 @@
+{
+  "descriptions": [
+    {
+      "id":       1,
+      "language": "de",
+      "data": [
+        {
+          "uid": "edu-p1",
+          "component": "p",
+          "text": "Teilzeitstudium in Kooperation mit IBYKUS AG."
+        }
+      ]
+    },
+    {
+      "id":       1,
+      "language": "en",
+      "data": [
+        {
+          "uid": "edu-p1",
+          "component": "p",
+          "text": "Studying part time in collaboration with IBYKUS AG."
+        }
+      ]
+    }
+  ]
+}

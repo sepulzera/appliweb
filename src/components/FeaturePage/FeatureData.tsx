@@ -2,13 +2,13 @@ import * as React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Components from './ComponentRenderer';
-import { AnyFeaturePageData } from '../../context/FeatureContext/FeatureRecord';
+import { AnyDescriptionData } from '../../context/DescriptionContext/DescriptionRecord';
 
 /**
  * {@link List} Props.
  */
 export interface IFeatureDataProps {
-  data: Array<AnyFeaturePageData>;
+  data: Array<AnyDescriptionData>;
 }
 
 const useStyles = makeStyles(theme => ({

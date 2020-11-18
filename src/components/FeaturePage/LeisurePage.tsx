@@ -50,7 +50,7 @@ const LeisurePage: React.FC<IProps> = (props: IProps) => {
   const skills = skillMappings.map(sm => skillContext.getSkill(sm.skillId)).filter(skill => skill != null) as Array<SkillRecord>;
 
   return (
-    <Dialog title={t(leisure.title)} isOpen={isOpen} onClose={onClose}>
+    <Dialog title={t(`leisure:${leisure.title}`)} isOpen={isOpen} onClose={onClose}>
       <div>
         <Image src={feature.image} />
       </div>

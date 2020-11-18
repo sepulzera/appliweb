@@ -47,7 +47,7 @@ const SKillSelectDialog: React.FC<IProps> = (props: IProps) => {
         if (leisure == null) continue;
         leisures.push(
           <ListItem key={`leisure-${leisure.title}`} button dense onClick={() => props.onSelect(leisure)}>
-            <ListItemText primary={t(leisure.title)} />
+            <ListItemText primary={t(`leisure:${leisure.title}`)} />
           </ListItem>
         );
       }

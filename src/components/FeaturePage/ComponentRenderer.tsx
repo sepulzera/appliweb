@@ -1,7 +1,7 @@
 // code from https://www.storyblok.com/tp/react-dynamic-component-from-json
 
 import React from 'react';
-import { AnyFeaturePageData, isHeadline, isImage, isList, isListItem, isParagraph } from '../../context/FeatureContext/FeatureRecord';
+import { AnyDescriptionData, isHeadline, isImage, isList, isListItem, isParagraph } from '../../context/DescriptionContext/DescriptionRecord';
 
 import H from '../Ui/H';
 import Image from '../Ui/Image';
@@ -17,7 +17,7 @@ const toComponent = {
   p:   P,
 };
 
-const Components = (block: AnyFeaturePageData) => {
+const Components = (block: AnyDescriptionData) => {
   const cmp = block.component;
   // @ts-ignore
   const Cmpcmp: any = toComponent[cmp];

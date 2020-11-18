@@ -1,0 +1,17 @@
+{
+  "educations": [
+    {
+      "id":         1,
+      "userId":     1,
+      "title":      "master graduation",
+      "feature":    100,
+
+      "place":      "uas erfurt",
+      "begin":      1443657600,
+      "end":        1567296000,
+      "degree":     "master graduation",
+      "profession": "applied computer science",
+      "grade":      "1.2"
+    }
+  ]
+}

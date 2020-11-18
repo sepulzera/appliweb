@@ -2,27 +2,27 @@
   "leisures": [
     {
       "id":      1,
-      "title":   "leisure:playing guitar",
-      "feature": 1,
-      "userId":  1
+      "userId":  1,
+      "title":   "playing guitar",
+      "feature": 1
     },
     {
       "id":      2,
-      "title":   "leisure:photography",
-      "feature": 2,
-      "userId":  1
+      "userId":  1,
+      "title":   "photography",
+      "feature": 2
     },
     {
       "id":      3,
-      "title":   "leisure:raspberry pi",
-      "feature": 3,
-      "userId":  1
+      "userId":  1,
+      "title":   "raspberry pi",
+      "feature": 3
     },
     {
       "id":      4,
-      "title":   "leisure:software games development open source",
-      "feature": 4,
-      "userId":  1
+      "userId":  1,
+      "title":   "software games development open source",
+      "feature": 4
     }
   ]
 }

@@ -14,15 +14,17 @@ import Skills from '../components/Skills/Skills';
 import LeisurePage from '../components/FeaturePage/LeisurePage';
 import SkillSelectDialog from '../components/SkillSelectDialog/SkillSelectDialog';
 import ExperienceRecord from '../context/Experience/ExperienceRecord';
+import EducationRecord from '../context/EducationContext /EducationRecord';
 
 /**
  * {@link HomePage} Props.
  */
 interface IHomePageProps {
-  skills:        Array<SkillRecord>;
-  skillMappings: Array<SkillMappingRecord>;
+  educations:    Array<EducationRecord>;
   jobRequest:    JobRequestRecord | undefined;
   leisures:      Array<LeisureRecord>;
+  skills:        Array<SkillRecord>;
+  skillMappings: Array<SkillMappingRecord>;
   user:          UserRecord;
 }
 

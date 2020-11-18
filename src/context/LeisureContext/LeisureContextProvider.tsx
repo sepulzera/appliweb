@@ -14,8 +14,7 @@ interface ILeisureContextProviderProps {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function createLeisureFromJson(input: any) {
-  return new LeisureRecord(input.id, input.title, input.feature,
-      input.userId);
+  return new LeisureRecord(input.id, input.userId, input.title, input.feature);
 }
 
 function getLeisureMap() {

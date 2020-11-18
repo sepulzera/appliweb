@@ -22,7 +22,7 @@ i18n
   .init({
     fallbackLng: 'en',
     lng: navigator.language,
-    ns: ['about', 'city', 'common', 'error', 'home', 'job', 'legal', 'leisure', 'privacy', 'skill'],
+    ns: ['about', 'city', 'common', 'education', 'error', 'home', 'job', 'legal', 'leisure', 'privacy', 'skill'],
     defaultNS: 'common',
     debug: true,
     load: 'currentOnly',
