@@ -3,10 +3,10 @@ import { AccountBalance, Face, Home, Info } from '@material-ui/icons';
 
 import { AnyComponent } from '../types/Types';
 
-import HomeContainer from '../container/HomeContainer';
-import AboutContainer from '../container/AboutContainer';
-import LegalContainer from '../container/LegalContainer';
-import PrivacyContainer from '../container/PrivacyContainer';
+import HomePage from '../pages/HomePage';
+import AboutPage from '../pages/AboutPage';
+import LegalPage from '../pages/LegalPage';
+import PrivacyPage from '../pages/PrivacyPage';
 
 /**
  * {@link Routes) Type.
@@ -30,25 +30,25 @@ const Routes: Array<IRouteType> = [
     path:      '/home',
     title:     'home:home link',
     icon:      Home,
-    component: HomeContainer,
+    component: HomePage,
   },
   {
     path:      '/about',
     title:     'about:about link',
     icon:      Info,
-    component: AboutContainer,
+    component: AboutPage,
   },
   {
     path:      '/legal',
     title:     'legal:legal link',
     icon:      AccountBalance,
-    component: LegalContainer,
+    component: LegalPage,
   },
   {
     path:      '/privacy',
     title:     'privacy:privacy link',
     icon:      Face,
-    component: PrivacyContainer,
+    component: PrivacyPage,
   },
 ];
 

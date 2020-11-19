@@ -1,48 +1,64 @@
 import React from 'react';
 
-import UserHeader from '../components/UserHeader/UserHeader';
-import PageWithHeaderAndFooter from '../hoc/Page/PageWithHeaderAndFooter';
-import JobRequestRecord from '../context/JobRequestContext/JobRequestRecord';
-import UserRecord from '../context/UserContext/UserRecord';
+import EducationContext from '../context/EducationContext /EducationContext';
+import JobRequestContext from '../context/JobRequestContext/JobRequestContext';
+import LeisureContext from '../context/LeisureContext/LeisureContext';
+import SkillContext from '../context/SkillContext/SkillContext';
+import SkillMappingContext from '../context/SkillMappingContext/SkillMappingContext';
+import UserContext from '../context/UserContext/UserContext';
+
 import LeisureRecord from '../context/LeisureContext/LeisureRecord';
-import Leisures from '../components/Leisures/Leisures';
-import Grid from '../components/Ui/Grid';
-import GridItem from '../components/Ui/GridItem';
 import SkillMappingRecord from '../context/SkillMappingContext/SkillMappingRecord';
 import SkillRecord from '../context/SkillContext/SkillRecord';
-import Skills from '../components/Skills/Skills';
-import LeisurePage from '../components/FeaturePage/LeisurePage';
-import SkillSelectDialog from '../components/SkillSelectDialog/SkillSelectDialog';
 import ExperienceRecord from '../context/Experience/ExperienceRecord';
-import EducationRecord from '../context/EducationContext /EducationRecord';
 
-/**
- * {@link HomePage} Props.
- */
-interface IHomePageProps {
-  educations:    Array<EducationRecord>;
-  jobRequest:    JobRequestRecord | undefined;
-  leisures:      Array<LeisureRecord>;
-  skills:        Array<SkillRecord>;
-  skillMappings: Array<SkillMappingRecord>;
-  user:          UserRecord;
-}
+import Grid from '../components/Ui/Grid';
+import GridItem from '../components/Ui/GridItem';
+import LeisurePage from '../components/FeaturePage/LeisurePage';
+import Leisures from '../components/Leisures/Leisures';
+import Skills from '../components/Skills/Skills';
+import SkillSelectDialog from '../components/SkillSelectDialog/SkillSelectDialog';
+import PageWithHeaderAndFooter from '../hoc/Page/PageWithHeaderAndFooter';
+import UserHeader from '../components/UserHeader/UserHeader';
+
+import ErrorPage from './ErrorPage';
 
 /**
  * Home component rendering the actual content - me!
- *
- * See also: {@link HomeContainer}
  */
-const HomePage: React.FC<IHomePageProps> = (props: IHomePageProps) => {
-  const [selectedSkill, setSelectedSkill] = React.useState<SkillRecord | undefined>(undefined);
-  const [openLeisurePage, setOpenLeisurePage] = React.useState<LeisureRecord | undefined>(undefined);
+const HomePage: React.FC<{}> = () => {
+  const [selectedSkill   , setSelectedSkill]   = React.useState<SkillRecord   | undefined>(undefined);
+  const [openLeisurePage , setOpenLeisurePage] = React.useState<LeisureRecord | undefined>(undefined);
+
+  const educationContext    = React.useContext(EducationContext);
+  const jobRequestContext   = React.useContext(JobRequestContext);
+  const leisureContext      = React.useContext(LeisureContext);
+  const skillContext        = React.useContext(SkillContext);
+  const skillMappingContext = React.useContext(SkillMappingContext);
+  const userContext         = React.useContext(UserContext);
+
+  if (educationContext == null || jobRequestContext == null || leisureContext == null || skillContext == null || skillMappingContext == null || userContext == null) throw new Error('Context unitialized');
+
+  // HACK: There is only one user - me!
+  const userId = 1;
+  const user   = userContext.getUser(userId);
+
+  if (user == null) {
+    return <ErrorPage title='error:user not found title' message='error:user not found message' />;
+  }
+
+  const educations    = educationContext.getEducationsForUser(user.id);
+  const jobRequest    = jobRequestContext.getJobRequestForUser(user.id);
+  const leisures      = leisureContext.getLeisuresForUser(user.id);
+  const skillMappings = skillMappingContext.getSkillMappingsByUser(user.id);
+  const skills        = skillMappings.map(sm => skillContext.getSkill(sm.skillId)).filter(skill => skill != null) as Array<SkillRecord>;
 
   const handleSkillClick = (skill: SkillRecord) => {
-    const selectedSkillMappings: Array<SkillMappingRecord> = props.skillMappings.filter(sm => sm.skillId === skill.id);
+    const selectedSkillMappings: Array<SkillMappingRecord> = skillMappings.filter(sm => sm.skillId === skill.id);
     if (selectedSkillMappings.length === 1) {
       const sm = selectedSkillMappings[0];
       if (sm.type === 'leisure') {
-        const selLeisure: LeisureRecord | undefined = props.leisures.find(item => item.id === sm.typeId);
+        const selLeisure: LeisureRecord | undefined = leisures.find(item => item.id === sm.typeId);
         if (selLeisure != null) {
           setOpenLeisurePage(selLeisure);
         }
@@ -75,11 +91,11 @@ const HomePage: React.FC<IHomePageProps> = (props: IHomePageProps) => {
   return (
     <>
       <PageWithHeaderAndFooter
-          headerComponent = {<UserHeader user={props.user} jobRequest={props.jobRequest} />}>
+          headerComponent = {<UserHeader user={user} jobRequest={jobRequest} />}>
         <Grid>
           <GridItem xs={12} sm={4} md={3}>
-            <Skills   skills={props.skills}     onSkillClick={handleSkillClick} />
-            <Leisures leisures={props.leisures} onLeisureClick={handleLeisureClick} />
+            <Skills   skills={skills}     onSkillClick={handleSkillClick} />
+            <Leisures leisures={leisures} onLeisureClick={handleLeisureClick} />
           </GridItem>
           <GridItem md>
             <div style={{
@@ -96,7 +112,7 @@ const HomePage: React.FC<IHomePageProps> = (props: IHomePageProps) => {
       {selectedSkill != null && (
         <SkillSelectDialog
             skill    = {selectedSkill}
-            skillMappings = {props.skillMappings}
+            skillMappings = {skillMappings}
             onSelect = {handleExperienceSelect}
             onClose  = {handleSkillClose} />
       )}

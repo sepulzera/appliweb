@@ -12,8 +12,6 @@ import EmojiWord from '../components/Ui/EmojiWord';
 
 /**
  * Component rendering some kind of beautiful readme about this app.
- *
- * See also: {@link AboutContainer}
  */
 const AboutPage: React.FC<WithTranslation> = () => {
   const { t } = useTranslation();
