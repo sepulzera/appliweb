@@ -7,6 +7,7 @@ import UserRecord from '../../context/UserContext/UserRecord';
 
 import H from '../Ui/H';
 import P from '../Ui/P';
+import EducationRecord from '../../context/EducationContext /EducationRecord';
 
 /**
  * {@link CurrentUserInfo} Props.
@@ -14,6 +15,8 @@ import P from '../Ui/P';
 interface ICurrentUserInfoProps extends WithTranslation {
   /** User to display. */
   user: UserRecord;
+  /** Degree to display. */
+  degree: EducationRecord | undefined;
 }
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
@@ -74,11 +77,13 @@ const CurrentUserInfo: React.FC<ICurrentUserInfoProps> = (props: ICurrentUserInf
   const classes = useStyles();
   const { t } = useTranslation();
 
+  const { degree, user } = props;
+
   return (
     <div className={classes.userInfo}>
       <div className={classes.rightSide}>
-        <H variant='h1' className={classes.name}>{`${props.user.forname} `}<span className={classes.lastname}>{props.user.lastname}</span></H>
-        <P variant='subtitle1' className={classes.jobtitle}>{t(`job:${props.user.jobtitle}`)}</P>
+        <H variant='h1' className={classes.name}>{`${user.forname} `}<span className={classes.lastname}>{user.lastname}</span></H>
+        <P variant='subtitle1' className={classes.jobtitle}>{t(`job:${user.jobtitle}`)}</P>
       </div>
       <div className={classes.leftSide}>
         <div className={classes.rightPadding}>
@@ -86,9 +91,12 @@ const CurrentUserInfo: React.FC<ICurrentUserInfoProps> = (props: ICurrentUserInf
           {/* TODO Get dynamically from latest ExpStation with category 'job' */}
           <P variant='body1' className={classes.userInfoText}>IBYKUS AG für Informationstechnologie</P>
 
-          <H variant='h3' className={classes.heading}>{`${t('job:degree')}:`}</H>
-          {/* TODO Get dynamically from latest ExpStation with category 'edu' */}
-          <P variant='body1' className={classes.userInfoText}>Master of Science,<br />Fachhochschule Erfurt</P>
+          {degree != null && (
+            <>
+              <H variant='h3' className={classes.heading}>{`${t('job:degree')}:`}</H>
+              <P variant='body1' className={classes.userInfoText}>{t(`education:${degree.degree}`)},<br />{t(`education:${degree.place}`)}</P>
+            </>
+          )}
         </div>
       </div>
     </div>

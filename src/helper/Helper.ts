@@ -1,3 +1,5 @@
+import EducationRecord from '../context/EducationContext /EducationRecord';
+
 /**
  * Helper.
  */
@@ -21,5 +23,23 @@ export default class Helper {
         .filter((e: number) => arr[e]).map(e => arr[e]);
 
     return unique;
+  }
+
+  static getHighestEducation(educations: Array<EducationRecord> | undefined): EducationRecord | undefined {
+    if (educations == null) return undefined;
+
+    let index = educations.findIndex(edu => edu.title === 'master graduation');
+    if (index >= 0) return educations[index];
+
+    index = educations.findIndex(edu => edu.title === 'bachelor graduation');
+    if (index >= 0) return educations[index];
+
+    index = educations.findIndex(edu => edu.title === 'A-level');
+    if (index >= 0) return educations[index];
+
+    index = educations.findIndex(edu => edu.title === 'B-level');
+    if (index >= 0) return educations[index];
+
+    return undefined;
   }
 }

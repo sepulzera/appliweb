@@ -8,6 +8,7 @@ import Settings from '../Settings/Settings';
 import CurrentUserInfo from './CurrentUserInfo';
 import JobRequest from './JobRequest';
 import Image from '../Ui/Image';
+import EducationRecord from '../../context/EducationContext /EducationRecord';
 /**
  * {@link UserHeader} Props.
  */
@@ -16,6 +17,8 @@ interface IUserHeaderProps {
   user: UserRecord;
   /** Jobrequest to display. */
   jobRequest: JobRequestRecord | undefined;
+  /** Degree to display. */
+  highestEducation: EducationRecord | undefined;
 }
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
@@ -98,7 +101,7 @@ const UserHeader: React.FC<IUserHeaderProps> = (props: IUserHeaderProps) => {
     <div className={classes.header}>
       <div className={classes.sectionTabletAndDesktop}>
         <div className={classes.user}>
-          <CurrentUserInfo user={props.user} />
+          <CurrentUserInfo user={props.user} degree={props.highestEducation} />
           { props.jobRequest && <JobRequest jobRequest={props.jobRequest} asRow /> }
         </div>
 
@@ -110,7 +113,7 @@ const UserHeader: React.FC<IUserHeaderProps> = (props: IUserHeaderProps) => {
 
       <div className={classes.sectionMobile}>
         <div className={classes.row}>
-          <CurrentUserInfo user={props.user} />
+          <CurrentUserInfo user={props.user} degree={props.highestEducation} />
           <Settings className={classes.settings} />
         </div>
         <div className={classes.row}>

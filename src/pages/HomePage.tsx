@@ -22,6 +22,7 @@ import PageWithHeaderAndFooter from '../hoc/Page/PageWithHeaderAndFooter';
 import UserHeader from '../components/UserHeader/UserHeader';
 
 import ErrorPage from './ErrorPage';
+import Helper from '../helper/Helper';
 
 /**
  * Home component rendering the actual content - me!
@@ -91,7 +92,7 @@ const HomePage: React.FC<{}> = () => {
   return (
     <>
       <PageWithHeaderAndFooter
-          headerComponent = {<UserHeader user={user} jobRequest={jobRequest} />}>
+          headerComponent = {<UserHeader user={user} jobRequest={jobRequest} highestEducation={Helper.getHighestEducation(educations)} />}>
         <Grid>
           <GridItem xs={12} sm={4} md={3}>
             <Skills   skills={skills}     onSkillClick={handleSkillClick} />

@@ -9,7 +9,7 @@
       "place":      "uas Erfurt",
       "begin":      1443657600,
       "end":        1567296000,
-      "degree":     "master graduation",
+      "degree":     "master of science",
       "profession": "applied computer science",
       "grade":      "1.2"
     },
@@ -22,14 +22,14 @@
       "place":      "uce Gera",
       "begin":      1349049600,
       "end":        1441065600,
-      "degree":     "bachelor graduation",
+      "degree":     "bachelor of engineering",
       "profession": "practical computer science",
       "grade":      "1.9"
     },
     {
       "id":         3,
       "userId":     1,
-      "title":      "bachelor graduation",
+      "title":      "A-level",
       "feature":    102,
 
       "place":      "governmental high school of Arnstadt",

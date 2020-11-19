@@ -1,6 +1,10 @@
 {
   "master graduation": "Masterstudium",
+  "master of science": "Master of Science",
+
   "bachelor graduation (dual course)": "Duales Bachelorstudium",
+  "bachelor of engineering": "Bachelor of Engineering",
+
   "A-level": "Allgemeine Hochschulreife",
 
   "applied computer science": "Angewandte Informatik",
