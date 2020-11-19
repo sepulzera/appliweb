@@ -23,13 +23,16 @@ import UserHeader from '../components/UserHeader/UserHeader';
 
 import ErrorPage from './ErrorPage';
 import Helper from '../helper/Helper';
+import EducationTimeline from '../components/EducationTimeline/EducationTimeline';
+import EducationRecord from '../context/EducationContext /EducationRecord';
 
 /**
  * Home component rendering the actual content - me!
  */
 const HomePage: React.FC<{}> = () => {
-  const [selectedSkill   , setSelectedSkill]   = React.useState<SkillRecord   | undefined>(undefined);
-  const [openLeisurePage , setOpenLeisurePage] = React.useState<LeisureRecord | undefined>(undefined);
+  const [selectedSkill     , setSelectedSkill]     = React.useState<SkillRecord     | undefined>(undefined);
+  const [openLeisurePage   , setOpenLeisurePage]   = React.useState<LeisureRecord   | undefined>(undefined);
+  const [openEducationPage , setOpenEducationPage] = React.useState<EducationRecord | undefined>(undefined);
 
   const educationContext    = React.useContext(EducationContext);
   const jobRequestContext   = React.useContext(JobRequestContext);
@@ -75,7 +78,7 @@ const HomePage: React.FC<{}> = () => {
   };
 
   const handleLeisureClick = (leisure: LeisureRecord) => {
-      setSelectedSkill(undefined);
+    setSelectedSkill(undefined);
     setOpenLeisurePage(leisure);
   };
 
@@ -89,6 +92,15 @@ const HomePage: React.FC<{}> = () => {
     }
   };
 
+  const handleEducationClick = (edu: EducationRecord) => {
+    setSelectedSkill(undefined);
+    setOpenEducationPage(edu);
+  };
+
+  const handleEducationPageClose = () => {
+    setOpenEducationPage(undefined);
+  };
+
   return (
     <>
       <PageWithHeaderAndFooter
@@ -99,13 +111,7 @@ const HomePage: React.FC<{}> = () => {
             <Leisures leisures={leisures} onLeisureClick={handleLeisureClick} />
           </GridItem>
           <GridItem md>
-            <div style={{
-              backgroundColor: '#777',
-              width: '100%',
-              height: '100%',
-            }}>
-              <span>TODO</span>
-            </div>
+            {educations != null && educations.length > 0 && <EducationTimeline educations={educations} onEducationClick={handleEducationClick} />}
           </GridItem>
         </Grid>
       </PageWithHeaderAndFooter>

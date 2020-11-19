@@ -1,4 +1,5 @@
 import * as React from 'react';
+import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 
 import { AnyComponent } from '../../types/Types';
@@ -6,6 +7,8 @@ import H from '../Ui/H';
 
 /** {@link CapsHeading} Props. */
 export interface ICapsHeadingProps {
+  /** Classes used for styling. */
+  className?: string | undefined;
   /** Heading text. */
   children:   AnyComponent;
 }
@@ -27,7 +30,7 @@ const CapsHeading: React.FC<ICapsHeadingProps> = (props: ICapsHeadingProps) => {
 
   return (
     <H
-        className = {classes.capsHeading}
+        className = {clsx(classes.capsHeading, props.className)}
         variant   = 'h3'>
       {props.children}
     </H>
