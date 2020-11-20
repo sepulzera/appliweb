@@ -2,10 +2,11 @@ import * as React from 'react';
 import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
 
 import EducationRecord from '../../context/EducationContext /EducationRecord';
-import H from '../Ui/H';
 import Timeline from '../Timeline/Timeline';
 import TimelineHeading from '../Timeline/TimelineHeading';
 import TimelineRecords from '../Timeline/TimelineRecords';
+import TimelineRecord from '../Timeline/TimelineRecord';
+import TimelineRecordHeading from '../Timeline/TimelineRecordHeading';
 
 /**
  * {@link EducationTimeline} Props.
@@ -29,12 +30,12 @@ const EducationTimeline: React.FC<IEducationTimelineProps> = (props: IEducationT
   for (index = 0; index < props.educations.length; ++index) {
     nextEducation = props.educations[index];
     educationList.push(
-      <H variant='h4'>{`${t(`education:${nextEducation.title}`)}${nextEducation.profession != null ? `: ${t(`education:${nextEducation.profession}`)}` : ''}`}</H>
-      /*
       <TimelineRecord key={`timeline-record-education-${nextEducation.title}`}>
-        <TimelineRecordTitle>{`${t(`education:${nextEducation.title}`)}${t(`education:${nextEducation.profession}`)}`}</TimelineRecordTitle>
-         TODO Education Timeline Record
-      </TimelineRecord> */
+        <TimelineRecordHeading>{`${t(`education:${nextEducation.title}`)}${nextEducation.profession != null ? `: ${t(`education:${nextEducation.profession}`)}` : ''}`}</TimelineRecordHeading>
+        <div>
+          TODO Education Timeline Record
+        </div>
+      </TimelineRecord>
     );
   }
 
