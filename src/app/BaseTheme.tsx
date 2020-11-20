@@ -55,27 +55,28 @@ const BaseTheme: React.FC<IBaseThemeProps> = (props: IBaseThemeProps) => {
       'sans-serif',
     ].join(','),
     h1: {
-      fontSize: '3rem',
+      fontSize:     '2.4rem',
     },
     h2: {
-      fontSize: '2.4rem',
-      marginTop: '2em',
+      fontSize:     '1.8rem',
+      marginTop:    '2em',
       marginBottom: '1em',
     },
     h3: {
-      fontSize: '1.3rem',
-      fontWeight: 'bold',
-      marginTop: '1.5em',
+      fontSize:     '1.3rem',
+      fontWeight:   'bold',
+      marginTop:    '1.5em',
       marginBottom: '0.7em',
     },
     h4: {
-      fontSize: '1.6rem',
-      marginTop: '0.5em',
+      fontSize:     '1rem',
+      fontWeight:   'bold',
+      marginTop:    '0.5em',
       marginBottom: '0.5em',
     },
     body1: {
       marginBottom: '1.5rem',
-      fontSize: '1rem',
+      fontSize:     '1rem',
     },
   };
 

@@ -21,11 +21,17 @@ interface ISkillsProps extends WithTranslation {
 }
 
 const useStyles = makeStyles(theme => ({
+  skills: {
+    '& >h3:first-child': {
+      marginTop: 0,
+    },
+  },
   skillItem: {
     textTransform: 'capitalize',
     marginBottom:  theme.spacing(1.5),
   },
   skillButton: {
+    fontWeight: 'normal',
     textAlign: 'left',
     '& > .MuiButton-label': {
       display: 'block',
@@ -73,7 +79,11 @@ const Skills: React.FC<ISkillsProps> = (props: ISkillsProps) => {
     );
   }
 
-  return <>{skillCategoryList}</>;
+  return (
+    <div className={classes.skills}>
+      {skillCategoryList}
+    </div>
+  );
 };
 
 export default withTranslation()(Skills);

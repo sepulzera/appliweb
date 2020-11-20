@@ -19,7 +19,7 @@ const useStyles = makeStyles({
 
     padding: '1rem',
     marginBottom: '2rem',
-    '& *:first-child': {
+    '& >*:first-child': {
       marginTop: 0,
     },
   },

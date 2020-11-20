@@ -12,11 +12,11 @@ export interface ITimelineHeadingProps {
 
 const useStyles = makeStyles(theme => ({
   timelineHeading: {
-    paddingTop: '0.5em',
-    paddingLeft: '1.2em',
+    paddingTop: '0.5rem',
+    paddingLeft: '1.5rem',
     borderTop: `0.1rem solid ${theme.palette.text.secondary}`,
 
-    marginBottom: '0.5em',
+    marginBottom: '0.5rem',
   },
 }));
 
