@@ -6,7 +6,6 @@ import Timeline from '../Timeline/Timeline';
 import TimelineHeading from '../Timeline/TimelineHeading';
 import TimelineRecords from '../Timeline/TimelineRecords';
 import TimelineRecord from '../Timeline/TimelineRecord';
-import TimelineRecordHeading from '../Timeline/TimelineRecordHeading';
 
 /**
  * {@link EducationTimeline} Props.
@@ -30,8 +29,12 @@ const EducationTimeline: React.FC<IEducationTimelineProps> = (props: IEducationT
   for (index = 0; index < props.educations.length; ++index) {
     nextEducation = props.educations[index];
     educationList.push(
-      <TimelineRecord key={`timeline-record-education-${nextEducation.title}`}>
-        <TimelineRecordHeading>{`${t(`education:${nextEducation.title}`)}${nextEducation.profession != null ? `: ${t(`education:${nextEducation.profession}`)}` : ''}`}</TimelineRecordHeading>
+      <TimelineRecord
+          key     = {`timeline-record-education-${nextEducation.title}`}
+          heading = {`${t(`education:${nextEducation.title}`)}${nextEducation.profession != null ? `: ${t(`education:${nextEducation.profession}`)}` : ''}`}
+          place   = {t(`education:${nextEducation.place}`)}
+          begin   = {nextEducation.begin}
+          end     = {nextEducation.end}>
         <div>
           TODO Education Timeline Record
         </div>

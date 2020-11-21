@@ -15,6 +15,9 @@ export interface IGridItemProps {
 
   autoCalc?: boolean | undefined;
 
+  /** Classes used for styling. */
+  className?: string | undefined;
+
   /** Text to render. */
   children: AnyComponent;
 }
@@ -51,7 +54,7 @@ const GridItem: React.FC<IGridItemProps> = (props: IGridItemProps) => {
   xs = autoCalc(xs, sm);
 
   return (
-    <MuiGrid item xs={xs} sm={sm} md={md}>
+    <MuiGrid item xs={xs} sm={sm} md={md} className={props.className}>
       {props.children}
     </MuiGrid>
   );
