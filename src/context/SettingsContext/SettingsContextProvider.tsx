@@ -4,6 +4,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTranslation } from 'react-i18next';
 
 import { AnyComponent } from '../../types/Types';
+import { LANGUAGE_KEY } from '../../constants/Language';
 
 import SettingsContext from './SettingsContext';
 
@@ -14,7 +15,6 @@ interface ISettingsContextProviderProps {
 }
 
 const THEME_KEY = 'theme';
-const LANG_KEY  = 'language';
 
 const parseTheme = (themeSetting: string | undefined | null, prefersDarkMode: boolean): number => {
   const prefersDarkModeNumber = prefersDarkMode ? 1 : 0;
@@ -39,14 +39,14 @@ const SettingsContextProvider: React.FC<ISettingsContextProviderProps> = (props:
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)', { noSsr: true });
 
   const [theme, setTheme] = React.useState<number>(parseTheme(localStorage.getItem(THEME_KEY), prefersDarkMode));
-  const [language, setLanguage] = React.useState<string>(parseLanguage(localStorage.getItem(LANG_KEY), i18n.language));
+  const [language, setLanguage] = React.useState<string>(parseLanguage(localStorage.getItem(LANGUAGE_KEY), i18n.language));
 
   React.useEffect(() => {
     i18n.changeLanguage(language);
   }, [i18n, language]);
 
   const changeLanguage = (lang: string) => {
-    localStorage.setItem(LANG_KEY, lang);
+    localStorage.setItem(LANGUAGE_KEY, lang);
     setLanguage(lang);
   };
 
@@ -57,7 +57,7 @@ const SettingsContextProvider: React.FC<ISettingsContextProviderProps> = (props:
 
   return (
     <SettingsContext.Provider value={{
-      theme: theme,
+      theme:    theme,
       language: language,
 
       getTheme: () => theme,

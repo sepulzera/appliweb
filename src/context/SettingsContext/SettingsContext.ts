@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface ISettingsContextProvider {
-  theme: number | undefined;
+  theme:    number | undefined;
   language: string;
 
   setTheme: (theme: number) => void;
