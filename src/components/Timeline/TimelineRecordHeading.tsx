@@ -15,6 +15,7 @@ const useStyles = makeStyles(theme => ({
     display: 'inline-block',
     paddingLeft: '0.55rem',
 
+    textTransform: 'capitalize',
     color: theme.palette.primary.main,
     letterSpacing: '2px',
   },

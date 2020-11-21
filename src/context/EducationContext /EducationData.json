@@ -11,12 +11,13 @@
       "end":        1567296000,
       "degree":     "master of science",
       "profession": "applied computer science",
+      "short":      100,
       "grade":      "1.2"
     },
     {
       "id":         2,
       "userId":     1,
-      "title":      "bachelor graduation (dual course)",
+      "title":      "bachelor graduation",
       "feature":    101,
 
       "place":      "uce Gera",
@@ -24,6 +25,7 @@
       "end":        1441065600,
       "degree":     "bachelor of engineering",
       "profession": "practical computer science",
+      "short":      101,
       "grade":      "1.9"
     },
     {
@@ -36,6 +38,7 @@
       "begin":      1096588800,
       "end":        1341100800,
       "degree":     "A-level",
+      "short":      102,
       "grade":      "1.8"
     }
   ]

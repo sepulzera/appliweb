@@ -32,6 +32,9 @@ const useStyles = makeStyles(theme => ({
       fontSize: '7rem',
       color: theme.palette.primary.main,
     },
+    '& p': {
+      marginBottom: 0,
+    },
   },
   timelineRecordSubtitles: {
     marginBottom: '0.3rem',

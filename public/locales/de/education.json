@@ -4,10 +4,11 @@
   "master graduation": "Masterstudium",
   "master of science": "Master of Science",
 
-  "bachelor graduation (dual course)": "Duales Bachelorstudium",
+  "bachelor graduation": "Bachelorstudium",
   "bachelor of engineering": "Bachelor of Engineering",
 
   "A-level": "Allgemeine Hochschulreife",
+  "final grade": "Abschlussnote",
 
   "applied computer science": "Angewandte Informatik",
   "practical computer science": "Praktische Informatik",

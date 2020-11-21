@@ -14,6 +14,8 @@ export default class EducationRecord extends ExperienceRecord {
   degree:      string;
   /** Profession of the education as i18n-identifier. */
   profession:  string | undefined;
+  /** Feature-ID to the short-description that is displayed on the main page.  */
+  short:       number;
   /** Grade of the education. */
   grade:       string;
 
@@ -31,6 +33,7 @@ export default class EducationRecord extends ExperienceRecord {
     end:         number | undefined,
     degree:      string,
     profession:  string | undefined,
+    short:       number,
     grade:       string,
 
     description: number
@@ -42,6 +45,7 @@ export default class EducationRecord extends ExperienceRecord {
     this.end         = end != null ? new Date(end * 1000) : undefined;
     this.degree      = degree;
     this.profession  = profession;
+    this.short       = short;
     this.grade       = grade;
 
     this.description = description;

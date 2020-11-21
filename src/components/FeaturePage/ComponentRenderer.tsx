@@ -19,7 +19,7 @@ const toComponent = {
 
 const Components = (block: AnyDescriptionData) => {
   const cmp = block.component;
-  // @ts-ignore
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const Cmpcmp: any = toComponent[cmp];
   if (typeof Cmpcmp !== 'undefined') {
     if (isHeadline(block)) {
@@ -46,6 +46,7 @@ const Components = (block: AnyDescriptionData) => {
       );
     } else if (isList(block)) {
       const children = block.children;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       let childrenJsx: any;
       if (children != null && Array.isArray(children)) {
         childrenJsx = [];

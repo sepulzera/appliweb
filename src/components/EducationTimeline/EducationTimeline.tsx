@@ -1,11 +1,16 @@
 import * as React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
 
+import DescriptionContext from '../../context/DescriptionContext/DescriptionContext';
 import EducationRecord from '../../context/EducationContext /EducationRecord';
+
 import Timeline from '../Timeline/Timeline';
 import TimelineHeading from '../Timeline/TimelineHeading';
 import TimelineRecords from '../Timeline/TimelineRecords';
 import TimelineRecord from '../Timeline/TimelineRecord';
+import Components from '../FeaturePage/ComponentRenderer';
+import P from '../Ui/P';
 
 /**
  * {@link EducationTimeline} Props.
@@ -16,18 +21,32 @@ interface IEducationTimelineProps extends WithTranslation {
   onEducationClick: (edu: EducationRecord) => void;
 }
 
+const useStyles = makeStyles({
+  educationTimelineFinalGrade: {
+    '&:first-letter': {
+      textTransform: 'uppercase',
+    },
+  },
+});
+
 /**
  * Education Timeline.
  *
  * @param props - {@link IEducationTimelineProps}.
  */
 const EducationTimeline: React.FC<IEducationTimelineProps> = (props: IEducationTimelineProps) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const classes = useStyles();
+
+  const descriptionContext = React.useContext(DescriptionContext);
+  if (descriptionContext == null) throw new Error('Context unitialized');
 
   const educationList: Array<React.ReactElement> = [];
   let index: number, nextEducation: EducationRecord;
   for (index = 0; index < props.educations.length; ++index) {
     nextEducation = props.educations[index];
+    const feature = descriptionContext.getDescription(nextEducation.short, i18n.language);
+
     educationList.push(
       <TimelineRecord
           key     = {`timeline-record-education-${nextEducation.title}`}
@@ -35,9 +54,10 @@ const EducationTimeline: React.FC<IEducationTimelineProps> = (props: IEducationT
           place   = {t(`education:${nextEducation.place}`)}
           begin   = {nextEducation.begin}
           end     = {nextEducation.end}>
-        <div>
-          TODO Education Timeline Record
-        </div>
+        <>
+          {feature != null && feature.data.map(block => Components(block))}
+          <P className={classes.educationTimelineFinalGrade}>{`${t('education:final grade')}: ${nextEducation.grade}`}</P>
+        </>
       </TimelineRecord>
     );
   }

@@ -15,7 +15,7 @@ interface IEducationContextProviderProps {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function createEducationFromJson(input: any) {
   return new EducationRecord(input.id, input.userId, input.title, input.feature,
-      input.place, input.begin, input.end, input.degree, input.profession, input.grade,
+      input.place, input.begin, input.end, input.degree, input.profession, input.short, input.grade,
       input.description);
 }
 

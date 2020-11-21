@@ -1,7 +1,7 @@
 {
   "descriptions": [
     {
-      "id":       1,
+      "id":       100,
       "language": "de",
       "data": [
         {
@@ -12,13 +12,57 @@
       ]
     },
     {
-      "id":       1,
+      "id":       100,
       "language": "en",
       "data": [
         {
           "uid": "edu-p1",
           "component": "p",
-          "text": "Studying part time in collaboration with IBYKUS AG."
+          "text": "Part-time study in collaboration with IBYKUS AG."
+        }
+      ]
+    },
+    {
+      "id":       101,
+      "language": "de",
+      "data": [
+        {
+          "uid": "edu-p1",
+          "component": "p",
+          "text": "Duales Bachelorstudium in Kooperation mit Thales Transportation Systems GmbH."
+        }
+      ]
+    },
+    {
+      "id":       101,
+      "language": "en",
+      "data": [
+        {
+          "uid": "edu-p1",
+          "component": "p",
+          "text": "Dual course of study in collaboration with IBYKUS AG."
+        }
+      ]
+    },
+    {
+      "id":       102,
+      "language": "de",
+      "data": [
+        {
+          "uid": "edu-p1",
+          "component": "p",
+          "text": "Hauptfächer: Mathe, Physik"
+        }
+      ]
+    },
+    {
+      "id":       102,
+      "language": "en",
+      "data": [
+        {
+          "uid": "edu-p1",
+          "component": "p",
+          "text": "Specialist subject: Mathematics, Physics"
         }
       ]
     }
