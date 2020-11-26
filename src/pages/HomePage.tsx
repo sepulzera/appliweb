@@ -14,7 +14,6 @@ import ExperienceRecord from '../context/Experience/ExperienceRecord';
 
 import Grid from '../components/Ui/Grid';
 import GridItem from '../components/Ui/GridItem';
-import LeisurePage from '../components/FeaturePage/LeisurePage';
 import Leisures from '../components/Leisures/Leisures';
 import Skills from '../components/Skills/Skills';
 import SkillSelectDialog from '../components/SkillSelectDialog/SkillSelectDialog';
@@ -25,6 +24,7 @@ import ErrorPage from './ErrorPage';
 import Helper from '../helper/Helper';
 import EducationTimeline from '../components/EducationTimeline/EducationTimeline';
 import EducationRecord from '../context/EducationContext /EducationRecord';
+import ExperiencePage from '../components/FeaturePage/ExperiencePage';
 
 /**
  * Home component rendering the actual content - me!
@@ -66,9 +66,15 @@ const HomePage: React.FC<{}> = () => {
         if (selLeisure != null) {
           setOpenLeisurePage(selLeisure);
         }
+      } else if (sm.type === 'education') {
+        const selEducation: EducationRecord | undefined = educations.find(item => item.id === sm.typeId);
+        if (selEducation != null) {
+          setOpenEducationPage(selEducation);
+        }
       }
     } else if (selectedSkillMappings.length > 1) {
       setOpenLeisurePage(undefined);
+      setOpenEducationPage(undefined);
       setSelectedSkill(skill);
     }
   };
@@ -86,12 +92,6 @@ const HomePage: React.FC<{}> = () => {
     setOpenLeisurePage(undefined);
   };
 
-  const handleExperienceSelect = (record: ExperienceRecord) => {
-    if (record instanceof LeisureRecord) {
-      handleLeisureClick(record);
-    }
-  };
-
   const handleEducationClick = (edu: EducationRecord) => {
     setSelectedSkill(undefined);
     setOpenEducationPage(edu);
@@ -99,6 +99,14 @@ const HomePage: React.FC<{}> = () => {
 
   const handleEducationPageClose = () => {
     setOpenEducationPage(undefined);
+  };
+
+  const handleExperienceSelect = (record: ExperienceRecord) => {
+    if (record instanceof LeisureRecord) {
+      handleLeisureClick(record);
+    } else if (record instanceof EducationRecord) {
+      handleEducationClick(record);
+    }
   };
 
   return (
@@ -125,11 +133,21 @@ const HomePage: React.FC<{}> = () => {
       )}
 
       {openLeisurePage != null && (
-        <LeisurePage
-            leisure = {openLeisurePage}
-            isOpen  = {openLeisurePage != null}
+        <ExperiencePage
+            experience = {openLeisurePage}
+            type       = 'leisure'
+            isOpen     = {openLeisurePage != null}
             onSkillClick = {handleSkillClick}
-            onClose = {handleLeisurePageClose} />
+            onClose      = {handleLeisurePageClose} />
+      )}
+
+      {openEducationPage != null && (
+        <ExperiencePage
+            experience = {openEducationPage}
+            type       = 'education'
+            isOpen     = {openEducationPage != null}
+            onSkillClick = {handleSkillClick}
+            onClose    = {handleEducationPageClose} />
       )}
     </>
   );

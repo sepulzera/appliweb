@@ -17,6 +17,7 @@ import Button from '../Ui/Button';
 interface ISkillsProps extends WithTranslation {
   /** Leisures to display. */
   skills: Array<SkillRecord>;
+  /** Callback when clicking on a skill. */
   onSkillClick: (skill: SkillRecord) => void;
 }
 
@@ -55,7 +56,7 @@ const Skills: React.FC<ISkillsProps> = (props: ISkillsProps) => {
         .filter(skill => skill.category === category)
         .map(skill => (
           <ListItem key={`skills-${skill.id}`} className={classes.skillItem}>
-            <Button id={`skill-${skill.id}`} fullWidth className={classes.skillButton} onClick={() => props.onSkillClick(skill)}>
+            <Button fullWidth className={classes.skillButton} onClick={() => props.onSkillClick(skill)}>
               {t(`skill:${skill.title}`)}
               <Progress value={skill.rating * 10} />
             </Button>

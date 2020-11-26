@@ -11,27 +11,27 @@ import TimelineRecordSubtitle from './TimelineRecordSubtitle';
 
 /** {@link TimelineRecord} Props. */
 export interface ITimelineRecordProps extends WithTranslation {
+  /** Heading text. */
   heading:    string;
+  /** Place information. */
   place:      string;
+  /** Begin date for the record. */
   begin:      Date;
+  /** End date for the record. */
   end:        Date | undefined;
+
+  /** Callback when clicking on the record. */
+  onClick:    () => void;
 
   /** Heading text. */
   children:   AnyComponent;
 }
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   timelineRecord: {
-    marginTop: '1rem',
+    marginTop: '0.8rem',
     marginLeft: '0.8rem',
-    '&::before': {
-      content: '"·"',
-      verticalAlign: 'middle',
-      lineHeight: '1rem',
-      marginLeft: '-2.4rem',
-      fontSize: '7rem',
-      color: theme.palette.primary.main,
-    },
+
     '& p': {
       marginBottom: 0,
     },
@@ -45,7 +45,7 @@ const useStyles = makeStyles(theme => ({
   timelineRecordTimestamp: {
     maxWidth: 'max-content',
   },
-}));
+});
 
 const toTimestamp = (begin: Date, end: Date | undefined, locale: string, currentString: string): string => {
   const dateFormatter = new Intl.DateTimeFormat(locale, {
@@ -71,7 +71,7 @@ const TimelineRecord: React.FC<ITimelineRecordProps> = (props: ITimelineRecordPr
 
   return (
     <div className={classes.timelineRecord}>
-      <TimelineRecordHeading>{props.heading}</TimelineRecordHeading>
+      <TimelineRecordHeading onClick={props.onClick}>{props.heading}</TimelineRecordHeading>
       <Grid spacing={1} className={classes.timelineRecordSubtitles}>
         <GridItem xs sm md className={classes.timelineRecordPlace}><TimelineRecordSubtitle>{props.place}</TimelineRecordSubtitle></GridItem>
         <GridItem xs={12} sm={5} md={4} className={classes.timelineRecordTimestamp}><TimelineRecordSubtitle>{timestamp}</TimelineRecordSubtitle></GridItem>

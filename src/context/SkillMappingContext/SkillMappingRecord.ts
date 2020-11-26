@@ -9,7 +9,7 @@ export default class SkillMappingRecord {
   userId:  number;
 
   /** Leisure/Education/CareerTask ... */
-  type:    'leisure' | 'edu' | 'career';
+  type:    'leisure' | 'education' | 'career';
   /** ID of the type record. */
   typeId:  number;
 
@@ -21,7 +21,7 @@ export default class SkillMappingRecord {
 
     userId:  number,
 
-    type:    'leisure' | 'edu' | 'career',
+    type:    'leisure' | 'education' | 'career',
     typeId:  number,
 
     skillId: number

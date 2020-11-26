@@ -365,6 +365,92 @@
           "text": "As result to my engagement I have learned to carefully listen to people and to understand their core problems. I am competent to translate their problems into the development-language for the programmers and to design a well-elaborated product that provides an excellent user-experience."
         }
       ]
+    },
+
+
+    {
+      "id":       100,
+      "language": "de",
+      "title":    "education:master graduation",
+      "image":    "Education-Uas-Erfurt.png",
+      "data": [
+        {
+          "uid": "education-mastergraduation-h1",
+          "component": "h",
+          "text": "Angewandte Informatik an der Fachhochschule Erfurt",
+          "variant": "h3"
+        }
+      ]
+    },
+    {
+      "id":       100,
+      "language": "en",
+      "title":    "education:master graduation",
+      "image":    "Education-Uas-Erfurt.png",
+      "data": [
+        {
+          "uid": "education-bachelorgraduation-h1",
+          "component": "h",
+          "text": "Studying Applied Computer Science at the University of Applied Science Erfurt",
+          "variant": "h3"
+        }
+      ]
+    },
+    {
+      "id":       101,
+      "language": "de",
+      "title":    "education:bachelor graduation",
+      "image":    "Education-Uce_Gera.jpg",
+      "data": [
+        {
+          "uid": "education-bachelorgraduation-h1",
+          "component": "h",
+          "text": "Praktische Informatik an der Berufsakademie Gera",
+          "variant": "h3"
+        }
+      ]
+    },
+    {
+      "id":       101,
+      "language": "en",
+      "title":    "education:bachelor graduation",
+      "image":    "Education-Uce_Gera.jpg",
+      "data": [
+        {
+          "uid": "education-mastergraduation-h1",
+          "component": "h",
+          "text": "Studying Practical Computer Science at the University of Cooperative Education Gera",
+          "variant": "h3"
+        }
+      ]
+    },
+    {
+      "id":       102,
+      "language": "de",
+      "title":    "education:A-level",
+      "image":    "Education-Highschool_Arnstadt.jpg",
+      "data": [
+        {
+          "uid": "education-alevel-h1",
+          "component": "h",
+          "text": "Allgemeine Hochschulreife am Staatlichen Gymnasium Arnstadt",
+          "variant": "h3"
+        }
+      ]
+    },
+    {
+      "id":       102,
+      "language": "en",
+      "title":    "education:A-level",
+      "image":    "Education-Highschool_Arnstadt.jpg",
+      "data": [
+        {
+          "uid": "education-alevel-h1",
+          "component": "h",
+          "text": "Qualifying for A-level at the Governmental High School of Arnstadt",
+          "variant": "h3"
+        }
+      ]
     }
   ]
 }

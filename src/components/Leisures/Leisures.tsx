@@ -15,7 +15,7 @@ import Button from '../Ui/Button';
 interface ILeisuresProps extends WithTranslation {
   /** Leisures to display. */
   leisures: Array<LeisureRecord>;
-
+  /** Callback when clicking on the leisure. */
   onLeisureClick: (leisure: LeisureRecord) => void;
 }
 
@@ -37,7 +37,7 @@ const Leisures: React.FC<ILeisuresProps> = (props: ILeisuresProps) => {
 
   const leisureList = props.leisures.map(leisure => (
     <ListItem key={`leisures-btn-${leisure.id}`}>
-      <Button id={leisure.title} fullWidth className={classes.listButton} onClick={() => props.onLeisureClick(leisure)}>{t(`leisure:${leisure.title}`)}</Button>
+      <Button fullWidth className={classes.listButton} onClick={() => props.onLeisureClick(leisure)}>{t(`leisure:${leisure.title}`)}</Button>
     </ListItem>
   ));
 

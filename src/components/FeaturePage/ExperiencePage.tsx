@@ -2,7 +2,6 @@ import * as React from 'react';
 import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
 
 import FeatureContext from '../../context/FeatureContext/FeatureContext';
-import LeisureRecord from '../../context/LeisureContext/LeisureRecord';
 import SkillContext from '../../context/SkillContext/SkillContext';
 import SkillMappingContext from '../../context/SkillMappingContext/SkillMappingContext';
 import SkillRecord from '../../context/SkillContext/SkillRecord';
@@ -11,28 +10,32 @@ import Dialog from '../Ui/Dialog';
 import Image from '../Ui/Image';
 import FeatureSkills from './FeatureSkills';
 import FeatureData from './FeatureData';
+import ExperienceRecord from '../../context/Experience/ExperienceRecord';
 
 /**
- * {@link List} Props.
+ * {@link ExperiencePage} Props.
  */
-export interface ILeisurePageProps {
-  leisure: LeisureRecord;
+export interface IExperiencePageProps {
+  /** Experience Record, e. g. leisure record. */
+  experience: ExperienceRecord;
+  /** Specific type of the experience record. */
+  type: 'leisure' | 'education' | 'career';
 
   /** Is dialog open? */
   isOpen: boolean;
-  /** Callback for click. */
+  /** Callback when closing. */
   onClose?: () => void;
-
+  /** Callback when clicking on a skill. */
   onSkillClick: (skill: SkillRecord) => void;
 }
-type IProps = ILeisurePageProps & WithTranslation;
+type IProps = IExperiencePageProps & WithTranslation;
 
 /**
- * Renders a leisure page.
+ * Renders a experience page.
  *
- * @param props - {@link ILeisurePageProps}.
+ * @param props - {@link IExperiencePageProps}.
  */
-const LeisurePage: React.FC<IProps> = (props: IProps) => {
+const ExperiencePage: React.FC<IProps> = (props: IProps) => {
   const { t, i18n } = useTranslation();
 
   const featureContext      = React.useContext(FeatureContext);
@@ -41,16 +44,16 @@ const LeisurePage: React.FC<IProps> = (props: IProps) => {
 
   if (featureContext == null || skillContext == null || skillMappingContext == null) throw new Error('Context unitialized');
 
-  const { leisure, isOpen, onClose } = props;
+  const { experience, type, isOpen, onClose } = props;
 
-  const feature = featureContext.getFeature(leisure.feature, i18n.language);
+  const feature = featureContext.getFeature(experience.feature, i18n.language);
   if (feature == null) return null;
 
-  const skillMappings = skillMappingContext.getSkillMappingsByUserAndType(leisure.userId, 'leisure', leisure.id);
+  const skillMappings = skillMappingContext.getSkillMappingsByUserAndType(experience.userId, type, experience.id);
   const skills = skillMappings.map(sm => skillContext.getSkill(sm.skillId)).filter(skill => skill != null) as Array<SkillRecord>;
 
   return (
-    <Dialog title={t(`leisure:${leisure.title}`)} isOpen={isOpen} onClose={onClose}>
+    <Dialog title={t(`${type}:${experience.title}`)} isOpen={isOpen} onClose={onClose}>
       <div>
         <Image src={feature.image} />
       </div>
@@ -60,4 +63,4 @@ const LeisurePage: React.FC<IProps> = (props: IProps) => {
   );
 };
 
-export default withTranslation()(LeisurePage);
+export default withTranslation()(ExperiencePage);

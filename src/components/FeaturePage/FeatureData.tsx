@@ -5,7 +5,7 @@ import Components from './ComponentRenderer';
 import { AnyDescriptionData } from '../../context/DescriptionContext/DescriptionRecord';
 
 /**
- * {@link List} Props.
+ * {@link FeatureData} Props.
  */
 export interface IFeatureDataProps {
   data: Array<AnyDescriptionData>;

@@ -16,8 +16,9 @@ import P from '../Ui/P';
  * {@link EducationTimeline} Props.
  */
 interface IEducationTimelineProps extends WithTranslation {
-  /** Leisures to display. */
+  /** Educations to display. */
   educations: Array<EducationRecord>;
+  /** Callback when clicking on a record. */
   onEducationClick: (edu: EducationRecord) => void;
 }
 
@@ -42,9 +43,9 @@ const EducationTimeline: React.FC<IEducationTimelineProps> = (props: IEducationT
   if (descriptionContext == null) throw new Error('Context unitialized');
 
   const educationList: Array<React.ReactElement> = [];
-  let index: number, nextEducation: EducationRecord;
+  let index: number;
   for (index = 0; index < props.educations.length; ++index) {
-    nextEducation = props.educations[index];
+    const nextEducation = props.educations[index];
     const feature = descriptionContext.getDescription(nextEducation.short, i18n.language);
 
     educationList.push(
@@ -53,7 +54,8 @@ const EducationTimeline: React.FC<IEducationTimelineProps> = (props: IEducationT
           heading = {`${t(`education:${nextEducation.title}`)}${nextEducation.profession != null ? `: ${t(`education:${nextEducation.profession}`)}` : ''}`}
           place   = {t(`education:${nextEducation.place}`)}
           begin   = {nextEducation.begin}
-          end     = {nextEducation.end}>
+          end     = {nextEducation.end}
+          onClick = {() => props.onEducationClick(nextEducation)}>
         <>
           {feature != null && feature.data.map(block => Components(block))}
           <P className={classes.educationTimelineFinalGrade}>{`${t('education:final grade')}: ${nextEducation.grade}`}</P>
@@ -64,7 +66,7 @@ const EducationTimeline: React.FC<IEducationTimelineProps> = (props: IEducationT
 
   return (
     <Timeline>
-      <TimelineHeading>{t('education:timeline')}</TimelineHeading>
+      <TimelineHeading>{t('education:heading')}</TimelineHeading>
       <TimelineRecords>
         {educationList}
       </TimelineRecords>
