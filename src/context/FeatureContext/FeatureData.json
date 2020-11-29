@@ -433,8 +433,18 @@
         {
           "uid": "education-alevel-h1",
           "component": "h",
-          "text": "Allgemeine Hochschulreife am Staatlichen Gymnasium Arnstadt",
+          "text": "Allgemeine Hochschulreife am Staatlichen Gymnasium Melissantes",
           "variant": "h3"
+        },
+        {
+          "uid": "education-alevel-p1",
+          "component": "p",
+          "text": "Meine allgemeine Hochschulreife habe ich am Staatlichen Gymnasium Melissantes in Arnstadt erworben. Als Fächer mit erhöhtem Anforderungsniveau (neu-deutsch für \"Leistungsfächer\") wählte ich Mathematik und Physik. Weitere Neigungsfächer waren Informatik sowie Wirtschaft und Recht."
+        },
+        {
+          "uid": "education-alevel-p2",
+          "component": "p",
+          "text": "In meiner Freizeit spielte ich im Verein Handball. Die restliche Zeit verbrachte ich überwiegend am Computer. Neben dem Spielen von Computerspielen faszinierte mich auch die Programmierung dahinter, wodurch meine Leidenschaft für die Informatik geweckt wurde."
         }
       ]
     },
@@ -447,8 +457,18 @@
         {
           "uid": "education-alevel-h1",
           "component": "h",
-          "text": "Qualifying for A-level at the Governmental High School of Arnstadt",
+          "text": "Qualifying for A-level at the Governmental High School of Melissantes",
           "variant": "h3"
+        },
+        {
+          "uid": "education-alevel-p1",
+          "component": "p",
+          "text": "I've got my qualification for A-level at the Governmental High School of Melissantes in Arnstadt. As main subjects I picked mathematics and physics. Further favorite subjects were informatics as well as economy and law."
+        },
+        {
+          "uid": "education-alevel-p2",
+          "component": "p",
+          "text": "In my sparetime I'd played handball in a club. The remaining time I'd used for computer related activities. Although I enjoy playing computer games, I was also fascinated by the programming of games. That evoked my passion for the informatics even more."
         }
       ]
     }
