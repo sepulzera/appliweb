@@ -67,7 +67,7 @@
       "id":       22,
       "title":    "programming vba",
       "category": "skills",
-      "featured": true,
+      "featured": false,
       "rating":   9
     },
     {
@@ -90,6 +90,13 @@
       "category": "skills",
       "featured": true,
       "rating":   7
+    },
+    {
+      "id":       26,
+      "title":    "programming c",
+      "category": "skills",
+      "featured": false,
+      "rating":   3
     },
     {
       "id":       30,

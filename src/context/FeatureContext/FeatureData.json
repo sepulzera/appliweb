@@ -407,6 +407,57 @@
           "component": "h",
           "text": "Praktische Informatik an der Berufsakademie Gera",
           "variant": "h3"
+        },
+        {
+          "uid": "education-bachelorgraduation-p1",
+          "component": "p",
+          "text": "Meinen Bachelorabschluss in Praktische Informatik (B. Ing.) habe ich an der Berufsakademie in Gera erworben. Als Ausbildungspartner für das duale Studium wählte ich die Thales Transportation Systems GmbH, Standort Arnstadt (TTS)."
+        },
+        {
+          "uid": "education-bachelorgraduation-p2",
+          "component": "p",
+          "text": "Die TTS gehört dem Industriesektor an und produziert überwiegend elektronische Geräte und Zubehör für den Schienennah- und Fernverkehr, wie zum Beispiel Weichenanlagen und Signalschirme. Die unterschiedlichen Produkte durchlaufen bei der TTS den kompletten Lebenszyklus, inklusive Konzipierung, Produktion, Wartung und Verschrottung."
+        },
+        {
+          "uid": "education-bachelorgraduation-p3",
+          "component": "p",
+          "text": "Während der Praxisphasen bearbeitete ich folgende Aufgabenstellungen:"
+        },
+        {
+          "uid": "education-bachelorgraduation-list1",
+          "component": "ul",
+          "children": [
+            {
+              "uid": "education-bachelorgraduation-list1-item1",
+              "component": "li",
+              "text": "Entwicklung des Arbeitszeiterfassungsprogrammes zu einem transparenten Tool für Kostenüberwachung: Bei dieser Arbeit beschäftigte ich mich mit dem internen Arbeitszeiterfassungsprogrammes, das mit \"Microsoft Access\" realisiert wurde. In enger Zusammenarbeit mit ausgewählten Kolleginnen und Kollegen, vereinfachte ich die Anwendung und reduzierte die benötigte Zeit für die Erfassung der Arbeitszeit."
+            },
+            {
+              "uid": "education-bachelorgraduation-list1-item2",
+              "component": "li",
+              "text": "Erstellung eines Lastenhefts zur Neugestaltung der Reparaturen-Datenbank: Für die Bearbeitung von Reparaturen und Wartungstätigkeiten wurden verschiedene Systeme miteinander vernetzt, unter anderem SAP und Eigenentwicklungen. Meine Aufgabe im Rahmen dieser Praxisphase war es, die einzelnen Prozesse auch hinsichtlich der einzelnen Systeme sauber zu analysen. Anschließend entwickelte ich Lösungsvorschläge, die Systemlandschaft und beteiligten Prozesse zu vereinfachen."
+            },
+            {
+              "uid": "education-bachelorgraduation-list1-item3",
+              "component": "li",
+              "text": "Entwicklung und Inbetriebnahme einer Software zur Prüfeinrichtung für die Funktionsprüfung von ESTW-Relaisbaugruppen: Für die Qualitätssicherung kommen unter anderem selbst entwickelte Prüfeinrichtungen zum Einsatz. Für den Mikrocontroller einer Prüfeinrichtung entwickelte ich eine Software, um verschiedene Prüfszenarien einzulesen und die Baugruppen testweise elektrisch anzusteuern. Für die Programmierung nutzte ich die Entwicklungsumgebung \"LabVIEW\" und die Programmiersprache C."
+            },
+            {
+              "uid": "education-bachelorgraduation-list1-item4",
+              "component": "li",
+              "text": "Evaluierung der Möglichkeiten zur Anwendung der RFID-Technologie im Werk Arnstadt zur Prüfmittel- und Fertigungsmittelüberwachung: Als Vorbereitung auf meine Bachelorarbeit arbeitete ich mich in die RFID-Technologie ein. Ich analysierte den aktuellen technologischen Stand und verschiedene mögliche Einsatzszenarien innerhalb der TTS in Arnstadt."
+            }
+          ]
+        },
+        {
+          "uid": "education-bachelorgraduation-p4",
+          "component": "p",
+          "text": "Während der Theoriephasen an der Berufsakademie wurden mir viele Grundlagen der praktischen Informatik vermittelt, wie die Programmiersprachen C und Java sowie HTML und CSS. Darüber hinaus erhielt ich Einblicke in Betriebssysteme, wie Windows, Linux und Microsoft Server. Fächer wie \"Business Englisch\", Recht und Betriebswirtschaftslehre rundeten das Studium ab."
+        },
+        {
+          "uid": "education-bachelorgraduation-p5",
+          "component": "p",
+          "text": "Meine Bachelorarbeit knüpfte an meine letzte Praxisarbeit an und trägt den Titel: Entwicklung eines Basiskonzepts für optimierte Abläufe des Prüfmittelmanagements im Rahmen der technologischen und logistischen Prozesse der TTS Arnstadt. Ich entwickelte ein ganzheitliches Konzept, wie das Prüfmittelmanagement bei der TTS unter Einführung der RFID-Technologie verbessert werden kann. Dabei galt es unter anderem das Problem zu lösen, dass jedes Prüfmittel zu jeder Zeit lokalisierbar sein muss. Weiterführend sollen die Informationen und technologischen Möglichkeiten genutzt werden, um die für jede Prüfung verwendeten Prüfmittel zu dokumentieren. Letzteres ist zum Beispiel wichtig, um im Fehlerfall nachverfolgen zu können, welche Geräte mit dem fehlerhaften Prüfmittel getestet wurden."
         }
       ]
     },
@@ -421,6 +472,57 @@
           "component": "h",
           "text": "Studying Practical Computer Science at the University of Cooperative Education Gera",
           "variant": "h3"
+        },
+        {
+          "uid": "education-bachelorgraduation-p1",
+          "component": "p",
+          "text": "I've aquired my bachelor degree in Practical Computer Science (B. Eng.) at the University of Cooperative Education Gera. To get first insights into the business world, I chose a Dual Course of Study together with Thales Transportation Systems GmbH, at the site Arnstadt (TTS)."
+        },
+        {
+          "uid": "education-bachelorgraduation-p2",
+          "component": "p",
+          "text": "TTS predominantly produces electronical machines and tools for railroads, like switch points and signal lamps. TTS covers the whole product life-cycle, from conceptual design, production, maintenance to scrapping."
+        },
+        {
+          "uid": "education-bachelorgraduation-p3",
+          "component": "p",
+          "text": "During the practical phases I worked on the following tasks:"
+        },
+        {
+          "uid": "education-bachelorgraduation-list1",
+          "component": "ul",
+          "children": [
+            {
+              "uid": "education-bachelorgraduation-list1-item1",
+              "component": "li",
+              "text": "Further development of the used software for recording of working time, to increase the transparency and to reduce the time needed: During this task, I gained deep insights into the inhouse software used to recording the working time of the employees. The software is developed with \"Microsoft Access\". Working closely with selected colleagues, I simplified the software's graphical interface, reducing the required time to record the working time drastically."
+            },
+            {
+              "uid": "education-bachelorgraduation-list1-item2",
+              "component": "li",
+              "text": "Composing of a technical specification to redesign the maintenance-system: To manage and record incurring maintenance tasks, several different database systems have been connected, like SAP and some inhouse databases. After some time, the different systems and there interfaces to each other became quite difficult to understand and to maintain. My task was to analyse and properly document them. Subsequently, I developed a proposal for solution to simplify the systems."
+            },
+            {
+              "uid": "education-bachelorgraduation-list1-item3",
+              "component": "li",
+              "text": "Development and implementing of a software for a testing device to test ESTW-relais: TTS uses plenty of inhouse developed testing devices for quality assurance and maintenance. My third task was to develop a software for the microcontroller of a testing device. I developed the software with the development environment \"LabVIEW\" using the programming language C."
+            },
+            {
+              "uid": "education-bachelorgraduation-list1-item4",
+              "component": "li",
+              "text": "Analysis of possible usages for the RFID-technology to monitor production and maintenance tools: As groundwork for my bachelor thesis, I studied the RFID-technology. I analyzed the current stage of development of RFID and evaluated possible applications at the TTS."
+            }
+          ]
+        },
+        {
+          "uid": "education-bachelorgraduation-p4",
+          "component": "p",
+          "text": "During my studies at the University, I learned plenty about informatics, like about the programming languages C and Java, and about HTML and CSS. Furthermore, I gained deep insights into computer operation systems, like Windows, Linux and Microsoft Server. Additionally, I got teached in business english, law, business economics and more."
+        },
+        {
+          "uid": "education-bachelorgraduation-p5",
+          "component": "p",
+          "text": "My bachelore thesis continues the work of my latest practical task: Development of a concept to improve the management of testing devices and tools at the TTS. Due to safety and legal reasons, the TTS has to be able to track consistently, which testing devices have been used for which specific tests. Additionally, to reduce the time needed to find required testing devices for specific steps, it should be made possible to localize all electronic testing devices. Considering different technologies to identify and to localize devices, I developed a system based on RFID."
         }
       ]
     },
@@ -463,7 +565,7 @@
         {
           "uid": "education-alevel-p1",
           "component": "p",
-          "text": "I've got my qualification for A-level at the Governmental High School of Melissantes in Arnstadt. As main subjects I picked mathematics and physics. Further favorite subjects were informatics as well as economy and law."
+          "text": "I've aquired my qualification for A-level at the Governmental High School of Melissantes in Arnstadt. As main subjects I picked mathematics and physics. Further favorite subjects were informatics as well as economy and law."
         },
         {
           "uid": "education-alevel-p2",
