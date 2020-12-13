@@ -18,9 +18,19 @@
   "programming c++": "Programmierung: C++",
   "programming java": "Programmierung: Java",
   "programming vba": "Programmierung: VBA",
+  "programming android": "Programmierung: Android",
   "web html/css": "Webdesign: HTML, CSS",
   "web javascript": "Webentwicklung: JavaScript",
   "web reactjs": "Webentwicklung: ReactJS",
   "database OracleSQL": "Datenbank: OracleSQL",
-  "os linux": "Betriebssystem: Linux"
+  "os linux": "Betriebssystem: Linux",
+
+  "knowledge": "Wissen",
+  "accessibility": "Barrierefreiheit",
+  "responsive design": "Anpassungsfähiges Layout",
+  "usability": "Usability",
+  "user experience": "User Experience",
+
+  "tools": "Tools",
+  "electron": "Electron"
 }

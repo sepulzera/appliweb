@@ -33,6 +33,9 @@ const useStyles = makeStyles(theme => ({
     marginBottom: 0,
     marginLeft:   theme.spacing(2),
   },
+  skillItemTitle: {
+    textTransform: 'capitalize',
+  },
 }));
 
 /**
@@ -61,7 +64,7 @@ const SKillSelectDialog: React.FC<IProps> = (props: IProps) => {
         if (education == null) continue;
         educations.push(
           <ListItem key={`education-${education.title}`} button dense onClick={() => props.onSelect(education)}>
-            <ListItemText primary={t(`education:${education.title}`)} />
+            <ListItemText primary={t(`education:${education.title}`)} className={classes.skillItemTitle} />
           </ListItem>
         );
       }

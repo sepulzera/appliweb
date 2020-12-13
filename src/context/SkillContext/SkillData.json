@@ -39,7 +39,7 @@
       "id":       10,
       "title":    "german",
       "category": "language",
-      "featured": false,
+      "featured": true,
       "rating":   10
     },
     {
@@ -99,6 +99,20 @@
       "rating":   3
     },
     {
+      "id":       27,
+      "title":    "programming android",
+      "category": "skills",
+      "featured": false,
+      "rating":   5
+    },
+    {
+      "id":       29,
+      "title":    "web typescript",
+      "category": "skills",
+      "featured": false,
+      "rating":   7
+    },
+    {
       "id":       30,
       "title":    "database OracleSQL",
       "category": "skills",
@@ -108,9 +122,37 @@
     {
       "id":       40,
       "title":    "os linux",
-      "category": "skills",
+      "category": "knowledge",
       "featured": true,
       "rating":   7
+    },
+    {
+      "id":       50,
+      "title":    "accessibility",
+      "category": "knowledge",
+      "featured": true,
+      "rating":   9
+    },
+    {
+      "id":       51,
+      "title":    "responsive design",
+      "category": "knowledge",
+      "featured": true,
+      "rating":   9
+    },
+    {
+      "id":       60,
+      "title":    "electron",
+      "category": "tools",
+      "featured": false,
+      "rating":   5
+    },
+    {
+      "id":       61,
+      "title":    "visual studio",
+      "category": "tools",
+      "featured": false,
+      "rating":   3
     }
   ]
 }

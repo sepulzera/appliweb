@@ -78,6 +78,55 @@
       "skillId": 20
     },
 
+    {
+      "id":      100,
+      "userId":  1,
+      "type":    "education",
+      "typeId":  1,
+      "skillId": 1
+    },
+    {
+      "id":      101,
+      "userId":  1,
+      "type":    "education",
+      "typeId":  1,
+      "skillId": 2
+    },
+    {
+      "id":      103,
+      "userId":  1,
+      "type":    "education",
+      "typeId":  1,
+      "skillId": 11
+    },
+    {
+      "id":      104,
+      "userId":  1,
+      "type":    "education",
+      "typeId":  1,
+      "skillId": 20
+    },
+    {
+      "id":      105,
+      "userId":  1,
+      "type":    "education",
+      "typeId":  1,
+      "skillId": 27
+    },
+    {
+      "id":      106,
+      "userId":  1,
+      "type":    "education",
+      "typeId":  1,
+      "skillId": 50
+    },
+    {
+      "id":      107,
+      "userId":  1,
+      "type":    "education",
+      "typeId":  1,
+      "skillId": 51
+    },
 
     {
       "id":      110,

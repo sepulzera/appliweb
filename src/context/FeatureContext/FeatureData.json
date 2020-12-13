@@ -379,6 +379,21 @@
           "component": "h",
           "text": "Angewandte Informatik an der Fachhochschule Erfurt",
           "variant": "h3"
+        },
+        {
+          "uid": "education-mastergraduation-p1",
+          "component": "p",
+          "text": "Direkt an mein Bachelorstudium anschließend habe ich mein Masterstudium in Angewandte Informatik (M. Sc.) begonnen. Leider konnte ich das Duale Studium dafür nicht fortsetzen. Aufgrund der Nähe zu meinem Heimatort wählte ich die Fachhochschule Erfurt."
+        },
+        {
+          "uid": "education-mastergraduation-p2",
+          "component": "p",
+          "text": "Das Studium an der Fachhochschule Erfurt ist teamorientiert und praxisnah. Bei diversen Projekten und Teamarbeiten lernte ich tiefergehendes Wissen über die Softwareentwicklung, Big Data und Computertechnik. Daneben wurden mir wichtige Inhalte zu Betriebswirtschaftslehre, Projektmanagement, Mathematik und vieles mehr vermittelt."
+        },
+        {
+          "uid": "education-mastergraduation-p3",
+          "component": "p",
+          "text": "Weil ich auch weiterhin mein erlerntes Wissen praktisch anwenden wollte, studierte ich im Teilzeitmodell mit der IBYKUS AG für Informationstechnologie zusammen. Die IBYKUS AG ist ein mittelständisches Unternehmen in Erfurt und bietet IT-Dienstleistungen an, wie Softwareentwicklung und Hosting."
         }
       ]
     },
@@ -393,6 +408,21 @@
           "component": "h",
           "text": "Studying Applied Computer Science at the University of Applied Science Erfurt",
           "variant": "h3"
+        },
+        {
+          "uid": "education-mastergraduation-p1",
+          "component": "p",
+          "text": "Right after my bachelor studies, I started studying Applied Computer Science (M. Sc.). Unforunatly, it wasn't possible to continue it as Dual Course of Study. Mainly because of the close distance to my hometown, I chose the University of Applied Science Erfurt for my master studies."
+        },
+        {
+          "uid": "education-mastergraduation-p2",
+          "component": "p",
+          "text": "The studies at the University of Applied Science Erfurt are team oriented and practical. Doing many team projects, I learned profound knowledge about software development, big data und computer science. Additionally, I got teached in business economics, project management, mathematics and much more."
+        },
+        {
+          "uid": "education-mastergraduation-p3",
+          "component": "p",
+          "text": "During my bachelor studies, I enjoyed the practical phases a lot. Therefore, I wanted to continue working besides my studies. I decided to study part-time, and to work at \"IBYKUS AG für Informationstechnologie\". IBYKUS AG is a medium-sizes enterprise headquartered in Erfurt. They offer various services for IT, like software development and hosting."
         }
       ]
     },
