@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { WithTranslation, withTranslation } from 'react-i18next';
 
+import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 
-import styles from './ErrorBoundary.module.scss';
+import { AnyComponent } from '../../types/Types';
 
 /** {@link ErrorBoundary} Props. */
 interface IErrorBoundaryProps extends WithTranslation {
@@ -18,6 +19,29 @@ interface IErrorBoundaryState {
   readonly hasError: boolean;
   readonly error: Error | null | undefined;
 }
+
+const useStyles = makeStyles({
+  errorContainer: {
+    '&:first-letter': {
+      textTransform: 'uppercase',
+    },
+  },
+});
+
+interface IErrorBoundaryContainerProps {
+  /** The error. */
+  children: AnyComponent;
+}
+
+const ErrorBoundaryContainer: React.FC<IErrorBoundaryContainerProps> = (props: IErrorBoundaryContainerProps) => {
+  const classes = useStyles();
+
+  return (
+    <div className={classes.errorContainer}>
+      {props.children}
+    </div>
+  );
+};
 
 /**
  * Simple error catcher.
@@ -56,7 +80,7 @@ class ErrorBoundary extends React.Component<IErrorBoundaryProps, IErrorBoundaryS
       const { t } = this.props;
 
       return (
-        <div className={styles.errorRoot}>
+        <ErrorBoundaryContainer>
           <Typography variant='h1' gutterBottom>{t('error:title')}</Typography>
           {this.props.verbose && (
             <>
@@ -70,7 +94,7 @@ class ErrorBoundary extends React.Component<IErrorBoundaryProps, IErrorBoundaryS
               <Typography variant='body1'>{this.state.error.stack}</Typography>
             </>
           )}
-        </div>
+        </ErrorBoundaryContainer>
       );
     }
 

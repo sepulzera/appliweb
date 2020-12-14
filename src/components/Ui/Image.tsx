@@ -1,7 +1,6 @@
 import * as React from 'react';
 import clsx from 'clsx';
 
-import MuiAvatar from '@material-ui/core/Avatar';
 import { makeStyles } from '@material-ui/core/styles';
 
 import AssetsHelper from '../../assets/AssetsHelper';
@@ -17,9 +16,22 @@ export interface IImageProps {
 }
 
 const useStyles = makeStyles({
+  root: {
+    // values from material-ui/avatar
+    display:        'flex',
+    overflow:       'hidden',
+    alignItems:     'center',
+    lineHeight:     1,
+    userSelect:     'none',
+    justifyContent: 'center',
+  },
   img: {
-    width:  'auto',
-    height: 'auto',
+    width:  '100%',
+    height: '100%',
+    // values from material-ui/avatar
+    objectFit:  'cover',
+    textAlign:  'center',
+    textIndent: '10000px',
   },
 });
 
@@ -34,7 +46,9 @@ const Image: React.FC<IImageProps> = (props: IImageProps) => {
   const img = AssetsHelper.getAsset(props.src);
 
   return (
-    <MuiAvatar variant='square' alt={props.alt} src={img} className={clsx(classes.img, props.className)} />
+    <div className={clsx(classes.root, props.className)}>
+      <img alt={img.default} src={img.default} className={classes.img} />
+    </div>
   );
 };
 
