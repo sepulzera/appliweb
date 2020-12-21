@@ -3,11 +3,11 @@ import * as React from 'react';
 import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
-import UserRecord from '../../context/UserContext/UserRecord';
+import EducationRecord from '../../context/EducationContext/EducationRecord';
+import UserRecord      from '../../context/UserContext/UserRecord';
 
 import H from '../Ui/H';
 import P from '../Ui/P';
-import EducationRecord from '../../context/EducationContext /EducationRecord';
 
 /**
  * {@link CurrentUserInfo} Props.

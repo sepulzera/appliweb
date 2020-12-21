@@ -1,6 +1,6 @@
 import React from 'react';
 
-import EducationContext from '../context/EducationContext /EducationContext';
+import EducationContext from '../context/EducationContext/EducationContext';
 import JobRequestContext from '../context/JobRequestContext/JobRequestContext';
 import LeisureContext from '../context/LeisureContext/LeisureContext';
 import SkillContext from '../context/SkillContext/SkillContext';
@@ -23,7 +23,7 @@ import UserHeader from '../components/UserHeader/UserHeader';
 import ErrorPage from './ErrorPage';
 import Helper from '../helper/Helper';
 import EducationTimeline from '../components/EducationTimeline/EducationTimeline';
-import EducationRecord from '../context/EducationContext /EducationRecord';
+import EducationRecord from '../context/EducationContext/EducationRecord';
 import ExperiencePage from '../components/FeaturePage/ExperiencePage';
 
 /**
@@ -41,7 +41,7 @@ const HomePage: React.FC<{}> = () => {
   const skillMappingContext = React.useContext(SkillMappingContext);
   const userContext         = React.useContext(UserContext);
 
-  if (educationContext == null || jobRequestContext == null || leisureContext == null || skillContext == null || skillMappingContext == null || userContext == null) throw new Error('Context unitialized');
+  if (educationContext == null || jobRequestContext == null || leisureContext == null || skillContext == null || skillMappingContext == null || userContext == null) throw new Error('Context uninitialized');
 
   // HACK: There is only one user - me!
   const userId = 1;

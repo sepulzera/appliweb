@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
 
 import DescriptionContext from '../../context/DescriptionContext/DescriptionContext';
-import EducationRecord from '../../context/EducationContext /EducationRecord';
+import EducationRecord from '../../context/EducationContext/EducationRecord';
 
 import Timeline from '../Timeline/Timeline';
 import TimelineHeading from '../Timeline/TimelineHeading';
@@ -40,7 +40,7 @@ const EducationTimeline: React.FC<IEducationTimelineProps> = (props: IEducationT
   const classes = useStyles();
 
   const descriptionContext = React.useContext(DescriptionContext);
-  if (descriptionContext == null) throw new Error('Context unitialized');
+  if (descriptionContext == null) throw new Error('Context uninitialized');
 
   const educationList: Array<React.ReactElement> = [];
   let index: number;

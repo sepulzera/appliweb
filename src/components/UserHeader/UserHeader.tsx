@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
-import UserRecord from '../../context/UserContext/UserRecord';
+import EducationRecord  from '../../context/EducationContext/EducationRecord';
 import JobRequestRecord from '../../context/JobRequestContext/JobRequestRecord';
+import UserRecord       from '../../context/UserContext/UserRecord';
 
 import Settings from '../Settings/Settings';
 import CurrentUserInfo from './CurrentUserInfo';
 import JobRequest from './JobRequest';
 import Image from '../Ui/Image';
-import EducationRecord from '../../context/EducationContext /EducationRecord';
 /**
  * {@link UserHeader} Props.
  */

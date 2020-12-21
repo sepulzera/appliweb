@@ -42,7 +42,7 @@ const ExperiencePage: React.FC<IProps> = (props: IProps) => {
   const skillContext        = React.useContext(SkillContext);
   const skillMappingContext = React.useContext(SkillMappingContext);
 
-  if (featureContext == null || skillContext == null || skillMappingContext == null) throw new Error('Context unitialized');
+  if (featureContext == null || skillContext == null || skillMappingContext == null) throw new Error('Context uninitialized');
 
   const { experience, type, isOpen, onClose } = props;
 

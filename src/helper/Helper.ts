@@ -1,4 +1,4 @@
-import EducationRecord from '../context/EducationContext /EducationRecord';
+import EducationRecord from '../context/EducationContext/EducationRecord';
 
 /**
  * Helper.

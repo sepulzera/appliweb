@@ -4,14 +4,14 @@ import { useTranslation, withTranslation, WithTranslation } from 'react-i18next'
 import { makeStyles } from '@material-ui/core/styles';
 import { List, ListItem, ListItemText } from '@material-ui/core';
 
-import SkillRecord from '../../context/SkillContext/SkillRecord';
+import EducationContext from '../../context/EducationContext/EducationContext';
 import ExperienceRecord from '../../context/Experience/ExperienceRecord';
-import SkillMappingRecord from '../../context/SkillMappingContext/SkillMappingRecord';
 import LeisureContext from '../../context/LeisureContext/LeisureContext';
+import SkillRecord from '../../context/SkillContext/SkillRecord';
+import SkillMappingRecord from '../../context/SkillMappingContext/SkillMappingRecord';
 
 import Dialog from '../Ui/Dialog';
 import H from '../Ui/H';
-import EducationContext from '../../context/EducationContext /EducationContext';
 
 /**
  * {@link ISKillSelectDialogProps} Props.
@@ -49,7 +49,7 @@ const SKillSelectDialog: React.FC<IProps> = (props: IProps) => {
 
   const educationContext = React.useContext(EducationContext);
   const leisureContext   = React.useContext(LeisureContext);
-  if (educationContext == null || leisureContext == null) throw new Error('Context unitialized');
+  if (educationContext == null || leisureContext == null) throw new Error('Context uninitialized');
 
   const { skill, skillMappings, onClose } = props;
 
