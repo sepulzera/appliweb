@@ -24,7 +24,7 @@ i18n
   .init({
     fallbackLng: 'en',
     lng: localStorage.getItem(LANGUAGE_KEY) ?? navigator.language,
-    ns: ['about', 'city', 'common', 'education', 'error', 'home', 'job', 'legal', 'leisure', 'privacy', 'skill'],
+    ns: ['about', 'career', 'city', 'common', 'education', 'error', 'home', 'job', 'legal', 'leisure', 'privacy', 'skill'],
     defaultNS: 'common',
     debug: true,
     load: 'currentOnly',

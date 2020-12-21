@@ -3,6 +3,7 @@ import * as React from 'react';
 
 import { AnyComponent } from '../types/Types';
 
+import CareerContextProvider       from '../context/CareerContext/CareerContextProvider';
 import DescriptionContextProvider  from '../context/DescriptionContext/DescriptionContextProvider';
 import EducationContextProvider    from '../context/EducationContext/EducationContextProvider';
 import FeatureContextProvider      from '../context/FeatureContext/FeatureContextProvider';
@@ -28,6 +29,7 @@ interface IContextProviderProps {
  */
 const ContextProvider: React.FC<IContextProviderProps> = (props: IContextProviderProps) => (
   <SettingsContextProvider>
+    <CareerContextProvider>
     <EducationContextProvider>
     <DescriptionContextProvider>
     <FeatureContextProvider>
@@ -45,6 +47,7 @@ const ContextProvider: React.FC<IContextProviderProps> = (props: IContextProvide
     </FeatureContextProvider>
     </DescriptionContextProvider>
     </EducationContextProvider>
+    </CareerContextProvider>
   </SettingsContextProvider>
 );
 
