@@ -9,6 +9,7 @@ import Settings from '../Settings/Settings';
 import CurrentUserInfo from './CurrentUserInfo';
 import JobRequest from './JobRequest';
 import Image from '../Ui/Image';
+import CareerRecord from '../../context/CareerContext/CareerRecord';
 /**
  * {@link UserHeader} Props.
  */
@@ -17,6 +18,9 @@ interface IUserHeaderProps {
   user: UserRecord;
   /** Jobrequest to display. */
   jobRequest: JobRequestRecord | undefined;
+
+  /** Job to display. */
+  latestCareer: CareerRecord | undefined;
   /** Degree to display. */
   highestEducation: EducationRecord | undefined;
 }
@@ -101,7 +105,7 @@ const UserHeader: React.FC<IUserHeaderProps> = (props: IUserHeaderProps) => {
     <div className={classes.header}>
       <div className={classes.sectionTabletAndDesktop}>
         <div className={classes.user}>
-          <CurrentUserInfo user={props.user} degree={props.highestEducation} />
+          <CurrentUserInfo user={props.user} degree={props.highestEducation} job={props.latestCareer} />
           { props.jobRequest && <JobRequest jobRequest={props.jobRequest} asRow /> }
         </div>
 
@@ -113,7 +117,7 @@ const UserHeader: React.FC<IUserHeaderProps> = (props: IUserHeaderProps) => {
 
       <div className={classes.sectionMobile}>
         <div className={classes.row}>
-          <CurrentUserInfo user={props.user} degree={props.highestEducation} />
+          <CurrentUserInfo user={props.user} degree={props.highestEducation} job={props.latestCareer} />
           <Settings className={classes.settings} />
         </div>
         <div className={classes.row}>

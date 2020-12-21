@@ -8,6 +8,7 @@ import UserRecord      from '../../context/UserContext/UserRecord';
 
 import H from '../Ui/H';
 import P from '../Ui/P';
+import CareerRecord from '../../context/CareerContext/CareerRecord';
 
 /**
  * {@link CurrentUserInfo} Props.
@@ -15,6 +16,8 @@ import P from '../Ui/P';
 interface ICurrentUserInfoProps extends WithTranslation {
   /** User to display. */
   user: UserRecord;
+  /** Current job to display. */
+  job: CareerRecord | undefined;
   /** Degree to display. */
   degree: EducationRecord | undefined;
 }
@@ -77,7 +80,7 @@ const CurrentUserInfo: React.FC<ICurrentUserInfoProps> = (props: ICurrentUserInf
   const classes = useStyles();
   const { t } = useTranslation();
 
-  const { degree, user } = props;
+  const { degree, job, user } = props;
 
   return (
     <div className={classes.userInfo}>
@@ -87,9 +90,12 @@ const CurrentUserInfo: React.FC<ICurrentUserInfoProps> = (props: ICurrentUserInf
       </div>
       <div className={classes.leftSide}>
         <div className={classes.rightPadding}>
-          <H variant='h3' className={classes.heading}>{`${t('job:employed at')}:`}</H>
-          {/* TODO Get dynamically from latest ExpStation with category 'job' */}
-          <P variant='body1' className={classes.userInfoText}>IBYKUS AG für Informationstechnologie</P>
+          {job != null && (
+            <>
+              <H variant='h3' className={classes.heading}>{`${t('job:employed at')}:`}</H>
+              <P variant='body1' className={classes.userInfoText}>{t(`career:${job.place}`)}</P>
+            </>
+          )}
 
           {degree != null && (
             <>

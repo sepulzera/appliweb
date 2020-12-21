@@ -26,38 +26,6 @@ const useStyles = makeStyles({
   },
 });
 
-function sortCareerByTimeDesc(a: CareerRecord, b: CareerRecord): number {
-  const aEnd = a.end;
-  const bEnd = b.end;
-  if (aEnd == null && bEnd == null) {
-    const aBeginTime = a.begin.getTime();
-    const bBeginTime = b.begin.getTime();
-    if (aBeginTime === bBeginTime) return 0;
-    else if (aBeginTime < bBeginTime) return 1;
-    else return -1;
-  } else if (aEnd == null && bEnd != null) {
-    return -1;
-  } else if (aEnd != null && bEnd == null) {
-    return 1;
-  } else if (aEnd != null && bEnd != null) {
-    const aEndTime = aEnd.getTime();
-    const bEndTime = bEnd.getTime();
-    if (aEndTime === bEndTime) {
-      const aBeginTime = a.begin.getTime();
-      const bBeginTime = b.begin.getTime();
-      if (aBeginTime === bBeginTime) return 0;
-      else if (aBeginTime < bBeginTime) return 1;
-      else return -1;
-    } else if (aEndTime < bEndTime) {
-      return 1;
-    } else {
-      return -1;
-    }
-  }
-
-  return 0;
-}
-
 /**
  * Career Timeline.
  *
@@ -70,13 +38,10 @@ const CareerTimeline: React.FC<ICareerTimelineProps> = (props: ICareerTimelinePr
   const descriptionContext = React.useContext(DescriptionContext);
   if (descriptionContext == null) throw new Error('Context uninitialized');
 
-  const careersSorted = [...props.careers];
-  careersSorted.sort(sortCareerByTimeDesc);
-
   const educationList: Array<React.ReactElement> = [];
   let index: number;
-  for (index = 0; index < careersSorted.length; ++index) {
-    const nextCareer = careersSorted[index];
+  for (index = 0; index < props.careers.length; ++index) {
+    const nextCareer = props.careers[index];
     const feature = 'DUMMY: List of tasks'; // TODO Short descriptions of Tasks
 
     educationList.push(

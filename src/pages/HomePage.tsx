@@ -127,7 +127,13 @@ const HomePage: React.FC<{}> = () => {
   return (
     <>
       <PageWithHeaderAndFooter
-          headerComponent = {<UserHeader user={user} jobRequest={jobRequest} highestEducation={Helper.getHighestEducation(educations)} />}>
+          headerComponent = {(
+            <UserHeader
+                user = {user}
+                jobRequest = {jobRequest}
+                highestEducation = {Helper.getHighestEducation(educations)}
+                latestCareer = {careers != null && careers.length > 0 ? careers[0] : undefined} />
+          )}>
         <Grid>
           <GridItem xs={12} sm={4} md={3}>
             <Skills   skills={skills}     onSkillClick={handleSkillClick} />

@@ -29,6 +29,38 @@ function getCareerMap() {
   return map;
 }
 
+function sortByTimeDesc(a: CareerRecord, b: CareerRecord): number {
+  const aEnd = a.end;
+  const bEnd = b.end;
+  if (aEnd == null && bEnd == null) {
+    const aBeginTime = a.begin.getTime();
+    const bBeginTime = b.begin.getTime();
+    if (aBeginTime === bBeginTime) return 0;
+    else if (aBeginTime < bBeginTime) return 1;
+    else return -1;
+  } else if (aEnd == null && bEnd != null) {
+    return -1;
+  } else if (aEnd != null && bEnd == null) {
+    return 1;
+  } else if (aEnd != null && bEnd != null) {
+    const aEndTime = aEnd.getTime();
+    const bEndTime = bEnd.getTime();
+    if (aEndTime === bEndTime) {
+      const aBeginTime = a.begin.getTime();
+      const bBeginTime = b.begin.getTime();
+      if (aBeginTime === bBeginTime) return 0;
+      else if (aBeginTime < bBeginTime) return 1;
+      else return -1;
+    } else if (aEndTime < bEndTime) {
+      return 1;
+    } else {
+      return -1;
+    }
+  }
+
+  return 0;
+}
+
 /**
  * {@link CareerContext} Provider.
  *
@@ -54,7 +86,7 @@ const CareerContextProvider: React.FC<ICareerContextProviderProps> = (props: ICa
       }
     }
 
-    return arr;
+    return arr.sort(sortByTimeDesc);
   };
 
   return (
