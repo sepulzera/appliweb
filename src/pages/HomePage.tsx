@@ -25,6 +25,9 @@ import Helper from '../helper/Helper';
 import EducationTimeline from '../components/EducationTimeline/EducationTimeline';
 import EducationRecord from '../context/EducationContext/EducationRecord';
 import ExperiencePage from '../components/FeaturePage/ExperiencePage';
+import CareerContext from '../context/CareerContext/CareerContext';
+import CareerRecord from '../context/CareerContext/CareerRecord';
+import CareerTimeline from '../components/CareerTimeline/CareerTimeline';
 
 /**
  * Home component rendering the actual content - me!
@@ -32,8 +35,10 @@ import ExperiencePage from '../components/FeaturePage/ExperiencePage';
 const HomePage: React.FC<{}> = () => {
   const [selectedSkill     , setSelectedSkill]     = React.useState<SkillRecord     | undefined>(undefined);
   const [openLeisurePage   , setOpenLeisurePage]   = React.useState<LeisureRecord   | undefined>(undefined);
+  const [openCareerPage    , setOpenCareerPage]    = React.useState<CareerRecord    | undefined>(undefined);
   const [openEducationPage , setOpenEducationPage] = React.useState<EducationRecord | undefined>(undefined);
 
+  const careerContext       = React.useContext(CareerContext);
   const educationContext    = React.useContext(EducationContext);
   const jobRequestContext   = React.useContext(JobRequestContext);
   const leisureContext      = React.useContext(LeisureContext);
@@ -41,7 +46,7 @@ const HomePage: React.FC<{}> = () => {
   const skillMappingContext = React.useContext(SkillMappingContext);
   const userContext         = React.useContext(UserContext);
 
-  if (educationContext == null || jobRequestContext == null || leisureContext == null || skillContext == null || skillMappingContext == null || userContext == null) throw new Error('Context uninitialized');
+  if (careerContext == null || educationContext == null || jobRequestContext == null || leisureContext == null || skillContext == null || skillMappingContext == null || userContext == null) throw new Error('Context uninitialized');
 
   // HACK: There is only one user - me!
   const userId = 1;
@@ -51,6 +56,7 @@ const HomePage: React.FC<{}> = () => {
     return <ErrorPage title='error:user not found title' message='error:user not found message' />;
   }
 
+  const careers       = careerContext.getCareersForUser(user.id);
   const educations    = educationContext.getEducationsForUser(user.id);
   const jobRequest    = jobRequestContext.getJobRequestForUser(user.id);
   const leisures      = leisureContext.getLeisuresForUser(user.id);
@@ -92,6 +98,15 @@ const HomePage: React.FC<{}> = () => {
     setOpenLeisurePage(undefined);
   };
 
+  const handleCareerClick = (car: CareerRecord) => {
+    setSelectedSkill(undefined);
+    setOpenCareerPage(car);
+  };
+
+  const handleCareerPageClose = () => {
+    setOpenCareerPage(undefined);
+  };
+
   const handleEducationClick = (edu: EducationRecord) => {
     setSelectedSkill(undefined);
     setOpenEducationPage(edu);
@@ -119,6 +134,7 @@ const HomePage: React.FC<{}> = () => {
             <Leisures leisures={leisures} onLeisureClick={handleLeisureClick} />
           </GridItem>
           <GridItem md>
+            {careers    != null && careers.length    > 0 && <CareerTimeline    careers={careers}       onCareerClick={handleCareerClick} />}
             {educations != null && educations.length > 0 && <EducationTimeline educations={educations} onEducationClick={handleEducationClick} />}
           </GridItem>
         </Grid>
@@ -141,13 +157,22 @@ const HomePage: React.FC<{}> = () => {
             onClose      = {handleLeisurePageClose} />
       )}
 
+      {openCareerPage != null && (
+        <ExperiencePage
+            experience = {openCareerPage}
+            type       = 'career'
+            isOpen     = {openCareerPage != null}
+            onSkillClick = {handleSkillClick}
+            onClose      = {handleCareerPageClose} />
+      )}
+
       {openEducationPage != null && (
         <ExperiencePage
             experience = {openEducationPage}
             type       = 'education'
             isOpen     = {openEducationPage != null}
             onSkillClick = {handleSkillClick}
-            onClose    = {handleEducationPageClose} />
+            onClose      = {handleEducationPageClose} />
       )}
     </>
   );

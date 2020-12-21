@@ -3,34 +3,30 @@ import { makeStyles } from '@material-ui/core/styles';
 import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
 
 import DescriptionContext from '../../context/DescriptionContext/DescriptionContext';
-import EducationRecord from '../../context/EducationContext/EducationRecord';
+import CareerRecord from '../../context/CareerContext/CareerRecord';
 
 import Timeline from '../Timeline/Timeline';
 import TimelineHeading from '../Timeline/TimelineHeading';
 import TimelineRecords from '../Timeline/TimelineRecords';
 import TimelineRecord from '../Timeline/TimelineRecord';
-import Components from '../FeaturePage/ComponentRenderer';
-import P from '../Ui/P';
 
 /**
- * {@link EducationTimeline} Props.
+ * {@link CareerTimeline} Props.
  */
-interface IEducationTimelineProps extends WithTranslation {
-  /** Educations to display. */
-  educations: Array<EducationRecord>;
+interface ICareerTimelineProps extends WithTranslation {
+  /** Careers to display. */
+  careers: Array<CareerRecord>;
   /** Callback when clicking on a record. */
-  onEducationClick: (edu: EducationRecord) => void;
+  onCareerClick: (car: CareerRecord) => void;
 }
 
 const useStyles = makeStyles({
-  educationTimelineFinalGrade: {
-    '&:first-letter': {
-      textTransform: 'uppercase',
-    },
+  careerTimeline: {
+    marginTop: '-0.6rem !important',
   },
 });
 
-function sortCareerByTimeDesc(a: EducationRecord, b: EducationRecord): number {
+function sortCareerByTimeDesc(a: CareerRecord, b: CareerRecord): number {
   const aEnd = a.end;
   const bEnd = b.end;
   if (aEnd == null && bEnd == null) {
@@ -63,45 +59,44 @@ function sortCareerByTimeDesc(a: EducationRecord, b: EducationRecord): number {
 }
 
 /**
- * Education Timeline.
+ * Career Timeline.
  *
- * @param props - {@link IEducationTimelineProps}.
+ * @param props - {@link ICareerTimelineProps}.
  */
-const EducationTimeline: React.FC<IEducationTimelineProps> = (props: IEducationTimelineProps) => {
-  const { t, i18n } = useTranslation();
+const CareerTimeline: React.FC<ICareerTimelineProps> = (props: ICareerTimelineProps) => {
+  const { t } = useTranslation();
   const classes = useStyles();
 
   const descriptionContext = React.useContext(DescriptionContext);
   if (descriptionContext == null) throw new Error('Context uninitialized');
 
-  const educationsSorted = [...props.educations];
-  educationsSorted.sort(sortCareerByTimeDesc);
+  const careersSorted = [...props.careers];
+  careersSorted.sort(sortCareerByTimeDesc);
 
   const educationList: Array<React.ReactElement> = [];
   let index: number;
-  for (index = 0; index < educationsSorted.length; ++index) {
-    const nextEducation = educationsSorted[index];
-    const feature = descriptionContext.getDescription(nextEducation.short, i18n.language);
+  for (index = 0; index < careersSorted.length; ++index) {
+    const nextCareer = careersSorted[index];
+    const feature = 'DUMMY: List of tasks'; // TODO Short descriptions of Tasks
 
     educationList.push(
       <TimelineRecord
-          key     = {`timeline-record-education-${nextEducation.title}`}
-          heading = {`${t(`education:${nextEducation.title}`)}${nextEducation.profession != null ? `: ${t(`education:${nextEducation.profession}`)}` : ''}`}
-          place   = {t(`education:${nextEducation.place}`)}
-          begin   = {nextEducation.begin}
-          end     = {nextEducation.end}
-          onClick = {() => props.onEducationClick(nextEducation)}>
+          key     = {`timeline-record-career-${nextCareer.title}`}
+          heading = {`${t(`career:${nextCareer.title}`)}`}
+          place   = {t(`career:${nextCareer.place}`)}
+          begin   = {nextCareer.begin}
+          end     = {nextCareer.end}
+          onClick = {() => props.onCareerClick(nextCareer)}>
         <>
-          {feature != null && feature.data.map(block => Components(block))}
-          <P className={classes.educationTimelineFinalGrade}>{`${t('education:final grade')}: ${nextEducation.grade}`}</P>
+          {feature}
         </>
       </TimelineRecord>
     );
   }
 
   return (
-    <Timeline>
-      <TimelineHeading>{t('education:heading')}</TimelineHeading>
+    <Timeline className={classes.careerTimeline}>
+      <TimelineHeading>{t('career:heading')}</TimelineHeading>
       <TimelineRecords>
         {educationList}
       </TimelineRecords>
@@ -109,4 +104,4 @@ const EducationTimeline: React.FC<IEducationTimelineProps> = (props: IEducationT
   );
 };
 
-export default withTranslation()(EducationTimeline);
+export default withTranslation()(CareerTimeline);
