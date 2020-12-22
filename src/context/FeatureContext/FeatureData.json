@@ -444,42 +444,6 @@
           "text": "Meinen Bachelorabschluss in Praktische Informatik (B. Ing.) habe ich an der Berufsakademie in Gera erworben. Als Ausbildungspartner für das duale Studium wählte ich die Thales Transportation Systems GmbH, Standort Arnstadt (TTS)."
         },
         {
-          "uid": "education-bachelorgraduation-p2",
-          "component": "p",
-          "text": "Die TTS gehört dem Industriesektor an und produziert überwiegend elektronische Geräte und Zubehör für den Schienennah- und Fernverkehr, wie zum Beispiel Weichenanlagen und Signalschirme. Die unterschiedlichen Produkte durchlaufen bei der TTS den kompletten Lebenszyklus, inklusive Konzipierung, Produktion, Wartung und Verschrottung."
-        },
-        {
-          "uid": "education-bachelorgraduation-p3",
-          "component": "p",
-          "text": "Während der Praxisphasen bearbeitete ich folgende Aufgabenstellungen:"
-        },
-        {
-          "uid": "education-bachelorgraduation-list1",
-          "component": "ul",
-          "children": [
-            {
-              "uid": "education-bachelorgraduation-list1-item1",
-              "component": "li",
-              "text": "Entwicklung des Arbeitszeiterfassungsprogrammes zu einem transparenten Tool für Kostenüberwachung: Bei dieser Arbeit beschäftigte ich mich mit dem internen Arbeitszeiterfassungsprogrammes, das mit \"Microsoft Access\" realisiert wurde. In enger Zusammenarbeit mit ausgewählten Kolleginnen und Kollegen, vereinfachte ich die Anwendung und reduzierte die benötigte Zeit für die Erfassung der Arbeitszeit."
-            },
-            {
-              "uid": "education-bachelorgraduation-list1-item2",
-              "component": "li",
-              "text": "Erstellung eines Lastenhefts zur Neugestaltung der Reparaturen-Datenbank: Für die Bearbeitung von Reparaturen und Wartungstätigkeiten wurden verschiedene Systeme miteinander vernetzt, unter anderem SAP und Eigenentwicklungen. Meine Aufgabe im Rahmen dieser Praxisphase war es, die einzelnen Prozesse auch hinsichtlich der einzelnen Systeme sauber zu analysen. Anschließend entwickelte ich Lösungsvorschläge, die Systemlandschaft und beteiligten Prozesse zu vereinfachen."
-            },
-            {
-              "uid": "education-bachelorgraduation-list1-item3",
-              "component": "li",
-              "text": "Entwicklung und Inbetriebnahme einer Software zur Prüfeinrichtung für die Funktionsprüfung von ESTW-Relaisbaugruppen: Für die Qualitätssicherung kommen unter anderem selbst entwickelte Prüfeinrichtungen zum Einsatz. Für den Mikrocontroller einer Prüfeinrichtung entwickelte ich eine Software, um verschiedene Prüfszenarien einzulesen und die Baugruppen testweise elektrisch anzusteuern. Für die Programmierung nutzte ich die Entwicklungsumgebung \"LabVIEW\" und die Programmiersprache C."
-            },
-            {
-              "uid": "education-bachelorgraduation-list1-item4",
-              "component": "li",
-              "text": "Evaluierung der Möglichkeiten zur Anwendung der RFID-Technologie im Werk Arnstadt zur Prüfmittel- und Fertigungsmittelüberwachung: Als Vorbereitung auf meine Bachelorarbeit arbeitete ich mich in die RFID-Technologie ein. Ich analysierte den aktuellen technologischen Stand und verschiedene mögliche Einsatzszenarien innerhalb der TTS in Arnstadt."
-            }
-          ]
-        },
-        {
           "uid": "education-bachelorgraduation-p4",
           "component": "p",
           "text": "Während der Theoriephasen an der Berufsakademie wurden mir viele Grundlagen der praktischen Informatik vermittelt, wie die Programmiersprachen C und Java sowie HTML und CSS. Darüber hinaus erhielt ich Einblicke in Betriebssysteme, wie Windows, Linux und Microsoft Server. Fächer wie \"Business Englisch\", Recht und Betriebswirtschaftslehre rundeten das Studium ab."
@@ -507,42 +471,6 @@
           "uid": "education-bachelorgraduation-p1",
           "component": "p",
           "text": "I've acquired my bachelor degree in Practical Computer Science (B. Eng.) at the University of Cooperative Education Gera. To get first insights into the business world, I chose a Dual Course of Study together with Thales Transportation Systems GmbH, at the site Arnstadt (TTS)."
-        },
-        {
-          "uid": "education-bachelorgraduation-p2",
-          "component": "p",
-          "text": "TTS predominantly produces electronical machines and tools for railroads, like switch points and signal lamps. TTS covers the whole product life-cycle, from conceptual design, production, maintenance to scrapping."
-        },
-        {
-          "uid": "education-bachelorgraduation-p3",
-          "component": "p",
-          "text": "During the practical phases I worked on the following tasks:"
-        },
-        {
-          "uid": "education-bachelorgraduation-list1",
-          "component": "ul",
-          "children": [
-            {
-              "uid": "education-bachelorgraduation-list1-item1",
-              "component": "li",
-              "text": "Further development of the used software for recording of working time, to increase the transparency and to reduce the time needed: During this task, I gained deep insights into the inhouse software used to recording the working time of the employees. The software is developed with \"Microsoft Access\". Working closely with selected colleagues, I simplified the software's graphical interface, reducing the required time to record the working time drastically."
-            },
-            {
-              "uid": "education-bachelorgraduation-list1-item2",
-              "component": "li",
-              "text": "Composing of a technical specification to redesign the maintenance-system: To manage and record incurring maintenance tasks, several different database systems have been connected, like SAP and some inhouse databases. After some time, the different systems and there interfaces to each other became quite difficult to understand and to maintain. My task was to analyze and properly document them. Subsequently, I developed a proposal for solution to simplify the systems."
-            },
-            {
-              "uid": "education-bachelorgraduation-list1-item3",
-              "component": "li",
-              "text": "Development and implementation of a software for a testing device to test ESTW-relais: TTS uses plenty of inhouse developed testing devices for quality assurance and maintenance. My third task was to develop a software for the microcontroller of a testing device. I programmed the software with the development environment \"LabVIEW\" using the programming language C."
-            },
-            {
-              "uid": "education-bachelorgraduation-list1-item4",
-              "component": "li",
-              "text": "Analysis of possible usages for the RFID-technology to monitor production and maintenance tools: As groundwork for my bachelor thesis, I studied the RFID-technology. I analyzed the current stage of development of RFID and evaluated possible applications at the TTS."
-            }
-          ]
         },
         {
           "uid": "education-bachelorgraduation-p4",
@@ -601,6 +529,122 @@
           "uid": "education-alevel-p2",
           "component": "p",
           "text": "In my sparetime I'd played handball in a club. The remaining time I'd used for computer related activities. Although I enjoy playing computer games, I was also fascinated by the programming of games. That evoked my passion for the informatics even more."
+        }
+      ]
+    },
+
+    {
+      "id":       200,
+      "language": "de",
+      "title":    "career:dual course of study",
+      "image":    "Career-Thales.jpg",
+      "data": [
+        {
+          "uid": "career-h1",
+          "component": "h",
+          "text": "Praktische Informatik bei Thales Transportation Systems GmbH, Arnstadt",
+          "variant": "h3"
+        },
+        {
+          "uid": "career-p1",
+          "component": "p",
+          "text": "Als Ausbildungspartner für das duale Studium wählte ich die Thales Transportation Systems GmbH, Standort Arnstadt (TTS). Die TTS gehört dem Industriesektor an und produziert überwiegend elektronische Geräte und Zubehör für den Schienennah- und Fernverkehr, wie zum Beispiel Weichenanlagen und Signalschirme. Die unterschiedlichen Produkte durchlaufen bei der TTS den kompletten Lebenszyklus, inklusive Konzipierung, Produktion, Wartung und Verschrottung."
+        }
+      ]
+    },
+    {
+      "id":       200,
+      "language": "en",
+      "title":    "career:dual course of study",
+      "image":    "Career-Thales.jpg",
+      "data": [
+        {
+          "uid": "career-h1",
+          "component": "h",
+          "text": "Studying Practical Computer Science with Thales Transportation Systems GmbH, Arnstadt",
+          "variant": "h3"
+        },
+        {
+          "uid": "career-p1",
+          "component": "p",
+          "text": "To get first insights into the business world, I chose a Dual Course of Study together with Thales Transportation Systems GmbH, at the site Arnstadt (TTS). TTS predominantly produces electronical machines and tools for railroads, like switch points and signal lamps. TTS covers the whole product life-cycle, from conceptual design, production, maintenance to scrapping."
+        }
+      ]
+    },
+    {
+      "id":       201,
+      "language": "de",
+      "title":    "career:software developer",
+      "image":    "Career-Ibykus.jpg",
+      "data": [
+        {
+          "uid": "career-h1",
+          "component": "h",
+          "text": "Softwareentwickler bei IBYKUS AG für Informationstechnologie",
+          "variant": "h3"
+        },
+        {
+          "uid": "career-p1",
+          "component": "p",
+          "text": "Mit meinem Masterstudium habe ich eine Stelle als Softwarerentwickler bei IBYKUS AG für Informationstechnologie in Teilzeit angetreten. Die IBYKUS AG ist ein mittelständisches Unternehmen in Erfurt und bietet IT-Dienstleistungen an, wie Softwareentwicklung und Hosting."
+        },
+        {
+          "uid": "career-p2",
+          "component": "p",
+          "text": "Seit dem Abschluss meines Studiums arbeite ich bei IBYKUS AG in Vollzeit. Ich bin inzwischen zusätzlich für den Kundensupport in meinem Team verantwortlich. Außerdem bin ich Kernkompetenzträger für die Entwicklung von Frontends mit React und für Problemstellungen rund um Barrierefreiheit und Anpassungsfähiges Layout."
+        }
+      ]
+    },
+    {
+      "id":       201,
+      "language": "en",
+      "title":    "career:software developer",
+      "image":    "Career-Ibykus.jpg",
+      "data": [
+        {
+          "uid": "career-h1",
+          "component": "h",
+          "text": "Software Developer at \"IBYKUS AG für Informationstechnologie\"",
+          "variant": "h3"
+        },
+        {
+          "uid": "career-p1",
+          "component": "p",
+          "text": "Simultaneous to my master studies, I started working at \"IBYKUS AG für Informationstechnologie\" as software developer. IBYKUS AG is a medium-sizes enterprise headquartered in Erfurt. They offer various services for IT, like software development and hosting."
+        },
+        {
+          "uid": "career-p2",
+          "component": "p",
+          "text": "Since my graduation, I work at IBYKUS AG full-time. By now, I am responsible for the customer support for my team. Furthermore I am key personel for the development of frontends with React and for topics about accessibility and responsive design."
+        }
+      ]
+    },
+
+    {
+      "id":       301,
+      "language": "de",
+      "title":    "task:development of software for recording of working time",
+      "image":    "Education-Highschool_Arnstadt.jpg",
+      "data": [
+        {
+          "uid": "task-h1",
+          "component": "h",
+          "text": "Microsoft Access Datenbank",
+          "variant": "h3"
+        }
+      ]
+    },
+    {
+      "id":       301,
+      "language": "en",
+      "title":    "task:development of software for recording of working time",
+      "image":    "Education-Highschool_Arnstadt.jpg",
+      "data": [
+        {
+          "uid": "task-h1",
+          "component": "h",
+          "text": "Microsoft Access Database",
+          "variant": "h3"
         }
       ]
     }

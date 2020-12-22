@@ -11,6 +11,9 @@ import Image from '../Ui/Image';
 import FeatureSkills from './FeatureSkills';
 import FeatureData from './FeatureData';
 import ExperienceRecord from '../../context/Experience/ExperienceRecord';
+import TaskRecord from '../../context/TaskContext/TaskRecord';
+import TaskContext from '../../context/TaskContext/TaskContext';
+import FeatureTasks from './FeatureTasks';
 
 /**
  * {@link ExperiencePage} Props.
@@ -19,7 +22,7 @@ export interface IExperiencePageProps {
   /** Experience Record, e. g. leisure record. */
   experience: ExperienceRecord;
   /** Specific type of the experience record. */
-  type: 'leisure' | 'education' | 'career';
+  type: 'leisure' | 'education' | 'career' | 'task';
 
   /** Is dialog open? */
   isOpen: boolean;
@@ -27,6 +30,8 @@ export interface IExperiencePageProps {
   onClose?: () => void;
   /** Callback when clicking on a skill. */
   onSkillClick: (skill: SkillRecord) => void;
+  /** Callback when clicking on a task. */
+  onTaskClick?: (task: TaskRecord) => void;
 }
 type IProps = IExperiencePageProps & WithTranslation;
 
@@ -41,8 +46,15 @@ const ExperiencePage: React.FC<IProps> = (props: IProps) => {
   const featureContext      = React.useContext(FeatureContext);
   const skillContext        = React.useContext(SkillContext);
   const skillMappingContext = React.useContext(SkillMappingContext);
+  const taskContext         = React.useContext(TaskContext);
 
-  if (featureContext == null || skillContext == null || skillMappingContext == null) throw new Error('Context uninitialized');
+  if (featureContext == null || skillContext == null || skillMappingContext == null || taskContext == null) throw new Error('Context uninitialized');
+
+  const handleTaskClick = (task: TaskRecord) => {
+    if (props.onTaskClick != null) {
+      props.onTaskClick(task);
+    }
+  };
 
   const { experience, type, isOpen, onClose } = props;
 
@@ -57,8 +69,9 @@ const ExperiencePage: React.FC<IProps> = (props: IProps) => {
       <div>
         <Image src={feature.image} />
       </div>
-      <FeatureSkills skills={skills} onSkillClick={props.onSkillClick} />
+      {skills.length > 0 && <FeatureSkills skills={skills} onSkillClick={props.onSkillClick} />}
       <FeatureData data={feature.data} />
+      {props.type === 'career' && <FeatureTasks tasks={taskContext.getTasksForCareer(experience.id)} onTaskClick={handleTaskClick} />}
     </Dialog>
   );
 };

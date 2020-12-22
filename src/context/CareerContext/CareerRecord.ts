@@ -10,6 +10,8 @@ export default class CareerRecord extends ExperienceRecord {
   begin:       Date;
   /** When the career ended as epoch-seconds. */
   end:         Date | undefined;
+  /** Description-ID to the short-description that is displayed on the main page.  */
+  short:       number;
 
   /** ID to DescriptionData. */
   description: number;
@@ -23,6 +25,7 @@ export default class CareerRecord extends ExperienceRecord {
     place:       string,
     begin:       number,
     end:         number | undefined,
+    short:       number,
 
     description: number
   ) {
@@ -31,6 +34,7 @@ export default class CareerRecord extends ExperienceRecord {
     this.place       = place;
     this.begin       = new Date(begin * 1000);
     this.end         = end != null ? new Date(end * 1000) : undefined;
+    this.short       = short;
 
     this.description = description;
   }

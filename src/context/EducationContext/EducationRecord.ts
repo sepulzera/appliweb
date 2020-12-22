@@ -14,7 +14,7 @@ export default class EducationRecord extends ExperienceRecord {
   degree:      string;
   /** Profession of the education as i18n-identifier. */
   profession:  string | undefined;
-  /** Feature-ID to the short-description that is displayed on the main page.  */
+  /** Description-ID to the short-description that is displayed on the main page.  */
   short:       number;
   /** Grade of the education. */
   grade:       string;

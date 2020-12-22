@@ -12,6 +12,7 @@ import LeisureContextProvider      from '../context/LeisureContext/LeisureContex
 import SettingsContextProvider     from '../context/SettingsContext/SettingsContextProvider';
 import SkillContextProvider        from '../context/SkillContext/SkillContextProvider';
 import SkillMappingContextProvider from '../context/SkillMappingContext/SkillMappingContextProvider';
+import TaskContextProvider         from '../context/TaskContext/TaskContextProvider';
 import UserContextProvider         from '../context/UserContext/UserContextProvider';
 
 /**
@@ -37,9 +38,11 @@ const ContextProvider: React.FC<IContextProviderProps> = (props: IContextProvide
     <LeisureContextProvider>
     <SkillContextProvider>
     <SkillMappingContextProvider>
+    <TaskContextProvider>
     <UserContextProvider>
       {props.children}
     </UserContextProvider>
+    </TaskContextProvider>
     </SkillMappingContextProvider>
     </SkillContextProvider>
     </LeisureContextProvider>

@@ -9,6 +9,8 @@ import Timeline from '../Timeline/Timeline';
 import TimelineHeading from '../Timeline/TimelineHeading';
 import TimelineRecords from '../Timeline/TimelineRecords';
 import TimelineRecord from '../Timeline/TimelineRecord';
+import Components from '../FeaturePage/ComponentRenderer';
+import TaskContext from '../../context/TaskContext/TaskContext';
 
 /**
  * {@link CareerTimeline} Props.
@@ -32,19 +34,20 @@ const useStyles = makeStyles({
  * @param props - {@link ICareerTimelineProps}.
  */
 const CareerTimeline: React.FC<ICareerTimelineProps> = (props: ICareerTimelineProps) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const classes = useStyles();
 
   const descriptionContext = React.useContext(DescriptionContext);
-  if (descriptionContext == null) throw new Error('Context uninitialized');
+  const taskContext        = React.useContext(TaskContext);
+  if (descriptionContext == null || taskContext == null) throw new Error('Context uninitialized');
 
-  const educationList: Array<React.ReactElement> = [];
+  const careerList: Array<React.ReactElement> = [];
   let index: number;
   for (index = 0; index < props.careers.length; ++index) {
     const nextCareer = props.careers[index];
-    const feature = 'DUMMY: List of tasks'; // TODO Short descriptions of Tasks
+    const feature = descriptionContext.getDescription(nextCareer.short, i18n.language);
 
-    educationList.push(
+    careerList.push(
       <TimelineRecord
           key     = {`timeline-record-career-${nextCareer.title}`}
           heading = {`${t(`career:${nextCareer.title}`)}`}
@@ -52,9 +55,7 @@ const CareerTimeline: React.FC<ICareerTimelineProps> = (props: ICareerTimelinePr
           begin   = {nextCareer.begin}
           end     = {nextCareer.end}
           onClick = {() => props.onCareerClick(nextCareer)}>
-        <>
-          {feature}
-        </>
+        {feature != null && feature.data.map(block => Components(block))}
       </TimelineRecord>
     );
   }
@@ -63,7 +64,7 @@ const CareerTimeline: React.FC<ICareerTimelineProps> = (props: ICareerTimelinePr
     <Timeline className={classes.careerTimeline}>
       <TimelineHeading>{t('career:heading')}</TimelineHeading>
       <TimelineRecords>
-        {educationList}
+        {careerList}
       </TimelineRecords>
     </Timeline>
   );

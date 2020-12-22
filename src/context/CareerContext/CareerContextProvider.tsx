@@ -15,7 +15,7 @@ interface ICareerContextProviderProps {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function createCareerFromJson(input: any) {
   return new CareerRecord(input.id, input.userId, input.title, input.feature,
-      input.place, input.begin, input.end,
+      input.place, input.begin, input.end, input.short,
       input.description);
 }
 

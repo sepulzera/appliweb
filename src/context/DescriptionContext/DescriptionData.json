@@ -65,6 +65,29 @@
           "text": "Specialist subject: Mathematics, Physics"
         }
       ]
+    },
+
+    {
+      "id":       201,
+      "language": "de",
+      "data": [
+        {
+          "uid": "career-p1",
+          "component": "p",
+          "text": "Entwicklung von Frontends und Geschäftslogik mit verschiedensten Technologien und Frameworks."
+        }
+      ]
+    },
+    {
+      "id":       201,
+      "language": "en",
+      "data": [
+        {
+          "uid": "career-p1",
+          "component": "p",
+          "text": "Development of application frontends and business functionality, using various technologies and frameworks."
+        }
+      ]
     }
   ]
 }

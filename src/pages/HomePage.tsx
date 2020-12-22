@@ -28,15 +28,17 @@ import ExperiencePage from '../components/FeaturePage/ExperiencePage';
 import CareerContext from '../context/CareerContext/CareerContext';
 import CareerRecord from '../context/CareerContext/CareerRecord';
 import CareerTimeline from '../components/CareerTimeline/CareerTimeline';
+import TaskRecord from '../context/TaskContext/TaskRecord';
 
 /**
  * Home component rendering the actual content - me!
  */
 const HomePage: React.FC<{}> = () => {
   const [selectedSkill     , setSelectedSkill]     = React.useState<SkillRecord     | undefined>(undefined);
-  const [openLeisurePage   , setOpenLeisurePage]   = React.useState<LeisureRecord   | undefined>(undefined);
   const [openCareerPage    , setOpenCareerPage]    = React.useState<CareerRecord    | undefined>(undefined);
   const [openEducationPage , setOpenEducationPage] = React.useState<EducationRecord | undefined>(undefined);
+  const [openLeisurePage   , setOpenLeisurePage]   = React.useState<LeisureRecord   | undefined>(undefined);
+  const [openTaskPage      , setOpenTaskPage]      = React.useState<TaskRecord      | undefined>(undefined);
 
   const careerContext       = React.useContext(CareerContext);
   const educationContext    = React.useContext(EducationContext);
@@ -107,6 +109,16 @@ const HomePage: React.FC<{}> = () => {
     setOpenCareerPage(undefined);
   };
 
+  const handleTaskClick = (task: TaskRecord) => {
+    setSelectedSkill(undefined);
+    setOpenCareerPage(undefined);
+    setOpenTaskPage(task);
+  };
+
+  const handleTaskPageClose = () => {
+    setOpenTaskPage(undefined);
+  };
+
   const handleEducationClick = (edu: EducationRecord) => {
     setSelectedSkill(undefined);
     setOpenEducationPage(edu);
@@ -169,7 +181,17 @@ const HomePage: React.FC<{}> = () => {
             type       = 'career'
             isOpen     = {openCareerPage != null}
             onSkillClick = {handleSkillClick}
+            onTaskClick  = {handleTaskClick}
             onClose      = {handleCareerPageClose} />
+      )}
+
+      {openTaskPage != null && (
+        <ExperiencePage
+            experience = {openTaskPage}
+            type       = 'task'
+            isOpen     = {openTaskPage != null}
+            onSkillClick = {handleSkillClick}
+            onClose      = {handleTaskPageClose} />
       )}
 
       {openEducationPage != null && (
