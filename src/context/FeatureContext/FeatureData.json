@@ -84,7 +84,7 @@
             {
               "uid": "leisure-guitar-list1-item2",
               "component": "li",
-              "text": "There is no need to travel to the teacher's location. I can start immediately and use my time efficiently."
+              "text": "There is no need to go to the teacher's location first. I can start immediately and use my time efficiently."
             },
             {
               "uid": "leisure-guitar-list1-item3",
@@ -154,12 +154,12 @@
         {
           "uid": "leisure-photography-p1",
           "component": "p",
-          "text": "Every year, together my girfriend and I create a photo album about the past year. Each album includes about 100 photos that record our most memorizable and important events."
+          "text": "Every year, together my girlfriend and I create a photo album about the past year. Each album includes about 100 photos that record our most memorable and important events."
         },
         {
           "uid": "leisure-photography-p2",
           "component": "p",
-          "text": "Thereby we have developed a strong passion to the photography itself. Additionaly to the \"event-photography\", we spend a fair amount of our spare time in nature with the landscape- and macro-photography."
+          "text": "Thereby we have developed a strong passion to the photography itself. Additionally to the \"event-photography\", we spend a fair amount of our spare time in nature with the landscape- and macro-photography."
         },
         {
           "uid": "leisure-photography-p3",
@@ -253,7 +253,7 @@
         {
           "uid": "leisure-raspberrypi-p1",
           "component": "p",
-          "text": "Privacy is very important to me. I wouldn't store or share privat data via Dropbox or other public cloud services."
+          "text": "Privacy is very important to me. I wouldn't store or share private data via Dropbox or other public cloud services."
         },
         {
           "uid": "leisure-raspberrypi-p2",
@@ -272,12 +272,12 @@
             {
               "uid": "leisure-raspberrypi-list1-item2",
               "component": "li",
-              "text": "The firewall \"nftables\" impedes attacks from the internet. Only connections from Germany are permitted. In the past, I had only permitted connections from specific IPs. But that was too cumbersome, if friends with changing IPs tried to access a service."
+              "text": "The firewall \"nftables\" impedes attacks from the Internet. Only connections from Germany are permitted. In the past, I had only permitted connections from specific IPs. But that was too cumbersome, if friends with changing IPs tried to access a service."
             },
             {
               "uid": "leisure-raspberrypi-list1-item3",
               "component": "li",
-              "text": "The DNS-service \"unbound\" tunnels all queries to the internet. The queries are automatically encrypted with TLS and advertisement is filtered off."
+              "text": "The DNS-service \"unbound\" tunnels all queries to the Internet. The queries are automatically encrypted with TLS and advertisement is filtered off."
             },
             {
               "uid": "leisure-raspberrypi-list1-item4",
@@ -352,12 +352,12 @@
         {
           "uid": "leisure-gamesdevelopment-p2",
           "component": "p",
-          "text": "I had many greate ideas to change and enhance the game, too. Doing so, I came in touch with the programming languages C and C++. Especially the hacks with the C-pointers fascinated me - so many possibilities to optimize things!"
+          "text": "I had many great ideas to change and enhance the game, too. Doing so, I came in touch with the programming languages C and C++. Especially the hacks with the C-pointers fascinated me. So many possibilities to optimize things!"
         },
         {
           "uid": "leisure-gamesdevelopment-p3",
           "component": "p",
-          "text": "Through the modding-community, I got frequently in touch with the official development-team of Teeworlds, whereupon I never lost my connection to the modding-community and the gamers. I picked up the issues and ideas of the community and discussed them with the development-team. As \"Support-Staff\" of the offical game's forum I helped the players with their technical problems."
+          "text": "Through the modding-community, I got frequently in touch with the official development-team of Teeworlds, whereupon I never lost my connection to the modding-community and the gamers. I picked up the issues and ideas of the community and discussed them with the development-team. As \"Support-Staff\" of the official game's forum I helped the players with their technical problems."
         },
         {
           "uid": "leisure-gamesdevelopment-p4",
@@ -412,17 +412,17 @@
         {
           "uid": "education-mastergraduation-p1",
           "component": "p",
-          "text": "Right after my bachelor studies, I started studying Applied Computer Science (M. Sc.). Unforunatly, it wasn't possible to continue it as Dual Course of Study. Mainly because of the close distance to my hometown, I chose the University of Applied Science Erfurt for my master studies."
+          "text": "Right after my bachelor studies, I started studying Applied Computer Science (M. Sc.). Unfortunatly, it wasn't possible to continue it as Dual Course of Study. Mainly because of the close distance to my hometown, I chose the University of Applied Science Erfurt for my master studies."
         },
         {
           "uid": "education-mastergraduation-p2",
           "component": "p",
-          "text": "The studies at the University of Applied Science Erfurt are team oriented and practical. Doing many team projects, I learned profound knowledge about software development, big data und computer science. Additionally, I got teached in business economics, project management, mathematics and much more."
+          "text": "The studies at the University of Applied Science Erfurt are team oriented and practical. Doing many team projects, I learned profound knowledge about software development, big data and computer science. Additionally, I got taught in business economics, project management, mathematics and much more."
         },
         {
           "uid": "education-mastergraduation-p3",
           "component": "p",
-          "text": "During my bachelor studies, I enjoyed the practical phases a lot. Therefore, I wanted to continue working besides my studies. I decided to study part-time, and to work at \"IBYKUS AG für Informationstechnologie\". IBYKUS AG is a medium-sizes enterprise headquartered in Erfurt. They offer various services for IT, like software development and hosting."
+          "text": "During my bachelor studies, I enjoyed the practical phases most. Mainly, because I prefer to develop useful software over solving simple, academical problems. Therefore, I wanted to continue working besides my studies. I decided to study part-time, and to work at \"IBYKUS AG für Informationstechnologie\". IBYKUS AG is a medium-sizes enterprise headquartered in Erfurt. They offer various services for IT, like software development and hosting."
         }
       ]
     },
@@ -506,7 +506,7 @@
         {
           "uid": "education-bachelorgraduation-p1",
           "component": "p",
-          "text": "I've aquired my bachelor degree in Practical Computer Science (B. Eng.) at the University of Cooperative Education Gera. To get first insights into the business world, I chose a Dual Course of Study together with Thales Transportation Systems GmbH, at the site Arnstadt (TTS)."
+          "text": "I've acquired my bachelor degree in Practical Computer Science (B. Eng.) at the University of Cooperative Education Gera. To get first insights into the business world, I chose a Dual Course of Study together with Thales Transportation Systems GmbH, at the site Arnstadt (TTS)."
         },
         {
           "uid": "education-bachelorgraduation-p2",
@@ -530,12 +530,12 @@
             {
               "uid": "education-bachelorgraduation-list1-item2",
               "component": "li",
-              "text": "Composing of a technical specification to redesign the maintenance-system: To manage and record incurring maintenance tasks, several different database systems have been connected, like SAP and some inhouse databases. After some time, the different systems and there interfaces to each other became quite difficult to understand and to maintain. My task was to analyse and properly document them. Subsequently, I developed a proposal for solution to simplify the systems."
+              "text": "Composing of a technical specification to redesign the maintenance-system: To manage and record incurring maintenance tasks, several different database systems have been connected, like SAP and some inhouse databases. After some time, the different systems and there interfaces to each other became quite difficult to understand and to maintain. My task was to analyze and properly document them. Subsequently, I developed a proposal for solution to simplify the systems."
             },
             {
               "uid": "education-bachelorgraduation-list1-item3",
               "component": "li",
-              "text": "Development and implementing of a software for a testing device to test ESTW-relais: TTS uses plenty of inhouse developed testing devices for quality assurance and maintenance. My third task was to develop a software for the microcontroller of a testing device. I developed the software with the development environment \"LabVIEW\" using the programming language C."
+              "text": "Development and implementation of a software for a testing device to test ESTW-relais: TTS uses plenty of inhouse developed testing devices for quality assurance and maintenance. My third task was to develop a software for the microcontroller of a testing device. I programmed the software with the development environment \"LabVIEW\" using the programming language C."
             },
             {
               "uid": "education-bachelorgraduation-list1-item4",
@@ -547,12 +547,12 @@
         {
           "uid": "education-bachelorgraduation-p4",
           "component": "p",
-          "text": "During my studies at the University, I learned plenty about informatics, like about the programming languages C and Java, and about HTML and CSS. Furthermore, I gained deep insights into computer operation systems, like Windows, Linux and Microsoft Server. Additionally, I got teached in business english, law, business economics and more."
+          "text": "During my studies at the University, I learned plenty about informatics, like about the programming languages C and Java, and about HTML and CSS. Furthermore, I gained deep insights into computer operation systems, like Windows, Linux and Microsoft Server. Additionally, I got taught in business English, law, business economics and more."
         },
         {
           "uid": "education-bachelorgraduation-p5",
           "component": "p",
-          "text": "My bachelore thesis continues the work of my latest practical task: Development of a concept to improve the management of testing devices and tools at the TTS. Due to safety and legal reasons, the TTS has to be able to track consistently, which testing devices have been used for which specific tests. Additionally, to reduce the time needed to find required testing devices for specific steps, it should be made possible to localize all electronic testing devices. Considering different technologies to identify and to localize devices, I developed a system based on RFID."
+          "text": "My bachelor thesis continues the work of my latest practical task: Development of a concept to improve the management of testing devices and tools at the TTS. Due to safety and legal reasons, the TTS has to be able to track consistently, which testing devices have been used for which specific tests. Additionally, to reduce the time needed to find required testing devices for specific steps, it should be made possible to localize all electronic testing devices. Considering different technologies to identify and to localize devices, I developed a system based on RFID."
         }
       ]
     },
@@ -595,7 +595,7 @@
         {
           "uid": "education-alevel-p1",
           "component": "p",
-          "text": "I've aquired my qualification for A-level at the Governmental High School of Melissantes in Arnstadt. As main subjects I picked mathematics and physics. Further favorite subjects were informatics as well as economy and law."
+          "text": "I've acquired my qualification for A-level at the Governmental High School of Melissantes in Arnstadt. As main subjects I picked mathematics and physics. Further favorite subjects were informatics as well as economy and law."
         },
         {
           "uid": "education-alevel-p2",
