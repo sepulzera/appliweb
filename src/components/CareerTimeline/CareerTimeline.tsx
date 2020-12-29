@@ -18,8 +18,6 @@ import TaskContext from '../../context/TaskContext/TaskContext';
 interface ICareerTimelineProps extends WithTranslation {
   /** Careers to display. */
   careers: Array<CareerRecord>;
-  /** Callback when clicking on a record. */
-  onCareerClick: (car: CareerRecord) => void;
 }
 
 const useStyles = makeStyles({
@@ -54,7 +52,7 @@ const CareerTimeline: React.FC<ICareerTimelineProps> = (props: ICareerTimelinePr
           place   = {t(`career:${nextCareer.place}`)}
           begin   = {nextCareer.begin}
           end     = {nextCareer.end}
-          onClick = {() => props.onCareerClick(nextCareer)}>
+          to      = {`/home?d=career&id=${nextCareer.id}`}>
         {feature != null && feature.data.map(block => Components(block))}
       </TimelineRecord>
     );

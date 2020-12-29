@@ -1,6 +1,8 @@
 import * as React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
 import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
+
+import { makeStyles } from '@material-ui/core/styles';
 
 import ListItem from '../Ui/ListItem';
 import P from '../Ui/P';
@@ -14,8 +16,6 @@ import List from '../Ui/List';
 interface IFeatureSkillsProps extends WithTranslation {
   /** Tasks to display. */
   tasks: Array<TaskRecord>;
-  /** Callback when clicking on a task. */
-  onTaskClick: (skill: TaskRecord) => void;
 }
 
 const useStyles = makeStyles(theme => ({
@@ -46,8 +46,8 @@ const FeatureSkills: React.FC<IFeatureSkillsProps> = (props: IFeatureSkillsProps
 
   const taskList = props.tasks.map(task => (
     <ListItem key={`tasks-${task.id}`}>
-      <Button onClick={() => props.onTaskClick(task)}>
-        <P className={classes.taskItem}>{t(`task:${task.title}`)}</P>
+      <Button component={Link} to={`/home?d=task&id=${task.id}`}>
+        {t(`task:${task.title}`)}
       </Button>
     </ListItem>
   ));

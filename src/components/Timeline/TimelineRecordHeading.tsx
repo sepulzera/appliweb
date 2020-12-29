@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
+
 import { makeStyles } from '@material-ui/core/styles';
 
 import { AnyComponent } from '../../types/Types';
@@ -7,8 +9,8 @@ import Button from '../Ui/Button';
 
 /** {@link TimelineRecordHeading} Props. */
 export interface ITimelineRecordHeadingProps {
-  /** Callback when clicking on the record. */
-  onClick:    () => void;
+  /** Link to dialog. */
+  to: string;
 
   /** Heading text. */
   children:   AnyComponent;
@@ -51,7 +53,7 @@ const TimelineRecordHeading: React.FC<ITimelineRecordHeadingProps> = (props: ITi
 
   return (
     <H variant='h4' className={classes.timelineRecordHeading}>
-      <Button fullWidth className={classes.timelineRecordHeadingButton} onClick={props.onClick}>
+      <Button fullWidth className={classes.timelineRecordHeadingButton} component={Link} to={props.to}>
         <>
           <span className={classes.timelineDot}>·</span>
           {props.children}

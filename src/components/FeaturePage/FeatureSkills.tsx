@@ -1,6 +1,8 @@
 import * as React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
 import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
+
+import { makeStyles } from '@material-ui/core/styles';
 
 import ListItem from '../Ui/ListItem';
 import SkillRecord from '../../context/SkillContext/SkillRecord';
@@ -14,8 +16,6 @@ import Button from '../Ui/Button';
 interface IFeatureSkillsProps extends WithTranslation {
   /** Skills to display. */
   skills: Array<SkillRecord>;
-  /** Callback when clicking on a skill. */
-  onSkillClick: (skill: SkillRecord) => void;
 }
 
 const useStyles = makeStyles({
@@ -40,8 +40,8 @@ const FeatureSkills: React.FC<IFeatureSkillsProps> = (props: IFeatureSkillsProps
 
   const skillList = props.skills.map(skill => (
     <ListItem key={`skills-${skill.id}`}>
-      <Button onClick={() => props.onSkillClick(skill)}>
-        <P className={classes.skillItem}>{t(`skill:${skill.title}`)}</P>
+      <Button component={Link} to={`/home?d=skill&id=${skill.id}`}>
+        {t(`skill:${skill.title}`)}
       </Button>
     </ListItem>
   ));

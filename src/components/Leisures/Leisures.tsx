@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -15,8 +16,6 @@ import Button from '../Ui/Button';
 interface ILeisuresProps extends WithTranslation {
   /** Leisures to display. */
   leisures: Array<LeisureRecord>;
-  /** Callback when clicking on the leisure. */
-  onLeisureClick: (leisure: LeisureRecord) => void;
 }
 
 const useStyles = makeStyles({
@@ -37,7 +36,7 @@ const Leisures: React.FC<ILeisuresProps> = (props: ILeisuresProps) => {
 
   const leisureList = props.leisures.map(leisure => (
     <ListItem key={`leisures-btn-${leisure.id}`}>
-      <Button fullWidth className={classes.listButton} onClick={() => props.onLeisureClick(leisure)}>{t(`leisure:${leisure.title}`)}</Button>
+      <Button fullWidth className={classes.listButton} component={Link} to={`/home?d=leisure&id=${leisure.id}`}>{t(`leisure:${leisure.title}`)}</Button>
     </ListItem>
   ));
 

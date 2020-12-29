@@ -20,8 +20,8 @@ export interface ITimelineRecordProps extends WithTranslation {
   /** End date for the record. */
   end:        Date | undefined;
 
-  /** Callback when clicking on the record. */
-  onClick:    () => void;
+  /** Link to dialog. */
+  to: string;
 
   /** Heading text. */
   children:   AnyComponent;
@@ -71,7 +71,7 @@ const TimelineRecord: React.FC<ITimelineRecordProps> = (props: ITimelineRecordPr
 
   return (
     <div className={classes.timelineRecord}>
-      <TimelineRecordHeading onClick={props.onClick}>{props.heading}</TimelineRecordHeading>
+      <TimelineRecordHeading to={props.to}>{props.heading}</TimelineRecordHeading>
       <Grid spacing={1} className={classes.timelineRecordSubtitles}>
         <GridItem xs sm md className={classes.timelineRecordPlace}><TimelineRecordSubtitle>{props.place}</TimelineRecordSubtitle></GridItem>
         <GridItem xs={12} sm={5} md={4} className={classes.timelineRecordTimestamp}><TimelineRecordSubtitle>{timestamp}</TimelineRecordSubtitle></GridItem>

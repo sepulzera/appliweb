@@ -42,4 +42,25 @@ export default class Helper {
 
     return undefined;
   }
+
+  /**
+   * Parse the input string to a number.
+   *
+   * Returns ifNull, if the string is undefined or null, or if the string is not a number.
+   *
+   * @param str String to parse to a number.
+   * @param ifNull Returned if str is undefined, null or not a number.
+   *
+   * @return str or ifNull, if str is undefined, null or not a number.
+   */
+  static parseInt(str: string | undefined | null, ifNull: number) {
+    if (str == null) return ifNull;
+
+    try {
+      const num = Number.parseInt(str);
+      return num;
+    } catch (e) {
+      return ifNull;
+    }
+  }
 }

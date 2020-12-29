@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -17,8 +18,6 @@ import Button from '../Ui/Button';
 interface ISkillsProps extends WithTranslation {
   /** Leisures to display. */
   skills: Array<SkillRecord>;
-  /** Callback when clicking on a skill. */
-  onSkillClick: (skill: SkillRecord) => void;
 }
 
 const useStyles = makeStyles(theme => ({
@@ -55,8 +54,8 @@ const Skills: React.FC<ISkillsProps> = (props: ISkillsProps) => {
     featuredSkills
         .filter(skill => skill.category === category)
         .map(skill => (
-          <ListItem key={`skills-${skill.id}`} className={classes.skillItem}>
-            <Button fullWidth className={classes.skillButton} onClick={() => props.onSkillClick(skill)}>
+          <ListItem key={`skills-${category}-${skill.id}`} className={classes.skillItem}>
+            <Button fullWidth className={classes.skillButton} component={Link} to={`/home?d=skill&id=${skill.id}`}>
               {t(`skill:${skill.title}`)}
               <Progress value={skill.rating * 10} />
             </Button>

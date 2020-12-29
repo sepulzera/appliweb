@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
+import { useHistory } from 'react-router-dom';
 
 import FeatureContext from '../../context/FeatureContext/FeatureContext';
 import SkillContext from '../../context/SkillContext/SkillContext';
@@ -11,7 +12,6 @@ import Image from '../Ui/Image';
 import FeatureSkills from './FeatureSkills';
 import FeatureData from './FeatureData';
 import ExperienceRecord from '../../context/Experience/ExperienceRecord';
-import TaskRecord from '../../context/TaskContext/TaskRecord';
 import TaskContext from '../../context/TaskContext/TaskContext';
 import FeatureTasks from './FeatureTasks';
 
@@ -26,12 +26,6 @@ export interface IExperiencePageProps {
 
   /** Is dialog open? */
   isOpen: boolean;
-  /** Callback when closing. */
-  onClose?: () => void;
-  /** Callback when clicking on a skill. */
-  onSkillClick: (skill: SkillRecord) => void;
-  /** Callback when clicking on a task. */
-  onTaskClick?: (task: TaskRecord) => void;
 }
 type IProps = IExperiencePageProps & WithTranslation;
 
@@ -42,6 +36,7 @@ type IProps = IExperiencePageProps & WithTranslation;
  */
 const ExperiencePage: React.FC<IProps> = (props: IProps) => {
   const { t, i18n } = useTranslation();
+  const history     = useHistory();
 
   const featureContext      = React.useContext(FeatureContext);
   const skillContext        = React.useContext(SkillContext);
@@ -50,13 +45,15 @@ const ExperiencePage: React.FC<IProps> = (props: IProps) => {
 
   if (featureContext == null || skillContext == null || skillMappingContext == null || taskContext == null) throw new Error('Context uninitialized');
 
-  const handleTaskClick = (task: TaskRecord) => {
-    if (props.onTaskClick != null) {
-      props.onTaskClick(task);
-    }
+  const handleBack = () => {
+    history.goBack();
   };
 
-  const { experience, type, isOpen, onClose } = props;
+  const handleClose = () => {
+    history.push('/home');
+  };
+
+  const { experience, type, isOpen } = props;
 
   const feature = featureContext.getFeature(experience.feature, i18n.language);
   if (feature == null) return null;
@@ -65,13 +62,13 @@ const ExperiencePage: React.FC<IProps> = (props: IProps) => {
   const skills = skillMappings.map(sm => skillContext.getSkill(sm.skillId)).filter(skill => skill != null) as Array<SkillRecord>;
 
   return (
-    <Dialog title={t(`${type}:${experience.title}`)} isOpen={isOpen} onClose={onClose}>
+    <Dialog title={t(`${type}:${experience.title}`)} isOpen={isOpen} onBack={handleBack} onClose={handleClose}>
       <div>
         <Image src={feature.image} />
       </div>
-      {skills.length > 0 && <FeatureSkills skills={skills} onSkillClick={props.onSkillClick} />}
+      {skills.length > 0 && <FeatureSkills skills={skills} />}
       <FeatureData data={feature.data} />
-      {props.type === 'career' && <FeatureTasks tasks={taskContext.getTasksForCareer(experience.id)} onTaskClick={handleTaskClick} />}
+      {props.type === 'career' && <FeatureTasks tasks={taskContext.getTasksForCareer(experience.id)} />}
     </Dialog>
   );
 };

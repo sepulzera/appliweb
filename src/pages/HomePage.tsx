@@ -1,14 +1,15 @@
 import React from 'react';
 
+import { useLocation } from 'react-router-dom';
+
 import EducationContext from '../context/EducationContext/EducationContext';
 import JobRequestContext from '../context/JobRequestContext/JobRequestContext';
 import LeisureContext from '../context/LeisureContext/LeisureContext';
 import SkillContext from '../context/SkillContext/SkillContext';
 import SkillMappingContext from '../context/SkillMappingContext/SkillMappingContext';
 import UserContext from '../context/UserContext/UserContext';
+import TaskContext from '../context/TaskContext/TaskContext';
 
-import LeisureRecord from '../context/LeisureContext/LeisureRecord';
-import SkillMappingRecord from '../context/SkillMappingContext/SkillMappingRecord';
 import SkillRecord from '../context/SkillContext/SkillRecord';
 import ExperienceRecord from '../context/Experience/ExperienceRecord';
 
@@ -23,32 +24,28 @@ import UserHeader from '../components/UserHeader/UserHeader';
 import ErrorPage from './ErrorPage';
 import Helper from '../helper/Helper';
 import EducationTimeline from '../components/EducationTimeline/EducationTimeline';
-import EducationRecord from '../context/EducationContext/EducationRecord';
 import ExperiencePage from '../components/FeaturePage/ExperiencePage';
 import CareerContext from '../context/CareerContext/CareerContext';
-import CareerRecord from '../context/CareerContext/CareerRecord';
 import CareerTimeline from '../components/CareerTimeline/CareerTimeline';
-import TaskRecord from '../context/TaskContext/TaskRecord';
+
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
 
 /**
  * Home component rendering the actual content - me!
  */
 const HomePage: React.FC<{}> = () => {
-  const [selectedSkill     , setSelectedSkill]     = React.useState<SkillRecord     | undefined>(undefined);
-  const [openCareerPage    , setOpenCareerPage]    = React.useState<CareerRecord    | undefined>(undefined);
-  const [openEducationPage , setOpenEducationPage] = React.useState<EducationRecord | undefined>(undefined);
-  const [openLeisurePage   , setOpenLeisurePage]   = React.useState<LeisureRecord   | undefined>(undefined);
-  const [openTaskPage      , setOpenTaskPage]      = React.useState<TaskRecord      | undefined>(undefined);
-
   const careerContext       = React.useContext(CareerContext);
   const educationContext    = React.useContext(EducationContext);
   const jobRequestContext   = React.useContext(JobRequestContext);
   const leisureContext      = React.useContext(LeisureContext);
   const skillContext        = React.useContext(SkillContext);
   const skillMappingContext = React.useContext(SkillMappingContext);
+  const taskContext         = React.useContext(TaskContext);
   const userContext         = React.useContext(UserContext);
 
-  if (careerContext == null || educationContext == null || jobRequestContext == null || leisureContext == null || skillContext == null || skillMappingContext == null || userContext == null) throw new Error('Context uninitialized');
+  if (careerContext == null || educationContext == null || jobRequestContext == null || leisureContext == null || skillContext == null || skillMappingContext == null || userContext == null || taskContext == null) throw new Error('Context uninitialized');
 
   // HACK: There is only one user - me!
   const userId = 1;
@@ -65,76 +62,22 @@ const HomePage: React.FC<{}> = () => {
   const skillMappings = skillMappingContext.getSkillMappingsByUser(user.id);
   const skills        = skillMappings.map(sm => skillContext.getSkill(sm.skillId)).filter(skill => skill != null) as Array<SkillRecord>;
 
-  const handleSkillClick = (skill: SkillRecord) => {
-    const selectedSkillMappings: Array<SkillMappingRecord> = skillMappings.filter(sm => sm.skillId === skill.id);
-    if (selectedSkillMappings.length === 1) {
-      const sm = selectedSkillMappings[0];
-      if (sm.type === 'leisure') {
-        const selLeisure: LeisureRecord | undefined = leisures.find(item => item.id === sm.typeId);
-        if (selLeisure != null) {
-          setOpenLeisurePage(selLeisure);
-        }
-      } else if (sm.type === 'education') {
-        const selEducation: EducationRecord | undefined = educations.find(item => item.id === sm.typeId);
-        if (selEducation != null) {
-          setOpenEducationPage(selEducation);
-        }
-      }
-    } else if (selectedSkillMappings.length > 1) {
-      setOpenLeisurePage(undefined);
-      setOpenEducationPage(undefined);
-      setSelectedSkill(skill);
-    }
-  };
+  const query = useQuery();
+  const queryDialogType = query.get('d');
+  const openDialogType: 'career' | 'education' | 'leisure' | 'skill' | 'task' | undefined = (queryDialogType != null
+      && (queryDialogType === 'career' || queryDialogType === 'education' || queryDialogType === 'leisure' || queryDialogType === 'skill' || queryDialogType === 'task')) ? queryDialogType : undefined;
+  const openDialogId   = Helper.parseInt(query.get('id'), 1);
 
-  const handleSkillClose = () => {
-    setSelectedSkill(undefined);
-  };
+  let experience: ExperienceRecord | undefined;
+  switch (openDialogType) {
+    case 'career':    experience = careerContext.getCareer(openDialogId); break;
+    case 'education': experience = educationContext.getEducation(openDialogId); break;
+    case 'leisure':   experience = leisureContext.getLeisure(openDialogId); break;
+    case 'task':      experience = taskContext.getTask(openDialogId); break;
+    default:          break;
+  }
 
-  const handleLeisureClick = (leisure: LeisureRecord) => {
-    setSelectedSkill(undefined);
-    setOpenLeisurePage(leisure);
-  };
-
-  const handleLeisurePageClose = () => {
-    setOpenLeisurePage(undefined);
-  };
-
-  const handleCareerClick = (car: CareerRecord) => {
-    setSelectedSkill(undefined);
-    setOpenCareerPage(car);
-  };
-
-  const handleCareerPageClose = () => {
-    setOpenCareerPage(undefined);
-  };
-
-  const handleTaskClick = (task: TaskRecord) => {
-    setSelectedSkill(undefined);
-    setOpenCareerPage(undefined);
-    setOpenTaskPage(task);
-  };
-
-  const handleTaskPageClose = () => {
-    setOpenTaskPage(undefined);
-  };
-
-  const handleEducationClick = (edu: EducationRecord) => {
-    setSelectedSkill(undefined);
-    setOpenEducationPage(edu);
-  };
-
-  const handleEducationPageClose = () => {
-    setOpenEducationPage(undefined);
-  };
-
-  const handleExperienceSelect = (record: ExperienceRecord) => {
-    if (record instanceof LeisureRecord) {
-      handleLeisureClick(record);
-    } else if (record instanceof EducationRecord) {
-      handleEducationClick(record);
-    }
-  };
+  const selectedSkill: SkillRecord | undefined = openDialogType != null && openDialogType === 'skill' ? skillContext.getSkill(openDialogId) : undefined;
 
   return (
     <>
@@ -148,59 +91,27 @@ const HomePage: React.FC<{}> = () => {
           )}>
         <Grid>
           <GridItem xs={12} sm={4} md={3}>
-            <Skills   skills={skills}     onSkillClick={handleSkillClick} />
-            <Leisures leisures={leisures} onLeisureClick={handleLeisureClick} />
+            <Skills   skills={skills} />
+            <Leisures leisures={leisures} />
           </GridItem>
           <GridItem md>
-            {careers    != null && careers.length    > 0 && <CareerTimeline    careers={careers}       onCareerClick={handleCareerClick} />}
-            {educations != null && educations.length > 0 && <EducationTimeline educations={educations} onEducationClick={handleEducationClick} />}
+            {careers    != null && careers.length    > 0 && <CareerTimeline    careers={careers} />}
+            {educations != null && educations.length > 0 && <EducationTimeline educations={educations} />}
           </GridItem>
         </Grid>
       </PageWithHeaderAndFooter>
 
-      {selectedSkill != null && (
+      {openDialogType != null && openDialogType === 'skill' && selectedSkill != null && (
         <SkillSelectDialog
             skill    = {selectedSkill}
-            skillMappings = {skillMappings}
-            onSelect = {handleExperienceSelect}
-            onClose  = {handleSkillClose} />
+            skillMappings = {skillMappings} />
       )}
 
-      {openLeisurePage != null && (
+      {openDialogType != null && openDialogType !== 'skill' && experience != null && (
         <ExperiencePage
-            experience = {openLeisurePage}
-            type       = 'leisure'
-            isOpen     = {openLeisurePage != null}
-            onSkillClick = {handleSkillClick}
-            onClose      = {handleLeisurePageClose} />
-      )}
-
-      {openCareerPage != null && (
-        <ExperiencePage
-            experience = {openCareerPage}
-            type       = 'career'
-            isOpen     = {openCareerPage != null}
-            onSkillClick = {handleSkillClick}
-            onTaskClick  = {handleTaskClick}
-            onClose      = {handleCareerPageClose} />
-      )}
-
-      {openTaskPage != null && (
-        <ExperiencePage
-            experience = {openTaskPage}
-            type       = 'task'
-            isOpen     = {openTaskPage != null}
-            onSkillClick = {handleSkillClick}
-            onClose      = {handleTaskPageClose} />
-      )}
-
-      {openEducationPage != null && (
-        <ExperiencePage
-            experience = {openEducationPage}
-            type       = 'education'
-            isOpen     = {openEducationPage != null}
-            onSkillClick = {handleSkillClick}
-            onClose      = {handleEducationPageClose} />
+            experience = {experience}
+            type       = {openDialogType}
+            isOpen />
       )}
     </>
   );

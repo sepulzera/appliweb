@@ -10,10 +10,16 @@ interface IButtonProps {
   /** If true, the button will stretch to the available space. */
   fullWidth?: boolean;
 
+  /** Callback when fired. */
+  onClick?: () => void;
+
+  /** Optionally as Link. */
+  component?: any | undefined;
+  /** Required if component = Link. */
+  to?: string | undefined;
+
   /** Classes used for styling. */
   className?: string | undefined;
-  /** Callback when fired. */
-  onClick: () => void;
   /** Prompt for the link. Probably plain text. */
   children: AnyComponent;
 }
@@ -26,8 +32,13 @@ interface IButtonProps {
 const Button: React.FC<IButtonProps> = (props: IButtonProps) => (
   <MuiButton
       fullWidth = {props.fullWidth}
-      className = {props.className}
-      onClick   = {props.onClick}>
+
+      onClick   = {props.onClick}
+
+      component = {props.component}
+      to        = {props.to}
+
+      className = {props.className}>
     {props.children}
   </MuiButton>
 );

@@ -18,8 +18,6 @@ import P from '../Ui/P';
 interface IEducationTimelineProps extends WithTranslation {
   /** Educations to display. */
   educations: Array<EducationRecord>;
-  /** Callback when clicking on a record. */
-  onEducationClick: (edu: EducationRecord) => void;
 }
 
 const useStyles = makeStyles({
@@ -90,7 +88,7 @@ const EducationTimeline: React.FC<IEducationTimelineProps> = (props: IEducationT
           place   = {t(`education:${nextEducation.place}`)}
           begin   = {nextEducation.begin}
           end     = {nextEducation.end}
-          onClick = {() => props.onEducationClick(nextEducation)}>
+          to      = {`/home?d=education&id=${nextEducation.id}`}>
         <>
           {feature != null && feature.data.map(block => Components(block))}
           <P className={classes.educationTimelineFinalGrade}>{`${t('education:final grade')}: ${nextEducation.grade}`}</P>
