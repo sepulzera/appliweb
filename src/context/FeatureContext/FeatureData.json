@@ -618,35 +618,6 @@
           "text": "Since my graduation, I work at IBYKUS AG full-time. By now, I am responsible for the customer support for my team. Furthermore I am key personel for the development of frontends with React and for topics about accessibility and responsive design."
         }
       ]
-    },
-
-    {
-      "id":       301,
-      "language": "de",
-      "title":    "task:development of software for recording of working time",
-      "image":    "Education-Highschool_Arnstadt.jpg",
-      "data": [
-        {
-          "uid": "task-h1",
-          "component": "h",
-          "text": "Microsoft Access Datenbank",
-          "variant": "h3"
-        }
-      ]
-    },
-    {
-      "id":       301,
-      "language": "en",
-      "title":    "task:development of software for recording of working time",
-      "image":    "Education-Highschool_Arnstadt.jpg",
-      "data": [
-        {
-          "uid": "task-h1",
-          "component": "h",
-          "text": "Microsoft Access Database",
-          "variant": "h3"
-        }
-      ]
     }
   ]
 }

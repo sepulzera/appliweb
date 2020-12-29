@@ -8,7 +8,6 @@ import LeisureContext from '../context/LeisureContext/LeisureContext';
 import SkillContext from '../context/SkillContext/SkillContext';
 import SkillMappingContext from '../context/SkillMappingContext/SkillMappingContext';
 import UserContext from '../context/UserContext/UserContext';
-import TaskContext from '../context/TaskContext/TaskContext';
 
 import SkillRecord from '../context/SkillContext/SkillRecord';
 import ExperienceRecord from '../context/Experience/ExperienceRecord';
@@ -42,10 +41,9 @@ const HomePage: React.FC<{}> = () => {
   const leisureContext      = React.useContext(LeisureContext);
   const skillContext        = React.useContext(SkillContext);
   const skillMappingContext = React.useContext(SkillMappingContext);
-  const taskContext         = React.useContext(TaskContext);
   const userContext         = React.useContext(UserContext);
 
-  if (careerContext == null || educationContext == null || jobRequestContext == null || leisureContext == null || skillContext == null || skillMappingContext == null || userContext == null || taskContext == null) throw new Error('Context uninitialized');
+  if (careerContext == null || educationContext == null || jobRequestContext == null || leisureContext == null || skillContext == null || skillMappingContext == null || userContext == null) throw new Error('Context uninitialized');
 
   // HACK: There is only one user - me!
   const userId = 1;
@@ -64,8 +62,8 @@ const HomePage: React.FC<{}> = () => {
 
   const query = useQuery();
   const queryDialogType = query.get('d');
-  const openDialogType: 'career' | 'education' | 'leisure' | 'skill' | 'task' | undefined = (queryDialogType != null
-      && (queryDialogType === 'career' || queryDialogType === 'education' || queryDialogType === 'leisure' || queryDialogType === 'skill' || queryDialogType === 'task')) ? queryDialogType : undefined;
+  const openDialogType: 'career' | 'education' | 'leisure' | 'skill' | undefined = (queryDialogType != null
+      && (queryDialogType === 'career' || queryDialogType === 'education' || queryDialogType === 'leisure' || queryDialogType === 'skill')) ? queryDialogType : undefined;
   const openDialogId   = Helper.parseInt(query.get('id'), 1);
 
   let experience: ExperienceRecord | undefined;
@@ -73,7 +71,6 @@ const HomePage: React.FC<{}> = () => {
     case 'career':    experience = careerContext.getCareer(openDialogId); break;
     case 'education': experience = educationContext.getEducation(openDialogId); break;
     case 'leisure':   experience = leisureContext.getLeisure(openDialogId); break;
-    case 'task':      experience = taskContext.getTask(openDialogId); break;
     default:          break;
   }
 

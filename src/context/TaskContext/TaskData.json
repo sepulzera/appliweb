@@ -1,20 +1,50 @@
 {
   "tasks": [
     {
-      "id":         1,
-      "userId":     1,
-      "title":      "development of software for recording of working time",
-      "feature":    301,
+      "id":          301,
+      "userId":      1,
+      "title":       "development of software for recording of working time",
+      "feature":     0,
 
-      "careerId":   1
+      "description": 301,
+      "careerId":    1
     },
     {
-      "id":         2,
-      "userId":     1,
-      "title":      "excel-vba-addin to import packages",
-      "feature":    401,
+      "id":          302,
+      "userId":      1,
+      "title":       "technical specification to redesign the maintenance-system",
+      "feature":     0,
 
-      "careerId":   2
+      "description": 302,
+      "careerId":    1
+    },
+    {
+      "id":          303,
+      "userId":      1,
+      "title":       "development of a software for a testing device",
+      "feature":     0,
+
+      "description": 303,
+      "careerId":    1
+    },
+    {
+      "id":          304,
+      "userId":      1,
+      "title":       "studying RFID technology",
+      "feature":     0,
+
+      "description": 304,
+      "careerId":    1
+    },
+
+    {
+      "id":          401,
+      "userId":      1,
+      "title":       "excel-vba-addin to import packages",
+      "feature":     0,
+
+      "description": 401,
+      "careerId":    2
     }
   ]
 }

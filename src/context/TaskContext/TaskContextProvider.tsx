@@ -15,7 +15,7 @@ interface ITaskContextProviderProps {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function createTaskFromJson(input: any) {
   return new TaskRecord(input.id, input.userId, input.title, input.feature,
-      input.careerId);
+      input.description, input.careerId);
 }
 
 function getTaskMap() {

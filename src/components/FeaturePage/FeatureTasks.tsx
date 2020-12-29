@@ -1,19 +1,21 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
 import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
 
 import { makeStyles } from '@material-ui/core/styles';
 
+import DescriptionContext from '../../context/DescriptionContext/DescriptionContext';
+import TaskContext from '../../context/TaskContext/TaskContext';
+
 import ListItem from '../Ui/ListItem';
 import P from '../Ui/P';
-import Button from '../Ui/Button';
 import TaskRecord from '../../context/TaskContext/TaskRecord';
 import List from '../Ui/List';
+import Components from './ComponentRenderer';
 
 /**
- * {@link FeatureSkills} Props.
+ * {@link FeatureTasks} Props.
  */
-interface IFeatureSkillsProps extends WithTranslation {
+interface IFeatureTasksProps extends WithTranslation {
   /** Tasks to display. */
   tasks: Array<TaskRecord>;
 }
@@ -36,21 +38,32 @@ const useStyles = makeStyles(theme => ({
 }));
 
 /**
- * Skills.
+ * Tasks.
  *
- * @param props - {@link IFeatureSkillsProps}.
+ * @param props - {@link IFeatureTasksProps}.
  */
-const FeatureSkills: React.FC<IFeatureSkillsProps> = (props: IFeatureSkillsProps) => {
-  const { t } = useTranslation();
+const FeatureTasks: React.FC<IFeatureTasksProps> = (props: IFeatureTasksProps) => {
+  const { t, i18n } = useTranslation();
   const classes = useStyles();
 
-  const taskList = props.tasks.map(task => (
-    <ListItem key={`tasks-${task.id}`}>
-      <Button component={Link} to={`/home?d=task&id=${task.id}`}>
-        {t(`task:${task.title}`)}
-      </Button>
-    </ListItem>
-  ));
+  const descriptionContext = React.useContext(DescriptionContext);
+  const taskContext        = React.useContext(TaskContext);
+  if (descriptionContext == null || taskContext == null) throw new Error('Context uninitialized');
+
+  if (props.tasks.length === 0) return null;
+
+  const taskList = [];
+  for (let index = 0; index < props.tasks.length; ++index) {
+    const nextTask = props.tasks[index];
+    const feature = descriptionContext.getDescription(nextTask.description, i18n.language);
+    if (feature == null) continue;
+
+    taskList.push(
+      <ListItem key={`tasks-${nextTask.id}`}>
+        {feature != null && feature.data.map(block => Components(block))}
+      </ListItem>
+    );
+  }
 
   return (
     <div className={classes.featureTasks}>
@@ -62,4 +75,4 @@ const FeatureSkills: React.FC<IFeatureSkillsProps> = (props: IFeatureSkillsProps
   );
 };
 
-export default withTranslation()(FeatureSkills);
+export default withTranslation()(FeatureTasks);

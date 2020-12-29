@@ -10,7 +10,6 @@ import TimelineHeading from '../Timeline/TimelineHeading';
 import TimelineRecords from '../Timeline/TimelineRecords';
 import TimelineRecord from '../Timeline/TimelineRecord';
 import Components from '../FeaturePage/ComponentRenderer';
-import TaskContext from '../../context/TaskContext/TaskContext';
 
 /**
  * {@link CareerTimeline} Props.
@@ -36,8 +35,7 @@ const CareerTimeline: React.FC<ICareerTimelineProps> = (props: ICareerTimelinePr
   const classes = useStyles();
 
   const descriptionContext = React.useContext(DescriptionContext);
-  const taskContext        = React.useContext(TaskContext);
-  if (descriptionContext == null || taskContext == null) throw new Error('Context uninitialized');
+  if (descriptionContext == null) throw new Error('Context uninitialized');
 
   const careerList: Array<React.ReactElement> = [];
   let index: number;

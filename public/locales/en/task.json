@@ -1,7 +1,3 @@
 {
-  "heading": "tasks",
-
-  "development of software for recording of working time": "Further development of the used software for recording of working time",
-
-  "excel-vba-addin to import packages": "Development of a Microsoft Excel VBA-AddIn to import complex configuration data into a JEE-application"
+  "heading": "tasks"
 }
