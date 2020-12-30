@@ -7,7 +7,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import ListItem from '../Ui/ListItem';
 import SkillRecord from '../../context/SkillContext/SkillRecord';
 import ResponsiveList from '../Ui/ResponsiveList';
-import P from '../Ui/P';
 import Button from '../Ui/Button';
 
 /**

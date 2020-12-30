@@ -22,6 +22,7 @@
   "web html/css": "Webdesign: HTML, CSS",
   "web javascript": "Web-Development: JavaScript",
   "web reactjs": "Web-Development: ReactJS",
+  "web typescript": "Web-Development: TypeScript",
   "database OracleSQL": "Database: OracleSQL",
   "os linux": "Operating System: Linux",
 

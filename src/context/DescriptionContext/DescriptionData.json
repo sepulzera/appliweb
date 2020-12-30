@@ -199,6 +199,161 @@
           "text": "Development of a concept to improve the management of testing devices and tools at the TTS. Due to safety and legal reasons, the TTS has to be able to track consistently, which testing devices have been used for which specific tests. Additionally, to reduce the time needed to find required testing devices for specific steps, it should be made possible to localize all electronic testing devices. Considering different technologies to identify and to localize devices, I developed a system based on RFID."
         }
       ]
+    },
+
+    {
+      "id":       401,
+      "language": "de",
+      "data": [
+        {
+          "uid": "task-span1",
+          "component": "span",
+          "text": "Entwicklung von caredo®: Die intern entwickelte Produktlösung caredo® ermöglicht u. a. die elektronische Abbildung von Dokumenten und Vorgängen. Die Logik ist mit in Java/JEE programmiert. Für die Darstellung der Weboberflächen wird Eclipse RAP und HTML/CSS verwendet."
+        }
+      ]
+    },
+    {
+      "id":       401,
+      "language": "en",
+      "data": [
+        {
+          "uid": "task-span1",
+          "component": "span",
+          "text": "Development of caredo®: With the product-solution caredo® it is possible to digitally transform paper-based documents and business. The logic is programmed with Java/JEE. The web-frontends are realized with Eclipse RAP and HTML/CSS."
+        }
+      ]
+    },
+    {
+      "id":       402,
+      "language": "de",
+      "data": [
+        {
+          "uid": "task-span1",
+          "component": "span",
+          "text": "Excel-AddIn zum Importieren von Excel-Dateien in caredo®-Anwendungen: Die für caredo®-Anwendungen notwendigen Konfigurationen können von den Kunden in Microsoft Excel erstellt werden. Meine Aufgabe war die Entwicklung eines AddIns, mit dem die Konfigurationsdaten aus den Excel-Dateien in die Anwendung importiert werden können."
+        }
+      ]
+    },
+    {
+      "id":       402,
+      "language": "en",
+      "data": [
+        {
+          "uid": "task-span1",
+          "component": "span",
+          "text": "Excel-AddIn to import Excel-Files into caredo®-applications: The configuration data for caredo®-applications can be written with Microsoft Excel. Customers, like government agencies can manage them on their own. My task was to develop an Excel-AddIn to facilitate importing the configuration data into the application."
+        }
+      ]
+    },
+    {
+      "id":       403,
+      "language": "de",
+      "data": [
+        {
+          "uid": "task-span1",
+          "component": "span",
+          "text": "Untersuchung der Barrierefreiheit von mit caredo® entwickelten Fachanwendungen: Für eine exemplarisch ausgewählte Fachanwendung auf Basis von caredo® habe ich die Barrierefreiheit untersucht. Im engen Dialog mit den Entwicklern wurden Lösungsvorschläge zum Verringern der Barrieren erarbeitet."
+        }
+      ]
+    },
+    {
+      "id":       403,
+      "language": "en",
+      "data": [
+        {
+          "uid": "task-span1",
+          "component": "span",
+          "text": "Analyzation of the accessibility of applications developed with caredo®: I analyzed the acessibility of one application that was developed with caredo®. In close dialogs with the developers we improved the accessibility of caredo®-applications greatly."
+        }
+      ]
+    },
+    {
+      "id":       404,
+      "language": "de",
+      "data": [
+        {
+          "uid": "task-span1",
+          "component": "span",
+          "text": "Entwicklung von Fachanwendungen mit IBYKUS AP®: Mit dem firmeneigenen Framework IBYKUS AP® können dokumentenbasierte Clientanwendungen schnell entwickelt werden. Die Programmierung der Anwendungen basiert auf Oracle PL/SQL und die Konfiguration auf XML-Dateien."
+        }
+      ]
+    },
+    {
+      "id":       404,
+      "language": "en",
+      "data": [
+        {
+          "uid": "task-span1",
+          "component": "span",
+          "text": "Development of applications with IBYKUS AP®: The inhouse developed application framework IBYKUS AP® enables to rapidly develop client-applications based on documents. The used programming language is Oracle PL/SQL and the configuration is written in XML."
+        }
+      ]
+    },
+    {
+      "id":       405,
+      "language": "de",
+      "data": [
+        {
+          "uid": "task-span1",
+          "component": "span",
+          "text": "Anpassungsfähiges Layout für IBYKUS AP®/WebGate-Anwendungen: IBYKUS AP®/WebGate-Anwendungen können mit Web-Browsern bedient werden. Im engen Kontakt mit Web-Designern entwickelten wir die Darstellung des Frontend weiter, sodass es auch mit Tablets und Smartphones zugänglich ist."
+        }
+      ]
+    },
+    {
+      "id":       405,
+      "language": "en",
+      "data": [
+        {
+          "uid": "task-span1",
+          "component": "span",
+          "text": "Responsive design for IBYKUS AP®/WebGate-Applications: IBYKUS AP®/WebGate-applications can be used with common web browsers. In close dialogs with web-designers, we implemented a modern, responsive design that can be used with tablets and smartphones, too."
+        }
+      ]
+    },
+    {
+      "id":       406,
+      "language": "de",
+      "data": [
+        {
+          "uid": "task-span1",
+          "component": "span",
+          "text": "Entwicklung einer Anwendung zum Konfigurieren von anpassungsfähigen Layouts für IBYKUS AP®/WebGate-Anwendungen: Zum Konfigurieren der anpassungsfähigen Layouts für IBYKUS AP®/WebGate-Anwendungen konnte die bestehende Clientanwendung nicht weiterverwendet werden. Deshalb entwickelte ich auf Basis von Electron und React eine neue Anwendung dafür."
+        }
+      ]
+    },
+    {
+      "id":       406,
+      "language": "en",
+      "data": [
+        {
+          "uid": "task-span1",
+          "component": "span",
+          "text": "Development of an application to configure responsive designs for IBYKUS AP®/WebGate-Applications: IBYKUS AP® provides a client-software to configure form layouts. The existing client-software could not been reused to configure the form-layouts for the responsive design of IBYKUS AP®/WebGate-applications. Instead, I developed a new application based on Electron and React."
+        }
+      ]
+    },
+    {
+      "id":       407,
+      "language": "de",
+      "data": [
+        {
+          "uid": "task-span1",
+          "component": "span",
+          "text": "Entwicklung eines Frontends mit React: Um auch zukünftig moderne Anwendungen anbieten zu können, hat sich IBYKUS für einen neuen Technologiestack auf Basis von .NET (Backend) und React (Frontend) entschieden. Bei der Entwicklung der ersten komplexeren Kundenanwendung war ich für das Frontend zuständig."
+        }
+      ]
+    },
+    {
+      "id":       407,
+      "language": "en",
+      "data": [
+        {
+          "uid": "task-span1",
+          "component": "span",
+          "text": "Development of a frontend with React: To be able to offer modern application solutions, IBYKUS decided to develop future applications with .NET (backend) and React (frontend). For the first application I was responsible to develop the frontend."
+        }
+      ]
     }
   ]
 }

@@ -49,10 +49,64 @@
     {
       "id":          401,
       "userId":      1,
-      "title":       "excel-vba-addin to import packages",
+      "title":       "accessibility caredo®",
       "feature":     0,
 
       "description": 401,
+      "careerId":    2
+    },
+    {
+      "id":          402,
+      "userId":      1,
+      "title":       "excel-vba-addin to import packages",
+      "feature":     0,
+
+      "description": 402,
+      "careerId":    2
+    },
+    {
+      "id":          403,
+      "userId":      1,
+      "title":       "accessibility caredo®",
+      "feature":     0,
+
+      "description": 403,
+      "careerId":    2
+    },
+    {
+      "id":          404,
+      "userId":      1,
+      "title":       "application development with IBYKUS AP®",
+      "feature":     0,
+
+      "description": 404,
+      "careerId":    2
+    },
+    {
+      "id":          405,
+      "userId":      1,
+      "title":       "responsive design for IBYKUS AP®/WebGate",
+      "feature":     0,
+
+      "description": 405,
+      "careerId":    2
+    },
+    {
+      "id":          406,
+      "userId":      1,
+      "title":       "electron/react app to configure responsive design for IBYKUS AP®/WebGate",
+      "feature":     0,
+
+      "description": 406,
+      "careerId":    2
+    },
+    {
+      "id":          407,
+      "userId":      1,
+      "title":       "react app",
+      "feature":     0,
+
+      "description": 407,
       "careerId":    2
     }
   ]

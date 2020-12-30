@@ -164,6 +164,13 @@
       "skillId": 21
     },
     {
+      "id":      117,
+      "userId":  1,
+      "type":    "education",
+      "typeId":  2,
+      "skillId": 23
+    },
+    {
       "id":      118,
       "userId":  1,
       "type":    "education",
@@ -220,6 +227,98 @@
       "type":    "career",
       "typeId":  1,
       "skillId": 26
+    },
+
+    {
+      "id":      402,
+      "userId":  1,
+      "type":    "career",
+      "typeId":  2,
+      "skillId": 2
+    },
+    {
+      "id":      403,
+      "userId":  1,
+      "type":    "career",
+      "typeId":  2,
+      "skillId": 3
+    },
+    {
+      "id":      404,
+      "userId":  1,
+      "type":    "career",
+      "typeId":  2,
+      "skillId": 4
+    },
+    {
+      "id":      421,
+      "userId":  1,
+      "type":    "career",
+      "typeId":  2,
+      "skillId": 21
+    },
+    {
+      "id":      422,
+      "userId":  1,
+      "type":    "career",
+      "typeId":  2,
+      "skillId": 22
+    },
+    {
+      "id":      423,
+      "userId":  1,
+      "type":    "career",
+      "typeId":  2,
+      "skillId": 23
+    },
+    {
+      "id":      424,
+      "userId":  1,
+      "type":    "career",
+      "typeId":  2,
+      "skillId": 24
+    },
+    {
+      "id":      425,
+      "userId":  1,
+      "type":    "career",
+      "typeId":  2,
+      "skillId": 25
+    },
+    {
+      "id":      429,
+      "userId":  1,
+      "type":    "career",
+      "typeId":  2,
+      "skillId": 29
+    },
+    {
+      "id":      430,
+      "userId":  1,
+      "type":    "career",
+      "typeId":  2,
+      "skillId": 30
+    },
+    {
+      "id":      450,
+      "userId":  1,
+      "type":    "career",
+      "typeId":  2,
+      "skillId": 50
+    },
+    {
+      "id":      451,
+      "userId":  1,
+      "type":    "career",
+      "typeId":  2,
+      "skillId": 51
+    },
+    {
+      "id":      460,
+      "userId":  1,
+      "type":    "career",
+      "typeId":  2,
+      "skillId": 60
     }
   ]
 }
