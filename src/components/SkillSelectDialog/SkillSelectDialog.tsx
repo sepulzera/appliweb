@@ -71,8 +71,8 @@ const SKillSelectDialog: React.FC<IProps> = (props: IProps) => {
         const education = careerContext.getCareer(smForCareers[index].typeId);
         if (education == null) continue;
         careers.push(
-          <ListItem key={`education-${education.title}`} button dense component={Link} to={`/home?d=career&id=${education.id}`}>
-            <ListItemText primary={t(`education:${education.title}`)} className={classes.skillItemTitle} />
+          <ListItem key={`career-${education.title}`} button dense component={Link} to={`/home?d=career&id=${education.id}`}>
+            <ListItemText primary={t(`career:${education.title}`)} className={classes.skillItemTitle} />
           </ListItem>
         );
       }

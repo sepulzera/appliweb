@@ -36,6 +36,15 @@
       "description": 304,
       "careerId":    1
     },
+    {
+      "id":          305,
+      "userId":      1,
+      "title":       "master thesis RFID",
+      "feature":     0,
+
+      "description": 305,
+      "careerId":    1
+    },
 
     {
       "id":          401,

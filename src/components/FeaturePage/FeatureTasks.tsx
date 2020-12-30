@@ -32,8 +32,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
   taskItem: {
-    margin: 0,
-    textAlign: 'start',
+    marginBottom: '1rem',
   },
 }));
 
@@ -59,7 +58,7 @@ const FeatureTasks: React.FC<IFeatureTasksProps> = (props: IFeatureTasksProps) =
     if (feature == null) continue;
 
     taskList.push(
-      <ListItem key={`tasks-${nextTask.id}`}>
+      <ListItem key={`tasks-${nextTask.id}`} className={classes.taskItem}>
         {feature != null && feature.data.map(block => Components(block))}
       </ListItem>
     );

@@ -14,6 +14,11 @@ export type DescriptionDataParagraph = {
   text:      string;
 } & GeneralDescriptionData;
 
+export type DescriptionDataSpan = {
+  component: 'span',
+  text:      string;
+} & GeneralDescriptionData;
+
 export type DescriptionDataList = {
   component: 'ul',
   children:  Array<DescriptionDataListItem>;
@@ -30,12 +35,13 @@ export type DescriptionDataImage = {
   alt?:      string;
 } & GeneralDescriptionData;
 
-export type AnyDescriptionData = DescriptionDataHeadline | DescriptionDataParagraph | DescriptionDataList | DescriptionDataListItem | DescriptionDataImage;
+export type AnyDescriptionData = DescriptionDataHeadline | DescriptionDataParagraph | DescriptionDataSpan | DescriptionDataList | DescriptionDataListItem | DescriptionDataImage;
 export const isHeadline  = (dat: AnyDescriptionData): dat is DescriptionDataHeadline  => (dat as DescriptionDataHeadline).component  === 'h';
 export const isImage     = (dat: AnyDescriptionData): dat is DescriptionDataImage     => (dat as DescriptionDataImage).component     === 'img';
 export const isList      = (dat: AnyDescriptionData): dat is DescriptionDataList      => (dat as DescriptionDataList).component      === 'ul';
 export const isListItem  = (dat: AnyDescriptionData): dat is DescriptionDataListItem  => (dat as DescriptionDataListItem).component  === 'li';
 export const isParagraph = (dat: AnyDescriptionData): dat is DescriptionDataParagraph => (dat as DescriptionDataParagraph).component === 'p';
+export const isSpan      = (dat: AnyDescriptionData): dat is DescriptionDataSpan      => (dat as DescriptionDataSpan).component === 'span';
 
 /**
  * DescriptionRecord.

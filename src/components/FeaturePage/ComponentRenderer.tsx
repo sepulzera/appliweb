@@ -1,7 +1,7 @@
 // code from https://www.storyblok.com/tp/react-dynamic-component-from-json
 
 import React from 'react';
-import { AnyDescriptionData, isHeadline, isImage, isList, isListItem, isParagraph } from '../../context/DescriptionContext/DescriptionRecord';
+import { AnyDescriptionData, isHeadline, isImage, isList, isListItem, isParagraph, isSpan } from '../../context/DescriptionContext/DescriptionRecord';
 
 import H from '../Ui/H';
 import Image from '../Ui/Image';
@@ -18,6 +18,10 @@ const toComponent = {
 };
 
 const Components = (block: AnyDescriptionData) => {
+  if (isSpan(block)) {
+    return <span>{block.text}</span>;
+  }
+
   const cmp = block.component;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const Cmpcmp: any = toComponent[cmp];

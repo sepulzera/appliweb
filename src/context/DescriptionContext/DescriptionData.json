@@ -88,6 +88,117 @@
           "text": "Development of application frontends and business functionality, using various technologies and frameworks."
         }
       ]
+    },
+
+    {
+      "id":       301,
+      "language": "de",
+      "data": [
+        {
+          "uid": "task-span1",
+          "component": "span",
+          "text": "Entwicklung des Arbeitszeiterfassungsprogrammes zu einem transparenten Tool für Kostenüberwachung:\n Bei dieser Arbeit beschäftigte ich mich mit dem internen Arbeitszeiterfassungsprogrammes, das mit \"Microsoft Access\" realisiert wurde. In enger Zusammenarbeit mit ausgewählten Kolleginnen und Kollegen, vereinfachte ich die Anwendung und reduzierte die benötigte Zeit für die Erfassung der Arbeitszeit."
+        }
+      ]
+    },
+    {
+      "id":       301,
+      "language": "en",
+      "data": [
+        {
+          "uid": "task-span1",
+          "component": "span",
+          "text": "Further development of the used software for recording of working time, to increase the transparency and to reduce the time needed: During this task, I gained deep insights into the inhouse software used to recording the working time of the employees. The software is developed with \"Microsoft Access\". Working closely with selected colleagues, I simplified the software's graphical interface, reducing the required time to record the working time drastically."
+        }
+      ]
+    },
+    {
+      "id":       302,
+      "language": "de",
+      "data": [
+        {
+          "uid": "task-span1",
+          "component": "span",
+          "text": "Erstellung eines Lastenhefts zur Neugestaltung der Reparaturen-Datenbank: Für die Bearbeitung von Reparaturen und Wartungstätigkeiten wurden verschiedene Systeme miteinander vernetzt, unter anderem SAP und Eigenentwicklungen. Meine Aufgabe im Rahmen dieser Praxisphase war es, die einzelnen Prozesse auch hinsichtlich der einzelnen Systeme sauber zu analysen. Anschließend entwickelte ich Lösungsvorschläge, die Systemlandschaft und beteiligten Prozesse zu vereinfachen."
+        }
+      ]
+    },
+    {
+      "id":       302,
+      "language": "en",
+      "data": [
+        {
+          "uid": "task-span1",
+          "component": "span",
+          "text": "Composing of a technical specification to redesign the maintenance-system: To manage and record incurring maintenance tasks, several different database systems have been connected, like SAP and some inhouse databases. After some time, the different systems and there interfaces to each other became quite difficult to understand and to maintain. My task was to analyze and properly document them. Subsequently, I developed a proposal for solution to simplify the systems."
+        }
+      ]
+    },
+    {
+      "id":       303,
+      "language": "de",
+      "data": [
+        {
+          "uid": "task-span1",
+          "component": "span",
+          "text": "Entwicklung und Inbetriebnahme einer Software zur Prüfeinrichtung für die Funktionsprüfung von ESTW-Relaisbaugruppen: Für die Qualitätssicherung kommen unter anderem selbst entwickelte Prüfeinrichtungen zum Einsatz. Für den Mikrocontroller einer Prüfeinrichtung entwickelte ich eine Software, um verschiedene Prüfszenarien einzulesen und die Baugruppen testweise elektrisch anzusteuern. Für die Programmierung nutzte ich die Entwicklungsumgebung \"LabVIEW\" und die Programmiersprache C."
+        }
+      ]
+    },
+    {
+      "id":       303,
+      "language": "en",
+      "data": [
+        {
+          "uid": "task-span1",
+          "component": "span",
+          "text": "Development and implementation of a software for a testing device to test ESTW-relais: TTS uses plenty of inhouse developed testing devices for quality assurance and maintenance. My third task was to develop a software for the microcontroller of a testing device. I programmed the software with the development environment \"LabVIEW\" using the programming language C."
+        }
+      ]
+    },
+    {
+      "id":       304,
+      "language": "de",
+      "data": [
+        {
+          "uid": "task-span1",
+          "component": "span",
+          "text": "Evaluierung der Möglichkeiten zur Anwendung der RFID-Technologie im Werk Arnstadt zur Prüfmittel- und Fertigungsmittelüberwachung: Als Vorbereitung auf meine Bachelorarbeit arbeitete ich mich in die RFID-Technologie ein. Ich analysierte den aktuellen technologischen Stand und verschiedene mögliche Einsatzszenarien innerhalb der TTS in Arnstadt."
+        }
+      ]
+    },
+    {
+      "id":       304,
+      "language": "en",
+      "data": [
+        {
+          "uid": "task-span1",
+          "component": "span",
+          "text": "Analysis of possible usages for the RFID-technology to monitor production and maintenance tools: As groundwork for my bachelor thesis, I studied the RFID-technology. I analyzed the current stage of development of RFID and evaluated possible applications at the TTS."
+        }
+      ]
+    },
+    {
+      "id":       305,
+      "language": "de",
+      "data": [
+        {
+          "uid": "task-span1",
+          "component": "span",
+          "text": "Entwicklung eines Basiskonzepts für optimierte Abläufe des Prüfmittelmanagements im Rahmen der technologischen und logistischen Prozesse der TTS Arnstadt. Ich entwickelte ein ganzheitliches Konzept, wie das Prüfmittelmanagement bei der TTS unter Einführung der RFID-Technologie verbessert werden kann. Dabei galt es unter anderem das Problem zu lösen, dass jedes Prüfmittel zu jeder Zeit lokalisierbar sein muss. Weiterführend sollen die Informationen und technologischen Möglichkeiten genutzt werden, um die für jede Prüfung verwendeten Prüfmittel zu dokumentieren. Letzteres ist zum Beispiel wichtig, um im Fehlerfall nachverfolgen zu können, welche Geräte mit dem fehlerhaften Prüfmittel getestet wurden."
+        }
+      ]
+    },
+    {
+      "id":       305,
+      "language": "en",
+      "data": [
+        {
+          "uid": "task-span1",
+          "component": "span",
+          "text": "Development of a concept to improve the management of testing devices and tools at the TTS. Due to safety and legal reasons, the TTS has to be able to track consistently, which testing devices have been used for which specific tests. Additionally, to reduce the time needed to find required testing devices for specific steps, it should be made possible to localize all electronic testing devices. Considering different technologies to identify and to localize devices, I developed a system based on RFID."
+        }
+      ]
     }
   ]
 }
