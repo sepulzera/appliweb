@@ -50,7 +50,7 @@ const CareerTimeline: React.FC<ICareerTimelineProps> = (props: ICareerTimelinePr
           place   = {t(`career:${nextCareer.place}`)}
           begin   = {nextCareer.begin}
           end     = {nextCareer.end}
-          to      = {`/home?d=career&id=${nextCareer.id}`}>
+          to      = {`${process.env.PUBLIC_URL}/home?d=career&id=${nextCareer.id}`}>
         {feature != null && feature.data.map(block => Components(block))}
       </TimelineRecord>
     );

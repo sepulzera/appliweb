@@ -50,7 +50,7 @@ const ExperiencePage: React.FC<IProps> = (props: IProps) => {
   };
 
   const handleClose = () => {
-    history.push('/home');
+    history.push(`${process.env.PUBLIC_URL}/home`);
   };
 
   const { experience, type, isOpen } = props;

@@ -56,7 +56,7 @@ const SKillSelectDialog: React.FC<IProps> = (props: IProps) => {
   };
 
   const handleClose = () => {
-    history.push('/home');
+    history.push(`${process.env.PUBLIC_URL}/home`);
   };
 
   const { skill, skillMappings } = props;
@@ -71,7 +71,7 @@ const SKillSelectDialog: React.FC<IProps> = (props: IProps) => {
         const education = careerContext.getCareer(smForCareers[index].typeId);
         if (education == null) continue;
         careers.push(
-          <ListItem key={`career-${education.title}`} button dense component={Link} to={`/home?d=career&id=${education.id}`}>
+          <ListItem key={`career-${education.title}`} button dense component={Link} to={`${process.env.PUBLIC_URL}/home?d=career&id=${education.id}`}>
             <ListItemText primary={t(`career:${education.title}`)} className={classes.skillItemTitle} />
           </ListItem>
         );
@@ -94,7 +94,7 @@ const SKillSelectDialog: React.FC<IProps> = (props: IProps) => {
         const education = educationContext.getEducation(smForEducations[index].typeId);
         if (education == null) continue;
         educations.push(
-          <ListItem key={`education-${education.title}`} button dense component={Link} to={`/home?d=education&id=${education.id}`}>
+          <ListItem key={`education-${education.title}`} button dense component={Link} to={`${process.env.PUBLIC_URL}/home?d=education&id=${education.id}`}>
             <ListItemText primary={t(`education:${education.title}`)} className={classes.skillItemTitle} />
           </ListItem>
         );
@@ -117,7 +117,7 @@ const SKillSelectDialog: React.FC<IProps> = (props: IProps) => {
         const leisure = leisureContext.getLeisure(smForLeisures[index].typeId);
         if (leisure == null) continue;
         leisures.push(
-          <ListItem key={`leisure-${leisure.title}`} button dense component={Link} to={`/home?d=leisure&id=${leisure.id}`}>
+          <ListItem key={`leisure-${leisure.title}`} button dense component={Link} to={`${process.env.PUBLIC_URL}/home?d=leisure&id=${leisure.id}`}>
             <ListItemText primary={t(`leisure:${leisure.title}`)} />
           </ListItem>
         );

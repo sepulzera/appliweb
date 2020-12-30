@@ -55,7 +55,7 @@ const Skills: React.FC<ISkillsProps> = (props: ISkillsProps) => {
         .filter(skill => skill.category === category)
         .map(skill => (
           <ListItem key={`skills-${category}-${skill.id}`} className={classes.skillItem}>
-            <Button fullWidth className={classes.skillButton} component={Link} to={`/home?d=skill&id=${skill.id}`}>
+            <Button fullWidth className={classes.skillButton} component={Link} to={`${process.env.PUBLIC_URL}/home?d=skill&id=${skill.id}`}>
               {t(`skill:${skill.title}`)}
               <Progress value={skill.rating * 10} />
             </Button>

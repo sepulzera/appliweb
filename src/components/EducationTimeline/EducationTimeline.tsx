@@ -88,7 +88,7 @@ const EducationTimeline: React.FC<IEducationTimelineProps> = (props: IEducationT
           place   = {t(`education:${nextEducation.place}`)}
           begin   = {nextEducation.begin}
           end     = {nextEducation.end}
-          to      = {`/home?d=education&id=${nextEducation.id}`}>
+          to      = {`${process.env.PUBLIC_URL}/home?d=education&id=${nextEducation.id}`}>
         <>
           {feature != null && feature.data.map(block => Components(block))}
           <P className={classes.educationTimelineFinalGrade}>{`${t('education:final grade')}: ${nextEducation.grade}`}</P>

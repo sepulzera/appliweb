@@ -39,7 +39,7 @@ const FeatureSkills: React.FC<IFeatureSkillsProps> = (props: IFeatureSkillsProps
 
   const skillList = props.skills.map(skill => (
     <ListItem key={`skills-${skill.id}`}>
-      <Button component={Link} to={`/home?d=skill&id=${skill.id}`}>
+      <Button component={Link} to={`${process.env.PUBLIC_URL}/home?d=skill&id=${skill.id}`}>
         {t(`skill:${skill.title}`)}
       </Button>
     </ListItem>
