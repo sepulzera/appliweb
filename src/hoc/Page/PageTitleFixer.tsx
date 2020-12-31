@@ -16,7 +16,7 @@ interface IPageTitleFixerProps {
 export default class PageTitleFixer extends React.Component<IPageTitleFixerProps> {
   componentDidMount() {
     // ARIA: Titles should contain the application name and page title.
-    document.title = (`Frank Hartung - ${this.props.title}`);
+    document.title = (`${this.props.title} - Frank Hartung`);
   }
 
   render() {
