@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { useLocation } from 'react-router-dom';
 
 import EducationContext from '../context/EducationContext/EducationContext';
@@ -26,6 +25,7 @@ import EducationTimeline from '../components/EducationTimeline/EducationTimeline
 import ExperiencePage from '../components/FeaturePage/ExperiencePage';
 import CareerContext from '../context/CareerContext/CareerContext';
 import CareerTimeline from '../components/CareerTimeline/CareerTimeline';
+import PageTitleFixer from '../hoc/Page/PageTitleFixer';
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -76,8 +76,12 @@ const HomePage: React.FC<{}> = () => {
 
   const selectedSkill: SkillRecord | undefined = openDialogType != null && openDialogType === 'skill' ? skillContext.getSkill(openDialogId) : undefined;
 
+  if (queryDialogType == null) {
+    document.title = 'Frank Hartung';
+  }
+
   return (
-    <>
+    <PageTitleFixer title=''>
       <PageWithHeaderAndFooter
           headerComponent = {(
             <UserHeader
@@ -110,7 +114,7 @@ const HomePage: React.FC<{}> = () => {
             type       = {openDialogType}
             isOpen />
       )}
-    </>
+    </PageTitleFixer>
   );
 };
 
