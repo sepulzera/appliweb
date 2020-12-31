@@ -15,7 +15,6 @@ export interface ICapsHeadingProps {
 
 const useStyles = makeStyles({
   capsHeading: {
-    textTransform: 'capitalize',
     fontVariant:   'small-caps',
     fontWeight:    'normal',
     letterSpacing: '2px',

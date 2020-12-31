@@ -136,8 +136,11 @@ const BaseTheme: React.FC<IBaseThemeProps> = (props: IBaseThemeProps) => {
       root: {
         backgroundColor: memoTheme.palette.primary.main,
         color: memoTheme.palette.primary.contrastText,
+        alignItems: 'center',
         padding : '0 1rem',
-        textTransform: 'capitalize',
+        '& h6.MuiTypography-root:first-letter': {
+          textTransform: 'uppercase',
+        },
       },
     },
     MuiDialogContent: {

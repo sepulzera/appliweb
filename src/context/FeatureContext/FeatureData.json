@@ -59,7 +59,7 @@
         {
           "uid": "leisure-guitar-h1",
           "component": "h",
-          "text": "Playing Guitar",
+          "text": "Playing guitar",
           "variant": "h3"
         },
         {
@@ -422,7 +422,7 @@
         {
           "uid": "education-mastergraduation-p3",
           "component": "p",
-          "text": "During my bachelor studies, I enjoyed the practical phases most. Mainly, because I prefer to develop useful software over solving simple, academical problems. Therefore, I wanted to continue working besides my studies. I decided to study part-time, and to work at \"IBYKUS AG für Informationstechnologie\". IBYKUS AG is a medium-sizes enterprise headquartered in Erfurt. They offer various services for IT, like software development and hosting."
+          "text": "During my bachelor studies, I enjoyed the practical phases most. Mainly, because I prefer to develop useful software over solving simple, academical problems. Therefore, I wanted to continue working besides my studies. I decided to study part-time, and to work at IBYKUS AG for Information Technology. IBYKUS AG is a medium-sizes enterprise headquartered in Erfurt. They offer various services for IT, like software development and hosting."
         }
       ]
     },
@@ -604,13 +604,13 @@
         {
           "uid": "career-h1",
           "component": "h",
-          "text": "Software Developer at \"IBYKUS AG für Informationstechnologie\"",
+          "text": "Software Developer at IBYKUS AG for Information Technology",
           "variant": "h3"
         },
         {
           "uid": "career-p1",
           "component": "p",
-          "text": "Simultaneous to my master studies, I started working at \"IBYKUS AG für Informationstechnologie\" as software developer. IBYKUS AG is a medium-sizes enterprise headquartered in Erfurt. They offer various services for IT, like software development and hosting."
+          "text": "Simultaneous to my master studies, I started working at IBYKUS AG for Information Technology as software developer. IBYKUS AG is a medium-sizes enterprise headquartered in Erfurt. They offer various services for IT, like software development and hosting."
         },
         {
           "uid": "career-p2",

@@ -14,6 +14,7 @@ import FeatureData from './FeatureData';
 import ExperienceRecord from '../../context/Experience/ExperienceRecord';
 import TaskContext from '../../context/TaskContext/TaskContext';
 import FeatureTasks from './FeatureTasks';
+import Helper from '../../helper/Helper';
 
 /**
  * {@link ExperiencePage} Props.
@@ -61,8 +62,11 @@ const ExperiencePage: React.FC<IProps> = (props: IProps) => {
   const skillMappings = skillMappingContext.getSkillMappingsByUserAndType(experience.userId, type, experience.id);
   const skills = skillMappings.map(sm => skillContext.getSkill(sm.skillId)).filter(skill => skill != null) as Array<SkillRecord>;
 
+  const title = Helper.upperFirst(t(`${type}:${experience.title}`));
+  document.title = `${title} - Frank Hartung`;
+
   return (
-    <Dialog title={t(`${type}:${experience.title}`)} isOpen={isOpen} onBack={handleBack} onClose={handleClose}>
+    <Dialog title={title} isOpen={isOpen} onBack={handleBack} onClose={handleClose}>
       <div>
         <Image src={feature.image} />
       </div>

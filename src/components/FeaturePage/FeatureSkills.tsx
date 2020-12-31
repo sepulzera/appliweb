@@ -8,6 +8,7 @@ import ListItem from '../Ui/ListItem';
 import SkillRecord from '../../context/SkillContext/SkillRecord';
 import ResponsiveList from '../Ui/ResponsiveList';
 import Button from '../Ui/Button';
+import Helper from '../../helper/Helper';
 
 /**
  * {@link FeatureSkills} Props.
@@ -24,7 +25,6 @@ const useStyles = makeStyles({
   },
   skillItem: {
     margin: 0,
-    textTransform: 'capitalize',
   },
 });
 
@@ -40,7 +40,7 @@ const FeatureSkills: React.FC<IFeatureSkillsProps> = (props: IFeatureSkillsProps
   const skillList = props.skills.map(skill => (
     <ListItem key={`skills-${skill.id}`}>
       <Button component={Link} to={`${process.env.PUBLIC_URL}/home?d=skill&id=${skill.id}`}>
-        {t(`skill:${skill.title}`)}
+        {Helper.upperFirst(t(`skill:${skill.title}`))}
       </Button>
     </ListItem>
   ));

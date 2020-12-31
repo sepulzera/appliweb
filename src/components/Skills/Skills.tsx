@@ -27,8 +27,10 @@ const useStyles = makeStyles(theme => ({
     },
   },
   skillItem: {
-    textTransform: 'capitalize',
     marginBottom:  theme.spacing(1.5),
+    '& span:first-letter': {
+      textTransform: 'uppercase',
+    },
   },
   skillButton: {
     fontWeight: 'normal',

@@ -13,6 +13,7 @@ import SkillMappingRecord from '../../context/SkillMappingContext/SkillMappingRe
 
 import Dialog from '../Ui/Dialog';
 import H from '../Ui/H';
+import Helper from '../../helper/Helper';
 
 /**
  * {@link ISKillSelectDialogProps} Props.
@@ -30,8 +31,7 @@ const useStyles = makeStyles(theme => ({
     marginTop:    theme.spacing(2),
     marginBottom: 0,
     marginLeft:   theme.spacing(2),
-  },
-  skillItemTitle: {
+
     textTransform: 'capitalize',
   },
 }));
@@ -72,7 +72,7 @@ const SKillSelectDialog: React.FC<IProps> = (props: IProps) => {
         if (education == null) continue;
         careers.push(
           <ListItem key={`career-${education.title}`} button dense component={Link} to={`${process.env.PUBLIC_URL}/home?d=career&id=${education.id}`}>
-            <ListItemText primary={t(`career:${education.title}`)} className={classes.skillItemTitle} />
+            <ListItemText primary={t(`career:${education.title}`)} />
           </ListItem>
         );
       }
@@ -95,7 +95,7 @@ const SKillSelectDialog: React.FC<IProps> = (props: IProps) => {
         if (education == null) continue;
         educations.push(
           <ListItem key={`education-${education.title}`} button dense component={Link} to={`${process.env.PUBLIC_URL}/home?d=education&id=${education.id}`}>
-            <ListItemText primary={t(`education:${education.title}`)} className={classes.skillItemTitle} />
+            <ListItemText primary={t(`education:${education.title}`)} />
           </ListItem>
         );
       }
@@ -134,8 +134,15 @@ const SKillSelectDialog: React.FC<IProps> = (props: IProps) => {
     }
   }
 
+  let title: string | undefined;
+
+  if (skill != null) {
+    title = Helper.upperFirst(t(`skill:${skill.title}`));
+    document.title = `${title} - Frank Hartung`;
+  }
+
   return (
-    <Dialog title={`${t('skill:skill')}: ${skill != null ? t(`skill:${skill.title}`) : ''}`} isOpen={skill != null} onBack={handleBack} onClose={handleClose}>
+    <Dialog title={`${t('skill:skill')}: ${skill != null ? title : ''}`} isOpen={skill != null} onBack={handleBack} onClose={handleClose}>
       {categories}
     </Dialog>
   );

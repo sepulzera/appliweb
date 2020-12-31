@@ -22,7 +22,6 @@ const useStyles = makeStyles(theme => ({
     marginLeft:  '-2.2rem',
     width:       'calc(100% + 2.2rem)',
 
-    textTransform: 'capitalize',
     color: theme.palette.primary.main,
     letterSpacing: '2px',
     marginTop:     0,
