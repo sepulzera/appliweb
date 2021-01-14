@@ -17,6 +17,8 @@ interface IResponsiveListProps {
   stretchList?:  boolean | undefined;
   /** Classes used for styling. */
   className?: string | undefined;
+  /** Classes used for styling of the heading. */
+  titleClassName?: string | undefined;
   /** List of {@link ListItem}. */
   children?: React.ReactElement<IListItemProps> | Array<React.ReactElement<IListItemProps>> | React.ReactNode;
 }
@@ -26,9 +28,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     display: 'flex',
     margin: 0,
     padding: `${theme.spacing(1)}px ${theme.spacing(3)}px`,
-
-    color: theme.palette.secondary.contrastText,
-    backgroundColor: theme.palette.secondary.main,
 
     [theme.breakpoints.down('md')]: {
       borderRadius: `0 ${theme.spacing(1)}px 0 0`,
@@ -48,7 +47,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   responsiveListTitle: {
     textTransform: 'capitalize',
     display: 'inline',
-    fontSize: '1rem',
     lineHeight: 1,
     alignSelf: 'center',
   },
@@ -110,7 +108,7 @@ const ResponsiveList: React.FC<IResponsiveListProps> = (props: IResponsiveListPr
     })}>
       <H
           variant='h3'
-          className={clsx(classes.responsiveListTitle, {
+          className={clsx(classes.responsiveListTitle, props.titleClassName, {
               [classes.responsiveListTitleAsColumn]: !props.asRow,
               [classes.responsiveListTitleAsRow]: props.asRow,
           })}>

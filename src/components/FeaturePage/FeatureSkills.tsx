@@ -18,15 +18,21 @@ interface IFeatureSkillsProps extends WithTranslation {
   skills: Array<SkillRecord>;
 }
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   featureSkills: {
     borderTopLeftRadius: 0,
     borderTopRightRadius: 0,
+
+    color: theme.palette.secondary.contrastText,
+    backgroundColor: theme.palette.secondary.main,
+  },
+  featureSkillsHeading: {
+    fontSize: '1rem',
   },
   skillItem: {
     margin: 0,
   },
-});
+}));
 
 /**
  * Skills.
@@ -49,7 +55,8 @@ const FeatureSkills: React.FC<IFeatureSkillsProps> = (props: IFeatureSkillsProps
     <ResponsiveList
         title={t('skill:heading')}
         asRow
-        className={classes.featureSkills}>
+        className={classes.featureSkills}
+        titleClassName={classes.featureSkillsHeading}>
       {skillList}
     </ResponsiveList>
   );
