@@ -50,6 +50,7 @@ const useStyles = makeStyles(theme => ({
   },
   dialogButton: {
     borderRadius:  0,
+    color: theme.palette.primary.contrastText,
   },
 }));
 

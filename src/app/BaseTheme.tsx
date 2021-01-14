@@ -127,6 +127,14 @@ const BaseTheme: React.FC<IBaseThemeProps> = (props: IBaseThemeProps) => {
         textTransform: 'unset',
       },
     },
+    MuiIconButton: {
+      root: {
+        borderRadius: memoTheme.spacing(0.5),
+        '& .MuiTouchRipple-child': {
+          borderRadius: memoTheme.spacing(0.5),
+        },
+      },
+    },
     MuiDialog: {
       root: {
         overflowY: 'hidden',
