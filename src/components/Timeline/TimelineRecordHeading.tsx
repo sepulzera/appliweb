@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme => ({
     lineHeight:  '1rem',
     fontSize:    '5rem',
     color: theme.palette.primary.main,
-    marginRight: '0.9rem',
+    marginRight: '0.7rem',
   },
   timelineRecordHeadingButton: {
     paddingLeft:    0,
