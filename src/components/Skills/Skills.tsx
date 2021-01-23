@@ -26,6 +26,10 @@ const useStyles = makeStyles(theme => ({
       marginTop: 0,
     },
   },
+  skillsList: {
+    marginLeft: -theme.spacing(1),
+    marginRight: theme.spacing(1),
+  },
   skillItem: {
     marginBottom:  theme.spacing(1.5),
     '& span:first-letter': {
@@ -74,7 +78,7 @@ const Skills: React.FC<ISkillsProps> = (props: ISkillsProps) => {
     skillCategoryList.push(
       <React.Fragment key={`skills-category-${nextCategory}`}>
         <CapsHeading>{t(`skill:${nextCategory}`)}</CapsHeading>
-        <List noMarks>
+        <List noMarks className={classes.skillsList}>
           {getSkillListForCategory(nextCategory)}
         </List>
       </React.Fragment>

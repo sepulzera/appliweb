@@ -11,6 +11,9 @@ interface IListProps {
   /** Show no quotation marks. */
   noMarks?: boolean | undefined;
 
+  /** Classes used for styling. */
+  className?: string | undefined;
+
   /** List of {@link ListItem}. */
   children: React.ReactElement<IListItemProps> | Array<React.ReactElement<IListItemProps>>;
 }
@@ -40,7 +43,7 @@ const List: React.FC<IListProps> = (props: IListProps) => {
 
   return (
     <ul
-        className = {clsx({
+        className = {clsx(props.className, {
             [classes.noMarks]: props.noMarks ?? false,
             [classes.withMarks]: !props.noMarks,
         })}>

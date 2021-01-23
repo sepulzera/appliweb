@@ -142,6 +142,7 @@ const BaseTheme: React.FC<IBaseThemeProps> = (props: IBaseThemeProps) => {
       paper: {
         [memoTheme.breakpoints.down('xs')]: {
           margin: `${memoTheme.spacing(4)}px 0`,
+          overflowX: 'hidden',
         },
       },
     },

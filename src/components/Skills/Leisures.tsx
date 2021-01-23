@@ -18,12 +18,16 @@ interface ILeisuresProps extends WithTranslation {
   leisures: Array<LeisureRecord>;
 }
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   listButton: {
     textAlign: 'left',
     justifyContent: 'left',
   },
-});
+  skillsList: {
+    marginLeft: -theme.spacing(1),
+    marginRight: theme.spacing(1),
+  },
+}));
 
 /**
  * Leisures.
@@ -43,7 +47,7 @@ const Leisures: React.FC<ILeisuresProps> = (props: ILeisuresProps) => {
   return (
     <>
       <CapsHeading>{t('leisure:heading')}</CapsHeading>
-      <List noMarks>
+      <List noMarks className={classes.skillsList}>
         {leisureList}
       </List>
     </>

@@ -1,6 +1,8 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 
+import { makeStyles } from '@material-ui/core/styles';
+
 import EducationContext from '../context/EducationContext/EducationContext';
 import JobRequestContext from '../context/JobRequestContext/JobRequestContext';
 import LeisureContext from '../context/LeisureContext/LeisureContext';
@@ -13,7 +15,7 @@ import ExperienceRecord from '../context/Experience/ExperienceRecord';
 
 import Grid from '../components/Ui/Grid';
 import GridItem from '../components/Ui/GridItem';
-import Leisures from '../components/Leisures/Leisures';
+import Leisures from '../components/Skills/Leisures';
 import Skills from '../components/Skills/Skills';
 import SkillSelectDialog from '../components/SkillSelectDialog/SkillSelectDialog';
 import PageWithHeaderAndFooter from '../hoc/Page/PageWithHeaderAndFooter';
@@ -31,10 +33,27 @@ function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
 
+const useStyles = makeStyles(theme => ({
+  skillsSection: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  stretch: {
+    [theme.breakpoints.up('sm')]: {
+      height: '1px',
+      minHeight: '40rem',
+      overflowY: 'auto',
+      flexGrow: 1,
+    },
+  },
+}));
+
 /**
  * Home component rendering the actual content - me!
  */
 const HomePage: React.FC<{}> = () => {
+  const classes = useStyles();
+
   const careerContext       = React.useContext(CareerContext);
   const educationContext    = React.useContext(EducationContext);
   const jobRequestContext   = React.useContext(JobRequestContext);
@@ -91,9 +110,11 @@ const HomePage: React.FC<{}> = () => {
                 latestCareer = {careers != null && careers.length > 0 ? careers[0] : undefined} />
           )}>
         <Grid>
-          <GridItem xs={12} sm={4} md={3}>
-            <Skills   skills={skills} />
-            <Leisures leisures={leisures} />
+          <GridItem xs={12} sm={4} md={3} className={classes.skillsSection}>
+            <div className={classes.stretch}>
+              <Skills   skills={skills} />
+              <Leisures leisures={leisures} />
+            </div>
           </GridItem>
           <GridItem md>
             {careers    != null && careers.length    > 0 && <CareerTimeline    careers={careers} />}
