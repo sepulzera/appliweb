@@ -25,9 +25,16 @@ const useStyles = makeStyles(theme => ({
 
     color: theme.palette.secondary.contrastText,
     backgroundColor: theme.palette.secondary.main,
+
+    padding: '0 !important',
+    [theme.breakpoints.up('md')]: {
+      paddingLeft: '16px !important',
+    },
   },
   featureSkillsHeading: {
     fontSize: '1rem',
+    lineHeight: '1.75 !important',
+    padding: '6px 8px',
   },
   skillItem: {
     margin: 0,

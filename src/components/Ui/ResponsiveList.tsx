@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 
   responsiveListTitle: {
     textTransform: 'capitalize',
-    display: 'inline',
+    display: 'inline-flex',
     lineHeight: 1,
     alignSelf: 'center',
   },
@@ -55,6 +55,22 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   },
   responsiveListTitleAsRow: {
     margin: 0,
+  },
+  responsiveListAsRowTitleAsHeading: {
+    display: 'inline-flex',
+    [theme.breakpoints.down('sm')]: {
+      position: 'absolute',
+      left: '-10000px',
+      top: 'auto',
+      width: '1px',
+      height: '1px',
+      overflow: 'hidden',
+    },
+  },
+  responseListTitleInList: {
+    [theme.breakpoints.up('md')]: {
+      display: 'none !important',
+    },
   },
 
   responsiveListList: {
@@ -85,7 +101,8 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   responsiveListListAsRow: {
     flexWrap: 'wrap',
 
-    margin: 0,
+    padding: 0,
+    margin:  0,
 
     '& li': {
       display: 'inline',
@@ -101,24 +118,29 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 const ResponsiveList: React.FC<IResponsiveListProps> = (props: IResponsiveListProps) => {
   const classes = useStyles();
 
+  const heading = (
+    <H
+        variant='h3'
+        className={clsx(classes.responsiveListTitle, props.titleClassName, {
+            [classes.responsiveListTitleAsColumn]: !props.asRow,
+            [classes.responsiveListTitleAsRow]: props.asRow,
+        })}>
+      {`${props.title}:`}
+    </H>
+  );
+
   return (
     <div className={clsx(classes.responsiveList, props.className, {
       [classes.responsiveListAsColumn]: !props.asRow,
       [classes.responsiveListAsRow]: props.asRow,
     })}>
-      <H
-          variant='h3'
-          className={clsx(classes.responsiveListTitle, props.titleClassName, {
-              [classes.responsiveListTitleAsColumn]: !props.asRow,
-              [classes.responsiveListTitleAsRow]: props.asRow,
-          })}>
-        {`${props.title}:`}
-      </H>
+      <span className={clsx({ [classes.responsiveListAsRowTitleAsHeading]: props.asRow })}>{heading}</span>
       <ul className={clsx(classes.responsiveListList, {
         [classes.responsiveListAsColumnStretch]: props.stretchList,
         [classes.responsiveListListAsColumn]: !props.asRow,
         [classes.responsiveListListAsRow]: props.asRow,
       })}>
+        {props.asRow && <li className={classes.responseListTitleInList} aria-hidden='true'>{heading}</li>}
         {props.children}
       </ul>
     </div>
