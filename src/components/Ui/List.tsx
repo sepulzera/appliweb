@@ -15,7 +15,7 @@ interface IListProps {
   children: React.ReactElement<IListItemProps> | Array<React.ReactElement<IListItemProps>>;
 }
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   noMarks: {
     paddingLeft: 0,
 
@@ -23,7 +23,12 @@ const useStyles = makeStyles({
       display: 'block',
     },
   },
-});
+  withMarks: {
+    [theme.breakpoints.down('sm')]: {
+      paddingLeft: theme.spacing(2),
+    },
+  },
+}));
 
 /**
  * Renders a styled list.
@@ -34,7 +39,11 @@ const List: React.FC<IListProps> = (props: IListProps) => {
   const classes = useStyles();
 
   return (
-    <ul className={clsx({ [classes.noMarks]: props.noMarks ?? false })}>
+    <ul
+        className = {clsx({
+            [classes.noMarks]: props.noMarks ?? false,
+            [classes.withMarks]: !props.noMarks,
+        })}>
       {props.children}
     </ul>
   );

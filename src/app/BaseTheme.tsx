@@ -139,6 +139,11 @@ const BaseTheme: React.FC<IBaseThemeProps> = (props: IBaseThemeProps) => {
       root: {
         overflowY: 'hidden',
       },
+      paper: {
+        [memoTheme.breakpoints.down('xs')]: {
+          margin: `${memoTheme.spacing(4)}px 0`,
+        },
+      },
     },
     MuiDialogTitle: {
       root: {
