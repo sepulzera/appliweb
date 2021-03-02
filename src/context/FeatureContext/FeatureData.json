@@ -406,18 +406,18 @@
         {
           "uid": "education-bachelorgraduation-h1",
           "component": "h",
-          "text": "Studying Applied Computer Science at the University of Applied Science Erfurt",
+          "text": "Studying Applied Computer Science at the University of Applied Sciences Erfurt",
           "variant": "h3"
         },
         {
           "uid": "education-mastergraduation-p1",
           "component": "p",
-          "text": "Right after my bachelor studies, I started studying Applied Computer Science (M. Sc.). Unfortunatly, it wasn't possible to continue it as Dual Course of Study. Mainly because of the close distance to my hometown, I chose the University of Applied Science Erfurt for my master studies."
+          "text": "Right after my bachelor studies, I started studying Applied Computer Science (M. Sc.). Unfortunatly, it wasn't possible to continue it as Dual Course of Study. Mainly because of the close distance to my hometown, I chose the University of Applied Sciences Erfurt for my master studies."
         },
         {
           "uid": "education-mastergraduation-p2",
           "component": "p",
-          "text": "The studies at the University of Applied Science Erfurt are team oriented and practical. Doing many team projects, I learned profound knowledge about software development, big data and computer science. Additionally, I got taught in business economics, project management, mathematics and much more."
+          "text": "The studies at the University of Applied Sciences Erfurt are team oriented and practical. Doing many team projects, I learned profound knowledge about software development, big data and computer science. Additionally, I got taught in business economics, project management, mathematics and much more."
         },
         {
           "uid": "education-mastergraduation-p3",
@@ -528,7 +528,7 @@
         {
           "uid": "education-alevel-p2",
           "component": "p",
-          "text": "In my sparetime I'd played handball in a club. The remaining time I'd used for computer related activities. Although I enjoy playing computer games, I was also fascinated by the programming of games. That evoked my passion for the informatics even more."
+          "text": "In my spare time I'd played handball in a club. The remaining time I'd used for computer related activities. Although I enjoy playing computer games, I was also fascinated by the programming of games. That evoked my passion for the informatics even more."
         }
       ]
     },

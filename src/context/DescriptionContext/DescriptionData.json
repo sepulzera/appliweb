@@ -185,7 +185,7 @@
         {
           "uid": "task-span1",
           "component": "span",
-          "text": "Entwicklung eines Basiskonzepts für optimierte Abläufe des Prüfmittelmanagements im Rahmen der technologischen und logistischen Prozesse der TTS Arnstadt. Ich entwickelte ein ganzheitliches Konzept, wie das Prüfmittelmanagement bei der TTS unter Einführung der RFID-Technologie verbessert werden kann. Dabei galt es unter anderem das Problem zu lösen, dass jedes Prüfmittel zu jeder Zeit lokalisierbar sein muss. Weiterführend sollen die Informationen und technologischen Möglichkeiten genutzt werden, um die für jede Prüfung verwendeten Prüfmittel zu dokumentieren. Letzteres ist zum Beispiel wichtig, um im Fehlerfall nachverfolgen zu können, welche Geräte mit dem fehlerhaften Prüfmittel getestet wurden."
+          "text": "Entwicklung eines Basiskonzepts für optimierte Abläufe des Prüfmittelmanagements im Rahmen der technologischen und logistischen Prozesse der TTS Arnstadt. Ich entwickelte ein ganzheitliches Konzept, wie das Prüfmittelmanagement bei der TTS unter Einführung der RFID-Technologie verbessert werden kann. Dabei galt es unter anderem das Problem zu lösen, dass jedes Prüfmittel zu jeder Zeit lokalisierbar sein muss. Weiterführend sollen die Informationen und technologischen Möglichkeiten genutzt werden, um die für jede Prüfung verwendeten Prüfmittel zu dokumentieren. Letzteres ist zum Beispiel wichtig um im Fehlerfall nachverfolgen zu können, welche Produkte mit fehlerhaften Prüfmitteln getestet wurden."
         }
       ]
     },
@@ -241,7 +241,7 @@
         {
           "uid": "task-span1",
           "component": "span",
-          "text": "Excel-AddIn to import Excel-Files into caredo®-applications: The configuration data for caredo®-applications can be written with Microsoft Excel. Customers, like government agencies can manage them on their own. My task was to develop an Excel-AddIn to facilitate importing the configuration data into the application."
+          "text": "Excel-AddIn to import Excel-Files into caredo®-applications: The configuration data for caredo®-applications can be written with Microsoft Excel. Customers, like government agencies, can manage them on their own. My task was to develop an Excel-AddIn to facilitate importing the configuration data into the application."
         }
       ]
     },
