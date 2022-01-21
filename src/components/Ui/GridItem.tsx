@@ -1,4 +1,4 @@
-import MuiGrid from '@material-ui/core/Grid';
+import MuiGrid from '@mui/material/Grid';
 
 import { AnyComponent } from '../../types/Types';
 

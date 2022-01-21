@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import { useTranslation } from 'react-i18next';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 
 import EducationRecord from '../../context/EducationContext/EducationRecord';
 import UserRecord      from '../../context/UserContext/UserRecord';
@@ -21,7 +21,7 @@ interface ICurrentUserInfoProps {
   degree: EducationRecord | undefined;
 }
 
-const useStyles = makeStyles((theme: Theme) => createStyles({
+const useStyles = makeStyles()((theme => ({
   large: {
     width: theme.spacing(7),
     height: theme.spacing(7),
@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 
   userInfo: {
     flex: 1,
-    paddingLeft: `${theme.spacing(3)}px`,
+    paddingLeft: theme.spacing(3),
 
     display: 'flex',
     flexWrap: 'wrap',
@@ -68,7 +68,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     color: theme.palette.primary.contrastText,
     fontWeight: 'bold',
   },
-}));
+})));
 
 /**
  * UserInfo displayed in the {@link UserHeader}.
@@ -76,7 +76,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
  * @param props - {@link ICurrentUserInfoProps}.
  */
 const CurrentUserInfo: React.FC<ICurrentUserInfoProps> = (props: ICurrentUserInfoProps) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { t } = useTranslation();
 
   const { degree, job, user } = props;

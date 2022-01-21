@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 
 import { AnyComponent } from '../../types/Types';
 
@@ -26,13 +26,13 @@ export interface ITimelineRecordProps {
   children:   AnyComponent;
 }
 
-const useStyles = makeStyles({
+const useStyles = makeStyles()(({
   timelineRecord: {
     marginTop: '0.8rem',
     marginLeft: '0.8rem',
 
     '& p': {
-      marginBottom: 0,
+      marginBottom: '0 !important',
     },
   },
   timelineRecordSubtitles: {
@@ -44,7 +44,7 @@ const useStyles = makeStyles({
   timelineRecordTimestamp: {
     maxWidth: 'max-content',
   },
-});
+}));
 
 const toTimestamp = (begin: Date, end: Date | undefined, locale: string, currentString: string): string => {
   const dateFormatter = new Intl.DateTimeFormat(locale, {
@@ -64,7 +64,7 @@ const toTimestamp = (begin: Date, end: Date | undefined, locale: string, current
  */
 const TimelineRecord: React.FC<ITimelineRecordProps> = (props: ITimelineRecordProps) => {
   const { t, i18n } = useTranslation();
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   const timestamp = toTimestamp(props.begin, props.end, i18n.language, t('common:current time'));
 

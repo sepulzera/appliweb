@@ -1,5 +1,5 @@
-import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
+import { cx } from '@emotion/css';
+import { makeStyles } from 'tss-react/mui';
 
 import { IListItemProps } from './ListItem';
 
@@ -17,7 +17,7 @@ interface IListProps {
   children: React.ReactElement<IListItemProps> | Array<React.ReactElement<IListItemProps>>;
 }
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()((theme => ({
   noMarks: {
     paddingLeft: 0,
 
@@ -26,11 +26,11 @@ const useStyles = makeStyles(theme => ({
     },
   },
   withMarks: {
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       paddingLeft: theme.spacing(2),
     },
   },
-}));
+})));
 
 /**
  * Renders a styled list.
@@ -38,11 +38,11 @@ const useStyles = makeStyles(theme => ({
  * @param props - {@link IListProps}.
  */
 const List: React.FC<IListProps> = (props: IListProps) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   return (
     <ul
-        className = {clsx(props.className, {
+        className = {cx(props.className, {
             [classes.noMarks]: props.noMarks ?? false,
             [classes.withMarks]: !props.noMarks,
         })}>

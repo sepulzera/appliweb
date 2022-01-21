@@ -1,8 +1,8 @@
 import { Component } from 'react';
 import { WithTranslation, withTranslation } from 'react-i18next';
 
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
+import { makeStyles } from 'tss-react/mui';
+import Typography from '@mui/material/Typography';
 
 import { AnyComponent } from '../../types/Types';
 
@@ -20,13 +20,13 @@ interface IErrorBoundaryState {
   readonly error: Error | null | undefined;
 }
 
-const useStyles = makeStyles({
+const useStyles = makeStyles()(({
   errorContainer: {
     '&:first-letter': {
       textTransform: 'uppercase',
     },
   },
-});
+}));
 
 interface IErrorBoundaryContainerProps {
   /** The error. */
@@ -34,7 +34,7 @@ interface IErrorBoundaryContainerProps {
 }
 
 const ErrorBoundaryContainer: React.FC<IErrorBoundaryContainerProps> = (props: IErrorBoundaryContainerProps) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   return (
     <div className={classes.errorContainer}>

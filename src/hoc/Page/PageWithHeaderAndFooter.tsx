@@ -1,4 +1,4 @@
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 
 import { AnyComponent } from '../../types/Types';
 
@@ -19,19 +19,23 @@ interface IPageWithHeaderAndFooterProps {
   children: AnyComponent;
 }
 
-const useStyles = makeStyles((theme: Theme) => createStyles({
+const useStyles = makeStyles()((theme => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
     height: '100vh',
     backgroundColor: theme.palette.background.default,
+
+    '& .MuiTypography-body1': {
+      marginBottom: '1.5rem',
+    },
   },
   container: {
     flex: '1 1 1px',
     overflowY: 'auto',
     overflowX: 'hidden',
   },
-}));
+})));
 
 /**
  * Default page layout with a defined header and footer.
@@ -40,7 +44,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
  * @param props - {@link IPageWithHeaderAndFooterProps}
  */
 const PageWithHeaderAndFooter: React.FC<IPageWithHeaderAndFooterProps> = (props: IPageWithHeaderAndFooterProps) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   return (
     <div className={classes.root}>

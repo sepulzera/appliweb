@@ -1,5 +1,5 @@
-import MuiTable from '@material-ui/core/Table';
-import { TableHead, TableRow, TableCell, TableBody } from '@material-ui/core';
+import MuiTable from '@mui/material/Table';
+import { TableHead, TableRow, TableCell, TableBody } from '@mui/material';
 
 /** Column definition for {@link Table}. */
 export type column = {

@@ -1,4 +1,6 @@
-import Typography from '@material-ui/core/Typography';
+import { cx } from '@emotion/css';
+import { makeStyles } from 'tss-react/mui';
+import Typography from '@mui/material/Typography';
 
 import { AnyComponent } from '../../types/Types';
 
@@ -16,18 +18,28 @@ interface IPProps {
   children: AnyComponent;
 }
 
+const useStyles = makeStyles()(({
+  p: {
+    marginBottom: '1.5rem',
+  },
+}));
+
 /**
  * Renders a paragraph.
  *
  * @param props - {@link IPProps}.
  */
-const P: React.FC<IPProps> = (props: IPProps) => (
-  <Typography
-      className={props.className}
-      component={props.component}
-      variant={props.variant || 'body1'}>
-    {props.children}
-  </Typography>
-);
+const P: React.FC<IPProps> = (props: IPProps) => {
+  const { classes } = useStyles();
+
+  return (
+    <Typography
+        className={cx(classes.p, props.className)}
+        component={props.component}
+        variant={props.variant || 'body1'}>
+      {props.children}
+    </Typography>
+  );
+};
 
 export default P;

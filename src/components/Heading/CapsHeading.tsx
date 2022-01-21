@@ -1,5 +1,5 @@
-import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
+import { cx } from '@emotion/css';
+import { makeStyles } from 'tss-react/mui';
 
 import { AnyComponent } from '../../types/Types';
 import H from '../Ui/H';
@@ -12,7 +12,7 @@ export interface ICapsHeadingProps {
   children:   AnyComponent;
 }
 
-const useStyles = makeStyles({
+const useStyles = makeStyles()(({
   capsHeading: {
     fontVariant:   'small-caps',
     fontWeight:    'normal',
@@ -21,7 +21,7 @@ const useStyles = makeStyles({
       fontSize:    '1.6rem',
     },
   },
-});
+}));
 
 /**
  * Renders a heading (h1 .. h6).
@@ -29,11 +29,11 @@ const useStyles = makeStyles({
  * @param props - {@link ICapsHeadingProps}.
  */
 const CapsHeading: React.FC<ICapsHeadingProps> = (props: ICapsHeadingProps) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   return (
     <H
-        className = {clsx(classes.capsHeading, props.className)}
+        className = {cx(classes.capsHeading, props.className)}
         variant   = 'h3'>
       {props.children}
     </H>

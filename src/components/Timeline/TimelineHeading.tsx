@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 
 import { AnyComponent } from '../../types/Types';
 import CapsHeading from '../Heading/CapsHeading';
@@ -9,7 +9,7 @@ export interface ITimelineHeadingProps {
   children:   AnyComponent;
 }
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()((theme => ({
   timelineHeading: {
     paddingTop: '0.5rem',
     paddingLeft: '1.5rem',
@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
 
     marginBottom: '0.5rem',
   },
-}));
+})));
 
 /**
  * Heading for a {@link Timeline}.
@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
  * @param props - {@link ITimelineHeadingProps}.
  */
 const TimelineHeading: React.FC<ITimelineHeadingProps> = (props: ITimelineHeadingProps) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   return (
     <CapsHeading className={classes.timelineHeading}>

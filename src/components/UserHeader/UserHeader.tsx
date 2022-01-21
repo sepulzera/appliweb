@@ -1,4 +1,4 @@
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 
 import EducationRecord  from '../../context/EducationContext/EducationRecord';
 import JobRequestRecord from '../../context/JobRequestContext/JobRequestRecord';
@@ -24,7 +24,7 @@ interface IUserHeaderProps {
   highestEducation: EducationRecord | undefined;
 }
 
-const useStyles = makeStyles((theme: Theme) => createStyles({
+const useStyles = makeStyles()((theme => ({
   header: {
     backgroundImage: `linear-gradient(to right, ${theme.palette.primary.main}, ${theme.palette.primary.light})`,
     '& .MuiAppBar-root': {
@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
       marginLeft: 'auto',
       marginRight: 'auto',
     },
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('lg')]: {
       width: 'auto',
       paddingLeft: 0,
       paddingRight: 0,
@@ -69,7 +69,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   },
   settings: {
     position: 'relative',
-    top: `${theme.spacing(2)}px`,
+    top: theme.spacing(2),
     right: '0',
     zIndex: 1,
     height: 'min-content',
@@ -89,8 +89,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     flex: 1,
     height: 'auto',
   },
-
-}));
+})));
 
 /**
  * Fancy UserHeader for the {@link HomePage}.
@@ -98,7 +97,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
  * @param props - {@link IUserHeaderProps}.
  */
 const UserHeader: React.FC<IUserHeaderProps> = (props: IUserHeaderProps) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   return (
     <div className={classes.header}>

@@ -1,5 +1,5 @@
-import { makeStyles } from '@material-ui/core/styles';
-import MuiPaper from '@material-ui/core/Paper';
+import { makeStyles } from 'tss-react/mui';
+import MuiPaper from '@mui/material/Paper';
 
 import { AnyComponent } from '../../types/Types';
 
@@ -11,7 +11,7 @@ interface IPaperProps {
   children: AnyComponent;
 }
 
-const useStyles = makeStyles({
+const useStyles = makeStyles()(({
   paper: {
     borderTopLeftRadius: 0,
     borderTopRightRadius: 0,
@@ -22,7 +22,7 @@ const useStyles = makeStyles({
       marginTop: 0,
     },
   },
-});
+}));
 
 /**
  * Renders a digital paper to place content on.
@@ -32,7 +32,7 @@ const useStyles = makeStyles({
  * @param props - {@link IPaperProps}.
  */
 const Paper: React.FC<IPaperProps> = (props: IPaperProps) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
   return (
     <MuiPaper className={classes.paper}>
       {props.children}

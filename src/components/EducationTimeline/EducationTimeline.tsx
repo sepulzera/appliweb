@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 import { useTranslation } from 'react-i18next';
 
 import DescriptionContext from '../../context/DescriptionContext/DescriptionContext';
@@ -20,13 +20,13 @@ interface IEducationTimelineProps {
   educations: Array<EducationRecord>;
 }
 
-const useStyles = makeStyles({
+const useStyles = makeStyles()(() => ({
   educationTimelineFinalGrade: {
     '&:first-letter': {
       textTransform: 'uppercase',
     },
   },
-});
+}));
 
 function sortCareerByTimeDesc(a: EducationRecord, b: EducationRecord): number {
   const aEnd = a.end;
@@ -67,7 +67,7 @@ function sortCareerByTimeDesc(a: EducationRecord, b: EducationRecord): number {
  */
 const EducationTimeline: React.FC<IEducationTimelineProps> = (props: IEducationTimelineProps) => {
   const { t, i18n } = useTranslation();
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   const descriptionContext = useContext(DescriptionContext);
   if (descriptionContext == null) throw new Error('Context uninitialized');

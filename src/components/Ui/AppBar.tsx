@@ -1,6 +1,6 @@
-import { makeStyles } from '@material-ui/core/styles';
-import MuiAppBar from '@material-ui/core/AppBar';
-import { Toolbar, Container } from '@material-ui/core';
+import { makeStyles } from 'tss-react/mui';
+import MuiAppBar from '@mui/material/AppBar';
+import { Toolbar, Container } from '@mui/material';
 
 /**
  * {@link AppBar} Props.
@@ -10,25 +10,25 @@ interface IAppBarProps {
   children: React.ReactElement[];
 }
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()((theme => ({
   toolbar: {
     marginLeft:  'auto',
     marginRight: 'auto',
   },
   container: {
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('lg')]: {
       width: '100vw',
     },
     [theme.breakpoints.up('md')]: {
-      width: `calc(80rem - ${theme.spacing(4)}px)`,
-      maxWidth: `calc(100vw - ${theme.spacing(8)}px)`,
+      width: `calc(80rem - ${theme.spacing(4)})`,
+      maxWidth: `calc(100vw - ${theme.spacing(8)})`,
     },
     display: 'flex',
     flexDirection: 'row',
     paddingLeft: theme.spacing(3),
     paddingRight: theme.spacing(3),
   },
-}));
+})));
 
 /**
  * Displays information relating to the current site.
@@ -36,7 +36,7 @@ const useStyles = makeStyles(theme => ({
  * @param props - {@link IAppBarProps}.
  */
 const AppBar: React.FC<IAppBarProps> = (props: IAppBarProps) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   return (
     <MuiAppBar

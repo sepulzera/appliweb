@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { AccountBalance, Face, Home, Info } from '@material-ui/icons';
+import { AccountBalance, Face, Home, Info } from '@mui/icons-material';
 
 import { AnyComponent } from '../types/Types';
 

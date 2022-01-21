@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 
 import AppBar from '../Ui/AppBar';
 import H from '../Ui/H';
@@ -12,14 +12,14 @@ interface IHeaderProps {
   title: string;
 }
 
-const useStyles = makeStyles({
+const useStyles = makeStyles()(({
   title: {
     flex: 1,
     maxWidth: '100vw',
     overflow: 'hidden',
     textOverflow: 'ellipsis',
   },
-});
+}));
 
 /**
  * Default header for this app, used by all sub-pages.
@@ -27,7 +27,7 @@ const useStyles = makeStyles({
  * @param props - {@link IHeaderProps}.
  */
 const Header: React.FC<IHeaderProps> = props => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   return (
     <AppBar>

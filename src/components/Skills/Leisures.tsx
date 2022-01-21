@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 
 import LeisureRecord from '../../context/LeisureContext/LeisureRecord';
 import CapsHeading from '../Heading/CapsHeading';
@@ -17,7 +17,7 @@ interface ILeisuresProps {
   leisures: Array<LeisureRecord>;
 }
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()((theme => ({
   listButton: {
     textAlign: 'left',
     justifyContent: 'left',
@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
   skillsList: {
     marginRight: theme.spacing(1),
   },
-}));
+})));
 
 /**
  * Leisures.
@@ -33,7 +33,7 @@ const useStyles = makeStyles(theme => ({
  * @param props - {@link ILeisuresProps}.
  */
 const Leisures: React.FC<ILeisuresProps> = (props: ILeisuresProps) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { t } = useTranslation();
 
   const leisureList = props.leisures.map(leisure => (

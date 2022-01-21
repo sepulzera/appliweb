@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 
 import ListItem from '../Ui/ListItem';
 import SkillRecord from '../../context/SkillContext/SkillRecord';
@@ -17,7 +17,7 @@ interface IFeatureSkillsProps {
   skills: Array<SkillRecord>;
 }
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()((theme => ({
   featureSkills: {
     borderTopLeftRadius: 0,
     borderTopRightRadius: 0,
@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme => ({
   skillItem: {
     margin: 0,
   },
-}));
+})));
 
 /**
  * Skills.
@@ -47,7 +47,7 @@ const useStyles = makeStyles(theme => ({
  */
 const FeatureSkills: React.FC<IFeatureSkillsProps> = (props: IFeatureSkillsProps) => {
   const { t } = useTranslation();
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   const skillList = props.skills.map(skill => (
     <ListItem key={`skills-${skill.id}`}>

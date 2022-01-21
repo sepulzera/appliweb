@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 
 import JobRequestRecord from '../../context/JobRequestContext/JobRequestRecord';
 
@@ -16,11 +16,11 @@ interface IJobRequestProps {
   asRow:      boolean;
 }
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()((theme => ({
   jobRequestList: {
     color: theme.palette.secondary.contrastText,
 
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       backgroundColor: 'transparent',
       marginTop:    'auto',
       marginBottom: 'auto',
@@ -34,7 +34,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
   jobRequestTitle: {
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       color: theme.palette.secondary.main,
       marginTop: 0,
     },
@@ -42,7 +42,7 @@ const useStyles = makeStyles(theme => ({
       fontSize: '1rem',
     },
   },
-}));
+})));
 
 /**
  * Jobrequest displayed in the {@link UserHeader}.
@@ -51,7 +51,7 @@ const useStyles = makeStyles(theme => ({
  */
 const JobRequest: React.FC<IJobRequestProps> = (props: IJobRequestProps) => {
   const { t } = useTranslation();
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   const salaryToString = (salary: number): string => `> ${salary.toString()}`;
 

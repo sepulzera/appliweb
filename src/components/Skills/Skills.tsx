@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 
 import CapsHeading from '../Heading/CapsHeading';
 import List from '../Ui/List';
@@ -20,9 +20,9 @@ interface ISkillsProps {
   skills: Array<SkillRecord>;
 }
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()((theme => ({
   skills: {
-    '& >h3:first-child': {
+    '& >h3:first-of-type': {
       marginTop: 0,
     },
   },
@@ -31,18 +31,16 @@ const useStyles = makeStyles(theme => ({
   },
   skillItem: {
     marginBottom:  theme.spacing(1.5),
-    '& span:first-letter': {
+    '& a.MuiButton-text:first-letter': {
       textTransform: 'uppercase',
     },
   },
   skillButton: {
     fontWeight: 'normal',
     textAlign: 'left',
-    '& > .MuiButton-label': {
-      display: 'block',
-    },
-  },
-}));
+    display: 'block',
+   },
+})));
 
 /**
  * Skills.
@@ -50,7 +48,7 @@ const useStyles = makeStyles(theme => ({
  * @param props - {@link ISkillsProps}.
  */
 const Skills: React.FC<ISkillsProps> = (props: ISkillsProps) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { t } = useTranslation();
 
   const featuredSkills = Helper.getUnique(props.skills.filter(skill => skill.featured), 'id');

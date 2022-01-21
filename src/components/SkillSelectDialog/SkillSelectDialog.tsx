@@ -2,8 +2,8 @@ import { Fragment, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom';
 
-import { makeStyles } from '@material-ui/core/styles';
-import { List, ListItem, ListItemText } from '@material-ui/core';
+import { makeStyles } from 'tss-react/mui';
+import { List, ListItem, ListItemText } from '@mui/material';
 
 import CareerContext from '../../context/CareerContext/CareerContext';
 import EducationContext from '../../context/EducationContext/EducationContext';
@@ -24,7 +24,7 @@ export interface ISKillSelectDialogProps {
   skillMappings: Array<SkillMappingRecord>;
 }
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()((theme => ({
   categoryHeading: {
     marginTop:    theme.spacing(2),
     marginBottom: 0,
@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme => ({
 
     textTransform: 'capitalize',
   },
-}));
+})));
 
 /**
  * Dialog for the given skill to select a feature page from a list.
@@ -40,7 +40,7 @@ const useStyles = makeStyles(theme => ({
  * @param props - {@link ISKillSelectDialogProps}.
  */
 const SKillSelectDialog: React.FC<ISKillSelectDialogProps> = (props: ISKillSelectDialogProps) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { t }   = useTranslation();
   const navigate = useNavigate();
 

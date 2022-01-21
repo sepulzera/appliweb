@@ -1,4 +1,4 @@
-import MuiLinearProgress from '@material-ui/core/LinearProgress';
+import MuiLinearProgress from '@mui/material/LinearProgress';
 
 /**
  * {@link Progress} Props.

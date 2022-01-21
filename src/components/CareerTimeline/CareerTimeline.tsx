@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 import { useTranslation } from 'react-i18next';
 
 import DescriptionContext from '../../context/DescriptionContext/DescriptionContext';
@@ -19,11 +19,11 @@ interface ICareerTimelineProps {
   careers: Array<CareerRecord>;
 }
 
-const useStyles = makeStyles({
+const useStyles = makeStyles()(() => ({
   careerTimeline: {
     marginTop: '-0.6rem !important',
   },
-});
+}));
 
 /**
  * Career Timeline.
@@ -32,7 +32,7 @@ const useStyles = makeStyles({
  */
 const CareerTimeline: React.FC<ICareerTimelineProps> = (props: ICareerTimelineProps) => {
   const { t, i18n } = useTranslation('career');
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   const descriptionContext = useContext(DescriptionContext);
   if (descriptionContext == null) throw new Error('Context uninitialized');

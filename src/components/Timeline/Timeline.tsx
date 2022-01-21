@@ -1,5 +1,5 @@
-import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
+import { cx } from '@emotion/css';
+import { makeStyles } from 'tss-react/mui';
 
 // import { AnyComponent } from '../../types/Types';
 
@@ -11,25 +11,25 @@ export interface ITimelineProps {
   children:   any;
 }
 
-const useStyles = makeStyles({
+const useStyles = makeStyles()(({
   timeline: {
     marginTop: '2.4rem',
-    '& >h3:first-child': {
+    '& >h3:first-of-type': {
       marginTop: 0,
     },
   },
-});
+}));
 
 /**
- * Renders a heading (h1 .. h6).
+ * Timeline.
  *
  * @param props - {@link ITimelineProps}.
  */
 const Timeline: React.FC<ITimelineProps> = (props: ITimelineProps) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   return (
-    <div className={clsx(classes.timeline, props.className)}>
+    <div className={cx(classes.timeline, props.className)}>
       {props.children}
     </div>
   );

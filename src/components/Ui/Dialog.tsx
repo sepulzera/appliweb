@@ -1,13 +1,13 @@
-import MuiDialog from '@material-ui/core/Dialog';
-import MuiDialogTitle from '@material-ui/core/DialogTitle';
-import { makeStyles } from '@material-ui/core/styles';
-import CloseIcon from '@material-ui/icons/Close';
+import MuiDialog from '@mui/material/Dialog';
+import MuiDialogContent from '@mui/material/DialogContent';
+import MuiDialogTitle from '@mui/material/DialogTitle';
+import CloseIcon from '@mui/icons-material/Close';
+import { ArrowBackOutlined } from '@mui/icons-material';
+import { makeStyles } from 'tss-react/mui';
 
 import { AnyComponent } from '../../types/Types';
 import H from './H';
 import IconButton from './IconButton';
-import { DialogContent } from '@material-ui/core';
-import { ArrowBackOutlined } from '@material-ui/icons';
 
 /** {@link Dialog} Props. */
 export interface IDialogProps {
@@ -33,11 +33,15 @@ interface IDialogTitleProps {
   children:   AnyComponent;
 }
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()((theme => ({
   dialog: {
     display: 'flex',
     padding: 0,
     margin:  0,
+
+    '& .MuiTypography-body1': {
+      marginBottom: '1.5rem',
+    },
   },
   dialogTitle: {
     flex: 1,
@@ -50,21 +54,21 @@ const useStyles = makeStyles(theme => ({
     borderRadius:  0,
     color: theme.palette.primary.contrastText,
   },
-}));
+})));
 
 const DialogTitle: React.FC<IDialogTitleProps> = (props: IDialogTitleProps) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   const { children, onBack, onClose } = props;
 
   return (
-    <MuiDialogTitle disableTypography className={classes.dialog}>
+    <MuiDialogTitle className={classes.dialog}>
       {onBack && (
         <IconButton aria-label='back' className={classes.dialogButton} onClick={onBack}>
           <ArrowBackOutlined />
         </IconButton>
       )}
-      <H variant='h6' className={classes.dialogTitle}>{children}</H>
+      <H variant='h6' component='span' className={classes.dialogTitle}>{children}</H>
       {onClose && (
         <IconButton aria-label='close' className={classes.dialogButton} onClick={onClose}>
           <CloseIcon />
@@ -82,9 +86,9 @@ const DialogTitle: React.FC<IDialogTitleProps> = (props: IDialogTitleProps) => {
 const Dialog: React.FC<IDialogProps> = (props: IDialogProps) => (
   <MuiDialog maxWidth='lg' open={props.isOpen} onClose={props.onClose}>
     <DialogTitle onBack={props.onBack} onClose={props.onClose}>{props.title}</DialogTitle>
-    <DialogContent>
+    <MuiDialogContent>
       {props.children}
-    </DialogContent>
+    </MuiDialogContent>
   </MuiDialog>
 );
 

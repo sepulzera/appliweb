@@ -1,4 +1,4 @@
-import MuiGrid from '@material-ui/core/Grid';
+import MuiGrid from '@mui/material/Grid';
 
 import { IGridItemProps } from './GridItem';
 
@@ -18,7 +18,7 @@ export interface IGridProps {
  * @param props - {@link IGridProps}.
  */
 const Grid: React.FC<IGridProps> = (props: IGridProps) => (
-  <MuiGrid container spacing={props.spacing ?? 3} className={props.className}>
+  <MuiGrid container spacing={3} className={props.className}>
     {props.children}
   </MuiGrid>
 );

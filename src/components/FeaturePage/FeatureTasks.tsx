@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 
 import DescriptionContext from '../../context/DescriptionContext/DescriptionContext';
 import TaskContext from '../../context/TaskContext/TaskContext';
@@ -20,7 +20,7 @@ interface IFeatureTasksProps {
   tasks: Array<TaskRecord>;
 }
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()((theme => ({
   featureTasks: {
     paddingLeft:  theme.spacing(3),
     paddingRight: theme.spacing(3),
@@ -34,7 +34,7 @@ const useStyles = makeStyles(theme => ({
   taskItem: {
     marginBottom: '1rem',
   },
-}));
+})));
 
 /**
  * Tasks.
@@ -43,7 +43,7 @@ const useStyles = makeStyles(theme => ({
  */
 const FeatureTasks: React.FC<IFeatureTasksProps> = (props: IFeatureTasksProps) => {
   const { t, i18n } = useTranslation();
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   const descriptionContext = useContext(DescriptionContext);
   const taskContext        = useContext(TaskContext);

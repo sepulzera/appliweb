@@ -1,6 +1,5 @@
-import clsx from 'clsx';
-
-import { makeStyles } from '@material-ui/core/styles';
+import { cx } from '@emotion/css';
+import { makeStyles } from 'tss-react/mui';
 
 import AssetsHelper from '../../assets/AssetsHelper';
 
@@ -14,7 +13,7 @@ export interface IImageProps {
   className?: string | undefined;
 }
 
-const useStyles = makeStyles({
+const useStyles = makeStyles()(({
   root: {
     // values from material-ui/avatar
     display:        'flex',
@@ -32,7 +31,7 @@ const useStyles = makeStyles({
     textAlign:  'center',
     textIndent: '10000px',
   },
-});
+}));
 
 /**
  * Renders an image.
@@ -40,12 +39,12 @@ const useStyles = makeStyles({
  * @param props - {@link IImageProps}.
  */
 const Image: React.FC<IImageProps> = (props: IImageProps) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   const img = AssetsHelper.getAsset(props.src);
 
   return (
-    <div className={clsx(classes.root, props.className)}>
+    <div className={cx(classes.root, props.className)}>
       <img alt={img} src={img} className={classes.img} />
     </div>
   );

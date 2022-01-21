@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 
 import EducationContext from '../context/EducationContext/EducationContext';
 import JobRequestContext from '../context/JobRequestContext/JobRequestContext';
@@ -33,11 +33,11 @@ function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()((theme => ({
   skillsSection: {
     display: 'flex',
     flexDirection: 'column',
-    paddingLeft: '0 !important',
+    paddingLeft: `${theme.spacing(1.5)} !important`,
     '& h3': {
       marginLeft: theme.spacing(1),
     },
@@ -50,13 +50,13 @@ const useStyles = makeStyles(theme => ({
       flexGrow: 1,
     },
   },
-}));
+})));
 
 /**
  * Home component rendering the actual content - me!
  */
 const HomePage: React.FC = () => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   const careerContext       = useContext(CareerContext);
   const educationContext    = useContext(EducationContext);

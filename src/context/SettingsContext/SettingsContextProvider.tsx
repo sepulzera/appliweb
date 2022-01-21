@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTranslation } from 'react-i18next';
 
 import { AnyComponent } from '../../types/Types';

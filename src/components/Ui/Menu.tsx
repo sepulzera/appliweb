@@ -1,4 +1,4 @@
-import MuiMenu from '@material-ui/core/Menu';
+import MuiMenu from '@mui/material/Menu';
 
 import { AnyComponent } from '../../types/Types';
 

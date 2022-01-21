@@ -1,8 +1,8 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 
-import { CircularProgress } from '@material-ui/core';
+import { CircularProgress } from '@mui/material';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles()(({
   screenCenter: {
     height:         '100vh',
     display:        'flex',
@@ -11,13 +11,13 @@ const useStyles = makeStyles({
 
     color: '#e47200',
   },
-});
+}));
 
 /**
  * Rendered while the app is starting.
  */
 const Loader: React.FC = () => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   return (
     <div className={classes.screenCenter}>

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 
 import { AnyComponent } from '../../types/Types';
 import H from '../Ui/H';
@@ -15,7 +15,7 @@ export interface ITimelineRecordHeadingProps {
   children:   AnyComponent;
 }
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()((theme => ({
   timelineRecordHeading: {
     display:     'inline-block',
     marginLeft:  '-2.2rem',
@@ -39,7 +39,7 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'start',
     textAlign:      'start',
   },
-}));
+})));
 
 /**
  * Heading for a {@link TimelineRecord}.
@@ -47,7 +47,7 @@ const useStyles = makeStyles(theme => ({
  * @param props - {@link ITimelineRecordHeadingProps}.
  */
 const TimelineRecordHeading: React.FC<ITimelineRecordHeadingProps> = (props: ITimelineRecordHeadingProps) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   return (
     <H variant='h4' className={classes.timelineRecordHeading}>

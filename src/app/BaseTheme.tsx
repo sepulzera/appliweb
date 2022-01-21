@@ -1,6 +1,7 @@
-import { createTheme, ThemeProvider } from '@material-ui/core/styles';
-import { CssBaseline, useMediaQuery } from '@material-ui/core';
-import { TypographyOptions } from '@material-ui/core/styles/createTypography';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import { useMediaQuery } from '@mui/material';
+import { TypographyOptions } from '@mui/material/styles/createTypography';
 
 import { AnyComponent } from '../types/Types';
 import { useMemo } from 'react';
@@ -74,7 +75,6 @@ const BaseTheme: React.FC<IBaseThemeProps> = (props: IBaseThemeProps) => {
       marginBottom: '0.5em',
     },
     body1: {
-      marginBottom: '1.5rem',
       fontSize:     '1rem',
     },
   };
@@ -82,7 +82,7 @@ const BaseTheme: React.FC<IBaseThemeProps> = (props: IBaseThemeProps) => {
   const memoTheme = useMemo(
     () => createTheme({
       palette: {
-        type: themeToString(getTheme(props.theme, prefersDarkMode)),
+        mode: themeToString(getTheme(props.theme, prefersDarkMode)),
         primary: {
           main: '#e47200',
           light: '#f3be88',
@@ -98,91 +98,115 @@ const BaseTheme: React.FC<IBaseThemeProps> = (props: IBaseThemeProps) => {
     [props.theme, prefersDarkMode, baseTypography]
   );
 
-  memoTheme.overrides = {
+  memoTheme.components = {
     MuiBackdrop: {
-      root: {
-        backgroundColor : 'rgba(144, 124, 107, 0.3)',
-        backdropFilter  : 'blur(1px)',
-        '-webkit-backdrop-filter': 'blur(1px)',
+      styleOverrides: {
+        root: {
+          backgroundColor : 'rgba(144, 124, 107, 0.3)',
+          backdropFilter  : 'blur(1px)',
+          WebkitBackdropFilter: 'blur(1px)',
+        },
       },
     },
     MuiBottomNavigation: {
-      root: {
-        width:     '100%',
-        borderTop: '1px solid darkgray',
+      styleOverrides: {
+        root: {
+          width:     '100%',
+          borderTop: '1px solid darkgray',
+        },
       },
     },
     MuiBottomNavigationAction: {
-      root: {
-        padding: `${memoTheme.spacing(0.5)}px ${memoTheme.spacing(1.5)}px ${memoTheme.spacing(0.5)}px`,
-      },
-      label: {
-        lineHeight: 1,
+      styleOverrides: {
+        root: {
+          padding: `${memoTheme.spacing(0.5)} ${memoTheme.spacing(1.5)} ${memoTheme.spacing(0.5)}`,
+        },
+        label: {
+          lineHeight: 1,
+        },
       },
     },
     MuiButton: {
-      root: {
-        color: 'inherit',
-        textTransform: 'unset',
+      styleOverrides: {
+        root: {
+          color: 'inherit',
+          textTransform: 'unset',
+        },
       },
     },
     MuiIconButton: {
-      root: {
-        borderRadius: memoTheme.spacing(0.5),
-        '& .MuiTouchRipple-child': {
+      styleOverrides: {
+        root: {
           borderRadius: memoTheme.spacing(0.5),
+          '& .MuiTouchRipple-child': {
+            borderRadius: memoTheme.spacing(0.5),
+          },
         },
       },
     },
     MuiDialog: {
-      root: {
-        overflowY: 'hidden',
-      },
-      paper: {
-        [memoTheme.breakpoints.down('xs')]: {
-          margin: `${memoTheme.spacing(4)}px 0`,
-          overflowX: 'hidden',
+      styleOverrides: {
+        root: {
+          overflowY: 'hidden',
+        },
+        paper: {
+          [memoTheme.breakpoints.down('sm')]: {
+            margin: `${memoTheme.spacing(4)} 0`,
+            overflowX: 'hidden',
+          },
         },
       },
     },
     MuiDialogTitle: {
-      root: {
-        backgroundColor: memoTheme.palette.primary.main,
-        color: memoTheme.palette.primary.contrastText,
-        alignItems: 'center',
-        padding : '0 1rem',
-        '& h6.MuiTypography-root:first-letter': {
-          textTransform: 'uppercase',
+      styleOverrides: {
+        root: {
+          backgroundColor: memoTheme.palette.primary.main,
+          color: memoTheme.palette.primary.contrastText,
+          alignItems: 'center',
+          padding : '0 1rem',
+          '& .MuiTypography-h6.MuiTypography-root:first-letter': {
+            textTransform: 'uppercase',
+          },
         },
       },
     },
     MuiDialogContent: {
-      root: {
-        padding: 0,
-        minWidth: '20rem',
+      styleOverrides: {
+        root: {
+          padding: 0,
+          minWidth: '20rem',
+        },
       },
     },
     MuiDialogActions: {
-      root: {
-        backgroundColor: memoTheme.palette.primary.main,
+      styleOverrides: {
+        root: {
+          backgroundColor: memoTheme.palette.primary.main,
+        },
       },
     },
     MuiMenuItem: {
-      root: {
-        paddingBottom: memoTheme.spacing(1),
-        paddingTop: memoTheme.spacing(1),
-        marginBottom: 0,
+      styleOverrides: {
+        root: {
+          paddingBottom: memoTheme.spacing(1),
+          paddingTop: memoTheme.spacing(1),
+          marginBottom: 0,
+        },
       },
     },
     MuiLinearProgress: {
-      root: {
-        height: memoTheme.spacing(1),
+      styleOverrides: {
+        root: {
+          height: memoTheme.spacing(1),
+        },
       },
     },
     MuiTable: {
-      root: {
-        '& caption': {
-          width: '100%',
+      styleOverrides: {
+        root: {
+          '& caption': {
+            width: '100%',
+          },
         },
       },
     },
