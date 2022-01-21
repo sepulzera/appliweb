@@ -68,10 +68,6 @@ The build is minified and the filenames include the hashes.<br>
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-`npm run doc`
-
-Updates the code documentation.
-
 ## 🐞 Contributing
 
 This is my personal project. I do not accept code as contributions. However, ideas and feedback are much appreciated and can be filed via the project's [issues-tracker](https://github.com/sepulzera/appliweb/issues).

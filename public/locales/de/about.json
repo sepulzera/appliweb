@@ -28,10 +28,6 @@
   "libraries development typescript": "Erweiterung von JavaScript um Typisierung, von Microsoft.",
   "libraries 2": "Es wurden noch ein paar weitere Bibliotheken verwendet. Siehe <1>package.json</1> für eine vollständige Aufführung.",
 
-  "documentation heading": "<0>📝</0> Dokumentation",
-  "documentation 1": "Die <1>Quellcode-Dokumentation</1> ist als HTML-Dokument verfügbar.",
-  "documentation 2": "Die Dokumentation wurde geschrieben in <1>TSDoc</1> und generiert mit <3>React Styleguidist</3>.",
-
   "contributing heading": "<0>🐞</0> Mitwirken",
   "contributing 1": "Das ist mein persönliches Projekt. Ich akzeptiere keine Beisteuerung von Code. Allerdings sind Ideen und konstruktives Feedback stets willkommen und können über die <1>GitHub-Issues</1> eingereicht werden.",
 
