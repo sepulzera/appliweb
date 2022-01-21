@@ -302,7 +302,7 @@
       "id":       4,
       "language": "de",
       "title":    "leisure:software games development open source",
-      "image":    "Leisure-GamesDevelopment.png",
+      "image":    "Leisure-GamesDevelopment.jpg",
       "data": [
         {
           "uid": "leisure-gamesdevelopment-h1",
@@ -336,7 +336,7 @@
       "id":       4,
       "language": "en",
       "title":    "leisure:software games development open source",
-      "image":    "Leisure-GamesDevelopment.png",
+      "image":    "Leisure-GamesDevelopment.jpg",
       "data": [
         {
           "uid": "leisure-gamesdevelopment-h1",
@@ -372,7 +372,7 @@
       "id":       100,
       "language": "de",
       "title":    "education:master graduation",
-      "image":    "Education-Uas-Erfurt.png",
+      "image":    "Education-Uas-Erfurt.jpg",
       "data": [
         {
           "uid": "education-mastergraduation-h1",
@@ -401,7 +401,7 @@
       "id":       100,
       "language": "en",
       "title":    "education:master graduation",
-      "image":    "Education-Uas-Erfurt.png",
+      "image":    "Education-Uas-Erfurt.jpg",
       "data": [
         {
           "uid": "education-bachelorgraduation-h1",
