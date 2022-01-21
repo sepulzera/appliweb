@@ -1,12 +1,13 @@
-import React from 'react';
+import { createContext } from 'react';
+
 import CareerRecord from './CareerRecord';
 
-interface ICareerContextProvider {
+export interface ICareerContext {
   data: Map<number, CareerRecord>;
   getCareer: (id: number) => CareerRecord | undefined;
   getCareersForUser: (userId: number) => Array<CareerRecord>;
 }
 
-const CareerContext = React.createContext<ICareerContextProvider | null>(null);
+const CareerContext = createContext<ICareerContext | null>(null);
 
 export default CareerContext;

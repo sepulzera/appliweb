@@ -1,19 +1,18 @@
-import React from 'react';
-import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 import H from '../components/Ui/H';
 import P from '../components/Ui/P';
-import PageTitleFixer from '../hoc/Page/PageTitleFixer';
+import PageWrapper from '../hoc/Page/PageWrapper';
 import PageWithHeaderAndFooter from '../hoc/Page/PageWithHeaderAndFooter';
 
 /**
  * Component rendering legal information about this website.
  */
-const LegalPage: React.FC<WithTranslation> = () => {
+const LegalPage: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <PageTitleFixer title={t('legal:legal link')}>
+    <PageWrapper title={t('legal:legal link')}>
       <PageWithHeaderAndFooter header={t('legal:legal')}>
         <H variant='h4' component='h2'>Verantwortlich für dieses Angebot gemäß § 5 TMG / § 55 RStV:</H>
         <P component='address'>
@@ -24,8 +23,8 @@ const LegalPage: React.FC<WithTranslation> = () => {
           99096 Erfurt
         </P>
       </PageWithHeaderAndFooter>
-    </PageTitleFixer>
+    </PageWrapper>
   );
 };
 
-export default withTranslation()(LegalPage);
+export default LegalPage;

@@ -1,12 +1,11 @@
-import * as React from 'react';
-
+import { useEffect, useMemo, useState } from 'react';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTranslation } from 'react-i18next';
 
 import { AnyComponent } from '../../types/Types';
 import { LANGUAGE_KEY } from '../../constants/Language';
 
-import SettingsContext from './SettingsContext';
+import SettingsContext, { ISettingsContext } from './SettingsContext';
 
 /** {@link SettingsContextProvider} Props. */
 interface ISettingsContextProviderProps {
@@ -38,10 +37,10 @@ const SettingsContextProvider: React.FC<ISettingsContextProviderProps> = (props:
   const { i18n } = useTranslation();
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)', { noSsr: true });
 
-  const [theme, setTheme] = React.useState<number>(parseTheme(localStorage.getItem(THEME_KEY), prefersDarkMode));
-  const [language, setLanguage] = React.useState<string>(parseLanguage(localStorage.getItem(LANGUAGE_KEY), i18n.language));
+  const [theme, setTheme] = useState<number>(parseTheme(localStorage.getItem(THEME_KEY), prefersDarkMode));
+  const [language, setLanguage] = useState<string>(parseLanguage(localStorage.getItem(LANGUAGE_KEY), i18n.language));
 
-  React.useEffect(() => {
+  useEffect(() => {
     i18n.changeLanguage(language);
   }, [i18n, language]);
 
@@ -55,17 +54,19 @@ const SettingsContextProvider: React.FC<ISettingsContextProviderProps> = (props:
     setTheme(newTheme);
   };
 
+  const value: ISettingsContext = useMemo(() => ({
+    theme:    theme,
+    language: language,
+
+    getTheme: () => theme,
+    setTheme: changeTheme,
+
+    getLanguage: () => language,
+    setLanguage: changeLanguage,
+  }), [theme, language]);
+
   return (
-    <SettingsContext.Provider value={{
-      theme:    theme,
-      language: language,
-
-      getTheme: () => theme,
-      setTheme: changeTheme,
-
-      getLanguage: () => language,
-      setLanguage: changeLanguage,
-    }}>
+    <SettingsContext.Provider value={value}>
       {props.children}
     </SettingsContext.Provider>
    );

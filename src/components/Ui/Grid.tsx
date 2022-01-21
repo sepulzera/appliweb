@@ -1,4 +1,3 @@
-import * as React from 'react';
 import MuiGrid from '@material-ui/core/Grid';
 
 import { IGridItemProps } from './GridItem';

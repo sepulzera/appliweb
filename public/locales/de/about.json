@@ -25,8 +25,6 @@
   "libraries production react-router": "React-Komponenten zum Navigieren zwischen Unterseiten.",
   "libraries development heading": "Für die Entwicklung genutzte Bibliotheken",
   "libraries development eslint": "Statische Codeanalyse für einen konsistenten Codestyle.",
-  "libraries development react-styleguidist": "\"Isolierte React-Komponenten Entwicklungsumgebung mit einem lebendigen Codestyle\". Wird für die Dokumentierung des Quellcodes genutzt, die als HTML-Dokument exportiert werden kann.",
-  "libraries development stylelint": "Statische Codeanalyse für CSS.",
   "libraries development typescript": "Erweiterung von JavaScript um Typisierung, von Microsoft.",
   "libraries 2": "Es wurden noch ein paar weitere Bibliotheken verwendet. Siehe <1>package.json</1> für eine vollständige Aufführung.",
 

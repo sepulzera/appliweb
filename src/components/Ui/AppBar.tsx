@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import MuiAppBar from '@material-ui/core/AppBar';
 import { Toolbar, Container } from '@material-ui/core';

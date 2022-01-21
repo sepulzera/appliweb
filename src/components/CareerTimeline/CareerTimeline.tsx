@@ -1,6 +1,6 @@
-import * as React from 'react';
+import { useContext } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 import DescriptionContext from '../../context/DescriptionContext/DescriptionContext';
 import CareerRecord from '../../context/CareerContext/CareerRecord';
@@ -14,7 +14,7 @@ import Components from '../FeaturePage/ComponentRenderer';
 /**
  * {@link CareerTimeline} Props.
  */
-interface ICareerTimelineProps extends WithTranslation {
+interface ICareerTimelineProps {
   /** Careers to display. */
   careers: Array<CareerRecord>;
 }
@@ -31,10 +31,10 @@ const useStyles = makeStyles({
  * @param props - {@link ICareerTimelineProps}.
  */
 const CareerTimeline: React.FC<ICareerTimelineProps> = (props: ICareerTimelineProps) => {
-  const { t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation('career');
   const classes = useStyles();
 
-  const descriptionContext = React.useContext(DescriptionContext);
+  const descriptionContext = useContext(DescriptionContext);
   if (descriptionContext == null) throw new Error('Context uninitialized');
 
   const careerList: Array<React.ReactElement> = [];
@@ -46,7 +46,7 @@ const CareerTimeline: React.FC<ICareerTimelineProps> = (props: ICareerTimelinePr
     careerList.push(
       <TimelineRecord
           key     = {`timeline-record-career-${nextCareer.title}`}
-          heading = {`${t(`career:${nextCareer.title}`)}`}
+          heading = {t(`career:${nextCareer.title}`)}
           place   = {t(`career:${nextCareer.place}`)}
           begin   = {nextCareer.begin}
           end     = {nextCareer.end}
@@ -66,4 +66,4 @@ const CareerTimeline: React.FC<ICareerTimelineProps> = (props: ICareerTimelinePr
   );
 };
 
-export default withTranslation()(CareerTimeline);
+export default CareerTimeline;

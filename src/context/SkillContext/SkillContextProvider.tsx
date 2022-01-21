@@ -1,8 +1,8 @@
-import * as React from 'react';
+import { useMemo, useState } from 'react';
 
 import { AnyComponent } from '../../types/Types';
 
-import SkillContext from './SkillContext';
+import SkillContext, { ISkillContext } from './SkillContext';
 import SkillRecord from './SkillRecord';
 import SkillData from './SkillData.json';
 
@@ -34,18 +34,20 @@ function getSkillMap() {
  * @param props - {@link ISkillContextProviderProps}.
  */
 const SkillContextProvider: React.FC<ISkillContextProviderProps> = (props: ISkillContextProviderProps) => {
-  const [data] = React.useState(getSkillMap());
+  const [data] = useState(getSkillMap());
 
   const getSkill = (id: number): SkillRecord | undefined => {
     const skill: SkillRecord | undefined = data.get(id);
     return skill;
   };
 
+  const value: ISkillContext = useMemo(() => ({
+    data: data,
+    getSkill: getSkill,
+  }), [data]);
+
   return (
-    <SkillContext.Provider value={{
-      data: data,
-      getSkill: getSkill,
-    }}>
+    <SkillContext.Provider value={value}>
       {props.children}
     </SkillContext.Provider>
    );

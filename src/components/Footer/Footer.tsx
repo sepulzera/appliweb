@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { Link, useLocation } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { BottomNavigation, BottomNavigationAction } from '@material-ui/core';
@@ -15,7 +14,7 @@ const useStyles = makeStyles({
 /**
  * Default navigation footer for this app.
  */
-const Footer: React.FC<WithTranslation> = () => {
+const Footer: React.FC = () => {
   const classes = useStyles();
   const { t } = useTranslation();
   const activeRoute = useLocation();
@@ -43,4 +42,4 @@ const Footer: React.FC<WithTranslation> = () => {
   );
 };
 
-export default withTranslation()(Footer);
+export default Footer;

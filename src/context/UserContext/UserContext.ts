@@ -1,11 +1,11 @@
-import React from 'react';
+import { createContext } from 'react';
 import UserRecord from './UserRecord';
 
-interface IUserContextProvider {
+export interface IUserContext {
   data: Map<number, UserRecord>;
   getUser: (id: number) => UserRecord | undefined;
 }
 
-const UserContext = React.createContext<IUserContextProvider | null>(null);
+const UserContext = createContext<IUserContext | null>(null);
 
 export default UserContext;

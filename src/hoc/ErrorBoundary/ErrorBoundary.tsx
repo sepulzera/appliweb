@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { Component } from 'react';
 import { WithTranslation, withTranslation } from 'react-i18next';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -57,7 +57,7 @@ const ErrorBoundaryContainer: React.FC<IErrorBoundaryContainerProps> = (props: I
  *
  * See also: {@link https://reactjs.org/docs/error-boundaries.html}
  */
-class ErrorBoundary extends React.Component<IErrorBoundaryProps, IErrorBoundaryState> {
+class ErrorBoundary extends Component<IErrorBoundaryProps, IErrorBoundaryState> {
   constructor(props: IErrorBoundaryProps) {
     super(props);
     this.state = {

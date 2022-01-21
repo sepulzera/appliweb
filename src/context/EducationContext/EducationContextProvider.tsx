@@ -1,8 +1,8 @@
-import * as React from 'react';
+import { useMemo, useState } from 'react';
 
 import { AnyComponent } from '../../types/Types';
 
-import EducationContext from './EducationContext';
+import EducationContext, { IEducationContext } from './EducationContext';
 import EducationRecord from './EducationRecord';
 import EducationData from './EducationData.json';
 
@@ -67,7 +67,7 @@ function sortByTimeDesc(a: EducationRecord, b: EducationRecord): number {
  * @param props - {@link IEducationContextProviderProps}.
  */
 const EducationContextProvider: React.FC<IEducationContextProviderProps> = (props: IEducationContextProviderProps) => {
-  const [data] = React.useState(getEducationMap());
+  const [data] = useState(getEducationMap());
 
   const getEducation = (id: number): EducationRecord | undefined => {
     const education: EducationRecord | undefined = data.get(id);
@@ -89,12 +89,14 @@ const EducationContextProvider: React.FC<IEducationContextProviderProps> = (prop
     return arr.sort(sortByTimeDesc);
   };
 
+  const value: IEducationContext = useMemo(() => ({
+    data: data,
+    getEducation: getEducation,
+    getEducationsForUser: getEducationsForUser,
+  }), [data]);
+
   return (
-    <EducationContext.Provider value={{
-      data: data,
-      getEducation: getEducation,
-      getEducationsForUser: getEducationsForUser,
-    }}>
+    <EducationContext.Provider value={value}>
       {props.children}
     </EducationContext.Provider>
    );

@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/accessible-emoji, react/jsx-one-expression-per-line, react/no-unescaped-entities */
-import React from 'react';
-import { useTranslation, withTranslation, WithTranslation, Trans } from 'react-i18next';
+import { useTranslation, Trans } from 'react-i18next';
 
 import PageWithHeaderAndFooter from '../hoc/Page/PageWithHeaderAndFooter';
 import H from '../components/Ui/H';
@@ -9,12 +8,12 @@ import Link from '../components/Ui/Link';
 import Emoji from '../components/Ui/Emoji';
 import Table, { column } from '../components/Ui/Table';
 import EmojiWord from '../components/Ui/EmojiWord';
-import PageTitleFixer from '../hoc/Page/PageTitleFixer';
+import PageWrapper from '../hoc/Page/PageWrapper';
 
 /**
  * Component rendering some kind of beautiful readme about this app.
  */
-const AboutPage: React.FC<WithTranslation> = () => {
+const AboutPage: React.FC = () => {
   const { t } = useTranslation();
 
   const libraryTableColumns: Array<column> = [
@@ -59,16 +58,6 @@ const AboutPage: React.FC<WithTranslation> = () => {
       usecase: t('about:libraries development eslint'),
     },
     {
-      id:     'react-styleguidist',
-      library: <Link href='https://react-styleguidist.js.org/' target='_blank'>React Styleguidist</Link>,
-      usecase: t('about:libraries development react-styleguidist'),
-    },
-    {
-      id:     'stylelint',
-      library: <Link href='https://github.com/stylelint/' target='_blank'>Stylelint</Link>,
-      usecase: t('about:libraries development stylelint'),
-    },
-    {
       id:     'typescript',
       library: <Link href='https://github.com/microsoft/TypeScript' target='_blank'>TypeScript</Link>,
       usecase: t('about:libraries development typescript'),
@@ -76,7 +65,7 @@ const AboutPage: React.FC<WithTranslation> = () => {
   ];
 
   return (
-    <PageTitleFixer title={t('about:about link')}>
+    <PageWrapper title={t('about:about link')}>
       <PageWithHeaderAndFooter header={t('about:about')}>
         <H variant='h2'>{t('about:intro heading')}</H>
         <P><Trans i18nKey='about:intro 1'>Hey! <Emoji>👋</Emoji></Trans></P>
@@ -102,10 +91,6 @@ const AboutPage: React.FC<WithTranslation> = () => {
             data    = {developmentLibraries} />
         <P><Trans i18nKey='about:libraries 2'>There are some more. Check out the <Link href='https://github.com/sepulzera/appliweb/blob/master/package.json' target='_blank'>package.json</Link> for a full overview.</Trans></P>
 
-        <H variant='h2'><Trans i18nKey='about:documentation heading'><Emoji>📝</Emoji> Documentation</Trans></H>
-        <P><Trans i18nKey='about:documentation 1'>The <Link href={`${process.env.PUBLIC_URL}/doc/index.html`}>code documentation</Link> is available as offline HTML documentation.</Trans></P>
-        <P><Trans i18nKey='about:documentation 2'>The documentation is based on <Link href='https://github.com/microsoft/tsdoc' target='_blank'>TSDoc</Link>, generated with <Link href='https://react-styleguidist.js.org/' target='_blank'>React Styleguidist</Link>.</Trans></P>
-
         <H variant='h2'><Trans i18nKey='about:contributing heading'><Emoji>🐞</Emoji> Contributing</Trans></H>
         <P><Trans i18nKey='about:contributing 1'>This is my personal project. I do not accept code as contributions. However, ideas and feedback are much appreciated and can be filed via the project's <Link href='https://github.com/sepulzera/appliweb/issues' target='_blank'>issues-tracker</Link>.</Trans></P>
 
@@ -113,8 +98,8 @@ const AboutPage: React.FC<WithTranslation> = () => {
         <P><Trans i18nKey='about:author 1'><Link href='https://github.com/sepulzera/' target='_blank'>Frank Hartung</Link>.</Trans></P>
         <P><Trans i18nKey='about:author 2'>MIT License, see <Link href='https://github.com/sepulzera/appliweb/blob/master/LICENSE' target='_blank'>License</Link> for further information.</Trans></P>
       </PageWithHeaderAndFooter>
-    </PageTitleFixer>
+    </PageWrapper>
   );
 };
 
-export default withTranslation()(AboutPage);
+export default AboutPage;

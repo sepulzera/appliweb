@@ -1,6 +1,6 @@
-import * as React from 'react';
-import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
-import { useHistory } from 'react-router-dom';
+import { useContext } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
 import FeatureContext from '../../context/FeatureContext/FeatureContext';
 import SkillContext from '../../context/SkillContext/SkillContext';
@@ -28,30 +28,29 @@ export interface IExperiencePageProps {
   /** Is dialog open? */
   isOpen: boolean;
 }
-type IProps = IExperiencePageProps & WithTranslation;
 
 /**
  * Renders a experience page.
  *
  * @param props - {@link IExperiencePageProps}.
  */
-const ExperiencePage: React.FC<IProps> = (props: IProps) => {
+const ExperiencePage: React.FC<IExperiencePageProps> = (props: IExperiencePageProps) => {
   const { t, i18n } = useTranslation();
-  const history     = useHistory();
+  const navigate     = useNavigate();
 
-  const featureContext      = React.useContext(FeatureContext);
-  const skillContext        = React.useContext(SkillContext);
-  const skillMappingContext = React.useContext(SkillMappingContext);
-  const taskContext         = React.useContext(TaskContext);
+  const featureContext      = useContext(FeatureContext);
+  const skillContext        = useContext(SkillContext);
+  const skillMappingContext = useContext(SkillMappingContext);
+  const taskContext         = useContext(TaskContext);
 
   if (featureContext == null || skillContext == null || skillMappingContext == null || taskContext == null) throw new Error('Context uninitialized');
 
   const handleBack = () => {
-    history.goBack();
+    navigate(-1);
   };
 
   const handleClose = () => {
-    history.push(`${process.env.PUBLIC_URL}/home`);
+    navigate(`${process.env.PUBLIC_URL}/home`);
   };
 
   const { experience, type, isOpen } = props;
@@ -77,4 +76,4 @@ const ExperiencePage: React.FC<IProps> = (props: IProps) => {
   );
 };
 
-export default withTranslation()(ExperiencePage);
+export default ExperiencePage;

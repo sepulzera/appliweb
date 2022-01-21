@@ -1,6 +1,4 @@
 /* eslint-disable react/jsx-indent */
-import * as React from 'react';
-
 import { AnyComponent } from '../types/Types';
 
 import CareerContextProvider       from '../context/CareerContext/CareerContextProvider';

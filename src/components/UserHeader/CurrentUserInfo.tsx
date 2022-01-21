@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-one-expression-per-line */
-import * as React from 'react';
-import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
 import EducationRecord from '../../context/EducationContext/EducationRecord';
@@ -13,7 +12,7 @@ import CareerRecord from '../../context/CareerContext/CareerRecord';
 /**
  * {@link CurrentUserInfo} Props.
  */
-interface ICurrentUserInfoProps extends WithTranslation {
+interface ICurrentUserInfoProps {
   /** User to display. */
   user: UserRecord;
   /** Current job to display. */
@@ -109,4 +108,4 @@ const CurrentUserInfo: React.FC<ICurrentUserInfoProps> = (props: ICurrentUserInf
   );
 };
 
-export default withTranslation()(CurrentUserInfo);
+export default CurrentUserInfo;

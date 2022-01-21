@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { makeStyles } from '@material-ui/core/styles';
 
 import { AnyComponent } from '../../types/Types';
@@ -10,7 +9,7 @@ import GridItem from '../Ui/GridItem';
 import TimelineRecordSubtitle from './TimelineRecordSubtitle';
 
 /** {@link TimelineRecord} Props. */
-export interface ITimelineRecordProps extends WithTranslation {
+export interface ITimelineRecordProps {
   /** Heading text. */
   heading:    string;
   /** Place information. */
@@ -81,4 +80,4 @@ const TimelineRecord: React.FC<ITimelineRecordProps> = (props: ITimelineRecordPr
   );
 };
 
-export default withTranslation()(TimelineRecord);
+export default TimelineRecord;

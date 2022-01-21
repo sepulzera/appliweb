@@ -1,4 +1,4 @@
-import React from 'react';
+import { useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -27,7 +27,7 @@ import EducationTimeline from '../components/EducationTimeline/EducationTimeline
 import ExperiencePage from '../components/FeaturePage/ExperiencePage';
 import CareerContext from '../context/CareerContext/CareerContext';
 import CareerTimeline from '../components/CareerTimeline/CareerTimeline';
-import PageTitleFixer from '../hoc/Page/PageTitleFixer';
+import PageWrapper from '../hoc/Page/PageWrapper';
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -37,6 +37,10 @@ const useStyles = makeStyles(theme => ({
   skillsSection: {
     display: 'flex',
     flexDirection: 'column',
+    paddingLeft: '0 !important',
+    '& h3': {
+      marginLeft: theme.spacing(1),
+    },
   },
   stretch: {
     [theme.breakpoints.up('sm')]: {
@@ -51,16 +55,16 @@ const useStyles = makeStyles(theme => ({
 /**
  * Home component rendering the actual content - me!
  */
-const HomePage: React.FC<{}> = () => {
+const HomePage: React.FC = () => {
   const classes = useStyles();
 
-  const careerContext       = React.useContext(CareerContext);
-  const educationContext    = React.useContext(EducationContext);
-  const jobRequestContext   = React.useContext(JobRequestContext);
-  const leisureContext      = React.useContext(LeisureContext);
-  const skillContext        = React.useContext(SkillContext);
-  const skillMappingContext = React.useContext(SkillMappingContext);
-  const userContext         = React.useContext(UserContext);
+  const careerContext       = useContext(CareerContext);
+  const educationContext    = useContext(EducationContext);
+  const jobRequestContext   = useContext(JobRequestContext);
+  const leisureContext      = useContext(LeisureContext);
+  const skillContext        = useContext(SkillContext);
+  const skillMappingContext = useContext(SkillMappingContext);
+  const userContext         = useContext(UserContext);
 
   if (careerContext == null || educationContext == null || jobRequestContext == null || leisureContext == null || skillContext == null || skillMappingContext == null || userContext == null) throw new Error('Context uninitialized');
 
@@ -100,7 +104,7 @@ const HomePage: React.FC<{}> = () => {
   }
 
   return (
-    <PageTitleFixer title=''>
+    <PageWrapper title=''>
       <PageWithHeaderAndFooter
           headerComponent = {(
             <UserHeader
@@ -135,7 +139,7 @@ const HomePage: React.FC<{}> = () => {
             type       = {openDialogType}
             isOpen />
       )}
-    </PageTitleFixer>
+    </PageWrapper>
   );
 };
 

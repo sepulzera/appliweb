@@ -12,6 +12,7 @@ export default class AssetsHelper {
    *
    * @return The asset, probably an image.
    */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   static getAsset(title: string): any {
     return assets(`./${title}`);
   }

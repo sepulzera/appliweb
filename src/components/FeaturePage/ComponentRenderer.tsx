@@ -1,6 +1,6 @@
 // code from https://www.storyblok.com/tp/react-dynamic-component-from-json
 
-import React from 'react';
+import { createElement } from 'react';
 import { AnyDescriptionData, isHeadline, isImage, isList, isListItem, isParagraph, isSpan } from '../../context/DescriptionContext/DescriptionRecord';
 
 import H from '../Ui/H';
@@ -19,7 +19,7 @@ const toComponent = {
 
 const Components = (block: AnyDescriptionData) => {
   if (isSpan(block)) {
-    return <span>{block.text}</span>;
+    return <span key={block.uid}>{block.text}</span>;
   }
 
   const cmp = block.component;
@@ -27,12 +27,12 @@ const Components = (block: AnyDescriptionData) => {
   const Cmpcmp: any = toComponent[cmp];
   if (typeof Cmpcmp !== 'undefined') {
     if (isHeadline(block)) {
-      return React.createElement(Cmpcmp, {
+      return createElement(Cmpcmp, {
         key:     block.uid,
         variant: block.variant,
       }, block.text);
     } else if (isParagraph(block)) {
-      return React.createElement(Cmpcmp, {
+      return createElement(Cmpcmp, {
         key:     block.uid,
       }, block.text);
     } else if (isImage(block)) {
@@ -42,7 +42,7 @@ const Components = (block: AnyDescriptionData) => {
             style={{
               marginBottom: '1.5rem',
             }}>
-          {React.createElement(Cmpcmp, {
+          {createElement(Cmpcmp, {
             src: block.image,
             alt: block.alt,
           })}
@@ -60,16 +60,16 @@ const Components = (block: AnyDescriptionData) => {
         }
       }
 
-      return React.createElement(Cmpcmp, {
+      return createElement(Cmpcmp, {
         key: block.uid,
       }, childrenJsx);
     } else if (isListItem(block)) {
-      return React.createElement(Cmpcmp, {
+      return createElement(Cmpcmp, {
         key:     block.uid,
       }, block.text);
     }
   }
-  return React.createElement(
+  return createElement(
     // eslint-disable-next-line react/jsx-one-expression-per-line
     () => <div>The component {block.component} has not been created yet.</div>,
     { key: block.uid }

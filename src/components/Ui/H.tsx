@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Typography from '@material-ui/core/Typography';
 
 import { AnyComponent } from '../../types/Types';
@@ -8,7 +7,7 @@ export interface IHProps {
   /** Classes used for styling. */
   className?: string | undefined;
   /** Render as different component, e. g. 'div' or 'h3'. */
-  component?: any;
+  component?: any; // eslint-disable-line @typescript-eslint/no-explicit-any
   /** Heading-level to use. */
   variant:    'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   /** Heading text. */

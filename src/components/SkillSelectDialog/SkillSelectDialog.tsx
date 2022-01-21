@@ -1,6 +1,6 @@
-import * as React from 'react';
-import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
-import { Link, useHistory } from 'react-router-dom';
+import { Fragment, useContext } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { makeStyles } from '@material-ui/core/styles';
 import { List, ListItem, ListItemText } from '@material-ui/core';
@@ -24,8 +24,6 @@ export interface ISKillSelectDialogProps {
   skillMappings: Array<SkillMappingRecord>;
 }
 
-type IProps = ISKillSelectDialogProps & WithTranslation;
-
 const useStyles = makeStyles(theme => ({
   categoryHeading: {
     marginTop:    theme.spacing(2),
@@ -41,22 +39,22 @@ const useStyles = makeStyles(theme => ({
  *
  * @param props - {@link ISKillSelectDialogProps}.
  */
-const SKillSelectDialog: React.FC<IProps> = (props: IProps) => {
+const SKillSelectDialog: React.FC<ISKillSelectDialogProps> = (props: ISKillSelectDialogProps) => {
   const classes = useStyles();
   const { t }   = useTranslation();
-  const history = useHistory();
+  const navigate = useNavigate();
 
-  const careerContext    = React.useContext(CareerContext);
-  const educationContext = React.useContext(EducationContext);
-  const leisureContext   = React.useContext(LeisureContext);
+  const careerContext    = useContext(CareerContext);
+  const educationContext = useContext(EducationContext);
+  const leisureContext   = useContext(LeisureContext);
   if (careerContext == null || educationContext == null || leisureContext == null) throw new Error('Context uninitialized');
 
   const handleBack = () => {
-    history.goBack();
+    navigate(-1);
   };
 
   const handleClose = () => {
-    history.push(`${process.env.PUBLIC_URL}/home`);
+    navigate(`${process.env.PUBLIC_URL}/home`);
   };
 
   const { skill, skillMappings } = props;
@@ -78,12 +76,12 @@ const SKillSelectDialog: React.FC<IProps> = (props: IProps) => {
       }
 
       categories.push(
-        <React.Fragment key='careers'>
+        <Fragment key='careers'>
           <H variant='h3' className={classes.categoryHeading}>{t('career:heading')}</H>
           <List>
             {careers}
           </List>
-        </React.Fragment>
+        </Fragment>
       );
     }
 
@@ -101,12 +99,12 @@ const SKillSelectDialog: React.FC<IProps> = (props: IProps) => {
       }
 
       categories.push(
-        <React.Fragment key='educations'>
+        <Fragment key='educations'>
           <H variant='h3' className={classes.categoryHeading}>{t('education:heading')}</H>
           <List>
             {educations}
           </List>
-        </React.Fragment>
+        </Fragment>
       );
     }
 
@@ -124,12 +122,12 @@ const SKillSelectDialog: React.FC<IProps> = (props: IProps) => {
       }
 
       categories.push(
-        <React.Fragment key='leisures'>
+        <Fragment key='leisures'>
           <H variant='h3' className={classes.categoryHeading}>{t('leisure:heading')}</H>
           <List>
             {leisures}
           </List>
-        </React.Fragment>
+        </Fragment>
       );
     }
   }
@@ -148,4 +146,4 @@ const SKillSelectDialog: React.FC<IProps> = (props: IProps) => {
   );
 };
 
-export default withTranslation()(SKillSelectDialog);
+export default SKillSelectDialog;

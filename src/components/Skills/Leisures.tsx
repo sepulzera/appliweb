@@ -1,6 +1,5 @@
-import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -13,7 +12,7 @@ import Button from '../Ui/Button';
 /**
  * {@link Leisures} Props.
  */
-interface ILeisuresProps extends WithTranslation {
+interface ILeisuresProps {
   /** Leisures to display. */
   leisures: Array<LeisureRecord>;
 }
@@ -24,7 +23,6 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'left',
   },
   skillsList: {
-    marginLeft: -theme.spacing(1),
     marginRight: theme.spacing(1),
   },
 }));
@@ -54,4 +52,4 @@ const Leisures: React.FC<ILeisuresProps> = (props: ILeisuresProps) => {
   );
 };
 
-export default withTranslation()(Leisures);
+export default Leisures;

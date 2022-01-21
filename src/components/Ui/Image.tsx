@@ -1,4 +1,3 @@
-import * as React from 'react';
 import clsx from 'clsx';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -47,7 +46,7 @@ const Image: React.FC<IImageProps> = (props: IImageProps) => {
 
   return (
     <div className={clsx(classes.root, props.className)}>
-      <img alt={img.default} src={img.default} className={classes.img} />
+      <img alt={img} src={img} className={classes.img} />
     </div>
   );
 };

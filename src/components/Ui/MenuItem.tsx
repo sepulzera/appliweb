@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import MuiMenuItem from '@material-ui/core/MenuItem';
+import { IconProps } from '@material-ui/core';
 
 import { AnyComponent } from '../../types/Types';
 
@@ -8,7 +8,7 @@ import { AnyComponent } from '../../types/Types';
  * {@link MenuItem} Props.
  */
 interface IMenuItemProps {
-  icon: any;
+  icon: IconProps;
   /** Callback fired on clicking the item. */
   onClick:  () => void;
   /** Item's text. */

@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
+import React, { useContext } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -15,7 +15,7 @@ import Components from './ComponentRenderer';
 /**
  * {@link FeatureTasks} Props.
  */
-interface IFeatureTasksProps extends WithTranslation {
+interface IFeatureTasksProps {
   /** Tasks to display. */
   tasks: Array<TaskRecord>;
 }
@@ -45,13 +45,13 @@ const FeatureTasks: React.FC<IFeatureTasksProps> = (props: IFeatureTasksProps) =
   const { t, i18n } = useTranslation();
   const classes = useStyles();
 
-  const descriptionContext = React.useContext(DescriptionContext);
-  const taskContext        = React.useContext(TaskContext);
+  const descriptionContext = useContext(DescriptionContext);
+  const taskContext        = useContext(TaskContext);
   if (descriptionContext == null || taskContext == null) throw new Error('Context uninitialized');
 
   if (props.tasks.length === 0) return null;
 
-  const taskList = [];
+  const taskList: Array<React.ReactElement> = [];
   for (let index = 0; index < props.tasks.length; ++index) {
     const nextTask = props.tasks[index];
     const feature = descriptionContext.getDescription(nextTask.description, i18n.language);
@@ -74,4 +74,4 @@ const FeatureTasks: React.FC<IFeatureTasksProps> = (props: IFeatureTasksProps) =
   );
 };
 
-export default withTranslation()(FeatureTasks);
+export default FeatureTasks;

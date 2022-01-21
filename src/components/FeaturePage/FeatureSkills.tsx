@@ -1,6 +1,5 @@
-import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -13,7 +12,7 @@ import Helper from '../../helper/Helper';
 /**
  * {@link FeatureSkills} Props.
  */
-interface IFeatureSkillsProps extends WithTranslation {
+interface IFeatureSkillsProps {
   /** Skills to display. */
   skills: Array<SkillRecord>;
 }
@@ -69,4 +68,4 @@ const FeatureSkills: React.FC<IFeatureSkillsProps> = (props: IFeatureSkillsProps
   );
 };
 
-export default withTranslation()(FeatureSkills);
+export default FeatureSkills;

@@ -1,6 +1,6 @@
-import * as React from 'react';
+import { useContext } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 import DescriptionContext from '../../context/DescriptionContext/DescriptionContext';
 import EducationRecord from '../../context/EducationContext/EducationRecord';
@@ -15,7 +15,7 @@ import P from '../Ui/P';
 /**
  * {@link EducationTimeline} Props.
  */
-interface IEducationTimelineProps extends WithTranslation {
+interface IEducationTimelineProps {
   /** Educations to display. */
   educations: Array<EducationRecord>;
 }
@@ -69,7 +69,7 @@ const EducationTimeline: React.FC<IEducationTimelineProps> = (props: IEducationT
   const { t, i18n } = useTranslation();
   const classes = useStyles();
 
-  const descriptionContext = React.useContext(DescriptionContext);
+  const descriptionContext = useContext(DescriptionContext);
   if (descriptionContext == null) throw new Error('Context uninitialized');
 
   const educationsSorted = [...props.educations];
@@ -107,4 +107,4 @@ const EducationTimeline: React.FC<IEducationTimelineProps> = (props: IEducationT
   );
 };
 
-export default withTranslation()(EducationTimeline);
+export default EducationTimeline;

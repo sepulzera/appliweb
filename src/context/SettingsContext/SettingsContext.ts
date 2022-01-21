@@ -1,6 +1,6 @@
-import React from 'react';
+import { createContext } from 'react';
 
-interface ISettingsContextProvider {
+export interface ISettingsContext {
   theme:    number | undefined;
   language: string;
 
@@ -11,6 +11,6 @@ interface ISettingsContextProvider {
   setLanguage: (lang: string) => void;
 }
 
-const SettingsContext = React.createContext<ISettingsContextProvider | null>(null);
+const SettingsContext = createContext<ISettingsContext | null>(null);
 
 export default SettingsContext;

@@ -1,8 +1,8 @@
-import * as React from 'react';
+import { useMemo, useState } from 'react';
 
 import { AnyComponent } from '../../types/Types';
 
-import DescriptionContext, { DescriptionLanguageMap } from './DescriptionContext';
+import DescriptionContext, { DescriptionLanguageMap, IDescriptionContext } from './DescriptionContext';
 import DescriptionRecord from './DescriptionRecord';
 import DescriptionData from './DescriptionData.json';
 
@@ -40,7 +40,7 @@ function getDescriptionMap() {
  * @param props - {@link IDescriptionContextProviderProps}.
  */
 const DescriptionContextProvider: React.FC<IDescriptionContextProviderProps> = (props: IDescriptionContextProviderProps) => {
-  const [data] = React.useState(getDescriptionMap());
+  const [data] = useState(getDescriptionMap());
 
   const getDescription = (id: number, language: string): DescriptionRecord | undefined => {
     const descriptionLanguageMap: DescriptionLanguageMap | undefined = data.get(id);
@@ -53,11 +53,13 @@ const DescriptionContextProvider: React.FC<IDescriptionContextProviderProps> = (
     return descriptionRecord;
   };
 
+  const value: IDescriptionContext = useMemo(() => ({
+    data: data,
+    getDescription: getDescription,
+  }), [data]);
+
   return (
-    <DescriptionContext.Provider value={{
-      data: data,
-      getDescription: getDescription,
-    }}>
+    <DescriptionContext.Provider value={value}>
       {props.children}
     </DescriptionContext.Provider>
    );

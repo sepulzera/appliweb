@@ -1,8 +1,8 @@
-import * as React from 'react';
+import { useMemo, useState } from 'react';
 
 import { AnyComponent } from '../../types/Types';
 
-import TaskContext from './TaskContext';
+import TaskContext, { ITaskContext } from './TaskContext';
 import TaskRecord from './TaskRecord';
 import TaskData from './TaskData.json';
 
@@ -34,7 +34,7 @@ function getTaskMap() {
  * @param props - {@link ITaskContextProviderProps}.
  */
 const TaskContextProvider: React.FC<ITaskContextProviderProps> = (props: ITaskContextProviderProps) => {
-  const [data] = React.useState(getTaskMap());
+  const [data] = useState(getTaskMap());
 
   const getTask = (id: number): TaskRecord | undefined => {
     const education: TaskRecord | undefined = data.get(id);
@@ -56,12 +56,14 @@ const TaskContextProvider: React.FC<ITaskContextProviderProps> = (props: ITaskCo
     return arr;
   };
 
+  const value: ITaskContext = useMemo(() => ({
+    data: data,
+    getTask: getTask,
+    getTasksForCareer: getTasksForCareer,
+  }), [data]);
+
   return (
-    <TaskContext.Provider value={{
-      data: data,
-      getTask: getTask,
-      getTasksForCareer: getTasksForCareer,
-    }}>
+    <TaskContext.Provider value={value}>
       {props.children}
     </TaskContext.Provider>
    );

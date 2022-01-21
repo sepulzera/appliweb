@@ -1,4 +1,3 @@
-import * as React from 'react';
 import MuiMenu from '@material-ui/core/Menu';
 
 import { AnyComponent } from '../../types/Types';
@@ -10,7 +9,7 @@ interface IMenuProps {
   /** Id required for accessibility and stuff. */
   id:       string;
   /** A HTML element, or a function that returns it. It's used to set the position of the menu. */
-  anchorEl: any;
+  anchorEl: any; // eslint-disable-line @typescript-eslint/no-explicit-any
   /** Is the menu open? */
   isOpen:   boolean;
   /** Callback fired on closing the menu. */

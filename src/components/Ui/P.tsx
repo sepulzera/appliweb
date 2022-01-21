@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Typography from '@material-ui/core/Typography';
 
 import { AnyComponent } from '../../types/Types';
@@ -10,7 +9,7 @@ interface IPProps {
   /** Classes used for styling. */
   className?: string | undefined;
   /** Render as different component, e. g. span. */
-  component?: any;
+  component?: any; // eslint-disable-line @typescript-eslint/no-explicit-any
   /** Variant for this paragraph. */
   variant?:   'body1' | 'body2' | 'subtitle1' | 'subtitle2'; // button, caption, overline, srOnly
   /** Paragraph text, probably plain text. */

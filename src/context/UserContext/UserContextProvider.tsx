@@ -1,8 +1,8 @@
-import * as React from 'react';
+import { useMemo, useState } from 'react';
 
 import { AnyComponent } from '../../types/Types';
 
-import UserContext from './UserContext';
+import UserContext, { IUserContext } from './UserContext';
 import UserRecord from './UserRecord';
 import UserData from './UserData.json';
 
@@ -35,18 +35,20 @@ function getUserMap() {
  * @param props - {@link IUserContextProviderProps}.
  */
 const UserContextProvider: React.FC<IUserContextProviderProps> = (props: IUserContextProviderProps) => {
-  const [data] = React.useState(getUserMap());
+  const [data] = useState(getUserMap());
 
   const getUser = (id: number): UserRecord | undefined => {
     const user: UserRecord | undefined = data.get(id);
     return user;
   };
 
+  const value: IUserContext = useMemo(() => ({
+    data: data,
+    getUser: getUser,
+  }), [data]);
+
   return (
-    <UserContext.Provider value={{
-      data: data,
-      getUser: getUser,
-    }}>
+    <UserContext.Provider value={value}>
       {props.children}
     </UserContext.Provider>
    );

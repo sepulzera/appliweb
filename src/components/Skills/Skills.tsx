@@ -1,6 +1,6 @@
-import * as React from 'react';
+import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -15,7 +15,7 @@ import Button from '../Ui/Button';
 /**
  * {@link Skills} Props.
  */
-interface ISkillsProps extends WithTranslation {
+interface ISkillsProps {
   /** Leisures to display. */
   skills: Array<SkillRecord>;
 }
@@ -27,7 +27,6 @@ const useStyles = makeStyles(theme => ({
     },
   },
   skillsList: {
-    marginLeft: -theme.spacing(1),
     marginRight: theme.spacing(1),
   },
   skillItem: {
@@ -76,12 +75,12 @@ const Skills: React.FC<ISkillsProps> = (props: ISkillsProps) => {
   for (index = 0; index < skillCategories.length; ++index) {
     nextCategory = skillCategories[index];
     skillCategoryList.push(
-      <React.Fragment key={`skills-category-${nextCategory}`}>
+      <Fragment key={`skills-category-${nextCategory}`}>
         <CapsHeading>{t(`skill:${nextCategory}`)}</CapsHeading>
         <List noMarks className={classes.skillsList}>
           {getSkillListForCategory(nextCategory)}
         </List>
-      </React.Fragment>
+      </Fragment>
     );
   }
 
@@ -92,4 +91,4 @@ const Skills: React.FC<ISkillsProps> = (props: ISkillsProps) => {
   );
 };
 
-export default withTranslation()(Skills);
+export default Skills;

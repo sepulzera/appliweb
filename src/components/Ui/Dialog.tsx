@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import MuiDialog from '@material-ui/core/Dialog';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import { makeStyles } from '@material-ui/core/styles';

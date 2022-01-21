@@ -1,20 +1,19 @@
-import React from 'react';
-import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 import PageWithHeaderAndFooter from '../hoc/Page/PageWithHeaderAndFooter';
 
 import PrivacyDe from '../components/Privacy/PrivacyDe';
 import PrivacyEn from '../components/Privacy/PrivacyEn';
-import PageTitleFixer from '../hoc/Page/PageTitleFixer';
+import PageWrapper from '../hoc/Page/PageWrapper';
 
 /**
  * Component rendering privacy information.
  */
-const PrivacyPage: React.FC<WithTranslation> = () => {
+const PrivacyPage: React.FC = () => {
   const { t, i18n } = useTranslation();
 
   return (
-    <PageTitleFixer title={t('privacy:privacy link')}>
+    <PageWrapper title={t('privacy:privacy link')}>
       <PageWithHeaderAndFooter header={t('privacy:privacy')}>
         { i18n.isInitialized && i18n.language != null && i18n.language.startsWith('de') && (
           <PrivacyDe />
@@ -23,8 +22,8 @@ const PrivacyPage: React.FC<WithTranslation> = () => {
           <PrivacyEn />
         )}
       </PageWithHeaderAndFooter>
-    </PageTitleFixer>
+    </PageWrapper>
   );
 };
 
-export default withTranslation()(PrivacyPage);
+export default PrivacyPage;

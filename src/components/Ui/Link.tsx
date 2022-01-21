@@ -1,4 +1,3 @@
-import * as React from 'react';
 import MuiLink from '@material-ui/core/Link';
 
 import { AnyComponent } from '../../types/Types';

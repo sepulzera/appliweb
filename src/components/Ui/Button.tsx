@@ -1,4 +1,3 @@
-import * as React from 'react';
 import MuiButton from '@material-ui/core/Button';
 
 import { AnyComponent } from '../../types/Types';
@@ -14,7 +13,7 @@ interface IButtonProps {
   onClick?: () => void;
 
   /** Optionally as Link. */
-  component?: any | undefined;
+  component?: any | undefined; // eslint-disable-line @typescript-eslint/no-explicit-any
   /** Required if component = Link. */
   to?: string | undefined;
 

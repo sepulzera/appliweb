@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -11,7 +10,7 @@ import ListItem from '../Ui/ListItem';
 /**
  * {@link JobRequest} Props.
  */
-interface IJobRequestProps extends WithTranslation {
+interface IJobRequestProps {
   /** Jobrequest to display. */
   jobRequest: JobRequestRecord;
   asRow:      boolean;
@@ -87,4 +86,4 @@ const JobRequest: React.FC<IJobRequestProps> = (props: IJobRequestProps) => {
   );
 };
 
-export default withTranslation()(JobRequest);
+export default JobRequest;

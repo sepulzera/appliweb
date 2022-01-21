@@ -1,1 +1,0 @@
-{"version":3,"sources":["ErrorBoundary.module.scss"],"names":[],"mappings":"AAAA,gCACE,eAAgB,CAChB,iBAAkB,CAClB,oBAAqB","file":"main.c354da57.chunk.css","sourcesContent":[".errorRoot {\n  overflow: 'auto';\n  max-height: '100%';\n  font-size: '0.725rem';\n}\n"]}

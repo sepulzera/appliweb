@@ -1,8 +1,8 @@
-import * as React from 'react';
+import { useMemo, useState } from 'react';
 
 import { AnyComponent } from '../../types/Types';
 
-import SkillMappingContext from './SkillMappingContext';
+import SkillMappingContext, { ISkillMappingContext } from './SkillMappingContext';
 import SkillMappingRecord from './SkillMappingRecord';
 import SkillMappingData from './SkillMappingData.json';
 
@@ -36,7 +36,7 @@ function getSkillMappingMap() {
  * @param props - {@link ISkillMappingContextProviderProps}.
  */
 const SkillMappingContextProvider: React.FC<ISkillMappingContextProviderProps> = (props: ISkillMappingContextProviderProps) => {
-  const [data] = React.useState(getSkillMappingMap());
+  const [data] = useState(getSkillMappingMap());
 
   const getSkillMapping = (id: number): SkillMappingRecord | undefined => {
     const skillMapping: SkillMappingRecord | undefined = data.get(id);
@@ -85,14 +85,16 @@ const SkillMappingContextProvider: React.FC<ISkillMappingContextProviderProps> =
     return skillMappings;
   };
 
+  const value: ISkillMappingContext = useMemo(() => ({
+    data: data,
+    getSkillMapping: getSkillMapping,
+    getSkillMappingsByUser: getSkillMappingsByUser,
+    getSkillMappingsByUserAndType: getSkillMappingsByUserAndType,
+    getSkillMappingsByUserAndSkill: getSkillMappingsByUserAndSkill,
+  }), [data]);
+
   return (
-    <SkillMappingContext.Provider value={{
-      data: data,
-      getSkillMapping: getSkillMapping,
-      getSkillMappingsByUser: getSkillMappingsByUser,
-      getSkillMappingsByUserAndType: getSkillMappingsByUserAndType,
-      getSkillMappingsByUserAndSkill: getSkillMappingsByUserAndSkill,
-    }}>
+    <SkillMappingContext.Provider value={value}>
       {props.children}
     </SkillMappingContext.Provider>
    );

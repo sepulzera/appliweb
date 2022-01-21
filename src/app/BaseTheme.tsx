@@ -1,10 +1,9 @@
-import * as React from 'react';
-
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import { useMediaQuery } from '@material-ui/core';
+import { createTheme, ThemeProvider } from '@material-ui/core/styles';
+import { CssBaseline, useMediaQuery } from '@material-ui/core';
 import { TypographyOptions } from '@material-ui/core/styles/createTypography';
 
 import { AnyComponent } from '../types/Types';
+import { useMemo } from 'react';
 
 /**
  * {@link BaseTheme} Props
@@ -80,8 +79,8 @@ const BaseTheme: React.FC<IBaseThemeProps> = (props: IBaseThemeProps) => {
     },
   };
 
-  const memoTheme = React.useMemo(
-    () => createMuiTheme({
+  const memoTheme = useMemo(
+    () => createTheme({
       palette: {
         type: themeToString(getTheme(props.theme, prefersDarkMode)),
         primary: {
@@ -191,6 +190,7 @@ const BaseTheme: React.FC<IBaseThemeProps> = (props: IBaseThemeProps) => {
 
   return (
     <ThemeProvider theme={memoTheme}>
+      <CssBaseline />
       {props.children}
     </ThemeProvider>
   );

@@ -1,6 +1,6 @@
-import * as React from 'react';
+import { useContext, useState } from 'react';
 import clsx from 'clsx';
-import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { List, ListItem, ListItemText } from '@material-ui/core';
 import { WbSunny, Brightness3, Language } from '@material-ui/icons';
 import MoreIcon from '@material-ui/icons/MoreVert';
@@ -16,7 +16,7 @@ import MenuItem from '../Ui/MenuItem';
 /**
  * {@link Settings} Props.
  */
-interface ISettingsProps extends WithTranslation {
+interface ISettingsProps {
   /** Classes used for styling. */
   className?: string | undefined;
 }
@@ -51,10 +51,10 @@ const Settings: React.FC<ISettingsProps> = (props: ISettingsProps) => {
   const classes = useStyles();
   const { t } = useTranslation();
 
-  const [langDialogIsOpen, setLangDialogIsOpen] = React.useState(false);
+  const [langDialogIsOpen, setLangDialogIsOpen] = useState(false);
 
-  const settingsContext = React.useContext(SettingsContext);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState<null | HTMLElement>(null);
+  const settingsContext = useContext(SettingsContext);
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState<null | HTMLElement>(null);
 
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -161,4 +161,4 @@ const Settings: React.FC<ISettingsProps> = (props: ISettingsProps) => {
   );
 };
 
-export default withTranslation()(Settings);
+export default Settings;
