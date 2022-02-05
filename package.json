@@ -1,6 +1,6 @@
 {
   "name": "appliweb",
-  "version": "0.4.1-dev",
+  "version": "1.0.0",
   "private": true,
   "homepage": ".",
   "scripts": {
