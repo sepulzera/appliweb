@@ -1,22 +1,27 @@
 /* eslint-disable react/jsx-one-expression-per-line */
-import * as React from 'react';
-import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { useTranslation } from 'react-i18next';
+import { makeStyles } from 'tss-react/mui';
 
-import UserRecord from '../../context/UserContext/UserRecord';
+import EducationRecord from '../../context/EducationContext/EducationRecord';
+import UserRecord      from '../../context/UserContext/UserRecord';
 
 import H from '../Ui/H';
 import P from '../Ui/P';
+import CareerRecord from '../../context/CareerContext/CareerRecord';
 
 /**
  * {@link CurrentUserInfo} Props.
  */
-interface ICurrentUserInfoProps extends WithTranslation {
+interface ICurrentUserInfoProps {
   /** User to display. */
   user: UserRecord;
+  /** Current job to display. */
+  job: CareerRecord | undefined;
+  /** Degree to display. */
+  degree: EducationRecord | undefined;
 }
 
-const useStyles = makeStyles((theme: Theme) => createStyles({
+const useStyles = makeStyles()((theme => ({
   large: {
     width: theme.spacing(7),
     height: theme.spacing(7),
@@ -35,7 +40,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 
   userInfo: {
     flex: 1,
-    paddingLeft: `${theme.spacing(3)}px`,
+    paddingLeft: theme.spacing(3),
 
     display: 'flex',
     flexWrap: 'wrap',
@@ -63,7 +68,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     color: theme.palette.primary.contrastText,
     fontWeight: 'bold',
   },
-}));
+})));
 
 /**
  * UserInfo displayed in the {@link UserHeader}.
@@ -71,28 +76,36 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
  * @param props - {@link ICurrentUserInfoProps}.
  */
 const CurrentUserInfo: React.FC<ICurrentUserInfoProps> = (props: ICurrentUserInfoProps) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { t } = useTranslation();
+
+  const { degree, job, user } = props;
 
   return (
     <div className={classes.userInfo}>
       <div className={classes.rightSide}>
-        <H variant='h1' className={classes.name}>{`${props.user.forname} `}<span className={classes.lastname}>{props.user.lastname}</span></H>
-        <P variant='subtitle1' className={classes.jobtitle}>{t(`job:${props.user.jobtitle}`)}</P>
+        <H variant='h1' className={classes.name}>{`${user.forname} `}<span className={classes.lastname}>{user.lastname}</span></H>
+        <P variant='subtitle1' className={classes.jobtitle}>{t(`job:${user.jobtitle}`)}</P>
       </div>
       <div className={classes.leftSide}>
         <div className={classes.rightPadding}>
-          <H variant='h3' className={classes.heading}>{`${t('job:employed at')}:`}</H>
-          {/* TODO Get dynamically from latest ExpStation with category 'job' */}
-          <P variant='body1' className={classes.userInfoText}>IBYKUS AG für Informationstechnologie</P>
+          {job != null && (
+            <>
+              <H variant='h3' className={classes.heading}>{`${t('job:employed at')}:`}</H>
+              <P variant='body1' className={classes.userInfoText}>{t(`career:${job.place}`)}</P>
+            </>
+          )}
 
-          <H variant='h3' className={classes.heading}>{`${t('job:degree')}:`}</H>
-          {/* TODO Get dynamically from latest ExpStation with category 'edu' */}
-          <P variant='body1' className={classes.userInfoText}>Master of Science,<br />Fachhochschule Erfurt</P>
+          {degree != null && (
+            <>
+              <H variant='h3' className={classes.heading}>{`${t('job:degree')}:`}</H>
+              <P variant='body1' className={classes.userInfoText}>{t(`education:${degree.degree}`)},<br />{t(`education:${degree.place}`)}</P>
+            </>
+          )}
         </div>
       </div>
     </div>
   );
 };
 
-export default withTranslation()(CurrentUserInfo);
+export default CurrentUserInfo;

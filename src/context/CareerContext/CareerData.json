@@ -1,0 +1,25 @@
+{
+  "careers": [
+    {
+      "id":         1,
+      "userId":     1,
+      "title":      "dual course of study, bachelor",
+      "feature":    200,
+
+      "place":      "Thales Transportation Systems GmbH, Arnstadt",
+      "begin":      1349049600,
+      "end":        1441065600,
+      "short":      101
+    },
+    {
+      "id":         2,
+      "userId":     1,
+      "title":      "software developer",
+      "feature":    201,
+
+      "place":      "IBYKUS AG für Informationstechnologie, Erfurt",
+      "begin":      1441065600,
+      "short":      201
+    }
+  ]
+}

@@ -1,7 +1,8 @@
-import * as React from 'react';
-import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
+import { Fragment } from 'react';
+import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 
 import CapsHeading from '../Heading/CapsHeading';
 import List from '../Ui/List';
@@ -14,24 +15,32 @@ import Button from '../Ui/Button';
 /**
  * {@link Skills} Props.
  */
-interface ISkillsProps extends WithTranslation {
+interface ISkillsProps {
   /** Leisures to display. */
   skills: Array<SkillRecord>;
-  onSkillClick: (skill: SkillRecord) => void;
 }
 
-const useStyles = makeStyles(theme => ({
-  skillItem: {
-    textTransform: 'capitalize',
-    marginBottom:  theme.spacing(1.5),
-  },
-  skillButton: {
-    textAlign: 'left',
-    '& > .MuiButton-label': {
-      display: 'block',
+const useStyles = makeStyles()((theme => ({
+  skills: {
+    '& >h3:first-of-type': {
+      marginTop: 0,
     },
   },
-}));
+  skillsList: {
+    marginRight: theme.spacing(1),
+  },
+  skillItem: {
+    marginBottom:  theme.spacing(1.5),
+    '& a.MuiButton-text:first-letter': {
+      textTransform: 'uppercase',
+    },
+  },
+  skillButton: {
+    fontWeight: 'normal',
+    textAlign: 'left',
+    display: 'block',
+   },
+})));
 
 /**
  * Skills.
@@ -39,7 +48,7 @@ const useStyles = makeStyles(theme => ({
  * @param props - {@link ISkillsProps}.
  */
 const Skills: React.FC<ISkillsProps> = (props: ISkillsProps) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { t } = useTranslation();
 
   const featuredSkills = Helper.getUnique(props.skills.filter(skill => skill.featured), 'id');
@@ -48,8 +57,8 @@ const Skills: React.FC<ISkillsProps> = (props: ISkillsProps) => {
     featuredSkills
         .filter(skill => skill.category === category)
         .map(skill => (
-          <ListItem key={`skills-${skill.id}`} className={classes.skillItem}>
-            <Button id={`skill-${skill.id}`} fullWidth className={classes.skillButton} onClick={() => props.onSkillClick(skill)}>
+          <ListItem key={`skills-${category}-${skill.id}`} className={classes.skillItem}>
+            <Button fullWidth className={classes.skillButton} component={Link} to={`${process.env.PUBLIC_URL}/home?d=skill&id=${skill.id}`}>
               {t(`skill:${skill.title}`)}
               <Progress value={skill.rating * 10} />
             </Button>
@@ -64,16 +73,20 @@ const Skills: React.FC<ISkillsProps> = (props: ISkillsProps) => {
   for (index = 0; index < skillCategories.length; ++index) {
     nextCategory = skillCategories[index];
     skillCategoryList.push(
-      <React.Fragment key={`skills-category-${nextCategory}`}>
+      <Fragment key={`skills-category-${nextCategory}`}>
         <CapsHeading>{t(`skill:${nextCategory}`)}</CapsHeading>
-        <List noMarks>
+        <List noMarks className={classes.skillsList}>
           {getSkillListForCategory(nextCategory)}
         </List>
-      </React.Fragment>
+      </Fragment>
     );
   }
 
-  return <>{skillCategoryList}</>;
+  return (
+    <div className={classes.skills}>
+      {skillCategoryList}
+    </div>
+  );
 };
 
-export default withTranslation()(Skills);
+export default Skills;

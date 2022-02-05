@@ -1,7 +1,5 @@
-import * as React from 'react';
-
-import MuiTable from '@material-ui/core/Table';
-import { TableHead, TableRow, TableCell, TableBody } from '@material-ui/core';
+import MuiTable from '@mui/material/Table';
+import { TableHead, TableRow, TableCell, TableBody } from '@mui/material';
 
 /** Column definition for {@link Table}. */
 export type column = {
@@ -20,7 +18,7 @@ export interface ITableProps {
   /** Column definition, see {@link column}. */
   columns:    Array<column>;
   /** Data to be displayed. Should include all properties defined by columns or it will throw. */
-  data:       Array<any>;
+  data:       Array<any>; // eslint-disable-line @typescript-eslint/no-explicit-any
 }
 
 /**
@@ -33,7 +31,8 @@ const Table: React.FC<ITableProps> = (props: ITableProps) => {
     col.name
   ));
 
-  const getData = (dat: any, col: string) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const getData = (dat: any, col: string): any => {
     const d = dat[col];
     return d;
   };
@@ -57,7 +56,7 @@ const Table: React.FC<ITableProps> = (props: ITableProps) => {
         </TableRow>
       </TableHead>
       <TableBody>
-        {props.data.map((dat: any) => (
+        {props.data.map((dat: any) => ( // eslint-disable-line @typescript-eslint/no-explicit-any
           <TableRow key={dat.id}>
             {cols.map((col: string) => (
               <TableCell key={col}>{getData(dat, col)}</TableCell>

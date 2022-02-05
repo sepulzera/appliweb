@@ -1,112 +1,145 @@
-import React from 'react';
+import { useContext } from 'react';
+import { useLocation } from 'react-router-dom';
 
-import UserHeader from '../components/UserHeader/UserHeader';
-import PageWithHeaderAndFooter from '../hoc/Page/PageWithHeaderAndFooter';
-import JobRequestRecord from '../context/JobRequestContext/JobRequestRecord';
-import UserRecord from '../context/UserContext/UserRecord';
-import LeisureRecord from '../context/LeisureContext/LeisureRecord';
-import Leisures from '../components/Leisures/Leisures';
-import Grid from '../components/Ui/Grid';
-import GridItem from '../components/Ui/GridItem';
-import SkillMappingRecord from '../context/SkillMappingContext/SkillMappingRecord';
+import { makeStyles } from 'tss-react/mui';
+
+import EducationContext from '../context/EducationContext/EducationContext';
+import JobRequestContext from '../context/JobRequestContext/JobRequestContext';
+import LeisureContext from '../context/LeisureContext/LeisureContext';
+import SkillContext from '../context/SkillContext/SkillContext';
+import SkillMappingContext from '../context/SkillMappingContext/SkillMappingContext';
+import UserContext from '../context/UserContext/UserContext';
+
 import SkillRecord from '../context/SkillContext/SkillRecord';
-import Skills from '../components/Skills/Skills';
-import LeisurePage from '../components/FeaturePage/LeisurePage';
-import SkillSelectDialog from '../components/SkillSelectDialog/SkillSelectDialog';
 import ExperienceRecord from '../context/Experience/ExperienceRecord';
 
-/**
- * {@link HomePage} Props.
- */
-interface IHomePageProps {
-  skills:        Array<SkillRecord>;
-  skillMappings: Array<SkillMappingRecord>;
-  jobRequest:    JobRequestRecord | undefined;
-  leisures:      Array<LeisureRecord>;
-  user:          UserRecord;
+import Grid from '../components/Ui/Grid';
+import GridItem from '../components/Ui/GridItem';
+import Leisures from '../components/Skills/Leisures';
+import Skills from '../components/Skills/Skills';
+import SkillSelectDialog from '../components/SkillSelectDialog/SkillSelectDialog';
+import PageWithHeaderAndFooter from '../hoc/Page/PageWithHeaderAndFooter';
+import UserHeader from '../components/UserHeader/UserHeader';
+
+import ErrorPage from './ErrorPage';
+import Helper from '../helper/Helper';
+import EducationTimeline from '../components/EducationTimeline/EducationTimeline';
+import ExperiencePage from '../components/FeaturePage/ExperiencePage';
+import CareerContext from '../context/CareerContext/CareerContext';
+import CareerTimeline from '../components/CareerTimeline/CareerTimeline';
+import PageWrapper from '../hoc/Page/PageWrapper';
+
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
 }
+
+const useStyles = makeStyles()((theme => ({
+  skillsSection: {
+    display: 'flex',
+    flexDirection: 'column',
+    paddingLeft: `${theme.spacing(1.5)} !important`,
+    '& h3': {
+      marginLeft: theme.spacing(1),
+    },
+  },
+  stretch: {
+    [theme.breakpoints.up('sm')]: {
+      height: '1px',
+      minHeight: '40rem',
+      overflowY: 'auto',
+      flexGrow: 1,
+    },
+  },
+})));
 
 /**
  * Home component rendering the actual content - me!
- *
- * See also: {@link HomeContainer}
  */
-const HomePage: React.FC<IHomePageProps> = (props: IHomePageProps) => {
-  const [selectedSkill, setSelectedSkill] = React.useState<SkillRecord | undefined>(undefined);
-  const [openLeisurePage, setOpenLeisurePage] = React.useState<LeisureRecord | undefined>(undefined);
+const HomePage: React.FC = () => {
+  const { classes } = useStyles();
 
-  const handleSkillClick = (skill: SkillRecord) => {
-    const selectedSkillMappings: Array<SkillMappingRecord> = props.skillMappings.filter(sm => sm.skillId === skill.id);
-    if (selectedSkillMappings.length === 1) {
-      const sm = selectedSkillMappings[0];
-      if (sm.type === 'leisure') {
-        const selLeisure: LeisureRecord | undefined = props.leisures.find(item => item.id === sm.typeId);
-        if (selLeisure != null) {
-          setOpenLeisurePage(selLeisure);
-        }
-      }
-    } else if (selectedSkillMappings.length > 1) {
-      setOpenLeisurePage(undefined);
-      setSelectedSkill(skill);
-    }
-  };
+  const careerContext       = useContext(CareerContext);
+  const educationContext    = useContext(EducationContext);
+  const jobRequestContext   = useContext(JobRequestContext);
+  const leisureContext      = useContext(LeisureContext);
+  const skillContext        = useContext(SkillContext);
+  const skillMappingContext = useContext(SkillMappingContext);
+  const userContext         = useContext(UserContext);
 
-  const handleSkillClose = () => {
-    setSelectedSkill(undefined);
-  };
+  if (careerContext == null || educationContext == null || jobRequestContext == null || leisureContext == null || skillContext == null || skillMappingContext == null || userContext == null) throw new Error('Context uninitialized');
 
-  const handleLeisureClick = (leisure: LeisureRecord) => {
-    setOpenLeisurePage(leisure);
-    setTimeout(() => {
-      setSelectedSkill(undefined);
-    }, 1000);
-  };
+  // HACK: There is only one user - me!
+  const userId = 1;
+  const user   = userContext.getUser(userId);
 
-  const handleLeisurePageClose = () => {
-    setOpenLeisurePage(undefined);
-  };
+  if (user == null) {
+    return <ErrorPage title='error:user not found title' message='error:user not found message' />;
+  }
 
-  const handleExperienceSelect = (record: ExperienceRecord) => {
-    if (record instanceof LeisureRecord) {
-      handleLeisureClick(record);
-    }
-  };
+  const careers       = careerContext.getCareersForUser(user.id);
+  const educations    = educationContext.getEducationsForUser(user.id);
+  const jobRequest    = jobRequestContext.getJobRequestForUser(user.id);
+  const leisures      = leisureContext.getLeisuresForUser(user.id);
+  const skillMappings = skillMappingContext.getSkillMappingsByUser(user.id);
+  const skills        = skillMappings.map(sm => skillContext.getSkill(sm.skillId)).filter(skill => skill != null) as Array<SkillRecord>;
+
+  const query = useQuery();
+  const queryDialogType = query.get('d');
+  const openDialogType: 'career' | 'education' | 'leisure' | 'skill' | undefined = (queryDialogType != null
+      && (queryDialogType === 'career' || queryDialogType === 'education' || queryDialogType === 'leisure' || queryDialogType === 'skill')) ? queryDialogType : undefined;
+  const openDialogId   = Helper.parseInt(query.get('id'), 1);
+
+  let experience: ExperienceRecord | undefined;
+  switch (openDialogType) {
+    case 'career':    experience = careerContext.getCareer(openDialogId); break;
+    case 'education': experience = educationContext.getEducation(openDialogId); break;
+    case 'leisure':   experience = leisureContext.getLeisure(openDialogId); break;
+    default:          break;
+  }
+
+  const selectedSkill: SkillRecord | undefined = openDialogType != null && openDialogType === 'skill' ? skillContext.getSkill(openDialogId) : undefined;
+
+  if (queryDialogType == null) {
+    document.title = 'Frank Hartung';
+  }
 
   return (
-    <>
+    <PageWrapper title=''>
       <PageWithHeaderAndFooter
-          headerComponent = {<UserHeader user={props.user} jobRequest={props.jobRequest} />}>
+          headerComponent = {(
+            <UserHeader
+                user = {user}
+                jobRequest = {jobRequest}
+                highestEducation = {Helper.getHighestEducation(educations)}
+                latestCareer = {careers != null && careers.length > 0 ? careers[0] : undefined} />
+          )}>
         <Grid>
-          <GridItem xs={12} sm={4} md={3}>
-            <Skills   skills={props.skills}     onSkillClick={handleSkillClick} />
-            <Leisures leisures={props.leisures} onLeisureClick={handleLeisureClick} />
+          <GridItem xs={12} sm={4} md={3} className={classes.skillsSection}>
+            <div className={classes.stretch}>
+              <Skills   skills={skills} />
+              <Leisures leisures={leisures} />
+            </div>
           </GridItem>
           <GridItem md>
-            <div style={{
-              backgroundColor: '#777',
-              width: '100%',
-              height: '100%',
-            }}>
-              <span>TODO</span>
-            </div>
+            {careers    != null && careers.length    > 0 && <CareerTimeline    careers={careers} />}
+            {educations != null && educations.length > 0 && <EducationTimeline educations={educations} />}
           </GridItem>
         </Grid>
       </PageWithHeaderAndFooter>
 
-      <SkillSelectDialog
-          skill    = {selectedSkill}
-          skillMappings = {props.skillMappings}
-          onSelect = {handleExperienceSelect}
-          onClose  = {handleSkillClose} />
-
-      {openLeisurePage != null && (
-        <LeisurePage
-            leisure = {openLeisurePage}
-            isOpen  = {openLeisurePage != null}
-            onSkillClick = {handleSkillClick}
-            onClose = {handleLeisurePageClose} />
+      {openDialogType != null && openDialogType === 'skill' && selectedSkill != null && (
+        <SkillSelectDialog
+            skill    = {selectedSkill}
+            skillMappings = {skillMappings} />
       )}
-    </>
+
+      {openDialogType != null && openDialogType !== 'skill' && experience != null && (
+        <ExperiencePage
+            experience = {experience}
+            type       = {openDialogType}
+            isOpen />
+      )}
+    </PageWrapper>
   );
 };
 

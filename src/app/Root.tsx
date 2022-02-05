@@ -1,21 +1,21 @@
-import React from 'react';
+import { Suspense } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import ContextProvider from './ContextProvider';
 import Loader from '../components/Loader/Loader';
-import Routes from './Routes';
+import App from './App';
 
 /**
  * Root of this app. Is mounted into the html/react root element.
  */
-const Root: React.FC<{}> = () => (
-  <React.Suspense fallback={<Loader />}>
+const Root: React.FC = () => (
+  <Suspense fallback={<Loader />}>
     <Router>
       <ContextProvider>
-        <Routes />
+        <App />
       </ContextProvider>
     </Router>
-  </React.Suspense>
+  </Suspense>
 );
 
 export default Root;

@@ -1,10 +1,10 @@
-import * as React from 'react';
-
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import { useMediaQuery } from '@material-ui/core';
-import { TypographyOptions } from '@material-ui/core/styles/createTypography';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import { useMediaQuery } from '@mui/material';
+import { TypographyOptions } from '@mui/material/styles/createTypography';
 
 import { AnyComponent } from '../types/Types';
+import { useMemo } from 'react';
 
 /**
  * {@link BaseTheme} Props
@@ -55,34 +55,34 @@ const BaseTheme: React.FC<IBaseThemeProps> = (props: IBaseThemeProps) => {
       'sans-serif',
     ].join(','),
     h1: {
-      fontSize: '3rem',
+      fontSize:     '2.4rem',
     },
     h2: {
-      fontSize: '2.4rem',
-      marginTop: '2em',
+      fontSize:     '1.8rem',
+      marginTop:    '2em',
       marginBottom: '1em',
     },
     h3: {
-      fontSize: '1.3rem',
-      fontWeight: 'bold',
-      marginTop: '1.5em',
+      fontSize:     '1.3rem',
+      fontWeight:   'bold',
+      marginTop:    '1.5em',
       marginBottom: '0.7em',
     },
     h4: {
-      fontSize: '1.6rem',
-      marginTop: '0.5em',
+      fontSize:     '1rem',
+      fontWeight:   'bold',
+      marginTop:    '0.5em',
       marginBottom: '0.5em',
     },
     body1: {
-      marginBottom: '1.5rem',
-      fontSize: '1rem',
+      fontSize:     '1rem',
     },
   };
 
-  const memoTheme = React.useMemo(
-    () => createMuiTheme({
+  const memoTheme = useMemo(
+    () => createTheme({
       palette: {
-        type: themeToString(getTheme(props.theme, prefersDarkMode)),
+        mode: themeToString(getTheme(props.theme, prefersDarkMode)),
         primary: {
           main: '#e47200',
           light: '#f3be88',
@@ -98,74 +98,115 @@ const BaseTheme: React.FC<IBaseThemeProps> = (props: IBaseThemeProps) => {
     [props.theme, prefersDarkMode, baseTypography]
   );
 
-  memoTheme.overrides = {
+  memoTheme.components = {
     MuiBackdrop: {
-      root: {
-        backgroundColor : 'rgba(144, 124, 107, 0.3)',
-        backdropFilter  : 'blur(1px)',
-        '-webkit-backdrop-filter': 'blur(1px)',
+      styleOverrides: {
+        root: {
+          backgroundColor : 'rgba(144, 124, 107, 0.3)',
+          backdropFilter  : 'blur(1px)',
+          WebkitBackdropFilter: 'blur(1px)',
+        },
       },
     },
     MuiBottomNavigation: {
-      root: {
-        width:     '100%',
-        borderTop: '1px solid darkgray',
+      styleOverrides: {
+        root: {
+          width:     '100%',
+          borderTop: '1px solid darkgray',
+        },
       },
     },
     MuiBottomNavigationAction: {
-      root: {
-        padding: `${memoTheme.spacing(0.5)}px ${memoTheme.spacing(1.5)}px ${memoTheme.spacing(0.5)}px`,
-      },
-      label: {
-        lineHeight: 1,
+      styleOverrides: {
+        root: {
+          padding: `${memoTheme.spacing(0.5)} ${memoTheme.spacing(1.5)} ${memoTheme.spacing(0.5)}`,
+        },
+        label: {
+          lineHeight: 1,
+        },
       },
     },
     MuiButton: {
-      root: {
-        color: 'inherit',
-        textTransform: 'unset',
+      styleOverrides: {
+        root: {
+          color: 'inherit',
+          textTransform: 'unset',
+        },
+      },
+    },
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: memoTheme.spacing(0.5),
+          '& .MuiTouchRipple-child': {
+            borderRadius: memoTheme.spacing(0.5),
+          },
+        },
       },
     },
     MuiDialog: {
-      root: {
-        overflowY: 'hidden',
+      styleOverrides: {
+        root: {
+          overflowY: 'hidden',
+        },
+        paper: {
+          [memoTheme.breakpoints.down('sm')]: {
+            margin: `${memoTheme.spacing(4)} 0`,
+            overflowX: 'hidden',
+          },
+        },
       },
     },
     MuiDialogTitle: {
-      root: {
-        backgroundColor: memoTheme.palette.primary.main,
-        color: memoTheme.palette.primary.contrastText,
-        padding : '0 1rem',
-        textTransform: 'capitalize',
+      styleOverrides: {
+        root: {
+          backgroundColor: memoTheme.palette.primary.main,
+          color: memoTheme.palette.primary.contrastText,
+          alignItems: 'center',
+          padding : '0 1rem',
+          '& .MuiTypography-h6.MuiTypography-root:first-letter': {
+            textTransform: 'uppercase',
+          },
+        },
       },
     },
     MuiDialogContent: {
-      root: {
-        padding: 0,
-        minWidth: '20rem',
+      styleOverrides: {
+        root: {
+          padding: 0,
+          minWidth: '20rem',
+        },
       },
     },
     MuiDialogActions: {
-      root: {
-        backgroundColor: memoTheme.palette.primary.main,
+      styleOverrides: {
+        root: {
+          backgroundColor: memoTheme.palette.primary.main,
+        },
       },
     },
     MuiMenuItem: {
-      root: {
-        paddingBottom: memoTheme.spacing(1),
-        paddingTop: memoTheme.spacing(1),
-        marginBottom: 0,
+      styleOverrides: {
+        root: {
+          paddingBottom: memoTheme.spacing(1),
+          paddingTop: memoTheme.spacing(1),
+          marginBottom: 0,
+        },
       },
     },
     MuiLinearProgress: {
-      root: {
-        height: memoTheme.spacing(1),
+      styleOverrides: {
+        root: {
+          height: memoTheme.spacing(1),
+        },
       },
     },
     MuiTable: {
-      root: {
-        '& caption': {
-          width: '100%',
+      styleOverrides: {
+        root: {
+          '& caption': {
+            width: '100%',
+          },
         },
       },
     },
@@ -173,6 +214,7 @@ const BaseTheme: React.FC<IBaseThemeProps> = (props: IBaseThemeProps) => {
 
   return (
     <ThemeProvider theme={memoTheme}>
+      <CssBaseline />
       {props.children}
     </ThemeProvider>
   );

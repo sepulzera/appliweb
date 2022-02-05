@@ -1,7 +1,5 @@
-import * as React from 'react';
-import clsx from 'clsx';
-
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { cx } from '@emotion/css';
+import { makeStyles } from 'tss-react/mui';
 
 import { AnyComponent } from '../../types/Types';
 
@@ -15,7 +13,7 @@ interface IContainerProps {
   children: AnyComponent;
 }
 
-const useStyles = makeStyles((theme: Theme) => createStyles({
+const useStyles = makeStyles()((theme => ({
   container: {
     width: '100%',
     display: 'block',
@@ -32,7 +30,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
       maxWidth: '80rem',
     },
   },
-}));
+})));
 
 /**
  * Basic layout element, that centers the content horizontally with some nice background.
@@ -40,9 +38,9 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
  * @param props - {@link IContainerProps}.
  */
 const Container: React.FC<IContainerProps> = (props: IContainerProps) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
   return (
-    <div className={clsx(classes.container, props.className)}>
+    <div className={cx(classes.container, props.className)}>
       {props.children}
     </div>
   );

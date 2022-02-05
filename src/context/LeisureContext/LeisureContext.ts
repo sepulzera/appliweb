@@ -1,12 +1,12 @@
-import React from 'react';
+import { createContext } from 'react';
 import LeisureRecord from './LeisureRecord';
 
-interface ILeisureContextProvider {
+export interface ILeisureContext {
   data: Map<number, LeisureRecord>;
   getLeisure: (id: number) => LeisureRecord | undefined;
   getLeisuresForUser: (userId: number) => Array<LeisureRecord>;
 }
 
-const LeisureContext = React.createContext<ILeisureContextProvider | null>(null);
+const LeisureContext = createContext<ILeisureContext | null>(null);
 
 export default LeisureContext;

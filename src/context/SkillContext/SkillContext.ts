@@ -1,11 +1,11 @@
-import React from 'react';
+import { createContext } from 'react';
 import SkillRecord from './SkillRecord';
 
-interface ISkillContextProvider {
+export interface ISkillContext {
   data: Map<number, SkillRecord>;
   getSkill: (id: number) => SkillRecord | undefined;
 }
 
-const SkillContext = React.createContext<ISkillContextProvider | null>(null);
+const SkillContext = createContext<ISkillContext | null>(null);
 
 export default SkillContext;

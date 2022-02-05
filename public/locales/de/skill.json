@@ -2,7 +2,7 @@
   "heading": "Skills",
   "skill": "Skill",
 
-  "social": "Sozialkompetenz",
+  "social": "Sozial\u00ADkompetenz",
   "team spirit": "Teamgeist",
   "communication": "Kommunikation",
   "self-reliance": "Selbstständigkeit",
@@ -14,12 +14,24 @@
   "english": "Englisch",
 
   "skills": "Skills",
+  "programming c": "Programmierung: C",
   "programming c++": "Programmierung: C++",
   "programming java": "Programmierung: Java",
   "programming vba": "Programmierung: VBA",
+  "programming android": "Programmierung: Android",
   "web html/css": "Webdesign: HTML, CSS",
   "web javascript": "Webentwicklung: JavaScript",
   "web reactjs": "Webentwicklung: ReactJS",
+  "web typescript": "Webentwicklung: TypeScript",
   "database OracleSQL": "Datenbank: OracleSQL",
-  "os linux": "Betriebssystem: Linux"
+  "os linux": "Betriebssystem: Linux",
+
+  "knowledge": "Wissen",
+  "accessibility": "Barrierefreiheit",
+  "responsive design": "Anpassungsfähiges Layout",
+  "usability": "Usability",
+  "user experience": "User Experience",
+
+  "tools": "Tools",
+  "electron": "Electron"
 }

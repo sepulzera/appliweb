@@ -1,5 +1,6 @@
-import * as React from 'react';
-import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
+
+import { makeStyles } from 'tss-react/mui';
 
 import JobRequestRecord from '../../context/JobRequestContext/JobRequestRecord';
 
@@ -9,11 +10,39 @@ import ListItem from '../Ui/ListItem';
 /**
  * {@link JobRequest} Props.
  */
-interface IJobRequestProps extends WithTranslation {
+interface IJobRequestProps {
   /** Jobrequest to display. */
   jobRequest: JobRequestRecord;
   asRow:      boolean;
 }
+
+const useStyles = makeStyles()((theme => ({
+  jobRequestList: {
+    color: theme.palette.secondary.contrastText,
+
+    [theme.breakpoints.down('sm')]: {
+      backgroundColor: 'transparent',
+      marginTop:    'auto',
+      marginBottom: 'auto',
+      '& ul': {
+        marginLeft: '0.5rem',
+      },
+    },
+    [theme.breakpoints.up('sm')]: {
+      backgroundColor: theme.palette.secondary.main,
+      fontSize: '1rem',
+    },
+  },
+  jobRequestTitle: {
+    [theme.breakpoints.down('sm')]: {
+      color: theme.palette.secondary.main,
+      marginTop: 0,
+    },
+    [theme.breakpoints.up('sm')]: {
+      fontSize: '1rem',
+    },
+  },
+})));
 
 /**
  * Jobrequest displayed in the {@link UserHeader}.
@@ -22,6 +51,7 @@ interface IJobRequestProps extends WithTranslation {
  */
 const JobRequest: React.FC<IJobRequestProps> = (props: IJobRequestProps) => {
   const { t } = useTranslation();
+  const { classes } = useStyles();
 
   const salaryToString = (salary: number): string => `> ${salary.toString()}`;
 
@@ -40,7 +70,9 @@ const JobRequest: React.FC<IJobRequestProps> = (props: IJobRequestProps) => {
     <ResponsiveList
         title = {t('job:job request')}
         asRow = {props.asRow}
-        stretchList>
+        stretchList
+        className={classes.jobRequestList}
+        titleClassName={classes.jobRequestTitle}>
       {requestState != null && (
         <ListItem>{t(`job:${jobRequestToString(props.jobRequest.requestState)}`)}</ListItem>
       )}
@@ -54,4 +86,4 @@ const JobRequest: React.FC<IJobRequestProps> = (props: IJobRequestProps) => {
   );
 };
 
-export default withTranslation()(JobRequest);
+export default JobRequest;

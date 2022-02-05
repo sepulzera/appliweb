@@ -1,0 +1,45 @@
+{
+  "educations": [
+    {
+      "id":         1,
+      "userId":     1,
+      "title":      "master graduation",
+      "feature":    100,
+
+      "place":      "uas Erfurt",
+      "begin":      1443657600,
+      "end":        1567296000,
+      "degree":     "master of science",
+      "profession": "applied computer science",
+      "short":      100,
+      "grade":      "1.2"
+    },
+    {
+      "id":         2,
+      "userId":     1,
+      "title":      "dual course of study, bachelor",
+      "feature":    101,
+
+      "place":      "uce Gera",
+      "begin":      1349049600,
+      "end":        1441065600,
+      "degree":     "bachelor of engineering",
+      "profession": "practical computer science",
+      "short":      101,
+      "grade":      "1.9"
+    },
+    {
+      "id":         3,
+      "userId":     1,
+      "title":      "A-level",
+      "feature":    102,
+
+      "place":      "governmental high school of Arnstadt",
+      "begin":      1096588800,
+      "end":        1341100800,
+      "degree":     "A-level",
+      "short":      102,
+      "grade":      "1.8"
+    }
+  ]
+}

@@ -1,22 +1,21 @@
-import * as React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 
 import Components from './ComponentRenderer';
-import { AnyFeaturePageData } from '../../context/FeatureContext/FeatureRecord';
+import { AnyDescriptionData } from '../../context/DescriptionContext/DescriptionRecord';
 
 /**
- * {@link List} Props.
+ * {@link FeatureData} Props.
  */
 export interface IFeatureDataProps {
-  data: Array<AnyFeaturePageData>;
+  data: Array<AnyDescriptionData>;
 }
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()((theme => ({
   featureData: {
     paddingLeft:  theme.spacing(3),
     paddingRight: theme.spacing(3),
   },
-}));
+})));
 
 /**
  * Renders the feature page data (main content).
@@ -24,7 +23,7 @@ const useStyles = makeStyles(theme => ({
  * @param props - {@link IFeatureDataProps}.
  */
 const FeatureData: React.FC<IFeatureDataProps> = (props: IFeatureDataProps) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   return (
     <div className={classes.featureData}>

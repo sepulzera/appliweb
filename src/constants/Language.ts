@@ -1,3 +1,5 @@
+export const LANGUAGE_KEY = 'language';
+
 export const SupportedLanguages: Array<string> = [
   'de',
   'en-US',

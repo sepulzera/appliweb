@@ -40,17 +40,9 @@ Here a more comprehensive list of the used libraries:
 | Library   | Use Case  |
 | --------- | --------- |
 | [ESLint](https://eslint.org/) | Static code analyzer to enforce a consistent code style. |
-| [React Styleguidist](https://react-styleguidist.js.org/) | "Isolated React component development environment with a living style guide". Used for code documentation and to export a HTML doc. |
-| [Stylelint](https://github.com/stylelint/) | Static code analyzer for css. |
 | [TypeScript](https://github.com/microsoft/TypeScript) | Superset of JavaScript that adds types, by Microsoft. |
 
 There are some more. Check out the [package.json](package.json) for a full overview.
-
-## 📝 Documentation
-
-The code documentation is available as offline HTML documentation. It can be found at [docs/appliweb/index.html](docs/appliweb/index.html).
-
-The documentation is based on [TSDoc](https://github.com/microsoft/tsdoc), generated with [React Styleguidist](https://react-styleguidist.js.org/).
 
 ## 🔨 Usage
 
@@ -75,10 +67,6 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.<br>
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-`npm run doc`
-
-Updates the code documentation.
 
 ## 🐞 Contributing
 

@@ -1,5 +1,4 @@
-import * as React from 'react';
-import MuiIconButton from '@material-ui/core/IconButton';
+import MuiIconButton from '@mui/material/IconButton';
 
 import { AnyComponent } from '../../types/Types';
 

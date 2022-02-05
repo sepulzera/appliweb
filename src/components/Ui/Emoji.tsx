@@ -1,6 +1,4 @@
-import * as React from 'react';
-
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from 'tss-react/mui';
 
 import { AnyComponent } from '../../types/Types';
 
@@ -12,7 +10,7 @@ export interface IEmojiProps {
   children:   AnyComponent;
 }
 
-const useStyles = makeStyles({
+const useStyles = makeStyles()(({
   emoji: {
     fontFamily: [
       'apple color emoji',
@@ -26,7 +24,7 @@ const useStyles = makeStyles({
       'sans-serif',
     ].join(','),
   },
-});
+}));
 
 /**
  * Renders an accessible unicode emoji.
@@ -34,7 +32,7 @@ const useStyles = makeStyles({
  * @param props - {@link IEmojiProps}.
  */
 const Emoji: React.FC<IEmojiProps> = (props: IEmojiProps) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
   return (
     <span className={classes.emoji} role='img' aria-label={props.label || ''}>{props.children}</span>
   );

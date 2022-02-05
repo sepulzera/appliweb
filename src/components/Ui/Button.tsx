@@ -1,5 +1,4 @@
-import * as React from 'react';
-import MuiButton from '@material-ui/core/Button';
+import MuiButton from '@mui/material/Button';
 
 import { AnyComponent } from '../../types/Types';
 
@@ -7,28 +6,38 @@ import { AnyComponent } from '../../types/Types';
  * {@link Button} Props.
  */
 interface IButtonProps {
-  /** Unique identifier. */
-  id: string;
-
+  /** If true, the button will stretch to the available space. */
   fullWidth?: boolean;
+
+  /** Callback when fired. */
+  onClick?: () => void;
+
+  /** Optionally as Link. */
+  component?: any | undefined; // eslint-disable-line @typescript-eslint/no-explicit-any
+  /** Required if component = Link. */
+  to?: string | undefined;
 
   /** Classes used for styling. */
   className?: string | undefined;
-  onClick: (id: string) => void;
   /** Prompt for the link. Probably plain text. */
   children: AnyComponent;
 }
 
 /**
- * Renders an anchor element.
+ * Renders an button element.
  *
  * @param props - {@link IButtonProps}.
  */
 const Button: React.FC<IButtonProps> = (props: IButtonProps) => (
   <MuiButton
       fullWidth = {props.fullWidth}
-      className = {props.className}
-      onClick   = {() => props.onClick(props.id)}>
+
+      onClick   = {props.onClick}
+
+      component = {props.component}
+      to        = {props.to}
+
+      className = {props.className}>
     {props.children}
   </MuiButton>
 );

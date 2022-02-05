@@ -1,8 +1,8 @@
-import * as React from 'react';
+import { useMemo, useState } from 'react';
 
 import { AnyComponent } from '../../types/Types';
 
-import JobRequestContext from './JobRequestContext';
+import JobRequestContext, { IJobRequestContext } from './JobRequestContext';
 import JobRequestRecord from './JobRequestRecord';
 import JobRequestData from './JobRequestData.json';
 
@@ -35,7 +35,7 @@ function getJobRequestMap() {
  * @param props - {@link IJobRequestContextProviderProps}.
  */
 const JobRequestContextProvider: React.FC<IJobRequestContextProviderProps> = (props: IJobRequestContextProviderProps) => {
-  const [data] = React.useState(getJobRequestMap());
+  const [data] = useState(getJobRequestMap());
 
   const getJobRequest = (id: number): JobRequestRecord | undefined => {
     const jobRequest: JobRequestRecord | undefined = data.get(id);
@@ -55,12 +55,14 @@ const JobRequestContextProvider: React.FC<IJobRequestContextProviderProps> = (pr
     return undefined;
   };
 
+  const value: IJobRequestContext = useMemo(() => ({
+    data: data,
+    getJobRequest: getJobRequest,
+    getJobRequestForUser: getJobRequestForUser,
+  }), [data]);
+
   return (
-    <JobRequestContext.Provider value={{
-      data: data,
-      getJobRequest: getJobRequest,
-      getJobRequestForUser: getJobRequestForUser,
-    }}>
+    <JobRequestContext.Provider value={value}>
       {props.children}
     </JobRequestContext.Provider>
    );

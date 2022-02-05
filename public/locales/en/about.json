@@ -25,14 +25,8 @@
   "libraries production react-router": "Navigation components used for declarative routing (changing pages).",
   "libraries development heading": "Libraries used in development",
   "libraries development eslint": "Static code analyzer to enforce a consistent code style.",
-  "libraries development react-styleguidist": "\"Isolated React component development environment with a living style guide\". Used for code documentation and to export a HTML doc.",
-  "libraries development stylelint": "Static code analyzer for css.",
   "libraries development typescript": "Superset of JavaScript that adds types, by Microsoft.",
   "libraries 2": "There are some more. Check out the <1>package.json</1> for a full overview.",
-
-  "documentation heading": "<0>📝</0> Documentation",
-  "documentation 1": "The <1>code documentation</1> is available as offline HTML documentation.",
-  "documentation 2": "The documentation is based on <1>TSDoc</1>, generated with <3>React Styleguidist</3>.",
 
   "contributing heading": "<0>🐞</0> Contributing",
   "contributing 1": "This is my personal project. I do not accept code as contributions. However, ideas and feedback are much appreciated and can be filed via the project's <1>issues-tracker</1>.",

@@ -1,6 +1,5 @@
-import * as React from 'react';
-import clsx from 'clsx';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { cx } from '@emotion/css';
+import { makeStyles } from 'tss-react/mui';
 
 import { IListItemProps } from './ListItem';
 import H from './H';
@@ -17,24 +16,23 @@ interface IResponsiveListProps {
   stretchList?:  boolean | undefined;
   /** Classes used for styling. */
   className?: string | undefined;
+  /** Classes used for styling of the heading. */
+  titleClassName?: string | undefined;
   /** List of {@link ListItem}. */
   children?: React.ReactElement<IListItemProps> | Array<React.ReactElement<IListItemProps>> | React.ReactNode;
 }
 
-const useStyles = makeStyles((theme: Theme) => createStyles({
+const useStyles = makeStyles()((theme => ({
   responsiveList: {
     display: 'flex',
     margin: 0,
-    padding: `${theme.spacing(1)}px ${theme.spacing(3)}px`,
+    padding: `${theme.spacing(1)} ${theme.spacing(3)}`,
 
-    color: theme.palette.secondary.contrastText,
-    backgroundColor: theme.palette.secondary.main,
-
-    [theme.breakpoints.down('md')]: {
-      borderRadius: `0 ${theme.spacing(1)}px 0 0`,
+    [theme.breakpoints.down('lg')]: {
+      borderRadius: `0 ${theme.spacing(1)} 0 0`,
     },
     [theme.breakpoints.up('lg')]: {
-      borderRadius: `${theme.spacing(1)}px ${theme.spacing(1)}px 0 0`,
+      borderRadius: `${theme.spacing(1)} ${theme.spacing(1)} 0 0`,
     },
   },
   responsiveListAsColumn: {
@@ -47,16 +45,31 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 
   responsiveListTitle: {
     textTransform: 'capitalize',
-    display: 'inline',
-    fontSize: '1rem',
+    display: 'inline-flex',
     lineHeight: 1,
     alignSelf: 'center',
   },
   responsiveListTitleAsColumn: {
-    margin: `${theme.spacing(2)}px 0`,
+    margin: `${theme.spacing(2)} 0`,
   },
   responsiveListTitleAsRow: {
     margin: 0,
+  },
+  responsiveListAsRowTitleAsHeading: {
+    display: 'inline-flex',
+    [theme.breakpoints.down('md')]: {
+      position: 'absolute',
+      left: '-10000px',
+      top: 'auto',
+      width: '1px',
+      height: '1px',
+      overflow: 'hidden',
+    },
+  },
+  responseListTitleInList: {
+    [theme.breakpoints.up('md')]: {
+      display: 'none !important',
+    },
   },
 
   responsiveListList: {
@@ -65,10 +78,10 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     display: 'flex',
 
     '& li': {
-      marginRight: `${theme.spacing(1)}px`,
-      marginLeft: `${theme.spacing(1)}px`,
-      paddingRight: `${theme.spacing(1)}px`,
-      paddingLeft: `${theme.spacing(1)}px`,
+      marginRight: theme.spacing(1),
+      marginLeft: theme.spacing(1),
+      paddingRight: theme.spacing(1),
+      paddingLeft: theme.spacing(1),
     },
   },
   responsiveListListAsColumn: {
@@ -87,13 +100,14 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   responsiveListListAsRow: {
     flexWrap: 'wrap',
 
-    margin: 0,
+    padding: 0,
+    margin:  0,
 
     '& li': {
       display: 'inline',
     },
   },
-}));
+})));
 
 /**
  * Responsive list.
@@ -101,26 +115,31 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
  * @param props - {@link IResponsiveListProps}.
  */
 const ResponsiveList: React.FC<IResponsiveListProps> = (props: IResponsiveListProps) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
+
+  const heading = (
+    <H
+        variant='h3'
+        className={cx(classes.responsiveListTitle, props.titleClassName, {
+            [classes.responsiveListTitleAsColumn]: !props.asRow,
+            [classes.responsiveListTitleAsRow]: props.asRow,
+        })}>
+      {`${props.title}:`}
+    </H>
+  );
 
   return (
-    <div className={clsx(classes.responsiveList, props.className, {
+    <div className={cx(classes.responsiveList, props.className, {
       [classes.responsiveListAsColumn]: !props.asRow,
       [classes.responsiveListAsRow]: props.asRow,
     })}>
-      <H
-          variant='h3'
-          className={clsx(classes.responsiveListTitle, {
-              [classes.responsiveListTitleAsColumn]: !props.asRow,
-              [classes.responsiveListTitleAsRow]: props.asRow,
-          })}>
-        {`${props.title}:`}
-      </H>
-      <ul className={clsx(classes.responsiveListList, {
+      <span className={cx({ [classes.responsiveListAsRowTitleAsHeading]: props.asRow })}>{heading}</span>
+      <ul className={cx(classes.responsiveListList, {
         [classes.responsiveListAsColumnStretch]: props.stretchList,
         [classes.responsiveListListAsColumn]: !props.asRow,
         [classes.responsiveListListAsRow]: props.asRow,
       })}>
+        {props.asRow && <li className={classes.responseListTitleInList} aria-hidden='true'>{heading}</li>}
         {props.children}
       </ul>
     </div>

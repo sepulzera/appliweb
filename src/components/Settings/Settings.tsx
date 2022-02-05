@@ -1,10 +1,10 @@
-import * as React from 'react';
-import clsx from 'clsx';
-import { useTranslation, withTranslation, WithTranslation } from 'react-i18next';
-import { List, ListItem, ListItemText } from '@material-ui/core';
-import { WbSunny, Brightness3, Language } from '@material-ui/icons';
-import MoreIcon from '@material-ui/icons/MoreVert';
-import { makeStyles } from '@material-ui/core/styles';
+import { useContext, useState } from 'react';
+import { cx } from '@emotion/css';
+import { useTranslation } from 'react-i18next';
+import { List, ListItem, ListItemText } from '@mui/material';
+import { WbSunny, Brightness3, Language } from '@mui/icons-material';
+import MoreIcon from '@mui/icons-material/MoreVert';
+import { makeStyles } from 'tss-react/mui';
 
 import LanguageHelper, { SupportedLanguages } from '../../constants/Language';
 import SettingsContext from '../../context/SettingsContext/SettingsContext';
@@ -16,12 +16,12 @@ import MenuItem from '../Ui/MenuItem';
 /**
  * {@link Settings} Props.
  */
-interface ISettingsProps extends WithTranslation {
+interface ISettingsProps {
   /** Classes used for styling. */
   className?: string | undefined;
 }
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()((theme => ({
   sectionDesktop: {
     display: 'none',
     [theme.breakpoints.up('md')]: {
@@ -40,7 +40,7 @@ const useStyles = makeStyles(theme => ({
     marginTop:    'auto',
     marginBottom: 'auto',
   },
-}));
+})));
 
 /**
  * Fancy UserHeader for the {@link HomePage}.
@@ -48,13 +48,13 @@ const useStyles = makeStyles(theme => ({
  * @param props - {@link ISettingsProps}.
  */
 const Settings: React.FC<ISettingsProps> = (props: ISettingsProps) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { t } = useTranslation();
 
-  const [langDialogIsOpen, setLangDialogIsOpen] = React.useState(false);
+  const [langDialogIsOpen, setLangDialogIsOpen] = useState(false);
 
-  const settingsContext = React.useContext(SettingsContext);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState<null | HTMLElement>(null);
+  const settingsContext = useContext(SettingsContext);
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState<null | HTMLElement>(null);
 
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -116,7 +116,7 @@ const Settings: React.FC<ISettingsProps> = (props: ISettingsProps) => {
 
   return (
     <>
-      <div className={clsx(classes.sectionDesktop, props.className)}>
+      <div className={cx(classes.sectionDesktop, props.className)}>
         <div className={classes.settings}>
           {(settingsContext == null || settingsContext.getTheme() === 0) && (
             <IconButton color='inherit' size='small' onClick={handleThemeClick}><Brightness3 /></IconButton>
@@ -130,7 +130,7 @@ const Settings: React.FC<ISettingsProps> = (props: ISettingsProps) => {
         </div>
       </div>
 
-      <div className={clsx(classes.sectionMobile, props.className)}>
+      <div className={cx(classes.sectionMobile, props.className)}>
         <IconButton
             color = 'inherit'
             aria-label='show more'
@@ -161,4 +161,4 @@ const Settings: React.FC<ISettingsProps> = (props: ISettingsProps) => {
   );
 };
 
-export default withTranslation()(Settings);
+export default Settings;

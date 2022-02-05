@@ -1,21 +1,11 @@
-import * as React from 'react';
-
-import { CssBaseline } from '@material-ui/core';
-
-import { AnyComponent } from '../types/Types';
+import { useContext } from 'react';
 
 import ErrorBoundary from '../hoc/ErrorBoundary/ErrorBoundary';
 import SettingsContext from '../context/SettingsContext/SettingsContext';
 
 import BaseTheme from './BaseTheme';
-
-/**
- * {@link App} Props.
- */
-interface IAppProps {
-  /** The actual app container. */
-  children: AnyComponent;
-}
+import Routes from './Routes';
+import { StyledEngineProvider } from '@mui/material';
 
 /**
  * Wrapper that is setting up the content of this app.
@@ -25,16 +15,17 @@ interface IAppProps {
  *
  * @param props - {@link IAppProps}.
  */
-const App: React.FC<IAppProps> = (props: IAppProps) => {
-  const settingsContext = React.useContext(SettingsContext);
+const App: React.FC = () => {
+  const settingsContext = useContext(SettingsContext);
 
   return (
-    <BaseTheme theme={settingsContext != null ? settingsContext.getTheme() : undefined}>
-      <CssBaseline />
-      <ErrorBoundary verbose printStack>
-        {props.children}
-      </ErrorBoundary>
-    </BaseTheme>
+    <StyledEngineProvider injectFirst>
+      <BaseTheme theme={settingsContext != null ? settingsContext.getTheme() : undefined}>
+        <ErrorBoundary verbose printStack>
+          <Routes />
+        </ErrorBoundary>
+      </BaseTheme>
+    </StyledEngineProvider>
   );
 };
 

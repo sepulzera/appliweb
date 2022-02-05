@@ -1,7 +1,7 @@
-import React from 'react';
+import { createContext } from 'react';
 import SkillMappingRecord from './SkillMappingRecord';
 
-interface ISkillMappingContextProvider {
+export interface ISkillMappingContext {
   data: Map<number, SkillMappingRecord>;
   getSkillMapping: (id: number) => SkillMappingRecord | undefined;
   getSkillMappingsByUser: (userId: number) => Array<SkillMappingRecord>;
@@ -9,6 +9,6 @@ interface ISkillMappingContextProvider {
   getSkillMappingsByUserAndSkill: (userId: number, skillId: number) => Array<SkillMappingRecord>;
 }
 
-const SkillMappingContext = React.createContext<ISkillMappingContextProvider | null>(null);
+const SkillMappingContext = createContext<ISkillMappingContext | null>(null);
 
 export default SkillMappingContext;

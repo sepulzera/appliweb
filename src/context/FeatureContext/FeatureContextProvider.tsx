@@ -1,8 +1,8 @@
-import * as React from 'react';
+import { useMemo, useState } from 'react';
 
 import { AnyComponent } from '../../types/Types';
 
-import FeatureContext, { FeatureLanguageMap } from './FeatureContext';
+import FeatureContext, { FeatureLanguageMap, IFeatureContext } from './FeatureContext';
 import FeatureRecord from './FeatureRecord';
 import FeatureData from './FeatureData.json';
 
@@ -41,7 +41,7 @@ function getFeatureMap() {
  * @param props - {@link IFeatureContextProviderProps}.
  */
 const FeatureContextProvider: React.FC<IFeatureContextProviderProps> = (props: IFeatureContextProviderProps) => {
-  const [data] = React.useState(getFeatureMap());
+  const [data] = useState(getFeatureMap());
 
   const getFeature = (id: number, language: string): FeatureRecord | undefined => {
     const featureLanguageMap: FeatureLanguageMap | undefined = data.get(id);
@@ -54,11 +54,13 @@ const FeatureContextProvider: React.FC<IFeatureContextProviderProps> = (props: I
     return featureRecord;
   };
 
+  const value: IFeatureContext = useMemo(() => ({
+    data: data,
+    getFeature: getFeature,
+  }), [data]);
+
   return (
-    <FeatureContext.Provider value={{
-      data: data,
-      getFeature: getFeature,
-    }}>
+    <FeatureContext.Provider value={value}>
       {props.children}
     </FeatureContext.Provider>
    );

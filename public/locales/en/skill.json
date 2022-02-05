@@ -9,17 +9,29 @@
   "reliability": "reliability",
   "resilience": "resilience",
 
-  "language": "Languages",
-  "german": "German",
-  "english": "English",
+  "language": "languages",
+  "german": "german",
+  "english": "english",
 
   "skills": "skills",
-  "programming c++": "Programming: C++",
-  "programming java": "Programming: Java",
-  "programming vba": "Programming: VBA",
-  "web html/css": "Webdesign: HTML, CSS",
-  "web javascript": "Web-Development: JavaScript",
-  "web reactjs": "Web-Development: ReactJS",
-  "database OracleSQL": "Database: OracleSQL",
-  "os linux": "Operating System: Linux"
+  "programming c": "programming: C",
+  "programming c++": "programming: C++",
+  "programming java": "programming: Java",
+  "programming vba": "programming: VBA",
+  "programming android": "programming: Android",
+  "web html/css": "web-design: HTML, CSS",
+  "web javascript": "web-development: JavaScript",
+  "web reactjs": "web-development: ReactJS",
+  "web typescript": "web-development: TypeScript",
+  "database OracleSQL": "database: OracleSQL",
+  "os linux": "operating system: Linux",
+
+  "knowledge": "knowledge",
+  "accessibility": "accessibility",
+  "responsive design": "responsive design",
+  "usability": "usability",
+  "user experience": "user experience",
+
+  "tools": "tools",
+  "electron": "electron"
 }

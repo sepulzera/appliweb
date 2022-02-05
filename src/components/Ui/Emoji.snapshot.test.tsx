@@ -1,5 +1,4 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
-import React from 'react';
 import renderer from 'react-test-renderer';
 
 import Emoji from './Emoji';

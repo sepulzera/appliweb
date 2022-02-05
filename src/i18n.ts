@@ -1,8 +1,10 @@
 import i18n from 'i18next';
-import Backend from 'i18next-xhr-backend';
+import Backend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
-// import Settings from './settings';
+
 import { initReactI18next } from 'react-i18next';
+
+import { LANGUAGE_KEY } from './constants/Language';
 
 const backendOptions = {
   loadPath: `${process.env.PUBLIC_URL}/locales/{{lng}}/{{ns}}.json`,
@@ -21,14 +23,15 @@ i18n
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
     fallbackLng: 'en',
-    lng: navigator.language,
-    ns: ['about', 'city', 'common', 'error', 'home', 'job', 'legal', 'leisure', 'privacy', 'skill'],
+    lng: localStorage.getItem(LANGUAGE_KEY) ?? undefined,
+    ns: ['about', 'career', 'city', 'common', 'education', 'error', 'home', 'job', 'legal', 'leisure', 'privacy', 'skill', 'task'],
     defaultNS: 'common',
-    debug: true,
-    load: 'currentOnly',
+    debug: process.env.NODE_ENV === 'development',
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     },
+    nsSeparator: ':',
+    supportedLngs: ['de', 'en'],
     backend: backendOptions,
   });
 

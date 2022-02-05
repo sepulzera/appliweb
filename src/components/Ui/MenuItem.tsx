@@ -1,6 +1,6 @@
-import * as React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import MuiMenuItem from '@material-ui/core/MenuItem';
+import { makeStyles } from 'tss-react/mui';
+import MuiMenuItem from '@mui/material/MenuItem';
+import { IconProps } from '@mui/material';
 
 import { AnyComponent } from '../../types/Types';
 
@@ -8,20 +8,20 @@ import { AnyComponent } from '../../types/Types';
  * {@link MenuItem} Props.
  */
 interface IMenuItemProps {
-  icon: any;
+  icon: IconProps;
   /** Callback fired on clicking the item. */
   onClick:  () => void;
   /** Item's text. */
   children: AnyComponent;
 }
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()((theme => ({
   icon: {
     fontSize:    '1rem',
     lineHeight:  0,
     marginRight: theme.spacing(2),
   },
-}));
+})));
 
 /**
  * Renders a menu item.
@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
  * @param props - {@link IMenuItemProps}.
  */
 const MenuItem: React.FC<IMenuItemProps> = (props: IMenuItemProps) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   return (
     <MuiMenuItem

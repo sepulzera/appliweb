@@ -1,0 +1,113 @@
+{
+  "tasks": [
+    {
+      "id":          301,
+      "userId":      1,
+      "title":       "development of software for recording of working time",
+      "feature":     0,
+
+      "description": 301,
+      "careerId":    1
+    },
+    {
+      "id":          302,
+      "userId":      1,
+      "title":       "technical specification to redesign the maintenance-system",
+      "feature":     0,
+
+      "description": 302,
+      "careerId":    1
+    },
+    {
+      "id":          303,
+      "userId":      1,
+      "title":       "development of a software for a testing device",
+      "feature":     0,
+
+      "description": 303,
+      "careerId":    1
+    },
+    {
+      "id":          304,
+      "userId":      1,
+      "title":       "studying RFID technology",
+      "feature":     0,
+
+      "description": 304,
+      "careerId":    1
+    },
+    {
+      "id":          305,
+      "userId":      1,
+      "title":       "master thesis RFID",
+      "feature":     0,
+
+      "description": 305,
+      "careerId":    1
+    },
+
+    {
+      "id":          401,
+      "userId":      1,
+      "title":       "accessibility caredo®",
+      "feature":     0,
+
+      "description": 401,
+      "careerId":    2
+    },
+    {
+      "id":          402,
+      "userId":      1,
+      "title":       "excel-vba-addin to import packages",
+      "feature":     0,
+
+      "description": 402,
+      "careerId":    2
+    },
+    {
+      "id":          403,
+      "userId":      1,
+      "title":       "accessibility caredo®",
+      "feature":     0,
+
+      "description": 403,
+      "careerId":    2
+    },
+    {
+      "id":          404,
+      "userId":      1,
+      "title":       "application development with IBYKUS AP®",
+      "feature":     0,
+
+      "description": 404,
+      "careerId":    2
+    },
+    {
+      "id":          405,
+      "userId":      1,
+      "title":       "responsive design for IBYKUS AP®/WebGate",
+      "feature":     0,
+
+      "description": 405,
+      "careerId":    2
+    },
+    {
+      "id":          406,
+      "userId":      1,
+      "title":       "electron/react app to configure responsive design for IBYKUS AP®/WebGate",
+      "feature":     0,
+
+      "description": 406,
+      "careerId":    2
+    },
+    {
+      "id":          407,
+      "userId":      1,
+      "title":       "react app",
+      "feature":     0,
+
+      "description": 407,
+      "careerId":    2
+    }
+  ]
+}
