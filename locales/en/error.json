@@ -1,0 +1,9 @@
+{
+  "missing error": "Whoops, something went wrong!",
+  "title": "Error",
+  "message": "Message",
+  "stack": "Stack",
+
+  "user not found title": "Profile not found",
+  "user not found message": "The profile you are for looking does not exist."
+}
