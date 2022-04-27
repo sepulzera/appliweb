@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 
 import ContextProvider from './ContextProvider';
 import Loader from '../components/Loader/Loader';
