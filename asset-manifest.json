@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/appliweb/static/css/main.6afb28e5.css",
-    "main.js": "/appliweb/static/js/main.a2260b71.js",
+    "main.js": "/appliweb/static/js/main.a4d3b19c.js",
     "static/media/Leisure-Guitar.jpg": "/appliweb/static/media/Leisure-Guitar.79212bd3e9cef01702db.jpg",
     "static/media/Career-Ibykus.jpg": "/appliweb/static/media/Career-Ibykus.b6e51b71650f8c77863b.jpg",
     "static/media/Education-Uas-Erfurt.jpg": "/appliweb/static/media/Education-Uas-Erfurt.7f43f80b313d6b1e75c9.jpg",
@@ -10,6 +10,8 @@
     "static/media/Leisure-RaspberryPi.jpg": "/appliweb/static/media/Leisure-RaspberryPi.d335c926b327a166265e.jpg",
     "static/media/Career-Thales.jpg": "/appliweb/static/media/Career-Thales.2682bdbf43c8a75d50cc.jpg",
     "static/media/Hartung_Frank.png": "/appliweb/static/media/Hartung_Frank.f33e71b4cb7c80c051bb.png",
+    "static/media/Leisure-OwnRecipes.jpg": "/appliweb/static/media/Leisure-OwnRecipes.d6274d061e7626847531.jpg",
+    "static/media/Leisure-OwnRecipes-en.jpg": "/appliweb/static/media/Leisure-OwnRecipes-en.e44ca43b363ecd50de53.jpg",
     "static/media/Leisure-GamesDevelopment.jpg": "/appliweb/static/media/Leisure-GamesDevelopment.83e3b0926a2d827a384b.jpg",
     "static/media/Education-Uce_Gera.jpg": "/appliweb/static/media/Education-Uce_Gera.c72097fcc90d638f1a4d.jpg",
     "static/media/roboto-latin-900italic.woff": "/appliweb/static/media/roboto-latin-900italic.c20d916c1a1b094c1cec.woff",
@@ -37,12 +39,12 @@
     "static/media/roboto-latin-400.woff2": "/appliweb/static/media/roboto-latin-400.176f8f5bd5f02b3abfcf.woff2",
     "static/media/roboto-latin-900.woff2": "/appliweb/static/media/roboto-latin-900.870c8c1486f76054301a.woff2",
     "index.html": "/appliweb/index.html",
-    "static/media/getFetch.cjs": "/appliweb/static/media/getFetch.c780682470504fffbd04.cjs",
+    "static/media/getFetch.cjs": "/appliweb/static/media/getFetch.40f37ddea2378391108f.cjs",
     "main.6afb28e5.css.map": "/appliweb/static/css/main.6afb28e5.css.map",
-    "main.a2260b71.js.map": "/appliweb/static/js/main.a2260b71.js.map"
+    "main.a4d3b19c.js.map": "/appliweb/static/js/main.a4d3b19c.js.map"
   },
   "entrypoints": [
     "static/css/main.6afb28e5.css",
-    "static/js/main.a2260b71.js"
+    "static/js/main.a4d3b19c.js"
   ]
 }
