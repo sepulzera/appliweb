@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 import { AnyComponent } from '../../types/Types';
 
@@ -34,22 +34,23 @@ function getUserMap() {
  *
  * @param props - {@link IUserContextProviderProps}.
  */
-const UserContextProvider: React.FC<IUserContextProviderProps> = (props: IUserContextProviderProps) => {
+const UserContextProvider: React.FC<IUserContextProviderProps> = ({
+    children }: IUserContextProviderProps) => {
   const [data] = useState(getUserMap());
 
-  const getUser = (id: number): UserRecord | undefined => {
+  const getUser = useCallback((id: number): UserRecord | undefined => {
     const user: UserRecord | undefined = data.get(id);
     return user;
-  };
+  }, [data]);
 
   const value: IUserContext = useMemo(() => ({
     data: data,
     getUser: getUser,
-  }), [data]);
+  }), [data, getUser]);
 
   return (
     <UserContext.Provider value={value}>
-      {props.children}
+      {children}
     </UserContext.Provider>
    );
 };

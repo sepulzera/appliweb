@@ -56,13 +56,12 @@ const useStyles = makeStyles()((theme => ({
   },
 })));
 
-const DialogTitle: React.FC<IDialogTitleProps> = (props: IDialogTitleProps) => {
+const DialogTitle: React.FC<IDialogTitleProps> = ({
+    onBack, onClose, children, ...rest }: IDialogTitleProps) => {
   const { classes } = useStyles();
 
-  const { children, onBack, onClose } = props;
-
   return (
-    <MuiDialogTitle className={classes.dialog}>
+    <MuiDialogTitle className={classes.dialog} {...rest}>
       {onBack && (
         <IconButton aria-label='back' className={classes.dialogButton} onClick={onBack}>
           <ArrowBackOutlined />
@@ -83,13 +82,14 @@ const DialogTitle: React.FC<IDialogTitleProps> = (props: IDialogTitleProps) => {
  *
  * @param props - {@link IDialogProps}.
  */
-const Dialog: React.FC<IDialogProps> = (props: IDialogProps) => (
-  <MuiDialog maxWidth='lg' open={props.isOpen} onClose={props.onClose}>
-    <DialogTitle onBack={props.onBack} onClose={props.onClose}>{props.title}</DialogTitle>
-    <MuiDialogContent>
-      {props.children}
-    </MuiDialogContent>
-  </MuiDialog>
+const Dialog: React.FC<IDialogProps> = ({
+  title, isOpen, onBack, onClose, children, ...rest }: IDialogProps) => (
+    <MuiDialog maxWidth='lg' open={isOpen} onClose={onClose} {...rest}>
+      <DialogTitle onBack={onBack} onClose={onClose}>{title}</DialogTitle>
+      <MuiDialogContent>
+        {children}
+      </MuiDialogContent>
+    </MuiDialog>
 );
 
 export default Dialog;

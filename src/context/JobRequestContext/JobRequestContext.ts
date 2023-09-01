@@ -7,6 +7,6 @@ export interface IJobRequestContext {
   getJobRequestForUser: (userId: number) => JobRequestRecord | undefined;
 }
 
-const JobRequestContext = createContext<IJobRequestContext | null>(null);
+const JobRequestContext = createContext<IJobRequestContext>({} as IJobRequestContext);
 
 export default JobRequestContext;

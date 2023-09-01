@@ -31,10 +31,10 @@ const useStyles = makeStyles()(({
  *
  * @param props - {@link IEmojiProps}.
  */
-const Emoji: React.FC<IEmojiProps> = (props: IEmojiProps) => {
+const Emoji: React.FC<IEmojiProps> = ({ label, children, ...rest }: IEmojiProps) => {
   const { classes } = useStyles();
   return (
-    <span className={classes.emoji} role='img' aria-label={props.label || ''}>{props.children}</span>
+    <span className={classes.emoji} role='img' aria-label={label || ''} {...rest}>{children}</span>
   );
 };
 

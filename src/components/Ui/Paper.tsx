@@ -31,11 +31,11 @@ const useStyles = makeStyles()(({
  *
  * @param props - {@link IPaperProps}.
  */
-const Paper: React.FC<IPaperProps> = (props: IPaperProps) => {
+const Paper: React.FC<IPaperProps> = ({ children, ...rest }: IPaperProps) => {
   const { classes } = useStyles();
   return (
-    <MuiPaper className={classes.paper}>
-      {props.children}
+    <MuiPaper className={classes.paper} {...rest}>
+      {children}
     </MuiPaper>
   );
 };

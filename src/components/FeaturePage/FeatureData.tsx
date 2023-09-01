@@ -22,12 +22,12 @@ const useStyles = makeStyles()((theme => ({
  *
  * @param props - {@link IFeatureDataProps}.
  */
-const FeatureData: React.FC<IFeatureDataProps> = (props: IFeatureDataProps) => {
+const FeatureData: React.FC<IFeatureDataProps> = ({ data, ...rest }: IFeatureDataProps) => {
   const { classes } = useStyles();
 
   return (
-    <div className={classes.featureData}>
-      {props.data.map(block => Components(block))}
+    <div className={classes.featureData} {...rest}>
+      {data.map(block => Components(block))}
     </div>
   );
 };

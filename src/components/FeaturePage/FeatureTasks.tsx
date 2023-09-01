@@ -4,8 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { makeStyles } from 'tss-react/mui';
 
 import DescriptionContext from '../../context/DescriptionContext/DescriptionContext';
-import TaskContext from '../../context/TaskContext/TaskContext';
-
 import ListItem from '../Ui/ListItem';
 import P from '../Ui/P';
 import TaskRecord from '../../context/TaskContext/TaskRecord';
@@ -41,19 +39,17 @@ const useStyles = makeStyles()((theme => ({
  *
  * @param props - {@link IFeatureTasksProps}.
  */
-const FeatureTasks: React.FC<IFeatureTasksProps> = (props: IFeatureTasksProps) => {
+const FeatureTasks: React.FC<IFeatureTasksProps> = ({ tasks, ...rest }: IFeatureTasksProps) => {
   const { t, i18n } = useTranslation();
   const { classes } = useStyles();
 
   const descriptionContext = useContext(DescriptionContext);
-  const taskContext        = useContext(TaskContext);
-  if (descriptionContext == null || taskContext == null) throw new Error('Context uninitialized');
 
-  if (props.tasks.length === 0) return null;
+  if (tasks.length === 0) return null;
 
   const taskList: Array<React.ReactElement> = [];
-  for (let index = 0; index < props.tasks.length; ++index) {
-    const nextTask = props.tasks[index];
+  for (let index = 0; index < tasks.length; ++index) {
+    const nextTask = tasks[index];
     const feature = descriptionContext.getDescription(nextTask.description, i18n.language);
     if (feature == null) continue;
 
@@ -65,7 +61,7 @@ const FeatureTasks: React.FC<IFeatureTasksProps> = (props: IFeatureTasksProps) =
   }
 
   return (
-    <div className={classes.featureTasks}>
+    <div className={classes.featureTasks} {...rest}>
       <P className={classes.tasksHeading}>{`${t('task:heading')}:`}</P>
       <List>
         {taskList}

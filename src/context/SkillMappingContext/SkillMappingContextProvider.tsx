@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 import { AnyComponent } from '../../types/Types';
 
@@ -35,15 +35,16 @@ function getSkillMappingMap() {
  *
  * @param props - {@link ISkillMappingContextProviderProps}.
  */
-const SkillMappingContextProvider: React.FC<ISkillMappingContextProviderProps> = (props: ISkillMappingContextProviderProps) => {
+const SkillMappingContextProvider: React.FC<ISkillMappingContextProviderProps> = ({
+    children }: ISkillMappingContextProviderProps) => {
   const [data] = useState(getSkillMappingMap());
 
-  const getSkillMapping = (id: number): SkillMappingRecord | undefined => {
+  const getSkillMapping = useCallback((id: number): SkillMappingRecord | undefined => {
     const skillMapping: SkillMappingRecord | undefined = data.get(id);
     return skillMapping;
-  };
+  }, [data]);
 
-  const getSkillMappingsByUser = (userId: number): Array<SkillMappingRecord> => {
+  const getSkillMappingsByUser = useCallback((userId: number): Array<SkillMappingRecord> => {
     const skillMappings: Array<SkillMappingRecord> = [];
     // eslint-disable-next-line no-restricted-syntax
     for (const entry of Array.from(data.entries())) {
@@ -55,9 +56,9 @@ const SkillMappingContextProvider: React.FC<ISkillMappingContextProviderProps> =
     }
 
     return skillMappings;
-  };
+  }, [data]);
 
-  const getSkillMappingsByUserAndType = (userId: number, type: string, typeId: number): Array<SkillMappingRecord> => {
+  const getSkillMappingsByUserAndType = useCallback((userId: number, type: string, typeId: number): Array<SkillMappingRecord> => {
     const skillMappings: Array<SkillMappingRecord> = [];
     // eslint-disable-next-line no-restricted-syntax
     for (const entry of Array.from(data.entries())) {
@@ -69,9 +70,9 @@ const SkillMappingContextProvider: React.FC<ISkillMappingContextProviderProps> =
     }
 
     return skillMappings;
-  };
+  }, [data]);
 
-  const getSkillMappingsByUserAndSkill = (userId: number, skillId: number): Array<SkillMappingRecord> => {
+  const getSkillMappingsByUserAndSkill = useCallback((userId: number, skillId: number): Array<SkillMappingRecord> => {
     const skillMappings: Array<SkillMappingRecord> = [];
     // eslint-disable-next-line no-restricted-syntax
     for (const entry of Array.from(data.entries())) {
@@ -83,7 +84,7 @@ const SkillMappingContextProvider: React.FC<ISkillMappingContextProviderProps> =
     }
 
     return skillMappings;
-  };
+  }, [data]);
 
   const value: ISkillMappingContext = useMemo(() => ({
     data: data,
@@ -91,11 +92,11 @@ const SkillMappingContextProvider: React.FC<ISkillMappingContextProviderProps> =
     getSkillMappingsByUser: getSkillMappingsByUser,
     getSkillMappingsByUserAndType: getSkillMappingsByUserAndType,
     getSkillMappingsByUserAndSkill: getSkillMappingsByUserAndSkill,
-  }), [data]);
+  }), [data, getSkillMapping, getSkillMappingsByUser, getSkillMappingsByUserAndType, getSkillMappingsByUserAndSkill]);
 
   return (
     <SkillMappingContext.Provider value={value}>
-      {props.children}
+      {children}
     </SkillMappingContext.Provider>
    );
 };

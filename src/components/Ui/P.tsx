@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import { AnyComponent } from '../../types/Types';
 
 /**
- * {@link P} Props.
+ * {@link P}
  */
 interface IPProps {
   /** Classes used for styling. */
@@ -29,15 +29,15 @@ const useStyles = makeStyles()(({
  *
  * @param props - {@link IPProps}.
  */
-const P: React.FC<IPProps> = (props: IPProps) => {
+const P: React.FC<IPProps> = ({ className, variant, children, ...rest }: IPProps) => {
   const { classes } = useStyles();
 
   return (
     <Typography
-        className={cx(classes.p, props.className)}
-        component={props.component}
-        variant={props.variant || 'body1'}>
-      {props.children}
+        className={cx(classes.p, className)}
+        variant={variant || 'body1'}
+        {...rest}>
+      {children}
     </Typography>
   );
 };

@@ -7,6 +7,6 @@ export interface IEducationContext {
   getEducationsForUser: (userId: number) => Array<EducationRecord>;
 }
 
-const EducationContext = createContext<IEducationContext | null>(null);
+const EducationContext = createContext<IEducationContext>({} as IEducationContext);
 
 export default EducationContext;

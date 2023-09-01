@@ -1,6 +1,7 @@
+import { useMemo } from 'react';
 import { Routes as RouterRoutes, Route, Navigate } from 'react-router-dom';
 
-import routes, { IRouteType } from '../constants/Routes';
+import routes from '../constants/Routes';
 
 /**
  * Routes available in this app.
@@ -8,18 +9,11 @@ import routes, { IRouteType } from '../constants/Routes';
  * See also: src/constants/Routes
  */
 const Routes: React.FC = () => {
-  const routesList = [];
-
-  let index: number, nextRoute: IRouteType;
-  for (index = 0; index < routes.length; ++index) {
-    nextRoute = routes[index];
+  const routesList = useMemo(() => routes.map(route => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const PageComponent = nextRoute.component as any;
-
-    routesList.push(
-      <Route path={`${process.env.PUBLIC_URL}${nextRoute.path}`} key={nextRoute.path} element={<PageComponent />} />
-    );
-  }
+    const PageComponent = route.component as any;
+    return <Route path={`${process.env.PUBLIC_URL}${route.path}`} key={route.path} element={<PageComponent />} />;
+  }), [routes]);
 
   return (
     <RouterRoutes>

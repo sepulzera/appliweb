@@ -26,12 +26,12 @@ const useStyles = makeStyles()(({
  *
  * @param props - {@link IHeaderProps}.
  */
-const Header: React.FC<IHeaderProps> = props => {
+const Header: React.FC<IHeaderProps> = ({ title, ...rest }) => {
   const { classes } = useStyles();
 
   return (
-    <AppBar>
-      <H variant='h1' className={classes.title}>{props.title}</H>
+    <AppBar {...rest}>
+      <H variant='h1' className={classes.title}>{title}</H>
       <Settings />
     </AppBar>
   );

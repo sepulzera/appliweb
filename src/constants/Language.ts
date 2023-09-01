@@ -2,7 +2,7 @@ export const LANGUAGE_KEY = 'language';
 
 export const SupportedLanguages: Array<string> = [
   'de',
-  'en-US',
+  'en',
 ];
 
 /**
@@ -18,9 +18,9 @@ export default class LanguageHelper {
    */
   static languageToDisplayText(lang: string): string {
     switch (lang) {
-      case 'de': return 'Deutsch';
-      case 'en-US': return 'English';
-      default:   return '';
+      case 'de':    return 'Deutsch';
+      case 'en':    return 'English';
+      default:      return '';
     }
   }
 }

@@ -1,8 +1,8 @@
 // code from https://www.storyblok.com/tp/react-dynamic-component-from-json
 
 import { createElement } from 'react';
-import { AnyDescriptionData, isHeadline, isImage, isList, isListItem, isParagraph, isSpan } from '../../context/DescriptionContext/DescriptionRecord';
 
+import { AnyDescriptionData, isHeadline, isImage, isList, isListItem, isParagraph, isSpan } from '../../context/DescriptionContext/DescriptionRecord';
 import H from '../Ui/H';
 import Image from '../Ui/Image';
 import List from '../Ui/List';

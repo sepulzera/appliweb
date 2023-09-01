@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 import { AnyComponent } from '../../types/Types';
 
@@ -40,10 +40,11 @@ function getFeatureMap() {
  *
  * @param props - {@link IFeatureContextProviderProps}.
  */
-const FeatureContextProvider: React.FC<IFeatureContextProviderProps> = (props: IFeatureContextProviderProps) => {
+const FeatureContextProvider: React.FC<IFeatureContextProviderProps> = ({
+    children }: IFeatureContextProviderProps) => {
   const [data] = useState(getFeatureMap());
 
-  const getFeature = (id: number, language: string): FeatureRecord | undefined => {
+  const getFeature = useCallback((id: number, language: string): FeatureRecord | undefined => {
     const featureLanguageMap: FeatureLanguageMap | undefined = data.get(id);
     if (featureLanguageMap == null) return undefined;
 
@@ -52,16 +53,16 @@ const FeatureContextProvider: React.FC<IFeatureContextProviderProps> = (props: I
       featureRecord = featureLanguageMap.get(language.substring(0, language.indexOf('-')));
     }
     return featureRecord;
-  };
+  }, [data]);
 
   const value: IFeatureContext = useMemo(() => ({
     data: data,
     getFeature: getFeature,
-  }), [data]);
+  }), [data, getFeature]);
 
   return (
     <FeatureContext.Provider value={value}>
-      {props.children}
+      {children}
     </FeatureContext.Provider>
    );
 };

@@ -8,6 +8,6 @@ export interface IFeatureContext {
   getFeature: (feature: number, language: string) => FeatureRecord | undefined;
 }
 
-const FeatureContext = createContext<IFeatureContext | null>(null);
+const FeatureContext = createContext<IFeatureContext>({} as IFeatureContext);
 
 export default FeatureContext;

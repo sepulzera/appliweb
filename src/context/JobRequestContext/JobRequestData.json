@@ -3,8 +3,8 @@
     {
       "id":     1,
       "userId": 1,
-      "requestState": 0,
-      "salary": 50400,
+      "requestState": 2,
+      "salary": 53400,
       "job":    "software developer",
       "city":   "erfurt"
     }

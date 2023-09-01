@@ -15,10 +15,10 @@ const PrivacyPage: React.FC = () => {
   return (
     <PageWrapper title={t('privacy:privacy link')}>
       <PageWithHeaderAndFooter header={t('privacy:privacy')}>
-        { i18n.isInitialized && i18n.language != null && i18n.language.startsWith('de') && (
+        { i18n.isInitialized && i18n.language?.startsWith('de') && (
           <PrivacyDe />
         )}
-        { i18n.isInitialized && i18n.language != null && i18n.language.startsWith('en') && (
+        { i18n.isInitialized && i18n.language?.startsWith('en') && (
           <PrivacyEn />
         )}
       </PageWithHeaderAndFooter>

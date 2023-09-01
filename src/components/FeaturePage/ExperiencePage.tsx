@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useCallback, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
@@ -34,7 +34,7 @@ export interface IExperiencePageProps {
  *
  * @param props - {@link IExperiencePageProps}.
  */
-const ExperiencePage: React.FC<IExperiencePageProps> = (props: IExperiencePageProps) => {
+const ExperiencePage: React.FC<IExperiencePageProps> = ({ experience, type, isOpen, ...rest }: IExperiencePageProps) => {
   const { t, i18n } = useTranslation();
   const navigate     = useNavigate();
 
@@ -43,35 +43,31 @@ const ExperiencePage: React.FC<IExperiencePageProps> = (props: IExperiencePagePr
   const skillMappingContext = useContext(SkillMappingContext);
   const taskContext         = useContext(TaskContext);
 
-  if (featureContext == null || skillContext == null || skillMappingContext == null || taskContext == null) throw new Error('Context uninitialized');
-
-  const handleBack = () => {
+  const handleBack = useCallback(() => {
     navigate(-1);
-  };
+  }, []);
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     navigate(`${process.env.PUBLIC_URL}/home`);
-  };
-
-  const { experience, type, isOpen } = props;
+  }, []);
 
   const feature = featureContext.getFeature(experience.feature, i18n.language);
   if (feature == null) return null;
 
   const skillMappings = skillMappingContext.getSkillMappingsByUserAndType(experience.userId, type, experience.id);
-  const skills = skillMappings.map(sm => skillContext.getSkill(sm.skillId)).filter(skill => skill != null) as Array<SkillRecord>;
+  const skills = skillMappings.map(sm => skillContext.getSkill(sm.skillId)).filter(Boolean) as Array<SkillRecord>;
 
   const title = Helper.upperFirst(t(`${type}:${experience.title}`));
   document.title = `${title} - Frank Hartung`;
 
   return (
-    <Dialog title={title} isOpen={isOpen} onBack={handleBack} onClose={handleClose}>
+    <Dialog title={title} isOpen={isOpen} onBack={handleBack} onClose={handleClose} {...rest}>
       <div>
         <Image src={feature.image} />
       </div>
       {skills.length > 0 && <FeatureSkills skills={skills} />}
       <FeatureData data={feature.data} />
-      {props.type === 'career' && <FeatureTasks tasks={taskContext.getTasksForCareer(experience.id)} />}
+      {type === 'career' && <FeatureTasks tasks={taskContext.getTasksForCareer(experience.id)} />}
     </Dialog>
   );
 };

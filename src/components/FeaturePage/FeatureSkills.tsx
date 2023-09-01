@@ -45,11 +45,11 @@ const useStyles = makeStyles()((theme => ({
  *
  * @param props - {@link IFeatureSkillsProps}.
  */
-const FeatureSkills: React.FC<IFeatureSkillsProps> = (props: IFeatureSkillsProps) => {
+const FeatureSkills: React.FC<IFeatureSkillsProps> = ({ skills, ...rest }: IFeatureSkillsProps) => {
   const { t } = useTranslation();
   const { classes } = useStyles();
 
-  const skillList = props.skills.map(skill => (
+  const skillList = skills.map(skill => (
     <ListItem key={`skills-${skill.id}`}>
       <Button component={Link} to={`${process.env.PUBLIC_URL}/home?d=skill&id=${skill.id}`}>
         {Helper.upperFirst(t(`skill:${skill.title}`))}
@@ -62,7 +62,8 @@ const FeatureSkills: React.FC<IFeatureSkillsProps> = (props: IFeatureSkillsProps
         title={t('skill:heading')}
         asRow
         className={classes.featureSkills}
-        titleClassName={classes.featureSkillsHeading}>
+        titleClassName={classes.featureSkillsHeading}
+        {...rest}>
       {skillList}
     </ResponsiveList>
   );

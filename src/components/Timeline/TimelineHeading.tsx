@@ -24,12 +24,12 @@ const useStyles = makeStyles()((theme => ({
  *
  * @param props - {@link ITimelineHeadingProps}.
  */
-const TimelineHeading: React.FC<ITimelineHeadingProps> = (props: ITimelineHeadingProps) => {
+const TimelineHeading: React.FC<ITimelineHeadingProps> = ({ children, ...rest }: ITimelineHeadingProps) => {
   const { classes } = useStyles();
 
   return (
-    <CapsHeading className={classes.timelineHeading}>
-      {props.children}
+    <CapsHeading className={classes.timelineHeading} {...rest}>
+      {children}
     </CapsHeading>
   );
 };

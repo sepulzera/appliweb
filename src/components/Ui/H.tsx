@@ -19,12 +19,9 @@ export interface IHProps {
  *
  * @param props - {@link IHProps}.
  */
-const H: React.FC<IHProps> = (props: IHProps) => (
-  <Typography
-      className = {props.className}
-      component = {props.component}
-      variant   = {props.variant}>
-    {props.children}
+const H: React.FC<IHProps> = ({ children, ...rest }: IHProps) => (
+  <Typography {...rest}>
+    {children}
   </Typography>
 );
 

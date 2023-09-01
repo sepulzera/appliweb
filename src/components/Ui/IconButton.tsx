@@ -20,9 +20,9 @@ export interface IIconButtonProps {
  *
  * @param props - {@link IIconButtonProps}.
  */
-const IconButton: React.FC<IIconButtonProps> = (props: IIconButtonProps) => (
-  <MuiIconButton color={props.color} size={props.size} onClick={props.onClick} className={props.className}>
-    {props.children}
+const IconButton: React.FC<IIconButtonProps> = ({ children, ...rest }: IIconButtonProps) => (
+  <MuiIconButton {...rest}>
+    {children}
   </MuiIconButton>
 );
 

@@ -7,6 +7,6 @@ export interface ITaskContext {
   getTasksForCareer: (careerId: number) => Array<TaskRecord>;
 }
 
-const TaskContext = createContext<ITaskContext | null>(null);
+const TaskContext = createContext<ITaskContext>({} as ITaskContext);
 
 export default TaskContext;

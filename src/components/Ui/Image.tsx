@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { cx } from '@emotion/css';
 import { makeStyles } from 'tss-react/mui';
 
@@ -38,14 +39,14 @@ const useStyles = makeStyles()(({
  *
  * @param props - {@link IImageProps}.
  */
-const Image: React.FC<IImageProps> = (props: IImageProps) => {
+const Image: React.FC<IImageProps> = ({ src, alt, className, ...rest }: IImageProps) => {
   const { classes } = useStyles();
 
-  const img = AssetsHelper.getAsset(props.src);
+  const img = useMemo(() => AssetsHelper.getAsset(src), [src]);
 
   return (
-    <div className={cx(classes.root, props.className)}>
-      <img alt={img} src={img} className={classes.img} />
+    <div className={cx(classes.root, className)}>
+      <img alt={alt} src={img} className={classes.img} {...rest} />
     </div>
   );
 };

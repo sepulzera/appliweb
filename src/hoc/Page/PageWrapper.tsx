@@ -14,17 +14,15 @@ interface IPageWrapperProps {
 /**
  * HOC to properly set the browser title to assure accessibilty.
  */
- const PageWrapper: React.FC<IPageWrapperProps> = (props: IPageWrapperProps) => {
-  const { title } = props;
-
+ const PageWrapper: React.FC<IPageWrapperProps> = ({ title, children }: IPageWrapperProps) => {
   useEffect(() => {
     // ARIA: Titles should contain the application name and page title.
-    document.title = (`${title != null && title.length > 0 ? `${title} - ` : ''}Frank Hartung`);
+    document.title = (`${title ? `${title} - ` : ''}Frank Hartung`);
   }, [title]);
 
   return (
     <ErrorBoundary verbose printStack>
-      {props.children}
+      {children}
     </ErrorBoundary>
   );
 };

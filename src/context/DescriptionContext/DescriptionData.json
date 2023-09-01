@@ -208,7 +208,7 @@
         {
           "uid": "task-span1",
           "component": "span",
-          "text": "Entwicklung von caredo®: Die intern entwickelte Produktlösung caredo® ermöglicht u. a. die elektronische Abbildung von Dokumenten und Vorgängen. Die Logik ist mit in Java/JEE programmiert. Für die Darstellung der Weboberflächen wird Eclipse RAP und HTML/CSS verwendet."
+          "text": "Entwicklung von caredo®: Die intern entwickelte Produktlösung caredo® ermöglicht u. a. die elektronische Abbildung von Dokumenten und Vorgängen. Die Logik ist mit Java/JEE programmiert. Für die Darstellung der Weboberflächen wird Eclipse RAP und HTML/CSS verwendet. Weiterhin entwickelte ich ein Excel-AddIn zum Importieren von Konfigurationsdateien als Excel-Dateien in die Fachanwendungen, und war für Analyse der Barrierefreiheit zuständig."
         }
       ]
     },
@@ -219,51 +219,7 @@
         {
           "uid": "task-span1",
           "component": "span",
-          "text": "Development of caredo®: With the product-solution caredo® it is possible to digitally transform paper-based documents and business. The logic is programmed with Java/JEE. The web-frontends are realized with Eclipse RAP and HTML/CSS."
-        }
-      ]
-    },
-    {
-      "id":       402,
-      "language": "de",
-      "data": [
-        {
-          "uid": "task-span1",
-          "component": "span",
-          "text": "Excel-AddIn zum Importieren von Excel-Dateien in caredo®-Anwendungen: Die für caredo®-Anwendungen notwendigen Konfigurationen können von den Kunden in Microsoft Excel erstellt werden. Meine Aufgabe war die Entwicklung eines AddIns, mit dem die Konfigurationsdaten aus den Excel-Dateien in die Anwendung importiert werden können."
-        }
-      ]
-    },
-    {
-      "id":       402,
-      "language": "en",
-      "data": [
-        {
-          "uid": "task-span1",
-          "component": "span",
-          "text": "Excel-AddIn to import Excel-Files into caredo®-applications: The configuration data for caredo®-applications can be written with Microsoft Excel. Customers, like government agencies, can manage them on their own. My task was to develop an Excel-AddIn to facilitate importing the configuration data into the application."
-        }
-      ]
-    },
-    {
-      "id":       403,
-      "language": "de",
-      "data": [
-        {
-          "uid": "task-span1",
-          "component": "span",
-          "text": "Untersuchung der Barrierefreiheit von mit caredo® entwickelten Fachanwendungen: Für eine exemplarisch ausgewählte Fachanwendung auf Basis von caredo® habe ich die Barrierefreiheit untersucht. Im engen Dialog mit den Entwicklern wurden Lösungsvorschläge zum Verringern der Barrieren erarbeitet."
-        }
-      ]
-    },
-    {
-      "id":       403,
-      "language": "en",
-      "data": [
-        {
-          "uid": "task-span1",
-          "component": "span",
-          "text": "Analyzation of the accessibility of applications developed with caredo®: I analyzed the acessibility of one application that was developed with caredo®. In close dialogs with the developers we improved the accessibility of caredo®-applications greatly."
+          "text": "Development of caredo®: With the product-solution caredo® it is possible to digitally transform paper-based documents and business. The logic is programmed with Java/JEE. The web-frontends are realized with Eclipse RAP and HTML/CSS. The configuration data for caredo®-applications can be written with Microsoft Excel. Customers, like government agencies, can manage them on their own. My task was to develop an Excel-AddIn to facilitate importing the configuration data into the application. Last but not least, I was responsible to analyze and track the accessibility of the end-user applications."
         }
       ]
     },
@@ -296,7 +252,7 @@
         {
           "uid": "task-span1",
           "component": "span",
-          "text": "Anpassungsfähiges Layout für IBYKUS AP®/WebGate-Anwendungen: IBYKUS AP®/WebGate-Anwendungen können mit Web-Browsern bedient werden. Im engen Kontakt mit Web-Designern entwickelten wir die Darstellung des Frontend weiter, sodass es auch mit Tablets und Smartphones zugänglich ist."
+          "text": "Anpassungsfähiges Layout für IBYKUS AP®/WebGate-Anwendungen: IBYKUS AP®/WebGate-Anwendungen können mit Web-Browsern bedient werden. Im engen Kontakt mit Web-Designern entwickelten wir die Darstellung des Frontends weiter, sodass es auch mit Tablets und Smartphones zugänglich ist."
         }
       ]
     },
@@ -340,7 +296,7 @@
         {
           "uid": "task-span1",
           "component": "span",
-          "text": "Entwicklung eines Frontends mit React: Um auch zukünftig moderne Anwendungen anbieten zu können, hat sich IBYKUS für einen neuen Technologiestack auf Basis von .NET (Backend) und React (Frontend) entschieden. Bei der Entwicklung der ersten komplexeren Kundenanwendung war ich für das Frontend zuständig."
+          "text": "Entwicklung des Web-Frontend-Frameworks \"Rebase\": Um auch zukünftig moderne Anwendungen anbieten zu können, hat sich IBYKUS für einen neuen Technologiestack auf Basis von .NET (Backend) und React (Frontend) entschieden. Um weiterhin ähnlich zu IBYKUS AP® effizient und kostengünstig Fachanwendungen umsetzen zu können, entwickelte ich ein Framework für das Frontend, auf Basis von React, material-ui und Redux."
         }
       ]
     },
@@ -351,7 +307,29 @@
         {
           "uid": "task-span1",
           "component": "span",
-          "text": "Development of a frontend with React: To be able to offer modern application solutions, IBYKUS decided to develop future applications with .NET (backend) and React (frontend). For the first application I was responsible to develop the frontend."
+          "text": "Development of the web-frontend-framework \"Rebase\": To be able to offer modern application solutions, IBYKUS decided to develop upcoming applications with .NET (backend) and React (frontend). To keep up with the time and cost efficiency of IBYKUS AP®, I developed a framework for the web-frontend applications, based on React, material-ui and Redux."
+        }
+      ]
+    },
+    {
+      "id":       408,
+      "language": "de",
+      "data": [
+        {
+          "uid": "task-span1",
+          "component": "span",
+          "text": "Entwicklung von Fachanwendungen mit Rebase (React): Parallel zu der Entwicklung des Frameworks wurden mehrere Fachanwendungen für mehrere Kunden erstellt. Dabei waren die kurze Entwicklungszeit, die gute Bedienbarkeit, Barrierefreiheit und Responsive Design gute Gründe für den Erfolg."
+        }
+      ]
+    },
+    {
+      "id":       408,
+      "language": "en",
+      "data": [
+        {
+          "uid": "task-span1",
+          "component": "span",
+          "text": "Development of applications with Rebase (React): Rebase is quite a success, and already several applications were delivered to happy customers. Key for the success are the short time-to-market, great user experience, accessibility and responsive design."
         }
       ]
     }

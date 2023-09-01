@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useMemo } from 'react';
 import { makeStyles } from 'tss-react/mui';
 import { useTranslation } from 'react-i18next';
 
@@ -65,23 +65,23 @@ function sortCareerByTimeDesc(a: EducationRecord, b: EducationRecord): number {
  *
  * @param props - {@link IEducationTimelineProps}.
  */
-const EducationTimeline: React.FC<IEducationTimelineProps> = (props: IEducationTimelineProps) => {
+const EducationTimeline: React.FC<IEducationTimelineProps> = ({ educations, ...rest }: IEducationTimelineProps) => {
   const { t, i18n } = useTranslation();
   const { classes } = useStyles();
 
   const descriptionContext = useContext(DescriptionContext);
   if (descriptionContext == null) throw new Error('Context uninitialized');
 
-  const educationsSorted = [...props.educations];
-  educationsSorted.sort(sortCareerByTimeDesc);
+  const educationsSorted = useMemo(() => {
+    const res = [...educations];
+    res.sort(sortCareerByTimeDesc);
+    return res;
+  }, [educations]);
 
-  const educationList: Array<React.ReactElement> = [];
-  let index: number;
-  for (index = 0; index < educationsSorted.length; ++index) {
-    const nextEducation = educationsSorted[index];
+  const educationList: Array<React.ReactElement> = educationsSorted.map(nextEducation => {
     const feature = descriptionContext.getDescription(nextEducation.short, i18n.language);
 
-    educationList.push(
+    return (
       <TimelineRecord
           key     = {`timeline-record-education-${nextEducation.title}`}
           heading = {`${t(`education:${nextEducation.title}`)}${nextEducation.profession != null ? `: ${t(`education:${nextEducation.profession}`)}` : ''}`}
@@ -90,15 +90,15 @@ const EducationTimeline: React.FC<IEducationTimelineProps> = (props: IEducationT
           end     = {nextEducation.end}
           to      = {`${process.env.PUBLIC_URL}/home?d=education&id=${nextEducation.id}`}>
         <>
-          {feature != null && feature.data.map(block => Components(block))}
+          {feature?.data.map(block => Components(block))}
           <P className={classes.educationTimelineFinalGrade}>{`${t('education:final grade')}: ${nextEducation.grade}`}</P>
         </>
       </TimelineRecord>
     );
-  }
+  });
 
   return (
-    <Timeline>
+    <Timeline {...rest}>
       <TimelineHeading>{t('education:heading')}</TimelineHeading>
       <TimelineRecords>
         {educationList}

@@ -8,6 +8,6 @@ export interface ICareerContext {
   getCareersForUser: (userId: number) => Array<CareerRecord>;
 }
 
-const CareerContext = createContext<ICareerContext | null>(null);
+const CareerContext = createContext<ICareerContext>({} as ICareerContext);
 
 export default CareerContext;

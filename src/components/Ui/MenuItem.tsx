@@ -5,7 +5,7 @@ import { IconProps } from '@mui/material';
 import { AnyComponent } from '../../types/Types';
 
 /**
- * {@link MenuItem} Props.
+ * {@link MenuItem}
  */
 interface IMenuItemProps {
   icon: IconProps;
@@ -28,17 +28,17 @@ const useStyles = makeStyles()((theme => ({
  *
  * @param props - {@link IMenuItemProps}.
  */
-const MenuItem: React.FC<IMenuItemProps> = (props: IMenuItemProps) => {
+const MenuItem: React.FC<IMenuItemProps> = ({ icon, children, ...rest }: IMenuItemProps) => {
   const { classes } = useStyles();
 
   return (
     <MuiMenuItem
-        onClick = {props.onClick}>
+        {...rest}>
       <>
         <span className={classes.icon}>
-          {props.icon}
+          {icon}
         </span>
-        {props.children}
+        {children}
       </>
     </MuiMenuItem>
   );

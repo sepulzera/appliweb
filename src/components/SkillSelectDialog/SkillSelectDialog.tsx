@@ -1,4 +1,4 @@
-import { Fragment, useContext } from 'react';
+import { Fragment, useCallback, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -39,7 +39,7 @@ const useStyles = makeStyles()((theme => ({
  *
  * @param props - {@link ISKillSelectDialogProps}.
  */
-const SKillSelectDialog: React.FC<ISKillSelectDialogProps> = (props: ISKillSelectDialogProps) => {
+const SKillSelectDialog: React.FC<ISKillSelectDialogProps> = ({ skill, skillMappings, ...rest }: ISKillSelectDialogProps) => {
   const { classes } = useStyles();
   const { t }   = useTranslation();
   const navigate = useNavigate();
@@ -47,17 +47,14 @@ const SKillSelectDialog: React.FC<ISKillSelectDialogProps> = (props: ISKillSelec
   const careerContext    = useContext(CareerContext);
   const educationContext = useContext(EducationContext);
   const leisureContext   = useContext(LeisureContext);
-  if (careerContext == null || educationContext == null || leisureContext == null) throw new Error('Context uninitialized');
 
-  const handleBack = () => {
+  const handleBack = useCallback(() => {
     navigate(-1);
-  };
+  }, []);
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     navigate(`${process.env.PUBLIC_URL}/home`);
-  };
-
-  const { skill, skillMappings } = props;
+  }, []);
 
   const categories: Array<React.ReactNode> = [];
 
@@ -140,7 +137,7 @@ const SKillSelectDialog: React.FC<ISKillSelectDialogProps> = (props: ISKillSelec
   }
 
   return (
-    <Dialog title={`${t('skill:skill')}: ${skill != null ? title : ''}`} isOpen={skill != null} onBack={handleBack} onClose={handleClose}>
+    <Dialog title={`${t('skill:skill')}: ${skill != null ? title : ''}`} isOpen={skill != null} onBack={handleBack} onClose={handleClose} {...rest}>
       {categories}
     </Dialog>
   );

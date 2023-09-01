@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 import { AnyComponent } from '../../types/Types';
 
@@ -33,22 +33,23 @@ function getSkillMap() {
  *
  * @param props - {@link ISkillContextProviderProps}.
  */
-const SkillContextProvider: React.FC<ISkillContextProviderProps> = (props: ISkillContextProviderProps) => {
+const SkillContextProvider: React.FC<ISkillContextProviderProps> = ({
+    children }: ISkillContextProviderProps) => {
   const [data] = useState(getSkillMap());
 
-  const getSkill = (id: number): SkillRecord | undefined => {
+  const getSkill = useCallback((id: number): SkillRecord | undefined => {
     const skill: SkillRecord | undefined = data.get(id);
     return skill;
-  };
+  }, [data]);
 
   const value: ISkillContext = useMemo(() => ({
     data: data,
     getSkill: getSkill,
-  }), [data]);
+  }), [data, getSkill]);
 
   return (
     <SkillContext.Provider value={value}>
-      {props.children}
+      {children}
     </SkillContext.Provider>
    );
 };

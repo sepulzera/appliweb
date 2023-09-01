@@ -30,20 +30,16 @@ const useStyles = makeStyles()(() => ({
  *
  * @param props - {@link ICareerTimelineProps}.
  */
-const CareerTimeline: React.FC<ICareerTimelineProps> = (props: ICareerTimelineProps) => {
+const CareerTimeline: React.FC<ICareerTimelineProps> = ({ careers, ...rest }: ICareerTimelineProps) => {
   const { t, i18n } = useTranslation('career');
   const { classes } = useStyles();
 
   const descriptionContext = useContext(DescriptionContext);
-  if (descriptionContext == null) throw new Error('Context uninitialized');
 
-  const careerList: Array<React.ReactElement> = [];
-  let index: number;
-  for (index = 0; index < props.careers.length; ++index) {
-    const nextCareer = props.careers[index];
+  const careerList: Array<React.ReactElement> = careers.map(nextCareer => {
     const feature = descriptionContext.getDescription(nextCareer.short, i18n.language);
 
-    careerList.push(
+    return (
       <TimelineRecord
           key     = {`timeline-record-career-${nextCareer.title}`}
           heading = {t(`career:${nextCareer.title}`)}
@@ -51,13 +47,13 @@ const CareerTimeline: React.FC<ICareerTimelineProps> = (props: ICareerTimelinePr
           begin   = {nextCareer.begin}
           end     = {nextCareer.end}
           to      = {`${process.env.PUBLIC_URL}/home?d=career&id=${nextCareer.id}`}>
-        {feature != null && feature.data.map(block => Components(block))}
+        {feature?.data.map(block => Components(block))}
       </TimelineRecord>
     );
-  }
+  });
 
   return (
-    <Timeline className={classes.careerTimeline}>
+    <Timeline className={classes.careerTimeline} {...rest}>
       <TimelineHeading>{t('career:heading')}</TimelineHeading>
       <TimelineRecords>
         {careerList}

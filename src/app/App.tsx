@@ -1,11 +1,11 @@
 import { useContext } from 'react';
+import { StyledEngineProvider } from '@mui/material';
 
 import ErrorBoundary from '../hoc/ErrorBoundary/ErrorBoundary';
 import SettingsContext from '../context/SettingsContext/SettingsContext';
 
 import BaseTheme from './BaseTheme';
 import Routes from './Routes';
-import { StyledEngineProvider } from '@mui/material';
 
 /**
  * Wrapper that is setting up the content of this app.
@@ -20,7 +20,7 @@ const App: React.FC = () => {
 
   return (
     <StyledEngineProvider injectFirst>
-      <BaseTheme theme={settingsContext != null ? settingsContext.getTheme() : undefined}>
+      <BaseTheme theme={settingsContext.theme}>
         <ErrorBoundary verbose printStack>
           <Routes />
         </ErrorBoundary>

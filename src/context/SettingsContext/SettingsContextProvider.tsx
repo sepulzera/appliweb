@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTranslation } from 'react-i18next';
 
@@ -44,26 +44,23 @@ const SettingsContextProvider: React.FC<ISettingsContextProviderProps> = (props:
     i18n.changeLanguage(language);
   }, [i18n, language]);
 
-  const changeLanguage = (lang: string) => {
+  const changeLanguage = useCallback((lang: string) => {
     localStorage.setItem(LANGUAGE_KEY, lang);
     setLanguage(lang);
-  };
+  }, []);
 
-  const changeTheme = (newTheme: number) => {
+  const changeTheme = useCallback((newTheme: number) => {
     localStorage.setItem(THEME_KEY, String(newTheme));
     setTheme(newTheme);
-  };
+  }, []);
 
   const value: ISettingsContext = useMemo(() => ({
     theme:    theme,
-    language: language,
-
-    getTheme: () => theme,
     setTheme: changeTheme,
 
-    getLanguage: () => language,
+    language: language,
     setLanguage: changeLanguage,
-  }), [theme, language]);
+  }), [theme, language, changeTheme, changeLanguage]);
 
   return (
     <SettingsContext.Provider value={value}>

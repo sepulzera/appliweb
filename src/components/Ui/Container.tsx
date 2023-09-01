@@ -37,11 +37,11 @@ const useStyles = makeStyles()((theme => ({
  *
  * @param props - {@link IContainerProps}.
  */
-const Container: React.FC<IContainerProps> = (props: IContainerProps) => {
+const Container: React.FC<IContainerProps> = ({ className, children, ...rest }: IContainerProps) => {
   const { classes } = useStyles();
   return (
-    <div className={cx(classes.container, props.className)}>
-      {props.children}
+    <div className={cx(classes.container, className)} {...rest}>
+      {children}
     </div>
   );
 };

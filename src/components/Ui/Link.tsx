@@ -30,12 +30,12 @@ interface ILinkProps {
  *
  * @param props - {@link ILinkProps}.
  */
-const Link: React.FC<ILinkProps> = (props: ILinkProps) => (
+const Link: React.FC<ILinkProps> = ({ target, children, ...rest }: ILinkProps) => (
   <MuiLink
-      href   = {props.href}
-      target = {props.target}
-      rel    = {props.target === '_blank' ? 'noopener' : undefined}>
-    {props.children}
+      target = {target}
+      rel    = {target === '_blank' ? 'noopener' : undefined}
+      {...rest}>
+    {children}
   </MuiLink>
 );
 

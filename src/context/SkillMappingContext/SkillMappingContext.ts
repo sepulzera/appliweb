@@ -9,6 +9,6 @@ export interface ISkillMappingContext {
   getSkillMappingsByUserAndSkill: (userId: number, skillId: number) => Array<SkillMappingRecord>;
 }
 
-const SkillMappingContext = createContext<ISkillMappingContext | null>(null);
+const SkillMappingContext = createContext<ISkillMappingContext>({} as ISkillMappingContext);
 
 export default SkillMappingContext;

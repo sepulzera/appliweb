@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 import { AnyComponent } from '../../types/Types';
 
@@ -66,15 +66,16 @@ function sortByTimeDesc(a: CareerRecord, b: CareerRecord): number {
  *
  * @param props - {@link ICareerContextProviderProps}.
  */
-const CareerContextProvider: React.FC<ICareerContextProviderProps> = (props: ICareerContextProviderProps) => {
+const CareerContextProvider: React.FC<ICareerContextProviderProps> = ({
+    children }: ICareerContextProviderProps) => {
   const [data] = useState(getCareerMap());
 
-  const getCareer = (id: number): CareerRecord | undefined => {
+  const getCareer = useCallback((id: number): CareerRecord | undefined => {
     const education: CareerRecord | undefined = data.get(id);
     return education;
-  };
+  }, [data]);
 
-  const getCareersForUser = (userId: number): Array<CareerRecord> => {
+  const getCareersForUser = useCallback((userId: number): Array<CareerRecord> => {
     const arr: Array<CareerRecord> = [];
 
     // eslint-disable-next-line no-restricted-syntax
@@ -87,17 +88,17 @@ const CareerContextProvider: React.FC<ICareerContextProviderProps> = (props: ICa
     }
 
     return arr.sort(sortByTimeDesc);
-  };
+  }, [data]);
 
   const value: ICareerContext = useMemo(() => ({
     data: data,
     getCareer: getCareer,
     getCareersForUser: getCareersForUser,
-  }), [data]);
+  }), [data, getCareer, getCareersForUser]);
 
   return (
     <CareerContext.Provider value={value}>
-      {props.children}
+      {children}
     </CareerContext.Provider>
    );
 };
