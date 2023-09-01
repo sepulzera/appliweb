@@ -25,6 +25,8 @@
   "web typescript": "web-development: TypeScript",
   "database OracleSQL": "database: OracleSQL",
   "os linux": "operating system: Linux",
+  "docker": "Docker",
+  "git": "git",
 
   "knowledge": "knowledge",
   "accessibility": "accessibility",

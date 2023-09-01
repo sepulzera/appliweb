@@ -125,7 +125,7 @@
         {
           "uid": "leisure-photography-p3",
           "component": "p",
-          "text": "Nebenher wächst natürlich auch das Equipment: Aktuell fotografieren wir mit der spiegellosen Systekamera \"Sony α6300\". Mein \"immer-drauf\"-Objekt ist das \"Sony 35mm\". Für besondere Umstände kommen aber auch das \"Zeiss 12mm\", das \"Sony 18-135mm\" oder das \"Sony G 135mm\" zum Einsatz."
+          "text": "Nebenher wächst natürlich auch das Equipment: Aktuell fotografieren wir mit der spiegellosen Systekamera \"Sony α6300\". Mein \"immer-drauf\"-Objekt ist das \"Sony 35mm\". Für entsprechende Anlässe kommen aber auch das \"Zeiss 12mm\", das \"Sony 18-135mm\" oder das \"Sony G 135mm\" zum Einsatz."
         },
         {
           "uid": "leisure-photography-p4",
@@ -164,7 +164,7 @@
         {
           "uid": "leisure-photography-p3",
           "component": "p",
-          "text": "Alongside comes a grow of our used equipment: Currently, we are using the system camera \"Sony α6300\". My personal \"always on\"-objective is the \"Sony 35mm\". But for particular situations we also use the \"Zeiss 12mm\", the \"Sony 18-135mm\" or the \"Sony G 135mm\"."
+          "text": "Alongside comes a grow of our used equipment: Currently, we are using the system camera \"Sony α6300\". My personal \"always on\"-objective is the \"Sony 35mm\". Though for particular situations we also use the \"Zeiss 12mm\", the \"Sony 18-135mm\" or the \"Sony G 135mm\"."
         },
         {
           "uid": "leisure-photography-p4",
@@ -363,6 +363,74 @@
           "uid": "leisure-gamesdevelopment-p4",
           "component": "p",
           "text": "As result to my engagement I have learned to carefully listen to people and to understand their core problems. I am competent to translate their problems into the development-language for the programmers and to design a well-elaborated product that provides an excellent user-experience."
+        }
+      ]
+    },
+    {
+      "id":       5,
+      "language": "de",
+      "title":    "leisure:OwnRecipes",
+      "image":    "Leisure-OwnRecipes.jpg",
+      "data": [
+        {
+          "uid": "leisure-ownrecipes-h1",
+          "component": "h",
+          "text": "Kochrezepte-Web-App OwnRecipes",
+          "variant": "h3"
+        },
+        {
+          "uid": "leisure-ownrecipes-p1",
+          "component": "p",
+          "text": "Meine Freundin und ich kochen gerne am Wochenende gemeinsam. Inzwischen haben wir über ein Dudzend an Kochbüchern im Bücherregal stehen."
+        },
+        {
+          "uid": "leisure-ownrecipes-p2",
+          "component": "p",
+          "text": "Kochbücher sind analog, und ich ein Informatiker. Tatsächlich haben wir irgendwann den Überblick zwischen den ganzen Büchern verloren, und uns immer mehr ein \"STRG + F\" gewünscht."
+        },
+        {
+          "uid": "leisure-ownrecipes-p3",
+          "component": "p",
+          "text": "Bei meinen Bestrebungen, die Kochbücher zu digitalisieren, fand ich keine App, die mich wirklich begeisterte. Und ich bin Informatiker. Also forkte ich das verlassene Projekt \"OpenEats\" und rief \"OwnRecipes\" ins Leben. Vorbeischauen lohnt sich!"
+        },
+        {
+          "uid": "leisure-ownrecipes-p4",
+          "component": "p",
+          "text": "Link: https://github.com/ownrecipes/OwnRecipes"
+        }
+      ]
+    },
+    {
+      "id":       5,
+      "language": "en",
+      "title":    "leisure:OwnRecipes",
+      "image":    "Leisure-OwnRecipes-en.jpg",
+      "data": [
+        {
+          "uid": "leisure-gamesdevelopment-h1",
+          "component": "h",
+          "text": "Cooking-App OwnRecipes",
+          "variant": "h3"
+        },
+        {
+          "uid": "leisure-ownrecipes-p1",
+          "component": "p",
+          "text": "My girlfriend and I like to cook together at the weekend. We now have over a dozen cookbooks on our bookshelves."
+        },
+        {
+          "uid": "leisure-ownrecipes-p2",
+          "component": "p",
+          "text": "Cookbooks are analog, and I'm a computer nerd. Well actually, at some point we lost track of all books, and kept wanting \"CTRL + F\"."
+        },
+        {
+          "uid": "leisure-ownrecipes-p3",
+          "component": "p",
+          "text": "In my efforts to digitize the cookbooks, I didn't find an app that really got me excited. And I'm a computer nerd. So I forked the abandoned \"OpenEats\" project and launched \"OwnRecipes\". It's worth stopping by!"
+        },
+        {
+          "uid": "leisure-ownrecipes-p4",
+          "component": "p",
+          "text": "Link: https://github.com/ownrecipes/OwnRecipes"
         }
       ]
     },
