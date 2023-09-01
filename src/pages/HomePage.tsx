@@ -30,7 +30,8 @@ import CareerTimeline from '../components/CareerTimeline/CareerTimeline';
 import PageWrapper from '../hoc/Page/PageWrapper';
 
 function useQuery() {
-  return new URLSearchParams(useLocation().search);
+  const location = useLocation();
+  return new URLSearchParams(location.search);
 }
 
 const useStyles = makeStyles()((theme => ({
@@ -57,6 +58,7 @@ const useStyles = makeStyles()((theme => ({
  */
 const HomePage: React.FC = () => {
   const { classes } = useStyles();
+  const query = useQuery();
 
   const careerContext       = useContext(CareerContext);
   const educationContext    = useContext(EducationContext);
@@ -65,8 +67,6 @@ const HomePage: React.FC = () => {
   const skillContext        = useContext(SkillContext);
   const skillMappingContext = useContext(SkillMappingContext);
   const userContext         = useContext(UserContext);
-
-  if (careerContext == null || educationContext == null || jobRequestContext == null || leisureContext == null || skillContext == null || skillMappingContext == null || userContext == null) throw new Error('Context uninitialized');
 
   // HACK: There is only one user - me!
   const userId = 1;
@@ -81,9 +81,8 @@ const HomePage: React.FC = () => {
   const jobRequest    = jobRequestContext.getJobRequestForUser(user.id);
   const leisures      = leisureContext.getLeisuresForUser(user.id);
   const skillMappings = skillMappingContext.getSkillMappingsByUser(user.id);
-  const skills        = skillMappings.map(sm => skillContext.getSkill(sm.skillId)).filter(skill => skill != null) as Array<SkillRecord>;
+  const skills        = skillMappings.map(sm => skillContext.getSkill(sm.skillId)).filter(Boolean) as Array<SkillRecord>;
 
-  const query = useQuery();
   const queryDialogType = query.get('d');
   const openDialogType: 'career' | 'education' | 'leisure' | 'skill' | undefined = (queryDialogType != null
       && (queryDialogType === 'career' || queryDialogType === 'education' || queryDialogType === 'leisure' || queryDialogType === 'skill')) ? queryDialogType : undefined;
@@ -111,7 +110,7 @@ const HomePage: React.FC = () => {
                 user = {user}
                 jobRequest = {jobRequest}
                 highestEducation = {Helper.getHighestEducation(educations)}
-                latestCareer = {careers != null && careers.length > 0 ? careers[0] : undefined} />
+                latestCareer = {careers?.[0]} />
           )}>
         <Grid>
           <GridItem xs={12} sm={4} md={3} className={classes.skillsSection}>

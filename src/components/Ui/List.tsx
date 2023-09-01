@@ -37,16 +37,17 @@ const useStyles = makeStyles()((theme => ({
  *
  * @param props - {@link IListProps}.
  */
-const List: React.FC<IListProps> = (props: IListProps) => {
+const List: React.FC<IListProps> = ({ noMarks, className, children, ...rest }: IListProps) => {
   const { classes } = useStyles();
 
   return (
     <ul
-        className = {cx(props.className, {
-            [classes.noMarks]: props.noMarks ?? false,
-            [classes.withMarks]: !props.noMarks,
-        })}>
-      {props.children}
+        className = {cx(className, {
+            [classes.noMarks]:   noMarks ?? false,
+            [classes.withMarks]: !noMarks,
+        })}
+        {...rest}>
+      {children}
     </ul>
   );
 };

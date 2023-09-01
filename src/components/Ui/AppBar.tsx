@@ -35,15 +35,16 @@ const useStyles = makeStyles()((theme => ({
  *
  * @param props - {@link IAppBarProps}.
  */
-const AppBar: React.FC<IAppBarProps> = (props: IAppBarProps) => {
+const AppBar: React.FC<IAppBarProps> = ({ children, ...rest }: IAppBarProps) => {
   const { classes } = useStyles();
 
   return (
     <MuiAppBar
-        position='static'>
+        position='static'
+        {...rest}>
       <Toolbar disableGutters className={classes.toolbar}>
         <Container className={classes.container}>
-          {props.children}
+          {children}
         </Container>
       </Toolbar>
     </MuiAppBar>

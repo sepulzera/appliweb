@@ -46,15 +46,15 @@ const useStyles = makeStyles()((theme => ({
  *
  * @param props - {@link ITimelineRecordHeadingProps}.
  */
-const TimelineRecordHeading: React.FC<ITimelineRecordHeadingProps> = (props: ITimelineRecordHeadingProps) => {
+const TimelineRecordHeading: React.FC<ITimelineRecordHeadingProps> = ({ to, children, ...rest }: ITimelineRecordHeadingProps) => {
   const { classes } = useStyles();
 
   return (
-    <H variant='h4' className={classes.timelineRecordHeading}>
-      <Button fullWidth className={classes.timelineRecordHeadingButton} component={Link} to={props.to}>
+    <H variant='h4' className={classes.timelineRecordHeading} {...rest}>
+      <Button fullWidth className={classes.timelineRecordHeadingButton} component={Link} to={to}>
         <>
           <span className={classes.timelineDot}>·</span>
-          {props.children}
+          {children}
         </>
       </Button>
     </H>

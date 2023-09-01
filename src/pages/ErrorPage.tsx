@@ -18,14 +18,14 @@ interface IErrorPageProps {
 /**
  * Error Page.
  */
-const ErrorPage: React.FC<IErrorPageProps> = (props: IErrorPageProps) => {
+const ErrorPage: React.FC<IErrorPageProps> = ({ title, message }: IErrorPageProps) => {
   const { t } = useTranslation();
 
   return (
     <PageWrapper title=''>
-      <PageWithHeaderAndFooter header={t(props.title)}>
-        <H variant='h4' component='h2'>{t(props.title)}</H>
-        <P>{t(props.message)}</P>
+      <PageWithHeaderAndFooter header={t(title)}>
+        <H variant='h4' component='h2'>{t(title)}</H>
+        <P>{t(message)}</P>
       </PageWithHeaderAndFooter>
     </PageWrapper>
   );

@@ -33,12 +33,13 @@ interface IErrorBoundaryContainerProps {
   children: AnyComponent;
 }
 
-const ErrorBoundaryContainer: React.FC<IErrorBoundaryContainerProps> = (props: IErrorBoundaryContainerProps) => {
+const ErrorBoundaryContainer: React.FC<IErrorBoundaryContainerProps> = ({
+    children }: IErrorBoundaryContainerProps) => {
   const { classes } = useStyles();
 
   return (
     <div className={classes.errorContainer}>
-      {props.children}
+      {children}
     </div>
   );
 };

@@ -6,6 +6,6 @@ export interface ISkillContext {
   getSkill: (id: number) => SkillRecord | undefined;
 }
 
-const SkillContext = createContext<ISkillContext | null>(null);
+const SkillContext = createContext<ISkillContext>({} as ISkillContext);
 
 export default SkillContext;

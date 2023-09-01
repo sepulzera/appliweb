@@ -75,11 +75,9 @@ const useStyles = makeStyles()((theme => ({
  *
  * @param props - {@link ICurrentUserInfoProps}.
  */
-const CurrentUserInfo: React.FC<ICurrentUserInfoProps> = (props: ICurrentUserInfoProps) => {
+const CurrentUserInfo: React.FC<ICurrentUserInfoProps> = ({ user, degree, job }: ICurrentUserInfoProps) => {
   const { classes } = useStyles();
   const { t } = useTranslation();
-
-  const { degree, job, user } = props;
 
   return (
     <div className={classes.userInfo}>

@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 import { AnyComponent } from '../../types/Types';
 
@@ -34,15 +34,16 @@ function getJobRequestMap() {
  *
  * @param props - {@link IJobRequestContextProviderProps}.
  */
-const JobRequestContextProvider: React.FC<IJobRequestContextProviderProps> = (props: IJobRequestContextProviderProps) => {
+const JobRequestContextProvider: React.FC<IJobRequestContextProviderProps> = ({
+    children }: IJobRequestContextProviderProps) => {
   const [data] = useState(getJobRequestMap());
 
-  const getJobRequest = (id: number): JobRequestRecord | undefined => {
+  const getJobRequest = useCallback((id: number): JobRequestRecord | undefined => {
     const jobRequest: JobRequestRecord | undefined = data.get(id);
     return jobRequest;
-  };
+  }, [data]);
 
-  const getJobRequestForUser = (userId: number): JobRequestRecord | undefined => {
+  const getJobRequestForUser = useCallback((userId: number): JobRequestRecord | undefined => {
     // eslint-disable-next-line no-restricted-syntax
     for (const entry of Array.from(data.entries())) {
       // const key = entry[0];
@@ -53,17 +54,17 @@ const JobRequestContextProvider: React.FC<IJobRequestContextProviderProps> = (pr
     }
 
     return undefined;
-  };
+  }, [data]);
 
   const value: IJobRequestContext = useMemo(() => ({
     data: data,
     getJobRequest: getJobRequest,
     getJobRequestForUser: getJobRequestForUser,
-  }), [data]);
+  }), [data, getJobRequest, getJobRequestForUser]);
 
   return (
     <JobRequestContext.Provider value={value}>
-      {props.children}
+      {children}
     </JobRequestContext.Provider>
    );
 };

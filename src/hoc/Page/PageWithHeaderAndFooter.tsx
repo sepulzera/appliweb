@@ -43,21 +43,20 @@ const useStyles = makeStyles()((theme => ({
  *
  * @param props - {@link IPageWithHeaderAndFooterProps}
  */
-const PageWithHeaderAndFooter: React.FC<IPageWithHeaderAndFooterProps> = (props: IPageWithHeaderAndFooterProps) => {
+const PageWithHeaderAndFooter: React.FC<IPageWithHeaderAndFooterProps> = ({
+    header, headerComponent, children }: IPageWithHeaderAndFooterProps) => {
   const { classes } = useStyles();
 
   return (
     <div className={classes.root}>
       <div className={classes.container}>
-        {props.header && (
-          <Header title={props.header} />
+        {header && (
+          <Header title={header} />
         )}
-        {props.headerComponent && (
-          props.headerComponent
-        )}
+        {headerComponent}
         <Container>
           <Paper>
-            {props.children}
+            {children}
           </Paper>
         </Container>
       </div>

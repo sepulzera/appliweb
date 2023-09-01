@@ -13,12 +13,13 @@ interface IProgressProps {
  *
  * @param props - {@link IProgressProps}.
  */
-const Progress: React.FC<IProgressProps> = (props: IProgressProps) => (
+const Progress: React.FC<IProgressProps> = ({ value, ...rest }: IProgressProps) => (
   <MuiLinearProgress
       color   = 'primary'
       variant = 'determinate'
 
-      value   = {props.value} />
+      value   = {value}
+      {...rest} />
 );
 
 export default Progress;

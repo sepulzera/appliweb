@@ -21,12 +21,12 @@ const useStyles = makeStyles()((theme => ({
  *
  * @param props - {@link ITimelineRecordsProps}.
  */
-const TimelineRecords: React.FC<ITimelineRecordsProps> = (props: ITimelineRecordsProps) => {
+const TimelineRecords: React.FC<ITimelineRecordsProps> = ({ children, ...rest }: ITimelineRecordsProps) => {
   const { classes } = useStyles();
 
   return (
-    <div className={classes.timelineRecords}>
-      {props.children}
+    <div className={classes.timelineRecords} {...rest}>
+      {children}
     </div>
   );
 };

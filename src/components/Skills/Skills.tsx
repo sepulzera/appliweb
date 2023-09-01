@@ -47,11 +47,11 @@ const useStyles = makeStyles()((theme => ({
  *
  * @param props - {@link ISkillsProps}.
  */
-const Skills: React.FC<ISkillsProps> = (props: ISkillsProps) => {
+const Skills: React.FC<ISkillsProps> = ({ skills, ...rest }: ISkillsProps) => {
   const { classes } = useStyles();
   const { t } = useTranslation();
 
-  const featuredSkills = Helper.getUnique(props.skills.filter(skill => skill.featured), 'id');
+  const featuredSkills = Helper.getUnique(skills.filter(skill => skill.featured), 'id');
 
   const getSkillListForCategory = (category: string) => (
     featuredSkills
@@ -68,22 +68,17 @@ const Skills: React.FC<ISkillsProps> = (props: ISkillsProps) => {
 
   const skillCategories: Array<string> = Helper.getUnique(featuredSkills, 'category').map(skill => skill.category);
 
-  const skillCategoryList: Array<React.ReactElement> = [];
-  let index: number, nextCategory: string;
-  for (index = 0; index < skillCategories.length; ++index) {
-    nextCategory = skillCategories[index];
-    skillCategoryList.push(
-      <Fragment key={`skills-category-${nextCategory}`}>
-        <CapsHeading>{t(`skill:${nextCategory}`)}</CapsHeading>
-        <List noMarks className={classes.skillsList}>
-          {getSkillListForCategory(nextCategory)}
-        </List>
-      </Fragment>
-    );
-  }
+  const skillCategoryList: Array<React.ReactElement> = skillCategories.map(nextCategory => (
+    <Fragment key={`skills-category-${nextCategory}`}>
+      <CapsHeading>{t(`skill:${nextCategory}`)}</CapsHeading>
+      <List noMarks className={classes.skillsList}>
+        {getSkillListForCategory(nextCategory)}
+      </List>
+    </Fragment>
+  ));
 
   return (
-    <div className={classes.skills}>
+    <div className={classes.skills} {...rest}>
       {skillCategoryList}
     </div>
   );

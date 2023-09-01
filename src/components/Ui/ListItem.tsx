@@ -15,9 +15,9 @@ export interface IListItemProps {
  *
  * @param props - {@link IListItemProps}.
  */
-const ListItem: React.FC<IListItemProps> = (props: IListItemProps) => (
-  <li className={props.className}>
-    {props.children}
+const ListItem: React.FC<IListItemProps> = ({ children, ...rest }: IListItemProps) => (
+  <li {...rest}>
+    {children}
   </li>
 );
 

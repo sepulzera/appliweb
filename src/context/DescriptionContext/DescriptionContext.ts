@@ -8,6 +8,6 @@ export interface IDescriptionContext {
   getDescription: (description: number, language: string) => DescriptionRecord | undefined;
 }
 
-const DescriptionContext = createContext<IDescriptionContext | null>(null);
+const DescriptionContext = createContext<IDescriptionContext>({} as IDescriptionContext);
 
 export default DescriptionContext;

@@ -28,14 +28,15 @@ const useStyles = makeStyles()(({
  *
  * @param props - {@link ICapsHeadingProps}.
  */
-const CapsHeading: React.FC<ICapsHeadingProps> = (props: ICapsHeadingProps) => {
+const CapsHeading: React.FC<ICapsHeadingProps> = ({ className, children, ...rest }: ICapsHeadingProps) => {
   const { classes } = useStyles();
 
   return (
     <H
-        className = {cx(classes.capsHeading, props.className)}
-        variant   = 'h3'>
-      {props.children}
+        className = {cx(classes.capsHeading, className)}
+        variant   = 'h3'
+        {...rest}>
+      {children}
     </H>
   );
 };

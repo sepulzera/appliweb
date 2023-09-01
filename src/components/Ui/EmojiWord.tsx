@@ -13,10 +13,10 @@ export interface IEmojiWordProps {
  *
  * @param props - {@link IEmojiWordProps}.
  */
-const EmojiWord: React.FC<IEmojiWordProps> = (props: IEmojiWordProps) => (
+const EmojiWord: React.FC<IEmojiWordProps> = ({ emoji, children, ...rest }: IEmojiWordProps) => (
   <>
     {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
-    <Emoji>{props.emoji}</Emoji>&nbsp;{props.children}
+    <Emoji {...rest}>{emoji}</Emoji>&nbsp;{children}
   </>
 );
 

@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 import { AnyComponent } from '../../types/Types';
 
@@ -33,15 +33,16 @@ function getTaskMap() {
  *
  * @param props - {@link ITaskContextProviderProps}.
  */
-const TaskContextProvider: React.FC<ITaskContextProviderProps> = (props: ITaskContextProviderProps) => {
+const TaskContextProvider: React.FC<ITaskContextProviderProps> = ({
+    children }: ITaskContextProviderProps) => {
   const [data] = useState(getTaskMap());
 
-  const getTask = (id: number): TaskRecord | undefined => {
+  const getTask = useCallback((id: number): TaskRecord | undefined => {
     const education: TaskRecord | undefined = data.get(id);
     return education;
-  };
+  }, [data]);
 
-  const getTasksForCareer = (careerId: number): Array<TaskRecord> => {
+  const getTasksForCareer = useCallback((careerId: number): Array<TaskRecord> => {
     const arr: Array<TaskRecord> = [];
 
     // eslint-disable-next-line no-restricted-syntax
@@ -54,17 +55,17 @@ const TaskContextProvider: React.FC<ITaskContextProviderProps> = (props: ITaskCo
     }
 
     return arr;
-  };
+  }, [data]);
 
   const value: ITaskContext = useMemo(() => ({
     data: data,
     getTask: getTask,
     getTasksForCareer: getTasksForCareer,
-  }), [data]);
+  }), [data, getTask, getTasksForCareer]);
 
   return (
     <TaskContext.Provider value={value}>
-      {props.children}
+      {children}
     </TaskContext.Provider>
    );
 };

@@ -25,12 +25,12 @@ const useStyles = makeStyles()(({
  *
  * @param props - {@link ITimelineProps}.
  */
-const Timeline: React.FC<ITimelineProps> = (props: ITimelineProps) => {
+const Timeline: React.FC<ITimelineProps> = ({ className, children, ...rest }: ITimelineProps) => {
   const { classes } = useStyles();
 
   return (
-    <div className={cx(classes.timeline, props.className)}>
-      {props.children}
+    <div className={cx(classes.timeline, className)} {...rest}>
+      {children}
     </div>
   );
 };

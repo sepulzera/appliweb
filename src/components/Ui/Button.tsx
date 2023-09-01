@@ -28,17 +28,9 @@ interface IButtonProps {
  *
  * @param props - {@link IButtonProps}.
  */
-const Button: React.FC<IButtonProps> = (props: IButtonProps) => (
-  <MuiButton
-      fullWidth = {props.fullWidth}
-
-      onClick   = {props.onClick}
-
-      component = {props.component}
-      to        = {props.to}
-
-      className = {props.className}>
-    {props.children}
+const Button: React.FC<IButtonProps> = ({ children, ...rest }: IButtonProps) => (
+  <MuiButton {...rest}>
+    {children}
   </MuiButton>
 );
 

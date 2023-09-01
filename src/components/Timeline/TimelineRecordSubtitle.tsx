@@ -22,12 +22,12 @@ const useStyles = makeStyles()((theme => ({
  *
  * @param props - {@link ITimelineRecordSubtitleProps}.
  */
-const TimelineRecordSubtitle: React.FC<ITimelineRecordSubtitleProps> = (props: ITimelineRecordSubtitleProps) => {
+const TimelineRecordSubtitle: React.FC<ITimelineRecordSubtitleProps> = ({ children, ...rest }: ITimelineRecordSubtitleProps) => {
   const { classes } = useStyles();
 
   return (
-    <P variant='body1' className={classes.timelineRecordSubtitle}>
-      {props.children}
+    <P variant='body1' className={classes.timelineRecordSubtitle} {...rest}>
+      {children}
     </P>
   );
 };

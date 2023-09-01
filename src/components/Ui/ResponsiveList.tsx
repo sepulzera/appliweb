@@ -5,7 +5,7 @@ import { IListItemProps } from './ListItem';
 import H from './H';
 
 /**
- * {@link ResponsiveList} Props.
+ * {@link ResponsiveList}
  */
 interface IResponsiveListProps {
   /** Title. */
@@ -114,33 +114,36 @@ const useStyles = makeStyles()((theme => ({
  *
  * @param props - {@link IResponsiveListProps}.
  */
-const ResponsiveList: React.FC<IResponsiveListProps> = (props: IResponsiveListProps) => {
+const ResponsiveList: React.FC<IResponsiveListProps> = ({
+    title, asRow, stretchList, className, titleClassName, children, ...rest }: IResponsiveListProps) => {
   const { classes } = useStyles();
 
   const heading = (
     <H
         variant='h3'
-        className={cx(classes.responsiveListTitle, props.titleClassName, {
-            [classes.responsiveListTitleAsColumn]: !props.asRow,
-            [classes.responsiveListTitleAsRow]: props.asRow,
+        className={cx(classes.responsiveListTitle, titleClassName, {
+            [classes.responsiveListTitleAsColumn]: !asRow,
+            [classes.responsiveListTitleAsRow]: asRow,
         })}>
-      {`${props.title}:`}
+      {`${title}:`}
     </H>
   );
 
   return (
-    <div className={cx(classes.responsiveList, props.className, {
-      [classes.responsiveListAsColumn]: !props.asRow,
-      [classes.responsiveListAsRow]: props.asRow,
-    })}>
-      <span className={cx({ [classes.responsiveListAsRowTitleAsHeading]: props.asRow })}>{heading}</span>
+    <div
+        className={cx(classes.responsiveList, className, {
+          [classes.responsiveListAsColumn]: !asRow,
+          [classes.responsiveListAsRow]: asRow,
+        })}
+        {...rest}>
+      <span className={cx({ [classes.responsiveListAsRowTitleAsHeading]: asRow })}>{heading}</span>
       <ul className={cx(classes.responsiveListList, {
-        [classes.responsiveListAsColumnStretch]: props.stretchList,
-        [classes.responsiveListListAsColumn]: !props.asRow,
-        [classes.responsiveListListAsRow]: props.asRow,
+        [classes.responsiveListAsColumnStretch]: stretchList,
+        [classes.responsiveListListAsColumn]: !asRow,
+        [classes.responsiveListListAsRow]: asRow,
       })}>
-        {props.asRow && <li className={classes.responseListTitleInList} aria-hidden='true'>{heading}</li>}
-        {props.children}
+        {asRow && <li className={classes.responseListTitleInList} aria-hidden='true'>{heading}</li>}
+        {children}
       </ul>
     </div>
   );

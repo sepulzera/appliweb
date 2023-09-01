@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 import { AnyComponent } from '../../types/Types';
 
@@ -66,15 +66,16 @@ function sortByTimeDesc(a: EducationRecord, b: EducationRecord): number {
  *
  * @param props - {@link IEducationContextProviderProps}.
  */
-const EducationContextProvider: React.FC<IEducationContextProviderProps> = (props: IEducationContextProviderProps) => {
+const EducationContextProvider: React.FC<IEducationContextProviderProps> = ({
+    children }: IEducationContextProviderProps) => {
   const [data] = useState(getEducationMap());
 
-  const getEducation = (id: number): EducationRecord | undefined => {
+  const getEducation = useCallback((id: number): EducationRecord | undefined => {
     const education: EducationRecord | undefined = data.get(id);
     return education;
-  };
+  }, [data]);
 
-  const getEducationsForUser = (userId: number): Array<EducationRecord> => {
+  const getEducationsForUser = useCallback((userId: number): Array<EducationRecord> => {
     const arr: Array<EducationRecord> = [];
 
     // eslint-disable-next-line no-restricted-syntax
@@ -87,17 +88,17 @@ const EducationContextProvider: React.FC<IEducationContextProviderProps> = (prop
     }
 
     return arr.sort(sortByTimeDesc);
-  };
+  }, [data]);
 
   const value: IEducationContext = useMemo(() => ({
     data: data,
     getEducation: getEducation,
     getEducationsForUser: getEducationsForUser,
-  }), [data]);
+  }), [data, getEducation, getEducationsForUser]);
 
   return (
     <EducationContext.Provider value={value}>
-      {props.children}
+      {children}
     </EducationContext.Provider>
    );
 };

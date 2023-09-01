@@ -7,6 +7,6 @@ export interface ILeisureContext {
   getLeisuresForUser: (userId: number) => Array<LeisureRecord>;
 }
 
-const LeisureContext = createContext<ILeisureContext | null>(null);
+const LeisureContext = createContext<ILeisureContext>({} as ILeisureContext);
 
 export default LeisureContext;

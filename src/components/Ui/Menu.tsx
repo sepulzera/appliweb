@@ -3,7 +3,7 @@ import MuiMenu from '@mui/material/Menu';
 import { AnyComponent } from '../../types/Types';
 
 /**
- * {@link Menu} Props.
+ * {@link Menu}
  */
 interface IMenuProps {
   /** Id required for accessibility and stuff. */
@@ -23,17 +23,17 @@ interface IMenuProps {
  *
  * @param props - {@link IMenuProps}.
  */
-const Menu: React.FC<IMenuProps> = (props: IMenuProps) => (
+const Menu: React.FC<IMenuProps> = ({ isOpen, children, ...rest }: IMenuProps) => (
   <MuiMenu
-      id        = {props.id}
-      open      = {props.isOpen}
+      open = {isOpen}
+
       keepMounted
-      anchorEl  = {props.anchorEl}
-      onClose   = {props.onClose}
 
       anchorOrigin   = {{ vertical: 'top', horizontal: 'right' }}
-      transformOrigin= {{ vertical: 'top', horizontal: 'right' }}>
-    {props.children}
+      transformOrigin= {{ vertical: 'top', horizontal: 'right' }}
+
+      {...rest}>
+    {children}
   </MuiMenu>
 );
 

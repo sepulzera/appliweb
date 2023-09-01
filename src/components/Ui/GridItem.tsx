@@ -12,8 +12,6 @@ export interface IGridItemProps {
   sm?: gridItemSizeType;
   md?: gridItemSizeType;
 
-  autoCalc?: boolean | undefined;
-
   /** Classes used for styling. */
   className?: string | undefined;
 
@@ -21,40 +19,39 @@ export interface IGridItemProps {
   children: AnyComponent;
 }
 
+function autoCalc(ownVal: gridItemSizeType | undefined, parentVal: gridItemSizeType | undefined): gridItemSizeType {
+  let newVal: gridItemSizeType;
+
+  if (ownVal == null) {
+    if (parentVal == null) {
+      newVal = 6;
+    } else if (parentVal === true) {
+      newVal = true;
+    } else if (parentVal > 6) {
+      newVal = 12;
+    } else {
+      newVal = 6;
+    }
+  } else {
+    newVal = ownVal;
+  }
+
+  return newVal;
+}
+
 /**
  * Renders a grid item.
  *
  * @param props - {@link IGridItemProps}.
  */
-const GridItem: React.FC<IGridItemProps> = (props: IGridItemProps) => {
-  const autoCalc = (ownVal: gridItemSizeType | undefined, parentVal: gridItemSizeType | undefined): gridItemSizeType => {
-    let newVal: gridItemSizeType;
-
-    if (ownVal == null) {
-      if (parentVal == null) {
-        newVal = 6;
-      } else if (parentVal === true) {
-        newVal = true;
-      } else if (parentVal > 6) {
-        newVal = 12;
-      } else {
-        newVal = 6;
-      }
-    } else {
-      newVal = ownVal;
-    }
-
-    return newVal;
-  };
-
-  const { md } = props;
-  let { xs, sm } = props;
-  sm = autoCalc(sm, md);
-  xs = autoCalc(xs, sm);
+const GridItem: React.FC<IGridItemProps> = ({ xs, sm, md, children, ...rest }: IGridItemProps) => {
+  const mdD = md;
+  const smD = autoCalc(sm, md);
+  const xsD = autoCalc(xs, sm);
 
   return (
-    <MuiGrid item xs={xs} sm={sm} md={md} className={props.className}>
-      {props.children}
+    <MuiGrid item xs={xsD} sm={smD} md={mdD} {...rest}>
+      {children}
     </MuiGrid>
   );
 };

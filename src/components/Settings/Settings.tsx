@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useCallback, useContext, useState } from 'react';
 import { cx } from '@emotion/css';
 import { useTranslation } from 'react-i18next';
 import { List, ListItem, ListItemText } from '@mui/material';
@@ -47,7 +47,7 @@ const useStyles = makeStyles()((theme => ({
  *
  * @param props - {@link ISettingsProps}.
  */
-const Settings: React.FC<ISettingsProps> = (props: ISettingsProps) => {
+const Settings: React.FC<ISettingsProps> = ({ className }: ISettingsProps) => {
   const { classes } = useStyles();
   const { t } = useTranslation();
 
@@ -58,36 +58,32 @@ const Settings: React.FC<ISettingsProps> = (props: ISettingsProps) => {
 
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-  const handleMobileMenuClose = () => {
+  const handleMobileMenuClose = useCallback(() => {
     setMobileMoreAnchorEl(null);
-  };
+  }, []);
 
-  const handleMobileMenuOpen = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const handleMobileMenuOpen = useCallback((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     setMobileMoreAnchorEl(event.currentTarget);
-  };
+  }, []);
 
-  const handleLangDialogOpen = () => {
+  const handleLangDialogOpen = useCallback(() => {
     setLangDialogIsOpen(true);
-  };
+  }, []);
 
-  const handleLangDialogClose = () => {
+  const handleLangDialogClose = useCallback(() => {
     setLangDialogIsOpen(false);
     handleMobileMenuClose();
-  };
+  }, []);
 
-  const handleLangListItemClick = (value: string) => {
+  const handleLangListItemClick = useCallback((value: string) => {
     handleLangDialogClose();
-    if (settingsContext != null) {
-      settingsContext.setLanguage(value);
-    }
-  };
+    settingsContext.setLanguage(value);
+  }, []);
 
-  const handleThemeClick = () => {
+  const handleThemeClick = useCallback(() => {
     handleMobileMenuClose();
-    if (settingsContext != null) {
-      settingsContext.setTheme(settingsContext.getTheme() === 0 ? 1 : 0);
-    }
-  };
+    settingsContext.setTheme(settingsContext.theme === 0 ? 1 : 0);
+  }, [settingsContext.theme]);
 
   const mobileMenuId = 'primary-search-account-menu-mobile';
   const renderMobileMenu = (
@@ -96,41 +92,28 @@ const Settings: React.FC<ISettingsProps> = (props: ISettingsProps) => {
         anchorEl = {mobileMoreAnchorEl}
         isOpen   = {isMobileMenuOpen}
         onClose  = {handleMobileMenuClose}>
-      {(settingsContext == null || settingsContext.getTheme() === 0) && (
-        <MenuItem icon={<Brightness3 />} onClick={handleThemeClick}>
-          <span>{t('common:dark theme option')}</span>
-        </MenuItem>
-      )}
-      {(settingsContext != null && settingsContext.getTheme() === 1) && (
-        <MenuItem icon={<WbSunny />} onClick={handleThemeClick}>
-          <span>{t('common:light theme option')}</span>
-        </MenuItem>
-      )}
-      {settingsContext != null && (
-        <MenuItem icon={<Language />} onClick={handleLangDialogOpen}>
-          <span>{t('common:choose language option')}</span>
-        </MenuItem>
-      )}
+      <MenuItem icon={settingsContext.theme === 0 ? <Brightness3 /> : <WbSunny />} onClick={handleThemeClick}>
+        <span>{settingsContext.theme === 0 ? t('common:dark theme option') : t('common:light theme option')}</span>
+      </MenuItem>
+      <MenuItem icon={<Language />} onClick={handleLangDialogOpen}>
+        <span>{t('common:choose language option')}</span>
+      </MenuItem>
     </Menu>
   );
 
   return (
     <>
-      <div className={cx(classes.sectionDesktop, props.className)}>
+      <div className={cx(classes.sectionDesktop, className)}>
         <div className={classes.settings}>
-          {(settingsContext == null || settingsContext.getTheme() === 0) && (
-            <IconButton color='inherit' size='small' onClick={handleThemeClick}><Brightness3 /></IconButton>
-          )}
-          {(settingsContext != null && settingsContext.getTheme() === 1) && (
-            <IconButton color='inherit' size='small' onClick={handleThemeClick}><WbSunny /></IconButton>
-          )}
-          {settingsContext != null && (
-            <IconButton color='inherit' size='small' onClick={handleLangDialogOpen}><Language /></IconButton>
-          )}
+          <IconButton color='inherit' size='small' onClick={handleThemeClick}>
+            {settingsContext.theme === 0 && <Brightness3 />}
+            {settingsContext.theme === 1 && <WbSunny />}
+          </IconButton>
+          <IconButton color='inherit' size='small' onClick={handleLangDialogOpen}><Language /></IconButton>
         </div>
       </div>
 
-      <div className={cx(classes.sectionMobile, props.className)}>
+      <div className={cx(classes.sectionMobile, className)}>
         <IconButton
             color = 'inherit'
             aria-label='show more'
@@ -150,7 +133,7 @@ const Settings: React.FC<ISettingsProps> = (props: ISettingsProps) => {
                 key      = {lang}
                 button
                 dense
-                selected = {settingsContext != null && lang === settingsContext.getLanguage()}
+                selected = {lang === settingsContext.language}
                 onClick  = {() => handleLangListItemClick(lang)}>
               <ListItemText primary={LanguageHelper.languageToDisplayText(lang)} />
             </ListItem>

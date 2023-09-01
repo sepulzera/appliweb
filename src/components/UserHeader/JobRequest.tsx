@@ -44,40 +44,42 @@ const useStyles = makeStyles()((theme => ({
   },
 })));
 
+function salaryToString(salary: number): string {
+  return `> ${salary.toString()}`;
+}
+
+function jobRequestToString(requestState: number): string {
+  switch (requestState) {
+    case 1:  return 'state open';
+    case 2:  return 'state looking';
+    default: return 'state not interested';
+  }
+}
+
 /**
  * Jobrequest displayed in the {@link UserHeader}.
  *
  * @param props - {@link IJobRequestProps}.
  */
-const JobRequest: React.FC<IJobRequestProps> = (props: IJobRequestProps) => {
+const JobRequest: React.FC<IJobRequestProps> = ({ jobRequest, asRow }: IJobRequestProps) => {
   const { t } = useTranslation();
   const { classes } = useStyles();
 
-  const salaryToString = (salary: number): string => `> ${salary.toString()}`;
-
-  const jobRequestToString = (requestState: number): string => {
-    switch (requestState) {
-      case 1:  return 'state open';
-      case 2:  return 'state looking';
-      default: return 'state not interested';
-    }
-  };
-
-  const { requestState, city, salary } = props.jobRequest;
+  const { requestState, city, salary } = jobRequest;
   if (requestState == null && city == null && salary == null) return null;
 
   return (
     <ResponsiveList
         title = {t('job:job request')}
-        asRow = {props.asRow}
+        asRow = {asRow}
         stretchList
         className={classes.jobRequestList}
         titleClassName={classes.jobRequestTitle}>
       {requestState != null && (
-        <ListItem>{t(`job:${jobRequestToString(props.jobRequest.requestState)}`)}</ListItem>
+        <ListItem>{t(`job:${jobRequestToString(jobRequest.requestState)}`)}</ListItem>
       )}
       {city != null && (
-        <ListItem>{t(`city:${props.jobRequest.city}`)}</ListItem>
+        <ListItem>{t(`city:${jobRequest.city}`)}</ListItem>
       )}
       {salary != null && (
         <ListItem>{`${salaryToString(salary)} €`}</ListItem>

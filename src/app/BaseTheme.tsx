@@ -1,10 +1,10 @@
+import { useMemo } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { useMediaQuery } from '@mui/material';
 import { TypographyOptions } from '@mui/material/styles/createTypography';
 
 import { AnyComponent } from '../types/Types';
-import { useMemo } from 'react';
 
 /**
  * {@link BaseTheme} Props
@@ -16,28 +16,28 @@ interface IBaseThemeProps {
   children: AnyComponent;
 }
 
+function getTheme(settingsTheme: number | undefined, defaultTheme: boolean): number {
+  if (settingsTheme == null) {
+    return defaultTheme ? 1 : 0;
+  } else {
+    return settingsTheme;
+  }
+}
+
+function themeToString(theme: number): 'dark' | 'light' {
+  switch (theme) {
+    case 0:  return 'light';
+    default: return 'dark';
+  }
+}
+
 /**
  * MaterialUi Theming definition for AppliWeb.
  *
  * @param props - {@link IBaseThemeProps}.
  */
-const BaseTheme: React.FC<IBaseThemeProps> = (props: IBaseThemeProps) => {
+const BaseTheme: React.FC<IBaseThemeProps> = ({ theme, children }: IBaseThemeProps) => {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-
-  const getTheme = (settingsTheme: number | undefined, defaultTheme: boolean): number => {
-    if (settingsTheme == null) {
-      return defaultTheme ? 1 : 0;
-    } else {
-      return settingsTheme;
-    }
-  };
-
-  const themeToString = (theme: number): 'dark' | 'light' => {
-    switch (theme) {
-      case 0:  return 'light';
-      default: return 'dark';
-    }
-  };
 
   const baseTypography: TypographyOptions = {
     fontSize: 16,
@@ -82,7 +82,7 @@ const BaseTheme: React.FC<IBaseThemeProps> = (props: IBaseThemeProps) => {
   const memoTheme = useMemo(
     () => createTheme({
       palette: {
-        mode: themeToString(getTheme(props.theme, prefersDarkMode)),
+        mode: themeToString(getTheme(theme, prefersDarkMode)),
         primary: {
           main: '#e47200',
           light: '#f3be88',
@@ -95,7 +95,7 @@ const BaseTheme: React.FC<IBaseThemeProps> = (props: IBaseThemeProps) => {
       },
       typography: baseTypography,
     }),
-    [props.theme, prefersDarkMode, baseTypography]
+    [theme, prefersDarkMode, baseTypography]
   );
 
   memoTheme.components = {
@@ -215,7 +215,7 @@ const BaseTheme: React.FC<IBaseThemeProps> = (props: IBaseThemeProps) => {
   return (
     <ThemeProvider theme={memoTheme}>
       <CssBaseline />
-      {props.children}
+      {children}
     </ThemeProvider>
   );
 };

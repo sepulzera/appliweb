@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 import { AnyComponent } from '../../types/Types';
 
@@ -32,15 +32,16 @@ function getLeisureMap() {
  *
  * @param props - {@link ILeisureContextProviderProps}.
  */
-const LeisureContextProvider: React.FC<ILeisureContextProviderProps> = (props: ILeisureContextProviderProps) => {
+const LeisureContextProvider: React.FC<ILeisureContextProviderProps> = ({
+    children }: ILeisureContextProviderProps) => {
   const [data] = useState(getLeisureMap());
 
-  const getLeisure = (id: number): LeisureRecord | undefined => {
+  const getLeisure = useCallback((id: number): LeisureRecord | undefined => {
     const leisure: LeisureRecord | undefined = data.get(id);
     return leisure;
-  };
+  }, [data]);
 
-  const getLeisuresForUser = (userId: number): Array<LeisureRecord> => {
+  const getLeisuresForUser = useCallback((userId: number): Array<LeisureRecord> => {
     const arr: Array<LeisureRecord> = [];
 
     // eslint-disable-next-line no-restricted-syntax
@@ -53,17 +54,17 @@ const LeisureContextProvider: React.FC<ILeisureContextProviderProps> = (props: I
     }
 
     return arr;
-  };
+  }, [data]);
 
   const value: ILeisureContext = useMemo(() => ({
     data: data,
     getLeisure: getLeisure,
     getLeisuresForUser: getLeisuresForUser,
-  }), [data]);
+  }), [data, getLeisure, getLeisuresForUser]);
 
   return (
     <LeisureContext.Provider value={value}>
-      {props.children}
+      {children}
     </LeisureContext.Provider>
    );
 };

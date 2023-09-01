@@ -11,7 +11,7 @@ export type column = {
   width?: string;
 }
 
-/** {@link Table} Props. */
+/** {@link Table}  */
 export interface ITableProps {
   /** Caption for the table. */
   caption:    string;
@@ -21,30 +21,30 @@ export interface ITableProps {
   data:       Array<any>; // eslint-disable-line @typescript-eslint/no-explicit-any
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function getData(dat: any, col: string): any {
+  const d = dat[col];
+  return d;
+}
+
 /**
  * Renders an HTML table.
  *
  * @param props - {@link ITableProps}.
  */
-const Table: React.FC<ITableProps> = (props: ITableProps) => {
-  const cols: Array<string> = props.columns.map((col: column) => (
+const Table: React.FC<ITableProps> = ({ caption, columns, data, ...rest }: ITableProps) => {
+  const cols: Array<string> = columns.map((col: column) => (
     col.name
   ));
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const getData = (dat: any, col: string): any => {
-    const d = dat[col];
-    return d;
-  };
-
-  if (props.columns.length === 0) return null;
+  if (columns.length === 0) return null;
 
   return (
-    <MuiTable size='small'>
-      <caption>{props.caption}</caption>
+    <MuiTable size='small' {...rest}>
+      <caption>{caption}</caption>
       <TableHead>
         <TableRow>
-          {props.columns.map((col: column) => (
+          {columns.map((col: column) => (
             <TableCell
                 key={col.name}
                 style={{
@@ -56,7 +56,7 @@ const Table: React.FC<ITableProps> = (props: ITableProps) => {
         </TableRow>
       </TableHead>
       <TableBody>
-        {props.data.map((dat: any) => ( // eslint-disable-line @typescript-eslint/no-explicit-any
+        {data.map((dat: any) => ( // eslint-disable-line @typescript-eslint/no-explicit-any
           <TableRow key={dat.id}>
             {cols.map((col: string) => (
               <TableCell key={col}>{getData(dat, col)}</TableCell>
