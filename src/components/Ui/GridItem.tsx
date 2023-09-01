@@ -46,8 +46,8 @@ function autoCalc(ownVal: gridItemSizeType | undefined, parentVal: gridItemSizeT
  */
 const GridItem: React.FC<IGridItemProps> = ({ xs, sm, md, children, ...rest }: IGridItemProps) => {
   const mdD = md;
-  const smD = autoCalc(sm, md);
-  const xsD = autoCalc(xs, sm);
+  const smD = autoCalc(sm, mdD);
+  const xsD = autoCalc(xs, smD);
 
   return (
     <MuiGrid item xs={xsD} sm={smD} md={mdD} {...rest}>
