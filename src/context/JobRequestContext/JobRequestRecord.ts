@@ -11,7 +11,7 @@ export default class JobRequestRecord {
   /** State of the jobrequest (0=uninterested, 1=open, 2=looking). */
   requestState: number;
   /** Salary level. */
-  salary: number | undefined;
+  salary: string | undefined;
   /** Job title as i18n-identifier. */
   job:    string | undefined;
   /** Job location as i18n-identifier */
@@ -23,7 +23,7 @@ export default class JobRequestRecord {
     userId: number,
 
     requestState: number,
-    salary: number | undefined,
+    salary: string | undefined,
     job:    string | undefined,
     city:   string | undefined
   ) {

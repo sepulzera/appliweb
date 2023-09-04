@@ -44,10 +44,6 @@ const useStyles = makeStyles()((theme => ({
   },
 })));
 
-function salaryToString(salary: number): string {
-  return `> ${salary.toString()}`;
-}
-
 function jobRequestToString(requestState: number): string {
   switch (requestState) {
     case 1:  return 'state open';
@@ -82,7 +78,7 @@ const JobRequest: React.FC<IJobRequestProps> = ({ jobRequest, asRow }: IJobReque
         <ListItem>{t(`city:${jobRequest.city}`)}</ListItem>
       )}
       {salary != null && (
-        <ListItem>{`${salaryToString(salary)} €`}</ListItem>
+        <ListItem>{`${t('common:salary')}: ${salary}`}</ListItem>
       )}
     </ResponsiveList>
   );
