@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/appliweb/static/css/main.6afb28e5.css",
-    "main.js": "/appliweb/static/js/main.bae482c1.js",
+    "main.js": "/appliweb/static/js/main.d7fd8502.js",
     "static/media/Leisure-Guitar.jpg": "/appliweb/static/media/Leisure-Guitar.79212bd3e9cef01702db.jpg",
     "static/media/Career-Ibykus.jpg": "/appliweb/static/media/Career-Ibykus.b6e51b71650f8c77863b.jpg",
     "static/media/Education-Uas-Erfurt.jpg": "/appliweb/static/media/Education-Uas-Erfurt.7f43f80b313d6b1e75c9.jpg",
@@ -41,10 +41,10 @@
     "index.html": "/appliweb/index.html",
     "static/media/getFetch.cjs": "/appliweb/static/media/getFetch.40f37ddea2378391108f.cjs",
     "main.6afb28e5.css.map": "/appliweb/static/css/main.6afb28e5.css.map",
-    "main.bae482c1.js.map": "/appliweb/static/js/main.bae482c1.js.map"
+    "main.d7fd8502.js.map": "/appliweb/static/js/main.d7fd8502.js.map"
   },
   "entrypoints": [
     "static/css/main.6afb28e5.css",
-    "static/js/main.bae482c1.js"
+    "static/js/main.d7fd8502.js"
   ]
 }
